@@ -1,0 +1,9 @@
+---
+title: "Predictors of frog survival following translocations - analyses"
+author: "Roland Knapp"
+output: html_notebook
+---
+
+The goal of the analyses in this notebook is to identify predictors of frog survival following translocation. The analyses are conducted in a Bayesian framework using the R package, brms.
+
+

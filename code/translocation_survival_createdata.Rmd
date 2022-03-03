@@ -1,0 +1,247 @@
+---
+title: "Predictors of frog survival following translocations - create dataset"
+author: "Roland Knapp"
+output: html_notebook
+---
+
+The code in this notebook creates a dataset for use in an analysis to identify predictors of frog survival following translocation (translocation_survival_analysis.Rmd). The code is written in distinct chunks to allow review of the output from one chunk before running the next. Users without credentials to access the database will not be able to create the raw data files, but can use the saved files to run the remainder of the code. Frog translocation and survival data were generated using code in the [SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis) GitHub repository.
+
+### Load packages
+
+```{r load_packages}
+library(RPostgreSQL)
+library(tidyverse) 
+library(lubridate)
+```
+
+## Create site characteristics dataset
+
+### Connect to database
+
+```{r db_connect1}
+con = dbConnect(dbDriver("PostgreSQL"),
+                host = Sys.getenv("host"), 
+                port = Sys.getenv("port"), 
+                dbname = Sys.getenv("dbname"),
+                user = rstudioapi::askForPassword("user name"),
+                password = rstudioapi::askForPassword("password")
+               )
+```
+
+### Retrieve site_ids and site characteristics from database
+
+```{sql retrieve_site_data, connection=con, output.var="translocation_sites"}
+select
+  id as site_id,
+  elevation
+from site
+where id in (70134, 70370, 70413, 70414, 70449, 70505, 70550, 70556, 70619, 70628, 70641, 74976)
+order by site_id
+```
+
+### Disconnect from database
+
+```{r db_disconnect1}
+dbDisconnect(con)
+rm(con)
+```
+
+### Add additional site characteristics
+
+```{r sites_add_shore}
+translocation_sites <- translocation_sites %>% 
+  mutate(shore = if_else(site_id %in% c(70370, 70413, 70550, 70556, 70619, 70628, 74976), 1, 0),
+         site_id = as.character(site_id))
+```
+
+### Save site characteristics dataset
+
+```{r save_site_data}
+translocation_sites %>% write_csv(here::here("data", "clean", "translocation_sites.csv"))
+# translocation_sites <- read_csv(here::here("data", "translocation_sites.csv"))
+```
+
+## Create translocated frogs dataset
+
+### Combine translocation files from cmr-analysis repo
+
+```{r retrieve_translocated_frogs_data }
+files <- fs::dir_ls("../../cmr-analysis/data/clean", glob = "*translocation.csv")
+frog_translocation <- read_csv(files, id = "path") %>% 
+  mutate(site_id = str_extract(path, "(\\d)+"), .after = path) %>%  
+  filter(release_date < "2021-01-01") %>% 
+  rename(pit_tag_ref = pit_tag_id) %>% 
+  select(-path)
+rm(files)
+```
+
+### Save raw translocated frog dataset
+
+```{r save_raw_translocated_frogs_datra}
+frog_translocation %>% write_csv(here::here("data", "raw", "frog_translocation_raw.csv"))
+```
+
+### Add frog characteristics from database
+
+#### Connect to database
+
+```{r db_connect2}
+con = dbConnect(dbDriver("PostgreSQL"),
+                host = Sys.getenv("host"), 
+                port = Sys.getenv("port"), 
+                dbname = Sys.getenv("dbname"),
+                user = rstudioapi::askForPassword("user name"),
+                password = rstudioapi::askForPassword("password")
+               )
+```
+
+#### Retrieve frog characteristics from database
+
+```{sql retrieve_translocation_data, connection=con, output.var="frog_characteristics"}
+select
+  relocate.id as relocate_id,
+  release_siteid1,
+  release_date,
+  collect_siteid,
+  type,
+  pit_tag_ref,
+  sex,
+  length,
+  weight,
+  swab_id,
+  bd_load
+from relocate
+inner join relocate_frog on relocate.id = relocate_id
+left join bd_load on swab_id = sample_id  
+where release_siteid1 in (70134, 70279, 70370, 70413, 70414, 70449, 70505, 70550, 70556, 70619, 70628, 70641, 74976) and
+  (replicate = 1 or replicate is null)
+order by release_siteid1
+```
+
+#### Disconnect from database
+
+```{r db_disconnect2}
+dbDisconnect(con)
+rm(con)
+```
+
+### Save raw frog characteristics dataset
+
+```{r save_frog_characteristics_data}
+frog_characteristics %>% write_csv(here::here("data", "raw", "frog_characteristics_raw.csv"))
+# translocation_sites <- read_csv(here::here("data", "translocation_sites.csv"))
+```
+
+## Create frog survival dataset
+
+### Combine survival files from cmr-analysis repo
+
+```{r retrieve_frog_survival_data}
+files <- fs::dir_ls("../../cmr-analysis/out/tables", glob = "*ind.csv")
+frog_survival <- read_csv(files, id = "path") %>% 
+  mutate(site_id = str_extract(path, "(\\d)+"), .after = path) %>%  
+  rename(years_since_intro = years_since_introduction,
+         pit_tag_ref = pit_tag_id) %>% 
+  filter(years_since_intro == 1) %>% 
+  select(site_id, release_date, years_since_intro, pit_tag_ref, median_survival)
+rm(files)
+```
+
+### Save raw frog survival dataset
+
+```{r save_raw_frog_survival_data}
+frog_survival %>% write_csv(here::here("data", "raw", "frog_survival_raw.csv"))
+```
+
+### Data checks - first pass
+
+```{r data_checking}
+# Check for duplicate pit_tag_refs
+frog_translocation %>% count(pit_tag_ref) %>% filter(n > 1)
+frog_characteristics %>% count(pit_tag_ref) %>% filter(n > 1)
+frog_survival %>% count(pit_tag_ref) %>% filter(n > 1)
+```
+
+### Clean data - first pass
+
+```{r data_cleaning_step1}
+# Duplicate pit_tag_ref found in frog_translocation, frog_characteristics, and frog survival datasets.
+# Shown as released at 70641 and 74976, but subsequently only recaptured at 74976 so that record is incorrect.
+# Recode as pit_tag_ref not found in database
+frog_translocation <- frog_translocation %>% mutate(
+  pit_tag_ref = replace(pit_tag_ref, site_id == "70641" & pit_tag_ref == "900067000117396", "900067000117397"))
+frog_characteristics <- frog_characteristics %>% mutate(
+  pit_tag_ref = replace(pit_tag_ref, release_siteid1 == 70641 & pit_tag_ref == "900067000117396", "900067000117397"))
+frog_survival <-frog_survival %>% mutate(
+  pit_tag_ref = replace(pit_tag_ref, site_id == "70641" & pit_tag_ref == "900067000117396", "900067000117397"))
+```
+
+### Add frog and site characteristics to frog translocation dataset
+```{r join_frog_data}
+frog_characteristics <- frog_characteristics %>% 
+  mutate(release_siteid1 = as.character(release_siteid1)) %>% 
+  select(-relocate_id, -release_siteid1, -release_date, -type)
+  as_tibble()
+  
+frog_survival <- frog_survival %>% 
+  select(pit_tag_ref, median_survival)
+  
+frog_translocation <- frog_translocation %>% 
+  left_join(frog_characteristics, by = "pit_tag_ref") %>% 
+  left_join(frog_survival, by = "pit_tag_ref") %>% 
+  left_join(translocation_sites, by = "site_id")
+```
+
+### Check data - second pass
+```{r}
+# Check for null values
+frog_translocation %>% summarize(across(everything(), ~ sum(is.na(.))))
+
+# Check that site_ids match expectation
+frog_translocation %>% distinct(site_id)
+frog_translocation %>% distinct(site_id, collect_siteid)
+
+# Check if sex at collection matches sex on recapture
+
+# Plot length x weight to check for outliers
+
+
+```
+
+### Clean data - second pass
+
+```{r}
+# Missing frog characteristics associated with pit_tag_ref = 900067000114499. 
+# Replace null values (except bd_load) with values from capture at release site early the next summer. 
+# Bd_load not replaced because load could have changed between release and recapture. 
+
+# Missing frog characteristics associated with pit_tag_ref = 900118001027669 
+# Replace null values with values from capture at release site 1-2 weeks later. 
+# Bd_load replaced because load likely would not have changed much between release and recapture. 
+
+frog_translocation <- frog_translocation %>% 
+  mutate(
+    collect_siteid = replace(collect_siteid, is.na(collect_siteid) & site_id == "70641" & pit_tag_ref == "900067000114499", "72996"),
+    sex = replace(sex, is.na(sex) & site_id == "70641" & pit_tag_ref == "900067000114499", "f"),
+    length = replace(length, is.na(length) & site_id == "70641" & pit_tag_ref == "900067000114499", 52),
+    weight = replace(weight, is.na(weight) & site_id == "70641" & pit_tag_ref == "900067000114499", 12),
+    length = replace(length, is.na(length) & site_id == "70413" & pit_tag_ref == "900118001027669", 52),
+    weight = replace(weight, is.na(weight) & site_id == "70413" & pit_tag_ref == "900118001027669", 16),
+    swab_id = replace(swab_id, swab_id == "" & site_id == "70413" & pit_tag_ref == "900118001027669", "YFS364"),
+    bd_load = replace(bd_load, is.na(bd_load) & site_id == "70413" & pit_tag_ref == "900118001027669", 0))
+
+# Collect_siteid 72974 merged with adjacent larger 70459
+frog_translocation <- frog_translocation %>% 
+  mutate(collect_siteid = replace(collect_siteid, collect_siteid == "72974" & site_id == "70556", "70459"))
+```
+
+
+### Save clean frog translocation dataset
+
+```{r save_clean_frog_translocation_data}
+frog_translocation %>% write_csv(here::here("data", "clean", "frog_translocation.csv"))
+```
+
+
+
+

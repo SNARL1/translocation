@@ -1,0 +1,38 @@
+---
+title: "Notebook"
+author: "Roland Knapp"
+date: "`r Sys.Date()`"
+editor_options:
+  markdown:
+    mode: gfm
+---
+
+## Predictors of frog survival following translocation
+
+### Dataset structure
+
+-   site_id: site to which frogs were translocated
+-   elevation
+-   release_date
+-   release_day
+-   release_year
+-   siteid_donor
+-   order: first translocation to site = 0, subsequent translocation = 1
+-   type: translocation conducted on foot versus by helicopter
+-   shore: suitability of shore/bank habitat for frog overwintering
+-   pit_tag_ref
+-   survival: individual-level estimated survival 1 year following translocation, based on cmr surveys conducted for at least two years post-translocation
+-   sex
+-   length: at release
+-   weight: at release
+-   condition: index based on length and weight
+-   swab_id
+-   bd_load: at release
+
+Maximum depth and surface area would seem useful to include, but 74976 is a stream/meadow habitat and as such depth and area at that site are likely not comparable to depth and area at lake habitats.
+
+### Model structure
+
+survival \~ elevation + siteid_donor + release_day + release_year + order + shore + sex + length + condition + log(bdload) \| site_id
+
+Group-level effects: In addition to the inclusion of site_id as a group-level effect, may need to include release_year, perhaps nested within site_id? Given that some sites only have a single release_year, will this cause problems?
