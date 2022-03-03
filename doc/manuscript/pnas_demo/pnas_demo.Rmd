@@ -1,7 +1,5 @@
 ---
 title: Reintroduction of disease-resistant individuals allows recovery of an endangered frog in the presence of a lethal fungal disease
-
-# Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
 author:
   - name: Roland A. Knapp
     affiliation: a,b,1
@@ -15,8 +13,8 @@ author:
     affiliation: d,e,2
   - name: Maxwell B. Joseph
     affiliation: f
-
 address:
+    
   - code: a
     address: Sierra Nevada Aquatic Research Laboratory, University of California, Mammoth Lakes, CA 93546
   - code: b
@@ -29,104 +27,69 @@ address:
     address: Museum of Vertebrate Zoology, University of California-Berkeley, Berkeley, CA, 94720
   - code: f
     address: Earth Lab, University of Colorado, Boulder, CO, 80303
-    
-
-
 corresponding_author:
   code: 1
   text: "To whom correspondence should be addressed. E-mail: roland.knapp@ucsb.edu"
-
-# For footer text
 lead_author_surname: Knapp
-
-## Remove this if not required    
 equal_authors:
   code: 2
   text: "A.P.R. and A.Q.B. contributed equally to this work."
-
-
 author_contributions: |
   R.A.K, T.C.S, M.Q.W, A.P.R., A.Q.B, and M.B.J. designed research; R.A.K, T.C.S, M.Q.W, A.P.R., and A.Q.B performed research; R.A.K, M.Q.W, A.P.R., A.Q.B, and M.B.J. analyzed data; M.B.J. contributed software; and R.A.K, T.C.S, M.Q.W, A.P.R., A.Q.B, and M.B.J. wrote the paper.   
-
-## Remove this if not required
 conflict_of_interest: |
   The authors declare no conflicts of interest.
-
 abstract: |
   Please provide an abstract of no more than 250 words in a single paragraph. Abstracts should explain to the general reader the major contributions of the article. References in the abstract must be cited in full within the abstract itself and cited in the text.
-
-
 significance: |
   Authors must submit a 120-word maximum statement about the significance of their research paper written at a level understandable to an undergraduate educated scientist outside their field of speciality. The primary goal of the Significance Statement is to explain the relevance of the work in broad context to a broad readership. The Significance Statement appears in the paper itself and is required for all research papers.
-
 acknowledgements: |
   Please include your acknowledgments here, set in a single paragraph. Please do not include any acknowledgments in the Supporting Information, or anywhere else in the manuscript.
-
 keywords:
   - population recovery
   - amphibian declines
   - emerging infectious disease
   - reintroduction
   - Batrachochytrium dendrobatis
-
 ## must be one of: pnasresearcharticle (usual two-column layout), pnasmathematics (one column layout), or pnasinvited (invited submissions only)
 pnas_type: pnasresearcharticle
-
 bibliography: pnas.bib
 csl: pnas.csl
-
-## change to true to add optional line numbering
 lineno: false
-
 output: rticles::pnas_article
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
-This PNAS journal template is provided to help you write your work in the
-correct journal format. Instructions for use are provided below.
+This PNAS journal template is provided to help you write your work in
+the correct journal format. Instructions for use are provided below.
 
 Note: please start your introduction without including the word
 "Introduction" as a section heading (except for math articles in the
 Physical Sciences section); this heading is implied in the first
 paragraphs.
 
+# Results {.unnumbered}
 
-Results {.unnumbered}
-========================================
+## Evolution of Reduced Disease Susceptibility {#results-subheading1 .unnumbered}
 
+## Reintroduction of Disease-resistant Frogs {#results-subheading2 .unnumbered}
 
-Evolution of Reduced Disease Susceptibility {#results-subheading1 .unnumbered}
--------------------
+## Viability of Reestablished Populations {#results-subheading3 .unnumbered}
 
-Reintroduction of Disease-resistant Frogs {#results-subheading2 .unnumbered}
--------------------
+## Conceptual Model of Population Establishment {#results-subheading4 .unnumbered}
 
-Viability of Reestablished Populations {#results-subheading3 .unnumbered}
--------------------
+# Discussion {.unnumbered}
 
-Conceptual Model of Population Establishment {#results-subheading4 .unnumbered}
--------------------
+## Conclusions {#discussion-subheading1 .unnumbered}
 
-Discussion {.unnumbered}
-========================================
+# Materials and Methods {.unnumbered}
 
-Conclusions {#discussion-subheading1 .unnumbered}
--------------------
+## Statistical Analyses {#methods-subheading1 .unnumbered}
 
+## Data Availability {#methods-subheading2 .unnumbered}
 
-Materials and Methods {.unnumbered}
-========================================
-
-Statistical Analyses {#methods-subheading1 .unnumbered}
--------------------
-
-
-Data Availability {#methods-subheading2 .unnumbered}
--------------------
-
-
-
-Guide to using this template {.unnumbered}
-========================================
+# Guide to using this template {.unnumbered}
 
 Please note that whilst this template provides a preview of the typeset
 manuscript for submission, to help in this preparation, it will not
@@ -134,25 +97,21 @@ necessarily be the final publication layout. For more detailed
 information please see the [PNAS Information for
 Authors](http://www.pnas.org/site/authors/format.xhtml).
 
-
-Author Affiliations {#author-affiliations .unnumbered}
--------------------
+## Author Affiliations {#author-affiliations .unnumbered}
 
 Include department, institution, and complete address, with the
 ZIP/postal code, for each author. Use lower case letters to match
 authors with institutions, as shown in the example. Authors with an
 ORCID ID may supply this information at submission.
 
-Submitting Manuscripts {#submitting-manuscripts .unnumbered}
-----------------------
+## Submitting Manuscripts {#submitting-manuscripts .unnumbered}
 
 All authors must submit their articles at
 [PNAScentral](http://www.pnascentral.org/cgi-bin/main.plex). If you are
 using Overleaf to write your article, you can use the "Submit to PNAS"
 option in the top bar of the editor window.
 
-Format {#format .unnumbered}
-------
+## Format {#format .unnumbered}
 
 Many authors find it useful to organize their manuscripts with the
 following order of sections; Title, Author Affiliation, Keywords,
@@ -160,8 +119,7 @@ Abstract, Significance Statement, Results, Discussion, Materials and
 methods, Acknowledgments, and References. Other orders and headings are
 permitted.
 
-Manuscript Length {#manuscript-length .unnumbered}
------------------
+## Manuscript Length {#manuscript-length .unnumbered}
 
 PNAS generally uses a two-column format averaging 67 characters,
 including spaces, per line. The maximum length of a Direct Submission
@@ -172,28 +130,23 @@ and/or equations in addition to text, keep the text for your manuscript
 under 39,000 characters (including spaces) for Direct Submissions and
 72,000 characters (including spaces) for PNAS PLUS.
 
-References {#references .unnumbered}
-----------
+## References {#references .unnumbered}
 
 References should be cited in numerical order as they appear in text;
 this will be done automatically via bibtex, e.g. @belkin2002using and
-@berard1994embedding [@coifman2005geometric]. All references, including
+[@berard1994embedding; @coifman2005geometric]. All references, including
 for the SI, should be included in the main manuscript file. References
 appearing in both sections should not be duplicated. SI references
 included in tables should be included with the main reference section.
 
-Data Archival {#data-archival .unnumbered}
--------------
+## Data Archival {#data-archival .unnumbered}
 
 PNAS must be able to archive the data essential to a published article.
 Where such archiving is not possible, deposition of data in public
 databases, such as GenBank, ArrayExpress, Protein Data Bank, Unidata,
 and others outlined in the Information for Authors, is acceptable.
 
-
-
-Language-Editing Services {#language-editing-services .unnumbered}
--------------------------
+## Language-Editing Services {#language-editing-services .unnumbered}
 
 Prior to submission, authors who believe their manuscripts would benefit
 from professional editing are encouraged to use a language-editing
@@ -202,10 +155,9 @@ PNAS does not take responsibility for or endorse these services, and
 their use has no bearing on acceptance of a manuscript for publication.
 
 ![Placeholder image of a frog with a long example caption to show
-justification setting.<span data-label="fig:frog"></span>](frog.png)
+justification setting.](frog.png)
 
-Digital Figures {#sec:figures .unnumbered}
----------------
+## Digital Figures {#sec:figures .unnumbered}
 
 Only TIFF, EPS, and high-resolution PDF for Mac or PC are allowed for
 figures that will appear in the main text, and images must be final
@@ -217,13 +169,12 @@ font files for any text.
 Figures and Tables should be labelled and referenced in the standard way
 using the `\label{}` and `\ref{}` commands.
 
-Figure \[fig:frog\] shows an example of how to insert a column-wide
+Figure $$fig:frog$$ shows an example of how to insert a column-wide
 figure. To insert a figure wider than one column, please use the
 `\begin{figure*}...\end{figure*}` environment. Figures wider than one
 column should be sized to 11.4 cm or 17.8 cm wide.
 
-Single column equations {#single-column-equations .unnumbered}
------------------------
+## Single column equations {#single-column-equations .unnumbered}
 
 Authors may use 1- or 2-column equations in their article, according to
 their preference.
@@ -231,7 +182,7 @@ their preference.
 To allow an equation to span both columns, options are to use the
 `\begin{figure*}...\end{figure*}` environment mentioned above for
 figures, or to use the `\begin{widetext}...\end{widetext}` environment
-as shown in equation \[eqn:example\] below.
+as shown in equation $$eqn:example$$ below.
 
 Please note that this option may run into problems with floats and
 footnotes, as mentioned in the [cuted package
@@ -245,8 +196,7 @@ $$\begin{aligned}
        &=x^3+3x^2y+3xy^3+x^3. 
 \end{aligned}$$
 
-
-
+```{=html}
 <!-- pandoc writes all tables using longtable, which fails in 2-column mode
 
   Species                    CBS     CV     G3
@@ -259,10 +209,8 @@ $$\begin{aligned}
   benchmark electronic energy calculations
 
 -->
-
-Supporting Information (SI) {#supporting-information-si .unnumbered}
----------------------------
-
+```
+## Supporting Information (SI) {#supporting-information-si .unnumbered}
 
 The main text of the paper must stand on its own without the SI. Refer
 to SI in the manuscript at an appropriate point in the text. Number
@@ -328,8 +276,10 @@ readability. If this is not possible, supply a single PDF file that
 contains all of the SI associated with the paper. This file type will be
 published in raw format and will not be edited or composed.
 
-
 <!-- Leave these lines as they are at the end of your .Rmd file to ensure placement of methods & acknowledgements sections before the references-->
+
+```{=tex}
 \showmatmethods
 \showacknow
 \pnasbreak
+```
