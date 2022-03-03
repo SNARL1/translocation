@@ -2,9 +2,8 @@
 title: "Notebook"
 author: "Roland Knapp"
 date: "`r Sys.Date()`"
-editor_options:
-  markdown:
-    mode: gfm
+output:
+  github_document
 ---
 
 ## Predictors of frog survival following translocation
