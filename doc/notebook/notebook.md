@@ -79,7 +79,7 @@ plot
 
     ## function (x, y, ...) 
     ## UseMethod("plot")
-    ## <bytecode: 0x55d4a37e75a0>
+    ## <bytecode: 0x55c9bcf735a0>
     ## <environment: namespace:base>
 
 Another consideration when designing the analysis is that there are 12

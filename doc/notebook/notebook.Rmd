@@ -36,7 +36,7 @@ Maximum depth and surface area would seem useful to include, but 74976 is a stre
 
 Frog condition might be problematic because size and residuals are correlated. Specifically, the largest frogs have the largest positive residuals from a weight:length regression line, even after log10 transformation. As such, length and condition are probably not independent.
 
-```{r, fig.width = 3, fig.align = "center"}
+```{r, fig.width = 6, fig.align = "center"}
 read_csv(here::here("data", "clean", "frog_translocation.csv")) %>% 
 ggplot(aes(x = log10(length), y = log10(weight))) +
   geom_point() +
