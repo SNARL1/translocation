@@ -20,6 +20,10 @@ This repository contains the following directories and files:
 - `doc/` directory: Manuscript and notebook files.
 - `out/` directory: Output files.
 
+## Notebooks
+
+Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/code_notebooks/](https://github.com/SNARL1/translocation/tree/main/out/code_notebooks#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/` notebook describes issues of interest related to dataset creation and analysis. The `out/code_notebooks/` notebooks are rendered directly from the `Rmd` files, and describe dataset creation/data analysis steps for each population. 
+
 ## Contact
 
 Roland Knapp, Research Biologist, University of California Sierra Nevada Aquatic Research Laboratory, Mammoth Lakes, CA 93546 USA; rolandknapp(at)ucsb.edu, <https://mountainlakesresearch.com/roland-knapp/>
