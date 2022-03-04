@@ -41,6 +41,7 @@ read_csv(here::here("data", "clean", "frog_translocation.csv")) %>%
 ggplot(aes(x = log10(length), y = log10(weight))) +
   geom_point() +
   geom_smooth(method = lm)
+plot
 ```
 
 Another consideration when designing the analysis is that there are 12 records in which bd_load is null. Of these, 9 are from 70413 on 2013-07-15, likely due to a rush to get frogs packaged prior to helicopter arrival. 39 frogs were translocated on that date, so should probably drop the 9 records where bd_load = NA prior to running the analysis. If bd_load is not an important predictor, can run analysis using the full dataset.
