@@ -198,14 +198,7 @@ frog_translocation <- frog_translocation %>%
 frog_translocation %>% summarize(across(everything(), ~ sum(is.na(.))))
 
 # Check that site_ids match expectation
-frog_translocation %>% distinct(site_id)
 frog_translocation %>% distinct(site_id, collect_siteid)
-
-# Check if sex at collection matches sex on recapture
-
-# Plot length x weight to check for outliers
-
-
 ```
 
 ### Clean data - second pass
@@ -236,10 +229,113 @@ frog_translocation <- frog_translocation %>%
 ```
 
 
+### Check data - third pass
+```{r}
+#### Connect to database
+con = dbConnect(dbDriver("PostgreSQL"),
+                host = Sys.getenv("host"), 
+                port = Sys.getenv("port"), 
+                dbname = Sys.getenv("dbname"),
+                user = rstudioapi::askForPassword("user name"),
+                password = rstudioapi::askForPassword("password")
+               )
+```
+```{sql retrieve_capture_data, connection=con, output.var="frog_captures"}
+select
+	site_id,
+	visit_date,
+	survey_type,
+	capture_life_stage,
+	capture_animal_state,
+	pit_tag_ref, 
+	sex 
+from visit
+inner join survey on visit.id = visit_id
+inner join capture_survey on survey.id = survey_id
+inner join surveyor on surveyor.id = surveyor_id
+where site_id in (70134, 70688, 70370, 70114, 70175, 70279, 70413, 71570, 71968, 72008, 72093, 72264, 72390, 72442, 72694, 70414, 70449, 70034, 70505, 72092, 70550, 70556, 70619, 70628, 70641, 74976, 72973) and 
+	survey_type = 'cmr' and
+	capture_animal_state != 'dead' 
+```
+```{r}
+dbDisconnect(con)
+rm(con)
+```
+```{r}
+# Check if sex at collection matches sex on recapture
+frog_captures %>% distinct(pit_tag_ref, sex) %>% count(pit_tag_ref, sex) %>% filter(n > 1)
+frog_captures %>% distinct(pit_tag_ref, sex) %>% 
+  rename(sexcapture = sex) %>% 
+  inner_join(frog_translocation, by = "pit_tag_ref") %>% 
+  filter(sex != sexcapture)
+```
+```{r}
+# Plot length x weight to check for outliers
+frog_translocation %>% ggplot(aes(x = length, y = weight)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+frog_translocation %>% ggplot(aes(x = log10(length), y = log10(weight))) +
+  geom_point() +
+  geom_smooth(method = gam)
+
+```
+No obvious outliers. 
+
+### Clean data - third pass
+
+```{r}
+# Change sex at time of translocation based on subsequent recaptures
+frog_translocation <- frog_translocation %>% 
+  mutate(sex = replace(sex, pit_tag_ref == "900067000117464" & sex == "f", "m"),
+         sex = replace(sex, pit_tag_ref == "982000365440205" & sex == "f", "m"),
+         sex = replace(sex, pit_tag_ref == "900067000114152" & sex == "m", "f"))
+```
+
+### Add translocation order
+
+```{r}
+frog_translocation %>% 
+  distinct(site_id, release_date) %>% 
+  group_by(site_id) %>% 
+  mutate(order = seq_len(n())) %>% 
+  arrange(site_id, release_date) %>% 
+  inner_join(frog_translocation, by = c("site_id", "release_date")) 
+  ungroup() -> frog_translocation
+```
+
+### Extract day-of-year and year from date
+
+```{r}
+frog_translocation <- frog_translocation %>% 
+  mutate(day = yday(release_date),
+         year = year(release_date))
+```
+
+### Check for null values
+
+```{r}
+# Check for null values
+frog_translocation %>% summarize(across(everything(), ~ sum(is.na(.))))
+```
+
+### Create final dataset
+
+```{r}
+frog_translocation <- frog_translocation %>% 
+  rename(survival = median_survival,
+         donor = collect_siteid,
+         date = release_date) %>% 
+  select(site_id, elevation, shore, date, day, year, order, pit_tag_ref, donor, sex, length, weight, bd_load, survival) 
+```
+
+
+
 ### Save clean frog translocation dataset
 
 ```{r save_clean_frog_translocation_data}
-frog_translocation %>% write_csv(here::here("data", "clean", "frog_translocation.csv"))
+frog_translocation %>% 
+   write_csv(here::here("data", "clean", "frog_translocation.csv"))
 ```
 
 
