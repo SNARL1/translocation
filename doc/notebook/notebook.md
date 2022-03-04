@@ -57,6 +57,7 @@ read_csv(here::here("data", "clean", "frog_translocation.csv")) %>%
 ggplot(aes(x = log10(length), y = log10(weight))) +
   geom_point() +
   geom_smooth(method = lm)
+  plot
 ```
 
     ## Rows: 779 Columns: 13
@@ -69,8 +70,6 @@ ggplot(aes(x = log10(length), y = log10(weight))) +
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
     ## `geom_smooth()` using formula 'y ~ x'
-
-<img src="notebook_files/figure-gfm/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
 
 ### Model structure
 
