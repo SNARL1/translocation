@@ -3,7 +3,7 @@ title: "Notebook"
 author: "Roland Knapp"
 date: "`r Sys.Date()`"
 output:
-  github_document
+  html_notebook
 ---
 
 ```{r}
