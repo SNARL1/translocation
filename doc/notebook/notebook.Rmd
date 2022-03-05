@@ -40,7 +40,7 @@ Frog condition might be problematic because size and residuals are correlated. S
 read_csv(here::here("data", "clean", "frog_translocation.csv")) %>% 
 ggplot(aes(x = log10(length), y = log10(weight))) +
   geom_point() +
-  geom_smooth(method = lm)
+  geom_smooth(method = "lm")
 plot
 ```
 
