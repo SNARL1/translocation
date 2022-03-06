@@ -22,7 +22,7 @@ This repository contains the following directories and files:
 
 ## Notebooks
 
-Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/notebooks_code/](https://github.com/SNARL1/translocation/tree/main/out/notebooks_code#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/` notebook describes issues of interest related to dataset creation and analysis. The `out/notebooks_code/` notebooks are rendered directly from the `Rmd` files, and describe dataset creation/data analysis steps for each population. 
+Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/notebooks_code/](https://github.com/SNARL1/translocation/tree/main/out/notebooks_code#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/` notebook describes issues of interest related to dataset creation and analysis. The `out/notebooks_code/` notebooks are rendered from the `Rmd` files in the `code\` directory, and describe dataset creation/data analysis steps for each population. 
 
 ## Contact
 
