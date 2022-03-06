@@ -1,7 +1,7 @@
 # Notebook describing issues of interest in: translocation
-To view the HTML-rendered notebook from this directory (and not instead see the HTML source code when you click on the file), click on the `notebook.nb.html` file and add the prefix `https://htmlpreview.github.io/?` to the URL displayed in the address bar to get: 
+When viewing the the HTML-rendered notebook from GitHub, clicking on the `notebook_translocation.html` file will show the HTML source code. To view the HTML-rendered notebook, click on the `notebook_translocation.html` file and add the prefix `https://htmlpreview.github.io/?` to the URL displayed in the address bar to get: 
 
-`https://htmlpreview.github.io/?https://github.com/SNARL1/translocation/blob/main/doc/notebook/notebook.nb.html`.
+`https://htmlpreview.github.io/?https://github.com/SNARL1/translocation/blob/main/doc/notebook/notebook_translocation.html`.
 
 Hit "Return" or "Enter" on your keyboard and the HTML-rendered notebook will appear.
 
