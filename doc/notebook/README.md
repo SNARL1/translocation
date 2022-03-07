@@ -1,9 +1,6 @@
 # Notebook: translocation
-When viewing the HTML-rendered notebook from GitHub, clicking on the `notebook_translocation.html` file will show the HTML source code instead of the notebook text. To view the HTML-rendered notebook, click on the `notebook_translocation.html` file and add the prefix `https://htmlpreview.github.io/?` to the URL displayed in the address bar to get: 
 
-`https://htmlpreview.github.io/?https://github.com/SNARL1/translocation/blob/main/doc/notebook/notebook_translocation.html`.
+To view the markdown-rendered notebook from GitHub (without having to clone or download the repository), click on the `notebook_translocation.md`(https://github.com/SNARL1/translocation/blob/main/doc/notebook/notebook_translocation.md) file in the `notebook/` directory.
 
-Hit "Return" or "Enter" on your keyboard and the HTML-rendered notebook will appear.
-
-If, after clicking on the notebook file, you see a message that the notebook file is too big to view, click the "View raw" link or "Download" button, and add the address prefix as described above. 
-
+To view the markdown-rendered notebook from RStudio, clone or download the repository and knit the `notebook_results.Rmd` file. 
+The resulting markdown file will be available in the `Viewer` tab of the `Files` pane, and from there can be opened in an external window. 

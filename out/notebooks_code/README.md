@@ -1,6 +1,5 @@
 # Code notebooks from: translocation
-To view an HTML-rendered notebook from this directory (and not instead see the HTML source code when you click on the file), click on the notebook you want 
-view and add this prefix to the URL displayed in the address bar: `https://htmlpreview.github.io/?`. For example, for the notebook file 
+When viewing the HTML-rendered notebook from GitHub, clicking on the `translocation_survival_analysis.nb.html` file will show the HTML source code instead of the notebook text. To view the HTML-rendered notebook, click on the notebook you want to view and add this prefix to the URL displayed in the address bar: `https://htmlpreview.github.io/?`. For example, for the notebook file 
 `translocation_survival_analysis.nb.html`, add `https://htmlpreview.github.io/?` to the notebook's URL
 
 `https://github.com/SNARL1/translocation/blob/main/out/notebooks_code/translocation_survival_analysis.nb.html`
