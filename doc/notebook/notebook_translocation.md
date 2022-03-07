@@ -1,0 +1,71 @@
+Notebook: Predictors of frog survival following translocation
+================
+Roland Knapp
+2022-03-07
+
+-   [Dataset structure](#dataset-structure)
+-   [Model structure](#model-structure)
+-   [Results](#results)
+
+## Dataset structure
+
+-   site_id: site to which frogs were translocated
+-   elevation
+-   date
+-   day
+-   year
+-   donor
+-   order: first translocation to site = 0, subsequent translocation = 1
+-   type: translocation conducted on foot versus by helicopter (not
+    included)
+-   shore: suitability of shore/bank habitat for frog overwintering
+-   pit_tag_ref
+-   survival: individual-level estimated survival 1 year following
+    translocation, based on cmr surveys conducted for at least two years
+    post-translocation
+-   sex
+-   length: at release
+-   weight: at release
+-   condition: index based on length and weight
+-   swab_id
+-   bd_load: at release
+
+Maximum depth and surface area would seem useful to include, but 74976
+is a stream/meadow habitat and as such depth and area at that site are
+likely not comparable to depth and area at lake habitats.
+
+Frog condition might be problematic because size and residuals are
+correlated. Specifically, the largest frogs have the largest positive
+residuals from a weight:length regression line, even after log10
+transformation. As such, length and condition are probably not
+independent.
+
+![](notebook_translocation_files/figure-gfm/frog-length-weight-plot-1.png)<!-- -->
+
+Another consideration when designing the analysis is that there are 12
+records in which bd_load is null. Of these, 9 are from 70413 on
+2013-07-15, likely due to a rush to get frogs packaged prior to
+helicopter arrival. 39 frogs were translocated on that date, so should
+probably drop the 9 records where bd_load = NA prior to running the
+analysis. If bd_load is not an important predictor, can run analysis
+using the full dataset.
+
+## Model structure
+
+survival \~ elevation + shore + day + year + order + donor + sex +
+length + log(bdload) \| site_id
+
+Group-level effects: In addition to the inclusion of site_id as a
+group-level effect, may need to include release_year, perhaps nested
+within site_id? Given that some sites only have a single release_year,
+will this cause problems?
+
+Final steps before building model (in analysis Rmd):
+
+-   Change to factor: order, day?, year?
+-   Standardize variables?
+-   Survival: Create 0/1 variable from probabilities. Change to factor?
+
+## Results
+
+To be added soon.
