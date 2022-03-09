@@ -20,13 +20,13 @@ address:
   - code: b
     address: Earth Research Institute, University of California-Santa Barbara, Santa Barbara, CA 93106
   - code: c
-    address: Department of Forestry, Wildlife, and Fisheries, University of Tennessee, Knoxville, TN, xxxxx
+    address: Department of Forestry, Wildlife, and Fisheries, University of Tennessee, Knoxville, TN 37996
   - code: d
-    address: Department of Environmental Science, Policy, and Management, University of California-Berkeley, Berkeley, CA, 94720
+    address: Department of Environmental Science, Policy, and Management, University of California-Berkeley, Berkeley, CA 94720
   - code: e
-    address: Museum of Vertebrate Zoology, University of California-Berkeley, Berkeley, CA, 94720
+    address: Museum of Vertebrate Zoology, University of California-Berkeley, Berkeley, CA 94720
   - code: f
-    address: Earth Lab, University of Colorado, Boulder, CO, 80303
+    address: Earth Lab, University of Colorado, Boulder, CO 80303
 corresponding_author:
   code: 1
   text: "To whom correspondence should be addressed. E-mail: roland.knapp@ucsb.edu"
@@ -39,11 +39,11 @@ author_contributions: |
 conflict_of_interest: |
   The authors declare no conflicts of interest.
 abstract: |
-  Please provide an abstract of no more than 250 words in a single paragraph. Abstracts should explain to the general reader the major contributions of the article. References in the abstract must be cited in full within the abstract itself and cited in the text.
+  <!-- <=250 words in a single paragraph--> Pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas integer eget aliquet nibh praesent tristique magna sit amet purus gravida quis blandit turpis cursus in hac habitasse platea dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris a diam maecenas sed enim ut sem viverra aliquet eget sit amet tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at.
 significance: |
-  Authors must submit a 120-word maximum statement about the significance of their research paper written at a level understandable to an undergraduate educated scientist outside their field of speciality. The primary goal of the Significance Statement is to explain the relevance of the work in broad context to a broad readership. The Significance Statement appears in the paper itself and is required for all research papers.
+  <!-- <=120 words --> Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam id leo in vitae turpis massa sed elementum tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse in est ante in.
 acknowledgements: |
-  Please include your acknowledgments here, set in a single paragraph. Please do not include any acknowledgments in the Supporting Information, or anywhere else in the manuscript.
+  Funding for this research was provided by the National Science Foundation, Yosemite National Park, Yosemite Conservancy, and U.S. Geological Survey NRPP program. Erica Hegeman and A. Lindauer were instrumental in assisting with field work, logistics, and permitting. Many summer field assistants also contributed importantly. 
 keywords:
   - population recovery
   - amphibian declines
@@ -58,18 +58,122 @@ lineno: false
 output: rticles::pnas_article
 editor_options: 
   markdown: 
-    wrap: 72
+    wrap: sentence
 ---
 
-This PNAS journal template is provided to help you write your work in
-the correct journal format. Instructions for use are provided below.
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, results='hide')
+```
 
-Note: please start your introduction without including the word
-"Introduction" as a section heading (except for math articles in the
-Physical Sciences section); this heading is implied in the first
-paragraphs.
+```{r load-packages}
+library(tidyverse)
+```
+<!-- text formatting & citations -->
+The amphibian disease chytridiomycosis, caused by the chytrid fungus
+*Batrachochytrium dendrobatidis* ("Bd"), is one of the most destructive
+wildlife diseases in recorded history. This recently-emerged fungus
+[@ohanlon2018recent] is highly pathogenic to a wide range of amphibian
+taxa and, by one estimate, has caused the severe decline or extinction
+of at least 500 amphibian species [@scheele2019amphibian], with many
+more predicted to be at risk [@rodder2009global]. The pathogenesis of
+chytridiomycosis is the result of Bd infection disrupting cutaneous
+osmoregulatory function, leading to electrolyte imbalance and death
+[@voyles2009pathogenesis]. Bd infection is transferred between hosts via
+an aquatic flagellated zoospore stage [@longcore1999batrachochytrium]
+pulvinar neque laoreet suspendisse interdum consectetur libero id
+faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis
+magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc
+non blandit massa enim nec dui nunc mattis enim ut tellus elementum
+sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque
+aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus
+imperdiet nulla malesuada pellentesque elit eget gravida cum sociis
+natoque penatibus et magnis dis parturient montes nascetur ridiculus mus
+mauris vitae ultricies leo integer malesuada nunc vel risus commodo
+viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas
+dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl
+suscipit adipiscing bibendum est ultricies integer quis auctor elit sed
+vulputate mi sit.
+
+amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien
+et ligula ullamcorper malesuada proin libero nunc consequat interdum
+varius sit amet mattis vulputate enim nulla aliquet porttitor lacus
+luctus accumsan tortor posuere ac ut consequat semper viverra nam libero
+justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim
+diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies
+mi eget mauris pharetra et ultrices neque ornare aenean euismod
+elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl
+rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien
+eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum
+neque egestas congue quisque egestas diam in arcu cursus euismod quis
+viverra. <!-- Inline code & embedded plots -->
 
 # Results {.unnumbered}
+
+```{r inline-values, include=FALSE}
+frog_translocation <- read_csv(here::here("data", "clean", "frog_translocation.csv")) %>% 
+  mutate(site_id = as.character(site_id)) 
+count_translocation <- frog_translocation %>% distinct(site_id, date) %>% count()
+count_site <- frog_translocation %>% distinct(site_id) %>% count()
+min_elev <- min(frog_translocation$elevation)
+max_elev <- max(frog_translocation$elevation)
+bdload_groupmed <- 
+  frog_translocation %>% group_by(site_id, date) %>% summarize(median_bdload = median(bd_load, na.rm = TRUE)) 
+bd_min <- min(bdload_groupmed$median_bdload) %>% round()
+bd_max <- max(bdload_groupmed$median_bdload) %>% round() %>% format(scientific = FALSE)
+```
+
+```{r lw-plot, include=FALSE, dev="png", fig.width=3.3, fig.height=3.3, dpi=300, fig.show="hide"}
+lw_plot <- frog_translocation %>% ggplot(aes(x = length, y = weight)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Length (mm)", 
+       y = "Weight (g)") +
+  theme_classic()       
+plot(lw_plot)
+
+```
+
+During the 2006--2020 period covered by this study, we conducted
+`r count_translocation$n` translocations to `r count_site$n` sites.
+Sites ranged in elevation from `r min(frog_translocation$elevation)` to
+`r max(frog_translocation$elevation)` m, and median Bd loads of
+translocated cohorts ranged from `r bd_min` to `r bd_max` ITS copies per
+skin swab. pulvinar neque laoreet suspendisse interdum consectetur
+libero id faucibus nisl tincidunt eget nullam non nisi est sit amet
+facilisis magna etiam tempor orci eu lobortis elementum nibh tellus
+molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus
+elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa
+id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi
+tempus imperdiet nulla malesuada pellentesque elit eget gravida cum
+sociis natoque penatibus et magnis dis parturient montes nascetur
+ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel
+risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est
+velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit
+amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor
+elit sed vulputate mi sit.
+
+amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien
+et ligula ullamcorper malesuada proin libero nunc consequat interdum
+varius sit amet mattis vulputate enim nulla aliquet porttitor lacus
+luctus accumsan tortor posuere ac ut consequat semper viverra nam libero
+justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim
+diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies
+mi eget mauris pharetra et ultrices neque ornare aenean euismod
+elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl
+rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien
+eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum
+neque egestas congue quisque egestas diam in arcu cursus euismod quis
+viverra. Following log~10~-transformation, frog weight was linearly
+related to frog length across most of the range of frog lengths.
+However, for lengths \> 56 mm nearly all residuals from the
+length:weight regression line were mostly positive.
+
+![](`r knitr::fig_chunk('lw-plot', 'png')`)
+
+Figure 1. For translocated mountain yellow-legged frogs, the relationship between length and weight (on a log~10~-log~10~
+scale).
 
 ## Evolution of Reduced Disease Susceptibility {#results-subheading1 .unnumbered}
 
@@ -83,199 +187,23 @@ paragraphs.
 
 ## Conclusions {#discussion-subheading1 .unnumbered}
 
-# Materials and Methods {.unnumbered}
+# Materials and Methods {#matmethods .unnumbered}
 
-## Statistical Analyses {#methods-subheading1 .unnumbered}
-
-## Data Availability {#methods-subheading2 .unnumbered}
-
-# Guide to using this template {.unnumbered}
-
-Please note that whilst this template provides a preview of the typeset
-manuscript for submission, to help in this preparation, it will not
-necessarily be the final publication layout. For more detailed
-information please see the [PNAS Information for
-Authors](http://www.pnas.org/site/authors/format.xhtml).
-
-## Author Affiliations {#author-affiliations .unnumbered}
-
-Include department, institution, and complete address, with the
-ZIP/postal code, for each author. Use lower case letters to match
-authors with institutions, as shown in the example. Authors with an
-ORCID ID may supply this information at submission.
-
-## Submitting Manuscripts {#submitting-manuscripts .unnumbered}
-
-All authors must submit their articles at
-[PNAScentral](http://www.pnascentral.org/cgi-bin/main.plex). If you are
-using Overleaf to write your article, you can use the "Submit to PNAS"
-option in the top bar of the editor window.
-
-## Format {#format .unnumbered}
-
-Many authors find it useful to organize their manuscripts with the
-following order of sections; Title, Author Affiliation, Keywords,
-Abstract, Significance Statement, Results, Discussion, Materials and
-methods, Acknowledgments, and References. Other orders and headings are
-permitted.
-
-## Manuscript Length {#manuscript-length .unnumbered}
-
-PNAS generally uses a two-column format averaging 67 characters,
-including spaces, per line. The maximum length of a Direct Submission
-research article is six pages and a PNAS PLUS research article is ten
-pages including all text, spaces, and the number of characters displaced
-by figures, tables, and equations. When submitting tables, figures,
-and/or equations in addition to text, keep the text for your manuscript
-under 39,000 characters (including spaces) for Direct Submissions and
-72,000 characters (including spaces) for PNAS PLUS.
-
-## References {#references .unnumbered}
-
-References should be cited in numerical order as they appear in text;
-this will be done automatically via bibtex, e.g. @belkin2002using and
-[@berard1994embedding; @coifman2005geometric]. All references, including
-for the SI, should be included in the main manuscript file. References
-appearing in both sections should not be duplicated. SI references
-included in tables should be included with the main reference section.
-
-## Data Archival {#data-archival .unnumbered}
-
-PNAS must be able to archive the data essential to a published article.
-Where such archiving is not possible, deposition of data in public
-databases, such as GenBank, ArrayExpress, Protein Data Bank, Unidata,
-and others outlined in the Information for Authors, is acceptable.
-
-## Language-Editing Services {#language-editing-services .unnumbered}
-
-Prior to submission, authors who believe their manuscripts would benefit
-from professional editing are encouraged to use a language-editing
-service (see list at www.pnas.org/site/authors/language-editing.xhtml).
-PNAS does not take responsibility for or endorse these services, and
-their use has no bearing on acceptance of a manuscript for publication.
-
-![Placeholder image of a frog with a long example caption to show
-justification setting.](frog.png)
-
-## Digital Figures {#sec:figures .unnumbered}
-
-Only TIFF, EPS, and high-resolution PDF for Mac or PC are allowed for
-figures that will appear in the main text, and images must be final
-size. Authors may submit U3D or PRC files for 3D images; these must be
-accompanied by 2D representations in TIFF, EPS, or high-resolution PDF
-format. Color images must be in RGB (red, green, blue) mode. Include the
-font files for any text.
-
-Figures and Tables should be labelled and referenced in the standard way
-using the `\label{}` and `\ref{}` commands.
-
-Figure $$fig:frog$$ shows an example of how to insert a column-wide
-figure. To insert a figure wider than one column, please use the
-`\begin{figure*}...\end{figure*}` environment. Figures wider than one
-column should be sized to 11.4 cm or 17.8 cm wide.
-
-## Single column equations {#single-column-equations .unnumbered}
-
-Authors may use 1- or 2-column equations in their article, according to
-their preference.
-
-To allow an equation to span both columns, options are to use the
-`\begin{figure*}...\end{figure*}` environment mentioned above for
-figures, or to use the `\begin{widetext}...\end{widetext}` environment
-as shown in equation $$eqn:example$$ below.
-
-Please note that this option may run into problems with floats and
-footnotes, as mentioned in the [cuted package
-documentation](http://texdoc.net/pkg/cuted). In the case of problems
-with footnotes, it may be possible to correct the situation using
-commands `\footnotemark` and `\footnotetext`.
-
-$$\begin{aligned}
-(x+y)^3&=(x+y)(x+y)^2\\
-       &=(x+y)(x^2+2xy+y^2) \label{eqn:example} \\
-       &=x^3+3x^2y+3xy^3+x^3. 
-\end{aligned}$$
-
-```{=html}
-<!-- pandoc writes all tables using longtable, which fails in 2-column mode
-
-  Species                    CBS     CV     G3
-  ----------------------- ------ ------ ------
-  1\. Acetaldehyde           0.0    0.0    0.0
-  2\. Vinyl alcohol          9.1    9.6   13.5
-  3\. Hydroxyethylidene     50.8   51.2   54.0
-
-  : Comparison of the fitted potential energy surfaces and ab initio
-  benchmark electronic energy calculations
-
--->
-```
-## Supporting Information (SI) {#supporting-information-si .unnumbered}
-
-The main text of the paper must stand on its own without the SI. Refer
-to SI in the manuscript at an appropriate point in the text. Number
-supporting figures and tables starting with S1, S2, etc. Authors are
-limited to no more than 10 SI files, not including movie files. Authors
-who place detailed materials and methods in SI must provide sufficient
-detail in the main text methods to enable a reader to follow the logic
-of the procedures and results and also must reference the online
-methods. If a paper is fundamentally a study of a new method or
-technique, then the methods must be described completely in the main
-text. Because PNAS edits SI and composes it into a single PDF, authors
-must provide the following file formats only.
-
-### SI Text {#si-text .unnumbered}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a
-PDF with the same file name for visual reference).
-
-### SI Figures {#si-figures .unnumbered}
-
-Provide a brief legend for each supporting figure after the supporting
-text. Provide figure images in TIFF, EPS, high-resolution PDF, JPEG, or
-GIF format; figures may not be embedded in manuscript text. When saving
-TIFF files, use only LZW compression; do not use JPEG compression. Do
-not save figure numbers, legends, or author names as part of the image.
-Composite figures must be pre-assembled.
-
-### 3D Figures {#d-figures .unnumbered}
-
-Supply a composable U3D or PRC file so that it may be edited and
-composed. Authors may submit a PDF file but please note it will be
-published in raw format and will not be edited or composed.
-
-### SI Tables {#si-tables .unnumbered}
-
-Supply Word, RTF, or LaTeX files (LaTeX files must be accompanied by a
-PDF with the same file name for visual reference); include only one
-table per file. Do not use tabs or spaces to separate columns in Word
-tables.
-
-### SI Datasets {#si-datasets .unnumbered}
-
-Supply Excel (.xls), RTF, or PDF files. This file type will be published
-in raw format and will not be edited or composed.
-
-### SI Movies {#si-movies .unnumbered}
-
-Supply Audio Video Interleave (avi), Quicktime (mov), Windows Media
-(wmv), animated GIF (gif), or MPEG files and submit a brief legend for
-each movie in a Word or RTF file. All movies should be submitted at the
-desired reproduction size and length. Movies should be no more than 10
-MB in size.
-
-### Still images {#still-images .unnumbered}
-
-Authors must provide a still image from each video file. Supply TIFF,
-EPS, high-resolution PDF, JPEG, or GIF files.
-
-### Appendices {#appendices .unnumbered}
-
-PNAS prefers that authors submit individual source files to ensure
-readability. If this is not possible, supply a single PDF file that
-contains all of the SI associated with the paper. This file type will be
-published in raw format and will not be edited or composed.
-
+amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien
+et ligula ullamcorper malesuada proin libero nunc consequat interdum
+varius sit amet mattis vulputate enim nulla aliquet porttitor lacus
+luctus accumsan tortor posuere ac ut consequat semper viverra nam libero
+justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim
+diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies
+mi eget mauris pharetra et ultrices neque ornare aenean euismod
+elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl
+rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien
+eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum
+neque egestas congue quisque egestas diam in arcu cursus euismod quis
+viverra. Following log\~10-transformation, frog weight was linearly
+related to frog length across most of the range of frog lengths.
+However, for lengths \> 56 mm nearly all residuals from the
+length:weight regression line were mostly. positive.
 <!-- Leave these lines as they are at the end of your .Rmd file to ensure placement of methods & acknowledgements sections before the references-->
 
 ```{=tex}
@@ -283,3 +211,4 @@ published in raw format and will not be edited or composed.
 \showacknow
 \pnasbreak
 ```
+\bigskip
