@@ -1,0 +1,261 @@
+---
+title: "Predictors of frog survival following translocations - analyses"
+author: "Roland Knapp"
+output: html_notebook
+---
+
+This notebook contains exploratory analyses to aid in the design of the final analyses of factors influencing post-translocation survival (conducted in translocation_survival_analysis.Rmd). 
+
+## Load packages
+
+```{r load-packages}
+library(tidyverse)
+library(lubridate)
+```
+
+## Read in frog translocation dataset
+
+```{r read-translocation-data}
+frog_translocation <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
+  mutate(site_id = as.character(site_id),
+         donor = as.character(donor),
+         surv = as.integer(if_else(survival < 0.5, 0, 1)))
+```
+
+## Check for null values
+
+```{r check-null}
+frog_translocation %>% summarize(across(everything(), ~ sum(is.na(.))))
+```
+* 12 records were bd_load is NA, no other NAs in dataset
+
+## Retrieve cohort-level frog survival data
+
+```{r retrieve-frog-survival-data}
+files <- fs::dir_ls(here::here("data", "raw", "cmr-analysis", "survival"), glob = "*_cohort.csv")
+cohort_survival <- read_csv(files, id = "path") %>% 
+  mutate(site_id = str_extract(path, "(\\d)+"), .after = path) %>%  # extracts site_id as numeric string from file path
+  rename(years_since_intro = years_since_introduction) %>% 
+  filter(years_since_intro == 1) %>% 
+  select(site_id, release_date, years_since_intro, median_survival)
+rm(files)
+```
+
+## Plot of frog survival for each site
+
+```{r frog-survival-by-site}
+cohort_survival %>% 
+  mutate(release_year = year(release_date)) %>% 
+  group_by(site_id) %>% 
+  summarize(plot_survival = mean(median_survival)) %>%  # create variable by which to order sites for plotting
+  arrange(plot_survival) %>% 
+  mutate(siteid_order = row_number()) %>% 
+  inner_join(cohort_survival, by = "site_id") %>% 
+  select(-plot_survival) %>% 
+    ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival)) +  # reorder site_id by siteid_order)
+      geom_point(size = 3) +
+      labs(x = "Recipient site", y = "1-year frog survival")
+```
+* Strong effect of site on frog survival.
+* Survival is highly variable across sites, but highly repeatable within a site. 
+* Indicates need to include site_id as a group-level effect. 
+
+## Relationship between bd_load at release and 1-year survival
+```{r bdload-frogsurvival-plot}
+# Plot distribution of bd_load
+frog_translocation %>% 
+  drop_na(bd_load) %>% 
+  mutate(lbd_load = (log10(bd_load + 1))) %>% 
+  ggplot(aes(lbd_load)) +
+    geom_histogram()
+
+# Plot frog survival as a function of bd_load
+frog_translocation %>% 
+  select(bd_load, surv) %>% 
+  drop_na(bd_load) %>% 
+  mutate(lbd_load = (log10(bd_load + 1)),
+         bd_interval = cut_interval(lbd_load, n = 4)) %>% # create 4 bins from lbd_load range 
+  group_by(bd_interval, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>%  # contingency table of survival proportions, sum calculated for each interval
+  filter(surv == 1) %>% 
+  ggplot(aes(x = bd_interval, y = propsurv)) +
+    geom_bar(stat = "identity") +
+    labs(x = "Bd load interval ((log10 + 1) transformed)",
+         y = "Proportion that survived at least 1 year")
+```
+* Suggests that frogs that had the highest loads at the time of translocation had relatively low survival.
+
+## Relationship between shore variable and 1-year survival
+
+```{r shore-frogsurvival-plot}
+frog_translocation %>% 
+  mutate(shore = as.factor(shore)) %>% 
+  group_by(shore, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>%  # contingency table of survival proportions
+  filter(surv == 1) %>% 
+  ggplot(aes(x = shore, y = propsurv)) +
+    geom_bar(stat = "identity") +
+    labs(x = "Shore habitat",
+         y = "Proportion that survived at least 1 year")
+
+
+```
+* The presence of shore habitat that is accessible to frogs appears to have a strong effect on survival. 
+* Is this a direct effect, or an effect mediated through a correlated variable? For example, lakes lacking shore habitat are often those whose surface elevation decreases during the summer, leaving the shore habitat dry and inaccessible. Lower elevation lakes are more likely to experience lake elevation reductions, and are also likely to contain abundant frog predators. 
+* Will be important to include both shore habitat and elevation in model. 
+
+## Relationship between translocation order and 1-year survival
+
+```{r order-frogsurvival-plot}
+frog_translocation %>% 
+  mutate(order = as.factor(replace(order, order > 1, 2))) %>% 
+  group_by(order, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>%  # contingency table of survival proportions
+  filter(surv == 1) %>% 
+  ggplot(aes(x = order, y = propsurv)) +
+    geom_bar(stat = "identity") +
+    labs(x = "Translocation order",
+         y = "Proportion that survived at least 1 year")
+
+cohort_survival %>% 
+  count(site_id) %>% 
+  inner_join(cohort_survival, by = "site_id") %>% 
+  arrange(site_id, release_date) %>% 
+  group_by(site_id) %>% 
+  mutate(order = row_number()) %>% 
+  filter(n > 1) %>% 
+    ggplot(aes(x = order, y = median_survival, group = site_id, color = site_id)) + 
+      geom_line() +
+      geom_point()
+```
+* Contingency table results suggest that translocation order does not affect survival of translocated cohort. However, not a particularly rigorous comparison because order is grouped within sites. 
+* Line plot includes all sites that received two or more translocated cohorts. At 6 of 8 of these sites, cohorts after the first cohort (i.e., 2-4) had lower survival than the first cohort. At 2 of 8 sites, the second cohort had higher survival.
+* Appears that translocation order has a weak negative effect on survival. 
+
+## Relationship between donor site and 1-year survival
+
+```{r donor-frogsurvival-plot}
+frog_translocation %>% 
+  group_by(donor, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>%  # contingency table of survival proportions
+  filter(surv == 1) %>% 
+  ggplot(aes(x = donor, y = propsurv)) +
+    geom_bar(stat = "identity") +
+    labs(x = "Donor site",
+         y = "Proportion that survived at least 1 year")
+```
+* Substantial differences between donor sites in the survival of translocated frogs. 
+
+## Does bd_load of translocated cohorts differ between donor sites?
+
+```{r donor-bdload-plot}
+recipient_donor <- frog_translocation %>% 
+  distinct(site_id, date, donor)
+
+frog_translocation %>% 
+  drop_na(bd_load) %>% 
+  mutate(lbdload = log10(bd_load + 1)) %>% 
+  group_by(site_id, date) %>% 
+  summarize(lbdload_med = median(lbdload)) %>% 
+  inner_join(recipient_donor, by = c("site_id", "date")) %>% 
+    ggplot(aes(x = donor, y = lbdload_med)) + 
+      geom_point(size = 3) +
+      labs(x = "Donor site", y = "Median Bd load (log10 + 1 transformed)")
+```
+* The 3 donor sites differ somewhat in bd_load of translocated cohorts. 
+* Among donor sites, survival of translocated cohorts is inversely related to median bd_load of cohorts. 
+
+## Relationship between sex and 1-year survival
+
+```{r sex-frogsurvival-plot}
+frog_translocation %>% 
+  group_by(sex, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>%  # contingency table of survival proportions
+  filter(surv == 1) %>% 
+  ggplot(aes(x = sex, y = propsurv)) +
+    geom_bar(stat = "identity") +
+    labs(x = "Frog sex",
+         y = "Proportion that survived at least 1 year")
+```
+* No obvious difference in survival between females and males.
+
+## Relationship between elevation and frog survival
+
+```{r elevation-frogsurvival-plot}
+frog_translocation %>% 
+  mutate(elev_interval = cut_interval(elevation, n = 3)) %>%
+  group_by(elev_interval, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>% 
+  filter(surv == 1) %>% 
+    ggplot(aes(x = elev_interval, y = propsurv)) +
+      geom_bar(stat = "identity") +
+      labs(x = "Elevation", y = "Proportion that survived at least 1 year")
+```
+* Only 12 elevations represented, so binned by 3 to ensure that 0s and 1s were represented in bin (not with case with 4 bins). 
+* Elevation has positive effect on frog survival. 
+
+## Relationship between day and frog survival
+
+```{r day-frogsurival-plot}
+frog_translocation %>% 
+  mutate(day_interval = cut_interval(day, n = 3)) %>%
+  group_by(day_interval, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>% 
+  filter(surv == 1) %>% 
+    ggplot(aes(x = day_interval, y = propsurv)) +
+      geom_bar(stat = "identity") +
+      labs(x = "Day of the year", y = "Proportion that survived at least 1 year")
+```
+* No obvious effect of day of the year on frog survival
+
+## Relationship between year and frog survival
+
+```{r year-frogsurvival-plot}
+frog_translocation %>% 
+  mutate(year_interval = cut_interval(year, n = 3)) %>%
+  group_by(year_interval, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>% 
+  filter(surv == 1) %>% 
+    ggplot(aes(x = year_interval, y = propsurv)) +
+      geom_bar(stat = "identity") +
+      labs(x = "Year", y = "Proportion that survived at least 1 year")
+```
+
+* Frog survival has increased with year, perhaps as a result of improved ability to select sites with high quality frog habitat. 
+
+## Relationship between length and frog survival
+
+```{r length-frogsurvival-plot}
+frog_translocation %>% 
+  mutate(svl_interval = cut_interval(length, n = 5)) %>%
+  group_by(svl_interval, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>% 
+  filter(surv == 1) %>% 
+    ggplot(aes(x = svl_interval, y = propsurv)) +
+      geom_bar(stat = "identity") +
+      labs(x = "Frog length", y = "Proportion that survived at least 1 year")
+```
+* Frog size at the time of translocation has a strong positive effect on survival. 
+* This effect could explain, at least in part, the differences in survival between donor sites. 72996 contains the smallest frogs and has the lowest survival of translocated frogs. In theory, the size effect could be caused by a positive relationship between frog size and bd_load. However, the plot below suggests that bd_load is unaffected by frog size. As such, effect of frog size appears independent of an effect of bd_load.    
+
+## Effect of frog size on bd_load
+
+```{r}
+frog_translocation %>% 
+  drop_na(bd_load) %>% 
+  mutate(lbdload = log10(bd_load + 1)) %>% 
+  ggplot(aes(x = length, y = lbdload)) +
+    geom_point() +
+    geom_smooth(method = "lm")
+
+```
+
