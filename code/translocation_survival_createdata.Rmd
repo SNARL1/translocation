@@ -303,10 +303,27 @@ frog_translocation <- frog_translocation %>%
 
 ### Create day-of-year and year columns from date
 
-```{r create-day-year}
+```{r add-day-year}
 frog_translocation <- frog_translocation %>% 
   mutate(day = yday(release_date),
          year = year(release_date))
+```
+
+### Add snowpack data for winter of and winter following translocation
+
+```{r add-snowpack}
+
+source("snowwc_clean.R")
+
+frog_translocation <- snowwc_dan %>% 
+  mutate(year_t = year, 
+         year_t1 = (year + 1)) %>% 
+  rename(snow_t = snowwc_cm) %>% 
+  select(year, year_t, year_t1, snow_t) %>% 
+  inner_join(snowwc_dan, by = c("year_t1" = "year")) %>% 
+  rename(snow_t1 = snowwc_cm) %>% 
+  select(-station_id, -date, -snowwc_pave) %>% 
+  inner_join(frog_translocation, by = "year")
 ```
 
 ### Final data check
@@ -326,7 +343,7 @@ frog_translocation <- frog_translocation %>%
   rename(survival = median_survival,
          donor = collect_siteid,
          date = release_date) %>% 
-  select(site_id, elevation, shore, date, day, year, order, pit_tag_ref, donor, sex, length, weight, bd_load, survival) 
+  select(site_id, elevation, shore, snow_t, snow_t1, date, year, day, order, pit_tag_ref, donor, sex, length, weight, bd_load, survival) 
 ```
 
 ### Save clean frog translocation dataset
