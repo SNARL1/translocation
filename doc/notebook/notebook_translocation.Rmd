@@ -17,49 +17,94 @@ library(tidyverse)
 
 ## Dataset structure
 
--   site_id: site to which frogs were translocated
--   elevation
--   date
--   day
--   year
--   donor
--   order: first translocation to site = 0, subsequent translocation = 1
--   type: translocation conducted on foot versus by helicopter (not included)
--   shore: suitability of shore/bank habitat for frog overwintering
--   pit_tag_ref
--   survival: individual-level estimated survival 1 year following translocation, based on cmr surveys conducted for at least two years post-translocation
--   sex
--   length: at release
--   weight: at release
--   condition: index based on length and weight
--   swab_id
--   bd_load: at release
+* site_id: site to which frogs were translocated  
+* elevation: water body surface elevation above sea level, in meters  
+* shore: presence/absence of shore/bank habitat available to frogs in winter (estimated in late-summer)  
+* snow_t: snow water content (measured on April 1) in year of translocation  
+* snow_t1: snow water content (measured on April) in year following translocation  
+* date: date frogs released at recipient site  
+* year: year frogs released at recipient site  
+* day: day of the year on which frogs were released  
+* order: order of translocations to a site, from 1-4. Recoded prior to analysis ("order_f") as 0/1: 0 = first translocation to site; 1 = subsequent translocations  
+* donor: site_id from which frogs were collected for translocation  
+* pit_tag_ref: pit tag id  
+* sex: m or f, recoded for analysis as 0 for males and 1 for females  
+* length: frog snout-vent length at release (in mm)  
+* weight: frog weight at release (in grams)  
+* bd_load: number of ITS copies at release, measured from swab swab collected on capture (as with length and weight)  
+* survival: individual-level estimated survival 1 year following translocation, based on cmr surveys conducted for at least two years post-translocation. Prior to analysis, recoded ("surv") as 0/1 (0: survival < 0.5; 1: survival $\geq$ 0.5)
 
 Maximum depth and surface area would seem useful to include, but 74976 is a stream/meadow habitat and as such depth and area at that site are likely not comparable to depth and area at lake habitats.
 
 Frog condition might be problematic because size and residuals are correlated. Specifically, the largest frogs have the largest positive residuals from a weight:length regression line, even after log10 transformation. As such, length and condition are probably not independent.
 
 ```{r frog-length-weight-plot}
-read_csv(here::here("data", "clean", "frog_translocation.csv")) %>% 
-ggplot(aes(x = log10(length), y = log10(weight))) +
+read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
+ggplot(aes(x = length, y = weight)) +
   geom_point() +
-  geom_smooth(method = "lm")
-plot
+  geom_smooth(method = "lm") +
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Length (mm)", 
+       y = "Weight (g)")
 ```
 
-Another consideration when designing the analysis is that there are 12 records in which bd_load is null. Of these, 9 are from 70413 on 2013-07-15, likely due to a rush to get frogs packaged prior to helicopter arrival. 39 frogs were translocated on that date, so should probably drop the 9 records where bd_load = NA prior to running the analysis. If bd_load is not an important predictor, can run analysis using the full dataset.
+Another consideration when designing the analysis is that there are 12 records in which bd_load is null. Of these, 9 are from 70413 on 2013-07-15, likely due to a rush to get frogs packaged prior to helicopter arrival. 39 frogs were translocated on that date, so plenty of swab results are available to represent that site. Prior to running the analyses, should drop the 12 records where bd_load = NA. If bd_load is not an important predictor, can run analysis (without the bd_load predictor) using the full dataset.
+
+## Exploratory analyses
+
+Exploratory data analyses conducted in translocation_survival_exploratory.Rmd provide several notable insights. 
+
+### Donor site
+* 1-year frog survival is highly variable across sites, but highly repeatable within a site. This indicates the importance of including site_id as a group-level effect. It remains unclear whether also including a group effect (year) that identifies each translocation might also be needed (or feasible given relatively small number of translocations per site). 
+* Donor site has a strong effect on frog survival, with 70459 > 70567 > 72996. Explored possible effects of bd_load and frog size as drivers of this pattern. Differences in bd_load between donor sites seems unrelated to survival, but appears closely associated with frog size (see sub-bullets below). Whether frog size is the sole driver or is a results of frog size plus other unmeasured donor site attributes (e.g., degree of resistance against Bd infection) remains to be seen. 
+  * Minimal differences between donor sites in median bd_load, but slightly higher at 72996. No obvious effect of bd_load on 1-year frog survival. 
+  * Strong effect of frog size on 1-year survival, with frogs /> 55 mm having substantially higher 1-year survival. Frogs />60 mm had by far the highest survival. 
+  * The effect of frog size on survival was unrelated to bd_load: No relationship between the two variables. 
+  * Frog size differs between donor site: 72996 < 70459 = 70567. This partially mirrors the observed differences in survival between sites. 
+
+### Bd load
+* Frogs with the highest loads at the time of translocation had the lowest survival. The effect was only evident in the category that included frogs with loads of 56,000--2,100,000 ITS copies. Notable result given that the threshold level of 56,000 is /~ 1 order of magnitude below the 600,000 copies level associated with frog mortality during epizootics. 
+
+### Recipient site characteristics
+* **Shore habitat**: The presence of shore habitat substantially increased frog survival. Unknown if this is a direct effect reflecting the importance of this habitat type, or if shore habitat is serving as a proxy for another habitat feature. Association with shore habitat presence/absence and elevation will make it difficult to disentangle these effects. It may only be possible to include one of these two variables in the model. If so, elevation would make the most sense to include. 
+* **Elevation**: Strong positive effect on frog survival. 
+
+### Translocation timing
+* Day of the year showed no obvious relationship to frog survival. 
+* Year was positively associated with survival. This likely is not a direct effect of year, but instead reflects better-informed selection of recipient sites over time that contained high-quality frog habitat. As such, consider not including year in the model. 
+
+### Winter severity
+* No obvious relationship between either winter severity in year of translocation or in year following translocation on frog survival. 
+
+### Translocation order
+* Frogs in the first cohort translocated to a site generally had higher survival than frogs in subsequent cohorts. However, effect was not particularly strong. 
+* It remains unclear what the mechanism is of the slightly higher mortality of later cohorts.
+
+### Frog characteristics
+* Frog size had strong effect on 1-year survival. 
+* Minimal differences in survival between males and females (slightly higher in males). 
+
 
 ## Model structure
+As originally conceived: survival \~ elevation + shore + snow_t + snow_t1 + year + day + order + donor + sex + length + log(bdload) \| site_id
 
-survival \~ elevation + shore + day + year + order + donor + sex + length + log(bdload) \| site_id
+Based on exploratory analyses: survival \~ elevation + snow_t + snow_t1 + day + order + donor + sex + length + log(bdload) \| site_id + year
 
-Group-level effects: In addition to the inclusion of site_id as a group-level effect, may need to include release_year, perhaps nested within site_id? Given that some sites only have a single release_year, will this cause problems?
+Group-level effects: In addition to the inclusion of site_id as a group-level effect, may need to include year of translocation? Given that some sites only received a single translocation, will this cause problems?
 
 Final steps before building model (in analysis Rmd):
 
--   Change to factor: order, day?, year?
--   Standardize variables?
--   Survival: Create 0/1 variable from probabilities. Change to factor?
+* Recode order as 0/1 (instead of 1--4).  
+* Recode survival as 0/1 (instead of continuous probality).  
+* Recode binary variables as 0/1 (or format as factor): sex (see Gelman reference below).  
+* Format some variables as factor: surv, shore, order, donor, sex, site_id, year.  
+* Standardize continuous variables: elevation, snow_t, snow_t1, day, length, log(bd_load). Gelman recommends standardizing by dividing by 2 standard deviations. Standardizing allows assessment of importance of predictors by comparing regressions coefficients. Dividing by 2 SD puts continuous variables on approximately the same scale as binary (0/1) variables. This is true only if binary predictors have similar number of 0s and 1s. Sex: female = 428, male = 351; order: 0 = 507, 1 = 272.  
+
+Relevant references are as follows:  
+
+* Gelman 2008: https://doi.org/10.1002/sim.3107  
+* Schielzeth 2010: https://doi.org/10.1111/j.2041-210X.2010.00012.x  
 
 ## Results
 
