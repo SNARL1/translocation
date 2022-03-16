@@ -41,7 +41,7 @@ cohort_survival <- read_csv(files, id = "path") %>%
 rm(files)
 ```
 
-# define color palette
+# define color palette (palette_OkabeIto_black)
 ```{r define-color-palette}
 palette_cbb <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 ```
