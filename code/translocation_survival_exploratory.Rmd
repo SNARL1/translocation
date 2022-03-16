@@ -27,7 +27,7 @@ frog_translocation <- read_csv(here::here("data", "clean", "frog_translocation_f
 ```{r check-null}
 frog_translocation %>% summarize(across(everything(), ~ sum(is.na(.))))
 ```
-* 12 records were bd_load is NA, no other NAs in dataset
+* 12 records where bd_load is NA, no other NAs in dataset
 
 ## Retrieve cohort-level frog survival data
 
@@ -41,7 +41,12 @@ cohort_survival <- read_csv(files, id = "path") %>%
 rm(files)
 ```
 
-## Plot of frog survival for each site
+# define color palette
+```{r define-color-palette}
+palette_cbb <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+```
+
+## Plot of frog survival for each translocation - grouped by site
 
 ```{r frog-survival-by-site}
 cohort_survival %>% 
@@ -104,7 +109,19 @@ frog_translocation %>%
 ```
 * The presence of shore habitat that is accessible to frogs appears to have a strong effect on survival. 
 * Is this a direct effect, or an effect mediated through a correlated variable? For example, lakes lacking shore habitat are often those whose surface elevation decreases during the summer, leaving the shore habitat dry and inaccessible. Lower elevation lakes are more likely to experience lake elevation reductions, and are also likely to contain abundant frog predators. 
-* Will be important to include both shore habitat and elevation in model. 
+* Due to potential dependence between elevation and shore variables, unclear if it will be possible to include both shore habitat and elevation in model. 
+
+## Relationship between shore habitat and elevation
+
+```{r shorehabitat-elevation-plot}
+frog_translocation %>% 
+  distinct(site_id, shore, elevation) %>% 
+  mutate(shore = as_factor(shore)) %>% 
+  ggplot(aes(x = shore, y = elevation)) +
+    geom_boxplot() +
+    labs(x = "Shore habitat availability", y = "Elevation")
+```
+
 
 ## Relationship between translocation order and 1-year survival
 
@@ -129,7 +146,8 @@ cohort_survival %>%
   filter(n > 1) %>% 
     ggplot(aes(x = order, y = median_survival, group = site_id, color = site_id)) + 
       geom_line() +
-      geom_point()
+      geom_point() +
+      scale_color_manual(values = palette_cbb)
 ```
 * Contingency table results suggest that translocation order does not affect survival of translocated cohort. However, not a particularly rigorous comparison because order is grouped within sites. 
 * Line plot includes all sites that received two or more translocated cohorts. At 6 of 8 of these sites, cohorts after the first cohort (i.e., 2-4) had lower survival than the first cohort. At 2 of 8 sites, the second cohort had higher survival.
@@ -163,11 +181,37 @@ frog_translocation %>%
   summarize(lbdload_med = median(lbdload)) %>% 
   inner_join(recipient_donor, by = c("site_id", "date")) %>% 
     ggplot(aes(x = donor, y = lbdload_med)) + 
-      geom_point(size = 3) +
+      geom_boxplot() +
       labs(x = "Donor site", y = "Median Bd load (log10 + 1 transformed)")
+
+frog_translocation %>% 
+  drop_na(bd_load) %>% 
+  mutate(lbdload = log10(bd_load + 1)) %>% 
+  group_by(site_id, date) %>% 
+  summarize(lbdload_med = median(lbdload)) %>% 
+  inner_join(recipient_donor, by = c("site_id", "date")) %>% 
+  inner_join(cohort_survival, by = c("site_id", "date" = "release_date")) %>% 
+    ggplot(aes(x = lbdload_med, y = median_survival)) + 
+      geom_point() +
+      geom_smooth(method = "lm") +
+      labs(x = "Cohort-level median Bd load (log10 + 1 transformed)", y = "Median cohort-level frog survival")
+
+frog_translocation %>% 
+  drop_na(bd_load) %>% 
+  mutate(lbdload = log10(bd_load + 1)) %>% 
+  group_by(site_id, date) %>% 
+  summarize(lbdload_med = median(lbdload)) %>% 
+  inner_join(recipient_donor, by = c("site_id", "date")) %>% 
+  inner_join(cohort_survival, by = c("site_id", "date" = "release_date")) %>% 
+    ggplot(aes(x = lbdload_med, y = median_survival, color = donor, group = donor)) + 
+      geom_point() +
+      geom_smooth(method = "lm", se = FALSE) +
+      labs(x = "Cohort-level median Bd load (log10 + 1 transformed)", y = "Median cohort-level frog survival") +
+      scale_color_manual(values = palette_cbb)
 ```
-* The 3 donor sites differ somewhat in bd_load of translocated cohorts. 
-* Among donor sites, survival of translocated cohorts is inversely related to median bd_load of cohorts. 
+* Across all translocated frogs, the 3 donor sites have similar bd_loads. A plot of The 3 donor sites differ somewhat in bd_load of translocated cohorts. 
+* Across all donor sites and translocations, survival of translocated cohorts may be weakly inversely related to median bd_load of cohorts. However, grouping by donor site shows that each donor site has its own bd_load-frog survival relationship. 
+* bd_load unrelated, or perhaps weakly related to differences in frog survival between donor sites. 
 
 ## Relationship between sex and 1-year survival
 
@@ -231,7 +275,7 @@ frog_translocation %>%
 
 * Frog survival has increased with year, perhaps as a result of improved ability to select sites with high quality frog habitat. 
 
-## Relationship between length and frog survival
+## Relationship between frog size and survival
 
 ```{r length-frogsurvival-plot}
 frog_translocation %>% 
@@ -247,9 +291,9 @@ frog_translocation %>%
 * Frog size at the time of translocation has a strong positive effect on survival. 
 * This effect could explain, at least in part, the differences in survival between donor sites. 72996 contains the smallest frogs and has the lowest survival of translocated frogs. In theory, the size effect could be caused by a positive relationship between frog size and bd_load. However, the plot below suggests that bd_load is unaffected by frog size. As such, effect of frog size appears independent of an effect of bd_load.    
 
-## Effect of frog size on bd_load
+## Relationship between frog size and bd_load
 
-```{r}
+```{r frogsize-bdload-plot}
 frog_translocation %>% 
   drop_na(bd_load) %>% 
   mutate(lbdload = log10(bd_load + 1)) %>% 
@@ -258,4 +302,86 @@ frog_translocation %>%
     geom_smooth(method = "lm")
 
 ```
+
+## Relationship between donor site and frog length
+
+```{r site-frogsize-plot}
+frog_translocation %>% 
+  ggplot(aes(x = donor, y = length)) +
+    geom_boxplot()
+```
+* The relationship between donor site and frog length suggests that frog length is only partly responsible for the relationship between donor site and frog survival (frog survival: 70459 > 70567 > 72996). Perhaps some combination of frog size, bd_load, and genetic factors is associated with frog susceptibility?
+
+## Relationship between winter severity in year of translocation on frog survival
+
+```{r}
+frog_translocation %>% 
+  mutate(snow_t_int = cut_interval(snow_t, n = 3)) %>% # create 3 bins from snow_t range  
+  group_by(snow_t_int, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>% 
+  filter(surv == 1) %>% 
+  ggplot(aes(x = snow_t_int, y = propsurv)) + 
+    geom_bar(stat = "identity") +
+    labs(x = "Winter severity in year of translocation", y = "Proportion that survived at least 1 year")
+
+frog_translocation %>% 
+  distinct(site_id, date, donor, snow_t) %>% 
+  inner_join(cohort_survival, by = c("site_id", "date" = "release_date")) %>% 
+    ggplot(aes(x = snow_t, y = median_survival)) + 
+      geom_point() +
+      geom_smooth(method = "lm") +
+      labs(x = "Winter severity in year of translocation", y = "Median cohort-level frog survival")
+
+frog_translocation %>% 
+  distinct(site_id, date, donor, snow_t) %>% 
+  inner_join(cohort_survival, by = c("site_id", "date" = "release_date")) %>% 
+    ggplot(aes(x = snow_t, y = median_survival, color = donor)) + 
+      geom_point() +
+      geom_smooth(method = "lm") +
+      labs(x = "Winter severity in year of translocation", y = "Median cohort-level frog survival") +
+      scale_color_manual(values = palette_cbb)
+```
+* Hypothesized mechanism: Severity of winter preceding translocation could affect frog condition and subsequent survival of translocated frogs. For example, frogs that just experienced a long winter would be in relatively poor condition and that could reduce survival following translocation. 
+* No obvious effect of winter severity in year of translocation and frog survival. 
+
+## Relationship between winter severity in year following translocation on frog survival
+
+```{r}
+frog_translocation %>% 
+  mutate(snow_t1_int = cut_interval(snow_t1, n = 3)) %>% # create 4 bins from snow_t range  
+  group_by(snow_t1_int, surv) %>% 
+  summarize(n = n()) %>% 
+  mutate(propsurv = n/sum(n)) %>% 
+  filter(surv == 1) %>% 
+  ggplot(aes(x = snow_t1_int, y = propsurv)) + 
+    geom_bar(stat = "identity") +
+    labs(x = "Winter severity in year following translocation", y = "Proportion that survived at least 1 year")
+
+frog_translocation %>% 
+  distinct(site_id, date, donor, snow_t1) %>% 
+  inner_join(cohort_survival, by = c("site_id", "date" = "release_date")) %>% 
+    ggplot(aes(x = snow_t1, y = median_survival)) + 
+      geom_point() +
+      geom_smooth(method = "lm") +
+      labs(x = "Winter severity in year following translocation", y = "Median cohort-level frog survival")
+
+frog_translocation %>% 
+  distinct(site_id, date, donor, snow_t1) %>% 
+  inner_join(cohort_survival, by = c("site_id", "date" = "release_date")) %>% 
+    ggplot(aes(x = snow_t1, y = median_survival, color = donor)) + 
+      geom_point() +
+      geom_smooth(method = "lm") +
+      labs(x = "Winter severity in year following translocation", y = "Median cohort-level frog survival") +
+      scale_color_manual(values = palette_cbb)
+```
+
+* Hypothesized mechanism: Severity of winter follow translocation could affect frog condition and subsequent survival of translocated frogs in the first year following translocation. For example, a long winter following translocation could reduce survival in the first year. 
+* No obvious effect of winter severity in year following translocation and frog survival. 
+
+
+
+
+
+
 
