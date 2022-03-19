@@ -1,7 +1,7 @@
 Notebook: Predictors of frog survival following translocation
 ================
 Roland Knapp
-2022-03-15
+2022-03-16
 
 -   [Dataset structure](#dataset-structure)
 -   [Exploratory analyses](#exploratory-analyses)
@@ -29,8 +29,9 @@ Roland Knapp
 -   date: date frogs released at recipient site  
 -   year: year frogs released at recipient site  
 -   day: day of the year on which frogs were released  
--   order: order of translocations to a site, from 1-4. Recoded as 0/1:
-    0 = first translocation to site; 1 = subsequent translocations  
+-   order: order of translocations to a site, from 1-4. Recoded prior to
+    analysis (“order_f”) as 0/1: 0 = first translocation to site; 1 =
+    subsequent translocations  
 -   donor: site_id from which frogs were collected for translocation  
 -   pit_tag_ref: pit tag id  
 -   sex: m or f, recoded for analysis as 0 for males and 1 for females  
@@ -40,9 +41,8 @@ Roland Knapp
     collected on capture (as with length and weight)  
 -   survival: individual-level estimated survival 1 year following
     translocation, based on cmr surveys conducted for at least two years
-    post-translocation  
--   surv: survival variable recoded as 0/1 (0: survival \< 0.5; 1:
-    survival ≥ 0.5)
+    post-translocation. Prior to analysis, recoded (“surv”) as 0/1 (0:
+    survival \< 0.5; 1: survival ≥ 0.5)
 
 Maximum depth and surface area would seem useful to include, but 74976
 is a stream/meadow habitat and as such depth and area at that site are
@@ -80,10 +80,10 @@ translocation_survival_exploratory.Rmd provide several notable insights.
     translocations per site).
 -   Donor site has a strong effect on frog survival, with 70459 \> 70567
     \> 72996. Explored possible effects of bd_load and frog size as
-    drivers of this pattern. Differences in bd_load between donor sites
-    seems unrelated to survival, but appears closely associated with
-    frog size (see sub-bullets below). Whether frog size is the sole
-    driver or is a results of frog size plus other unmeasured donor site
+    drivers of this pattern. Differences in survival between donor sites
+    seem unrelated to bd_load, but appear closely associated with frog
+    size (see sub-bullets below). Whether frog size is the sole driver
+    or is a results of frog size plus other unmeasured donor site
     attributes (e.g., degree of resistance against Bd infection) remains
     to be seen.
     -   Minimal differences between donor sites in median bd_load, but
@@ -163,17 +163,20 @@ problems?
 
 Final steps before building model (in analysis Rmd):
 
--   Format some variables as factor(?): Order, donor, sex, site_id,
-    year?  
--   Recode order as 0/1.  
--   Express binary variables as 0/1: Order, sex (see Gelman reference
-    below).  
--   Standardize continuous variables: Elevation, snow_t, snow_t1, day,
+-   Recode order as 0/1 (instead of 1–4).  
+-   Recode survival as 0/1 (instead of continuous probality).  
+-   Recode binary variables as 0/1 (or format as factor): sex (see
+    Gelman reference below).  
+-   Format some variables as factor: surv, shore, order, donor, sex,
+    site_id, year.  
+-   Standardize continuous variables: elevation, snow_t, snow_t1, day,
     length, log(bd_load). Gelman recommends standardizing by dividing by
-    2 standard deviations. Puts continuous variables on approximately
-    the same scale as binary (0/1) variables, if 0/1 groups have roughly
-    equal numbers of observations.  
--   Survival: Create 0/1 variable from probabilities.
+    2 standard deviations. Standardizing allows assessment of importance
+    of predictors by comparing regressions coefficients. Dividing by 2
+    SD puts continuous variables on approximately the same scale as
+    binary (0/1) variables. This is true only if binary predictors have
+    similar number of 0s and 1s. Sex: female = 428, male = 351; order: 0
+    = 507, 1 = 272.
 
 Relevant references are as follows:
 
