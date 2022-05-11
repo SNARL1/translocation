@@ -11,6 +11,7 @@ This notebook contains exploratory analyses to aid in the design of the final an
 ```{r load-packages}
 library(tidyverse)
 library(lubridate)
+library (GGally)
 ```
 
 ## Read in frog translocation dataset
@@ -46,7 +47,57 @@ rm(files)
 palette_cbb <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 ```
 
-## Plot of frog survival for each translocation - grouped by site
+## Pairs plot to evaluate between-variable correlations
+```{r pairs-plots}
+# Translocation-specific variables
+frog_translocation %>% 
+  distinct(site_id, date, .keep_all = TRUE) %>% 
+  select(elevation, shore, order, snow_t, snow_t1, year, day) %>% 
+  mutate(across(c("shore", "order"), as.factor)) %>% 
+  ggpairs()
+
+# Frog-specific variables
+frog_translocation %>% 
+  mutate(bdload_l = log10(bd_load + 1),
+         across(c("donor" , "sex"), as.factor)) %>% 
+  select(donor, sex, length, weight, bdload_l) %>% 
+  ggpairs()
+```
+* Elevations for shore = 0 and shore = 1 do not overlap at all, so there is no ability to disentangle these two variables. Include only elevation in model. * snow_t and day are positively correlated, reflecting the fact that in summers following severe winters, tranlocations were conducted later in the summer. Correlation is relatively weak so may not cause issues in analysis.  
+* Few translocations with order > 2, combine group = 2-4 into a single group. 
+* Frogs from the 72996 donor population were smaller and had somewhat higher bd loads than frogs from the other two donor populations.  
+* Frog length and weight were highly correlated, as expected.  
+
+## Association between site_id grouping variable and some predictors
+* If site_id is closely associated with a predictor, will adding site_id as a group-level effect largely account for the effect of the predictor?
+```{r siteid-predictor-count}
+frog_translocation %>% 
+  distinct(site_id, date, .keep_all = TRUE) %>% 
+  distinct(site_id, elevation) %>% 
+  count(site_id)
+
+frog_translocation %>% 
+  distinct(site_id, date, .keep_all = TRUE) %>% 
+  mutate(first = if_else(order == 1, 1, 0)) %>% 
+  distinct(site_id, order) %>% 
+  count(site_id)
+
+frog_translocation %>% 
+  distinct(site_id, date, .keep_all = TRUE) %>% 
+  distinct(site_id, snow_t) %>% 
+  count(site_id)
+```
+* Only a single value of elevation per site_id (obviously), so could bin elevation (low elevation, high elevation) to weaken that association.  
+* Multiple values of winter severity and order per site_id, so those two variables are only loosely associated with site_id. 
+
+```{r siteid-elevation-binned}
+frog_translocation %>% 
+  mutate(elev_b = cut_number(elevation, n = 2)) %>% 
+  distinct(site_id, elevation, elev_b) %>% 
+  count(elev_b)
+```
+
+## Plot of frog survival for each translocation - grouped by site and arranged by site-specific median survival 
 
 ```{r frog-survival-by-site}
 cohort_survival %>% 
@@ -61,9 +112,25 @@ cohort_survival %>%
       geom_point(size = 3) +
       labs(x = "Recipient site", y = "1-year frog survival")
 ```
-* Strong effect of site on frog survival.
+* Strong effect of site/translocation on frog survival.
 * Survival is highly variable across sites, but highly repeatable within a site. 
-* Indicates need to include site_id as a group-level effect. 
+* Indicates need to include site_id and/or translocation_id as group-level effect(s). 
+
+## Plot of frog survival for each translocation - grouped by elevation
+
+```{r frog-survival-by-elevation}
+frog_translocation %>%
+  distinct(site_id, date, elevation) %>% 
+  inner_join(cohort_survival, by = c("site_id", "date" = "release_date")) %>% 
+    ggplot(aes(x = elevation, y = median_survival)) + 
+      geom_vline(aes(xintercept = elevation), linetype = "dotted", color = "darkgray") +
+      geom_point(size = 3) +
+      geom_text(aes(label = site_id, x = elevation, y = 1.05), angle = 90) +
+      coord_cartesian(ylim = c(0, 1.08)) +
+      labs(x = "Elevation of recipient site", y = "1-year frog survival")
+```
+Elevation has a clear effect on frog survival, but there is a substantial amount of variation that remains unaccounted for. 
+
 
 ## Relationship between bd_load at release and 1-year survival
 ```{r bdload-frogsurvival-plot}
@@ -209,9 +276,9 @@ frog_translocation %>%
       labs(x = "Cohort-level median Bd load (log10 + 1 transformed)", y = "Median cohort-level frog survival") +
       scale_color_manual(values = palette_cbb)
 ```
-* Across all translocated frogs, the 3 donor sites have similar bd_loads. A plot of The 3 donor sites differ somewhat in bd_load of translocated cohorts. 
+* Across all translocated frogs, the 3 donor sites have similar bd_loads. A plot of the 3 donor sites indicate slight differences in bd_load of translocated cohorts. 
 * Across all donor sites and translocations, survival of translocated cohorts may be weakly inversely related to median bd_load of cohorts. However, grouping by donor site shows that each donor site has its own bd_load-frog survival relationship. 
-* bd_load unrelated, or perhaps weakly related to differences in frog survival between donor sites. 
+* bd_load unrelated, or perhaps weakly related, to differences in frog survival between donor sites. 
 
 ## Relationship between sex and 1-year survival
 
@@ -308,7 +375,7 @@ frog_translocation %>%
 ```{r site-frogsize-plot}
 frog_translocation %>% 
   ggplot(aes(x = donor, y = length)) +
-    geom_boxplot()
+    geom_dotplot(binaxis = "y", stackdir = "center", dotsize = 0.4, fill = "white", stackratio = 0.7)
 ```
 * The relationship between donor site and frog length suggests that frog length is only partly responsible for the relationship between donor site and frog survival (frog survival: 70459 > 70567 > 72996). Perhaps some combination of frog size, bd_load, and genetic factors is associated with frog susceptibility?
 
