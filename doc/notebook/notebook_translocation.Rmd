@@ -122,8 +122,11 @@ Relevant references:
   * Moving beyond noninformative priors: why and how to choose weakly informative priors in Bayesian analyses: https://doi.org/10.1111/oik.05985.  
   * Choosing priors in Bayesian ecological models by simulating from the prior predictive distribution: https://doi.org/10.1002/ecs2.3739.  
 
+## Results
+* Important predictor variables in all models are relatively consistent (see `translocation_analysis_survival.Rmd` for details). 
+
 ## Next steps
-* Frog size had a marginally important effect on frog survival. Given association between frog size and donor varibles, create a second model that includes only donor = 72996. Given that there is considerable variation in frog sizes translocated from this site, this might allow an assessment of the effect of frog size independent of any effect of donor.  
-* To assess within-site association between survival for the first and subsequent translocated cohorts, build another dataset that includes all recipient sites for which > 1 translocation was conducted. Include survival from the first translocation as the response variable and survival from the subsequent translocations as a predictor variable. Other predictors could also be included. 
+* Frog size had a marginally important effect on frog survival. Given association between frog size and donor variables, create a second model that includes only donor = 72996. Given that there is considerable variation in frog sizes translocated from this site, this might allow an assessment of the effect of frog size independent of any effect of donor.  
+* To assess within-site association between survival for the first and subsequent translocated cohorts, build another dataset that includes all recipient sites for which > 1 translocation was conducted. Include survival from the first translocation as the response variable and survival from the subsequent translocations as a predictor variable. Other predictors could also be included (e.g., year). 
 
 
