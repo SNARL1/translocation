@@ -87,7 +87,9 @@ Exploratory data analyses conducted in translocation_survival_exploratory.Rmd pr
 * Frog size had strong effect on 1-year survival.  
 * Minimal differences in survival between males and females (slightly higher in males).  
 
-## Model structure
+## Analyses
+
+### Model structure
 
 As originally conceived: survival \~ elevation + shore + snow_t + snow_t1 + year + day + order + donor + sex + length + log(bdload) \| site_id
 
@@ -103,12 +105,12 @@ The dataset has three sources of hierarchical structure: site_id, translocation_
 
 Interactions between predictor variables: General guidance is that interactions between the most important predictors should be included in model.  
 
-## Final steps before building model (in analysis Rmd):
+### Dataset: Final steps before building model
 
 * Bin elevation into "low" and "high" groups.  
 * Recode order as 0/1 (instead of 1--4): "first".  
 * Recode survival as 0/1 (instead of continuous probability): "surv".  
-* Recode binary variables as 0/1 indicators: elevation ("elev_lo"), sex ("male"). See Gelman reference below).  
+* Recode binary variables as 0/1 indicators: elevation ("elev_lo"), sex ("male"). See Gelman reference below.  
 * Format relevant variables as factors: surv, elev_lo, shore, first, donor, male, year, site_id, translocation_id.  
 * Standardize continuous variables: elevation, snow_t, snow_t1, day, length. Possibly standardize log(bd_load) also, but see Gelman for recommendations. Gelman recommends centering by subtracting the mean and standardizing by dividing by 2 standard deviations. Centering to a mean of 0 makes interactions more interpretable. Standardizing allows assessment of importance of predictors by comparing regression coefficients. Dividing by 2 SD puts continuous variables on approximately the same scale as binary (0/1) variables. This is true only if binary predictors have similar number of 0s and 1s. In the current dataset, there is some deviation from 1:1. Sex: female = 428, male = 351; order: 0 = 507, 1 = 272. Binary variables should be centered but not standardized. Variables in need of log-transformation should be transformed and then rescaled, although rescaling will not always be necessary.  
 
@@ -116,17 +118,22 @@ Relevant references:
 * Gelman 2008: https://doi.org/10.1002/sim.3107  
 * Schielzeth 2010: https://doi.org/10.1111/j.2041-210X.2010.00012.x  
 
-## Priors
+### Priors
 * For regression coefficients in logistic regression: A recommended weakly informative prior is beta ~ student_t(nu,0,s), where s is chosen to provide weak information on the expected scale, and 3<nu<7.  https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations.  
 * Other recommendations in:  
   * Moving beyond noninformative priors: why and how to choose weakly informative priors in Bayesian analyses: https://doi.org/10.1111/oik.05985.  
   * Choosing priors in Bayesian ecological models by simulating from the prior predictive distribution: https://doi.org/10.1002/ecs2.3739.  
 
 ## Results
-* Important predictor variables in all models are relatively consistent (see `translocation_analysis_survival.Rmd` for details). 
+- Important predictors of the 1-year survival of translocated frogs were quite consistent across all models (see `translocation_analysis_survival.Rmd` for details).  
+- In the "best" model that included standardized predictors and translocation_id as a grouping variable, important predictors included elevation (+), winter severity in the year following translocation (-), and donor[72996] (-). Model R2 was 0.32, so a substantial amount of variation remained unaccounted for.  
+- Comparison of different grouping structures (translocation_id, site_id, translocation_id nested within site_id) indicated that all had similar posterior predictive accuracy. However, using translocation_id as the grouping variable allowed greater insights into the effects of the predictor variables, presumably due to the greater variation associated with the translocation_id grouping variable (n = 24) compared to the site_id grouping variables (n = 12).  
+- Posterior predictive accuracy of "best" model was 0.79, and the true negative rate (proportion of frogs that did not survive that were accurately classified as not surviving: 0.88) was higher than the true positive rate (proportion of frogs that survived that were accurately classified as surviving: 0.59). Indicates that with the available site-level and frog-level predictors, frog non-survival is more accurately predicted than frog survival. This is borne out by sites such as 70370 which has attributes suggesting high frog survival (e.g., high elevation, available bank habitat, few predators), but in fact frogs from both translocations experienced very low survival. In contrast, no examples exist of sites where frog survival was (retrospectively) predicted to be low, but actual survival was high (although 70449 comes closest to providing such an example).   
+- Two supplementary analyses were conducted to gain additional insights into the 1-year survival model.  
+  - Because the three donor populations differed in the size of collected/translocated frogs, frog size was potentially associated with the important effect of donor population. Therefore, I reran the analysis using only frogs translocated from 72996. Despite substantial variation in the size of frogs collected/translocated from this site, results indicated that frog size was unrelated to frog survival. This suggests that the effect of donor population is due to an unmeasured population-level attribute, e.g., a characteristic associated with frog resistance/tolerance of Bd infection. The existence of such an attribute is suggested by the consistently high survival resulting from the four translocations conducted to date from 70459 to two very different sites, and the fact that in both recipient sites that have received frogs from 70459 tadpole mouthparts are fully pigmented. That is not the case with tadpoles at sites that received frogs from 72996.    
+  - The frog translocation dataset contained 12 records for which bd_load = NA. To allow inclusion of bd_load in the model, these 12 records were dropped. Given that bd_load was not an important predictor of frog survival, I reran the model using the complete dataset and dropping bd_load from the model. Dropping/including those 12 records had no effect on model results.   
+- The results from a secondary analysis to complement the 1-yr survival model demonstrated that the average survival in the first translocation was an important predictor of frog survival in subsequent translocations. This demonstrates the importance of recipient site attributes (elevation, habitat, predators, etc.) in determining frog survival.   
 
-## Next steps
-* Frog size had a marginally important effect on frog survival. Given association between frog size and donor variables, create a second model that includes only donor = 72996. Given that there is considerable variation in frog sizes translocated from this site, this might allow an assessment of the effect of frog size independent of any effect of donor.  
-* To assess within-site association between survival for the first and subsequent translocated cohorts, build another dataset that includes all recipient sites for which > 1 translocation was conducted. Include survival from the first translocation as the response variable and survival from the subsequent translocations as a predictor variable. Other predictors could also be included (e.g., year). 
+
 
 
