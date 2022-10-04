@@ -1,0 +1,115 @@
+---
+format: docx
+editor: visual
+csl: science.csl
+bibliography: translocation.bib
+reference-doc: translocation.docx
+---
+
+## Title: Reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease
+
+### Authors:
+
+Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^3,4^, Rob L. Grasso^8^, Erica Bree Rosenblum^3,4^ (exact order to be determined)
+
+### Affiliations:
+
+^1^Sierra Nevada Aquatic Research Laboratory, University of California; Mammoth Lakes, CA 93546, USA
+
+^2^Earth Research Institute, University of California; Santa Barbara, CA, 93106, USA
+
+^3^Department of Environmental Science, Policy, and Management, University of California; Berkeley, CA 94720, USA
+
+^4^Museum of Vertebrate Zoology, University of California; Berkeley, CA 94720, USA
+
+^5^Department of Forestry, Wildlife, and Fisheries, University of Tennessee Institute of Agriculture; Knoxville, TN 37996, USA
+
+^6^Earth Lab, University of Colorado; Boulder, CO 80303, USA
+
+^7^NCX; San Francisco, CA, XXXXX, USA
+
+^8^Resources Management and Science, Yosemite National Park; El Portal, CA 95318, USA
+
+\*Corresponding author: roland.knapp\@ucsb.edu
+
+### Abstract:
+
+### One Sentence Summary
+
+### Main Text:
+
+### References and Notes:
+
+### Acknowledgements:
+
+\#### Funding
+
+\#### Author contributions:
+
+\#### Competing interests:
+
+\#### Data and materials availability
+
+### Supplementary Materials:
+
+### Fig. #.
+
+### Table #.
+
+### Notes (author use only - not part of manuscript)
+
+Science:
+
+-   Research articles
+
+    -   Present a major advance.
+
+    -   Up to \~4500 words, including references, notes and captions.
+        Corresponds to approximately 5 printed pages in journal.
+
+    -   Up to 6 figures or tables, and about 40 references.
+
+-   Reports
+
+    -   New research results of broad significance.
+
+    -   Up to \~2500 words, including references, notes and captions.
+        Corresponds to approximately 3 printed pages in journal.
+
+    -   Up to 4 figures or tables, and about 30 references.
+
+Nature
+
+-   Articles
+
+    -   Original reports whose conclusions represent a substantial advance in understanding of an important problem and have immediate, far-reaching implications.
+
+    -   Biological sciences papers do not normally exceed 8 pages.
+        This would be approximately 4300 words and 5-6 modest display items.
+
+PNAS
+
+-   Research reports
+
+    -   Original research of exceptional importance.
+
+    -   Preferred length is 6 pages, but up to 12 pages is allowed.
+        6 page article is approximately 4,000 words, 50 references, and 4 medium-size figures or tables.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code.
+You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
