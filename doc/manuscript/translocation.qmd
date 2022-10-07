@@ -3,7 +3,7 @@ format: docx
 editor: visual
 csl: science.csl
 bibliography: translocation.bib
-reference-doc: translocation.docx
+reference-doc: translocation_style_ref.docx
 ---
 
 ## Title: Reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease
@@ -37,6 +37,26 @@ Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Jos
 ### One Sentence Summary
 
 ### Main Text:
+
+Severe effects of disease on global biodiversity (bats, primates, amphibians, corals, etc.)
+
+Host evolution and population persistence/recovery
+
+-   Tasmanian devils: Epstein et al. (2016)
+
+-   Frogs in Australia: Grogan et al. (2018), McKnight et al. (2020)
+
+-   Frogs in Panama: Voyles et al. (2018)
+
+-   Frogs in the Sierra Nevada: Knapp et al. (2016)
+
+Population reestablishment using reintroduction of resistant hosts
+
+-   Mendelson et al. (2019)
+
+-   Scheele et al. (2021)
+
+-   Joseph and Knapp (2018)
 
 ### References and Notes:
 
