@@ -38,25 +38,39 @@ Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Jos
 
 ### Main Text:
 
-Severe effects of disease on global biodiversity (bats, primates, amphibians, corals, etc.)
+Severe effects of disease on global biodiversity (bats, primates, amphibians, corals, sea stars, etc.)
 
 Host evolution and population persistence/recovery
 
--   Tasmanian devils: Epstein et al. (2016)
+-   Species recovery in the face of disease will depend the ability of a species to move or change. 
 
--   Frogs in Australia: Grogan et al. (2018), McKnight et al. (2020)
+-   Rapid evolution termed "evolutionary rescue" can reverse ongoing declines in some species (Golas et al. 2021; Searle et al. 2021). (Not sure if Allie wants to go the ER direction)
+
+-   ER has been proposed as a mechanism of recovery in wildlife populations decimated by disease (Epstein et al. 2016, Schiebelhut et al. 2018).
+
+-   Tasmanian devils: Epstein et al. (2016), Wells et al., Ecology (2019)
+
+-   Frogs in Australia: Grogan et al. (2018), McKnight et al. (2020), Newell et al. (2013), Scheele et al., Biological Conservation (2014)
 
 -   Frogs in Panama: Voyles et al. (2018)
 
 -   Frogs in the Sierra Nevada: Knapp et al. (2016)
 
+-   Sea Star Wasting Disease: Menge et al., Plos One (2016), Schiebelhut et al. PNAS (2018)
+
+-   **Potential knowledge gap**: Subsequent recoveries from disease-induced declines following observed genetic changes have rarely [never?] been documented in wildlife populations. 
+
 Population reestablishment using reintroduction of resistant hosts
+
+-   "Rescued" populations provide a source to repatriate extirpated populations and disentangle the effects of the local environment and genetics on host recoveries. 
 
 -   Mendelson et al. (2019)
 
 -   Scheele et al. (2021)
 
 -   Joseph and Knapp (2018)
+
+-   **Potential knowledge gap/opportunity/selling point**: For rescued populations to contribute to landscape-scale species recovery, the fitness benefits gained through selection should manifest beyond the natal environment, allowing for the long-term growth and persistence of incipient populations in novel environmental conditions. A unique attribute of this study is that by combining repeated translocations of "rescued" populations, longitudinal surveys, mark-recapture analysis, and population modeling we demonstrate the capacity of "rescued" populations to persist across a landscape of disease. Thus, ER combined with translocations promotes the recovery of a species on the brink of disease-induced extinction.
 
 ### References and Notes:
 
