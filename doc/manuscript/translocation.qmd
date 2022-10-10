@@ -76,8 +76,6 @@ Population reestablishment using reintroduction of resistant hosts
     A unique attribute of this study is that by combining repeated translocations of "rescued" populations, longitudinal surveys, mark-recapture analysis, and population modeling we demonstrate the capacity of "rescued" populations to persist across a landscape of disease.
     Thus, ER combined with translocations promotes the recovery of a species on the brink of disease-induced extinction.
 
-[This is excellent. Thanks for adding it.]: #
-
 ### References and Notes:
 
 ### Acknowledgements:
