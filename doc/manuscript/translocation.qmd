@@ -43,8 +43,7 @@ Host evolution and population persistence/recovery
 
 -   Species recovery in the face of disease will depend on the ability of a species to move or change.
 
--   Rapid evolution termed "evolutionary rescue" can reverse ongoing declines in some species (Golas et al. 2021; Searle et al. 2021).
-    (Not sure if Allie wants to go the ER direction)
+-   Rapid evolution termed "evolutionary rescue" can reverse ongoing declines in some species (Golas et al. 2021; Searle et al. 2021). (Not sure if Allie wants to go the ER direction)
 
 -   ER has been proposed as a mechanism of recovery in wildlife populations decimated by disease (Epstein et al. 2016, Schiebelhut et al. 2018).
 
@@ -56,11 +55,9 @@ Host evolution and population persistence/recovery
 
     -   Frogs in the Sierra Nevada: Knapp et al. (2016)
 
-    -   Sea Star Wasting Disease: Menge et al., Plos One (2016), Schiebelhut et al.
-        PNAS (2018)
+    -   Sea Star Wasting Disease: Menge et al., Plos One (2016), Schiebelhut et al. PNAS (2018)
 
--   **Potential knowledge gap**: Subsequent recoveries from disease-induced declines following observed genetic changes have rarely \[never?\]
-    been documented in wildlife populations (Sea stars: Moritsch and Raimondi 2018?).
+-   **Potential knowledge gap**: Subsequent recoveries from disease-induced declines following observed genetic changes have rarely \[never?\] been documented in wildlife populations (Sea stars: Moritsch and Raimondi 2018?).
 
 Population reestablishment using reintroduction of resistant hosts
 
@@ -72,10 +69,7 @@ Population reestablishment using reintroduction of resistant hosts
 
 -   Joseph and Knapp (2018)
 
--   **Potential knowledge gap/opportunity/selling point**: For rescued populations to contribute to landscape-scale species recovery, the fitness benefits gained through selection should manifest beyond the natal environment, allowing for the long-term growth and persistence of incipient populations in novel environmental conditions.
-    A unique attribute of this study is that we describe the genetic changes associated with evolutionary rescue, and combine repeated translocations of "rescued" populations, longitudinal surveys, mark-recapture analysis, and population modeling to demonstrate the capacity of "rescued" populations to persist across a landscape of disease.
-    Thus, ER combined with translocations promotes the recovery of a species on the brink of disease-induced extinction.
-    These results may have broad implications for the many species worldwide that are threatened with extinction by the emergence of novel diseases.
+-   **Potential knowledge gap/opportunity/selling point**: For rescued populations to contribute to landscape-scale species recovery, the fitness benefits gained through selection should manifest beyond the natal environment, allowing for the long-term growth and persistence of incipient populations in novel environmental conditions. A unique attribute of this study is that we describe the genetic changes associated with evolutionary rescue, and combine repeated translocations of "rescued" populations, longitudinal surveys, mark-recapture analysis, and population modeling to demonstrate the capacity of "rescued" populations to persist across a landscape of disease. Thus, ER combined with translocations promotes the recovery of a species on the brink of disease-induced extinction. These results may have broad implications for the many species worldwide that are threatened with extinction by the emergence of novel diseases.
 
 Description of MYL frog species complex, impacts of Bd, and evidence of recent recovery.
 
@@ -91,41 +85,23 @@ Description of MYL frog species complex, impacts of Bd, and evidence of recent r
 
 #### Frog translocations
 
-Translocations of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
-We identified donor populations from which adult frogs could be collected using several years of visual encounter surveys (VES) and skin swab collections (Knapp et al. 2016).
-Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and had recovered from previous Bd-caused declines.
-Bd prevalence donor populations is high and Bd infection intensity (load) is below the level at which frog mortality is predicted (calculate mean prevalence and load).
-Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species (Knapp 2005).
+Translocations of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species. We identified donor populations from which adult frogs could be collected using several years of visual encounter surveys (VES) and skin swab collections (Knapp et al. 2016). Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and had recovered from previous Bd-caused declines. Bd prevalence donor populations is high and Bd infection intensity (load) is below the level at which frog mortality is predicted (calculate mean prevalence and load). Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species (Knapp 2005).
 
-Between 2006 and 2020 we conducted 1-4 translocations of adult frogs to 13 recipient sites (Table S1).
-In each translocation, adult frogs ($\geq$ 40 mm snout-vent length) were collected from one of three donor populations and measured, weighed, swabbed, and PIT tagged.
-Frogs were transported to the recipient site either on foot or via helicopter.
-Following release, translocated populations were visited one to six times per summer (calculate min, max, mean) and assessed using diurnal capture-mark-recapture (CMR) surveys and VES.
-CMR surveys allowed quantification of adult frog survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and subadult abundance.
+Between 2006 and 2020 we conducted 1-4 translocations of adult frogs to 13 recipient sites (Table S1). In each translocation, adult frogs ($\geq$ 40 mm snout-vent length) were collected from one of three donor populations and measured, weighed, swabbed, and PIT tagged. Frogs were transported to the recipient site either on foot or via helicopter. Following release, translocated populations were visited one to six times per summer (calculate min, max, mean) and assessed using diurnal capture-mark-recapture (CMR) surveys and VES. CMR surveys allowed quantification of adult frog survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and subadult abundance.
 
 <!--# Create table of translocation sites, years, frog numbers. Could also create a map if necessary -->
 
-During 2006-2012, CMR surveys were conducted conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs.
-Frog were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
-During 2013-2022, we used a robust design in which all habitats were searched during several consecutive days (secondary periods - calculate min, max, mean), and frogs were processed as described above.
-Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed only during the first capture, and identified only during subsequent captures.
-Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods as described in Joseph and Knapp (2018).
+During 2006-2012, CMR surveys were conducted conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs. Frog were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location. During 2013-2022, we used a robust design in which all habitats were searched during several consecutive days (secondary periods - calculate min, max, mean), and frogs were processed as described above. Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed only during the first capture, and identified only during subsequent captures. Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods as described in Joseph and Knapp (2018).
 
-During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
-VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and subadults.
-These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance.
+During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys. VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and subadults. These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance.
 
 #### Frog evolution in response to Bd
 
-We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects.
-Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering).
-These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality.
-Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
+We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects. Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering). These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality. Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
 
 <!--# Mention declining populations also? -->
 
-DNA samples were collected via buccal swabbing of xx-xx frogs from eight Bd-naive populations and seven recovering populations.
-These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
+DNA samples were collected via buccal swabbing of xx-xx frogs from eight Bd-naive populations and seven recovering populations. These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
 
 <!--# Create map of sample sites -->
 
@@ -157,8 +133,7 @@ Science:
 
     -   Present a major advance.
 
-    -   Up to approximately 4500 words, including references, notes and captions.
-        Corresponds to approximately 5 printed pages in journal (approxiumately 11 manuscript pages).
+    -   Up to approximately 4500 words, including references, notes and captions. Corresponds to approximately 5 printed pages in journal (approxiumately 11 manuscript pages).
 
     -   Up to 6 figures or tables, and about 40 references.
 
@@ -166,8 +141,7 @@ Science:
 
     -   New research results of broad significance.
 
-    -   Up to \~2500 words, including references, notes and captions.
-        Corresponds to approximately 3 printed pages in journal (approximately 6 manuscript pages).
+    -   Up to \~2500 words, including references, notes and captions. Corresponds to approximately 3 printed pages in journal (approximately 6 manuscript pages).
 
     -   Up to 4 figures or tables, and about 30 references.
 
@@ -177,8 +151,7 @@ Nature
 
     -   Original reports whose conclusions represent a substantial advance in understanding of an important problem and have immediate, far-reaching implications.
 
-    -   Biological sciences papers do not normally exceed 8 pages.
-        This would be approximately 4300 words and 5-6 modest display items.
+    -   Biological sciences papers do not normally exceed 8 pages. This would be approximately 4300 words and 5-6 modest display items.
 
 PNAS
 
@@ -186,13 +159,19 @@ PNAS
 
     -   Original research of exceptional importance.
 
-    -   Preferred length is 6 pages, but up to 12 pages is allowed.
-        6 page article is approximately 4,000 words, 50 references, and 4 medium-size figures or tables.
+    -   Preferred length is 6 pages, but up to 12 pages is allowed. 6 page article is approximately 4,000 words, 50 references, and 4 medium-size figures or tables.
+
+Nature Communications
+
+-   Article
+
+    -   Papers published by the journal represent important advances of significance to specialists within each field.
+
+    -   The main text (not including abstract, Methods, References and figure legends) is limited to 5,000 words. The maximum title length is 15 words.
 
 ## Running Code
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code.
-You can embed code like this:
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
 1 + 1
