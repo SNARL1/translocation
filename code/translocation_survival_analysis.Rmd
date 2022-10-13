@@ -581,6 +581,9 @@ plot(conditional_effects(m1d_reduce_brms, spaghetti = TRUE, mean = TRUE, ndraws 
 
 
 # Model 2: Survival of frogs from first translocation as predictor of survival in subsequent translocations
+
+This analysis explores the results shown in translocation_survival_exploratory.Rmd (code chunk name = "frog-survival-by-site"). This plot shows frog survival of all translocations grouped by site, and indicates that survival is highly variable across sites, but repeatable within a site. This analysis quantifies the association between survival in the first translocation and survival in subsequent translocations. 
+
 ## Load packages
 
 ```{r}
