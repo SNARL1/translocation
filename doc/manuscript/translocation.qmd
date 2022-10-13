@@ -101,7 +101,9 @@ We used exome capture methods to compare genomes of frogs in populations with di
 
 <!--# Mention declining populations also? -->
 
-DNA samples were collected via buccal swabbing of xx-xx frogs from eight Bd-naive populations and seven recovering populations. These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
+DNA samples were collected via buccal swabbing of xx-xx frogs from seven Bd-naive populations <!--# Dusy 10220 not included due to small sample size? --> and seven recovering populations.
+These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
+
 
 <!--# Create map of sample sites -->
 
