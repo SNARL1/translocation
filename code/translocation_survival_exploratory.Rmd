@@ -443,7 +443,7 @@ frog_translocation %>%
       scale_color_manual(values = palette_cbb)
 ```
 
-* Hypothesized mechanism: Severity of winter follow translocation could affect frog condition and subsequent survival of translocated frogs in the first year following translocation. For example, a long winter following translocation could reduce survival in the first year. 
+* Hypothesized mechanism: Severity of winter following translocation could affect frog condition and subsequent survival of translocated frogs in the first year following translocation. For example, a long winter following translocation could reduce survival in the first year. 
 * No obvious effect of winter severity in year following translocation and frog survival. 
 
 
