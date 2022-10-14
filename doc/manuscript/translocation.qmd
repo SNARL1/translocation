@@ -1,7 +1,7 @@
 ---
 format: docx
 editor: visual
-csl: science.csl
+csl: nature.csl
 bibliography: translocation.bib
 ---
 
@@ -11,33 +11,37 @@ bibliography: translocation.bib
 
 ### Authors:
 
-Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^3,4^, Rob L. Grasso^8^, Erica Bree Rosenblum^3,4^ (exact order to be determined)
+Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^3,4^, Rob L. Grasso^8^, Erica Bree Rosenblum^3,4^
+
+<!--# Exact author order to be determined) -->
 
 ### Affiliations:
 
-^1^Sierra Nevada Aquatic Research Laboratory, University of California; Mammoth Lakes, CA 93546, USA
+^1^Sierra Nevada Aquatic Research Laboratory, University of California, Mammoth Lakes, CA, USA
 
-^2^Earth Research Institute, University of California; Santa Barbara, CA, 93106, USA
+^2^Earth Research Institute, University of California, Santa Barbara, CA, USA
 
-^3^Department of Environmental Science, Policy, and Management, University of California; Berkeley, CA 94720, USA
+^3^Department of Environmental Science, Policy, and Management, University of California.
+Berkeley, Berkeley, CA, USA
 
-^4^Museum of Vertebrate Zoology, University of California; Berkeley, CA 94720, USA
+^4^Museum of Vertebrate Zoology, University of California, Berkeley, Berkeley, CA, USA
 
-^5^Department of Forestry, Wildlife, and Fisheries, University of Tennessee Institute of Agriculture; Knoxville, TN 37996, USA
+^5^Department of Forestry, Wildlife, and Fisheries, University of Tennessee Institute of Agriculture, Knoxville, TN, USA
 
-^6^Earth Lab, University of Colorado; Boulder, CO 80303, USA
+^6^Earth Lab, University of Colorado, Boulder, CO, USA
 
-^7^NCX; San Francisco, CA, XXXXX, USA
+^7^NCX, San Francisco, CA, USA
 
-^8^Resources Management and Science, Yosemite National Park; El Portal, CA 95318, USA
+^8^Resources Management and Science, Yosemite National Park, El Portal, CA , USA
 
 \*Corresponding author: roland.knapp\@ucsb.edu
 
 ### Abstract
 
+```{=html}
 <!--# No more than 200 words, follow structure described in instructions for authors. 2-3 sentences of basic-level introduction to the field; a brief account of the background and rationale of the work; a statement of the main conclusions (introduced by the phrase 'Here we show' or its equivalent);
  and finally, 2-3 sentences putting the main findings into general context so it is clear how the results described in the paper have moved the field forwards. See [annotated example](https://www.nature.com/documents/nature-summary-paragraph.pdf).  -->
-
+```
 ### Main
 
 <!--# subheadings can be used, can be "teasers" of results (up to 40 characters) -->
@@ -59,7 +63,7 @@ Host evolution and population persistence/recovery
 
     -   Frogs in Panama: Voyles et al. (2018)
 
-    -   Frogs in the Sierra Nevada: Knapp et al. (2016)
+    -   Frogs in the Sierra Nevada: Knapp et al. (2016) @knapp2016
 
     -   Sea Star Wasting Disease: Menge et al., Plos One (2016), Schiebelhut et al.
         PNAS (2018)
@@ -94,11 +98,16 @@ Description of MYL frog species complex, impacts of Bd, and evidence of recent r
 
 <!--# In initial submission, include figure legends with their corresponding figures. -->
 
+### References
+
+::: {#refs}
+:::
+
 ### Methods
 
 <!--# Typically less than 3000 words -->
 
-#### Frog evolution in response to Bd 
+#### Frog evolution in response to Bd
 
 <!--# subheadings can be used, up to 40 characters -->
 
@@ -227,13 +236,17 @@ Using Approximate Bayesian Computing and rejection sampling (Kosmala et al. 2015
 The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution (Beaumont 2010).
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
 
+### Data availability
+
 ### References
 
 ### Acknowledgements
 
 ### Author contributions
 
-### Competing interests statement
+### Competing interests
+
+The authors declare no competing interests.
 
 ### Additional information
 
