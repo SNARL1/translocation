@@ -7,6 +7,8 @@ bibliography: translocation.bib
 
 ## Title: Reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease
 
+<!--# 75 characters. Suggestions to make this more compelling? Use "Evolutionary rescue"? -->
+
 ### Authors:
 
 Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^3,4^, Rob L. Grasso^8^, Erica Bree Rosenblum^3,4^ (exact order to be determined)
@@ -31,11 +33,14 @@ Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Jos
 
 \*Corresponding author: roland.knapp\@ucsb.edu
 
-### Abstract:
+### Abstract
 
-### One Sentence Summary
+<!--# No more than 200 words, follow structure described in instructions for authors. 2-3 sentences of basic-level introduction to the field; a brief account of the background and rationale of the work; a statement of the main conclusions (introduced by the phrase 'Here we show' or its equivalent);
+ and finally, 2-3 sentences putting the main findings into general context so it is clear how the results described in the paper have moved the field forwards. See [annotated example](https://www.nature.com/documents/nature-summary-paragraph.pdf).  -->
 
-### Main Text:
+### Main
+
+<!--# subheadings can be used, can be "teasers" of results (up to 40 characters) -->
 
 Severe effects of disease on global biodiversity (bats, primates, amphibians, corals, sea stars, etc.)
 
@@ -85,7 +90,29 @@ Description of MYL frog species complex, impacts of Bd, and evidence of recent r
 
 #### Population viability modeling
 
+### Figures and figure legends
+
+<!--# In initial submission, include figure legends with their corresponding figures. -->
+
 ### Methods
+
+<!--# Typically less than 3000 words -->
+
+#### Frog evolution in response to Bd 
+
+<!--# subheadings can be used, up to 40 characters -->
+
+We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects.
+Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering).
+These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality.
+Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
+
+<!--# Mention sampled declining populations also? -->
+
+DNA samples were collected via buccal swabbing of xx-xx frogs from seven Bd-naive populations <!--# Dusy 10220 not included due to small sample size? --> and seven recovering populations.
+These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
+
+<!--# Create map of sample sites -->
 
 #### Frog translocations
 
@@ -112,20 +139,6 @@ Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods 
 During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
 VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and subadults.
 These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance.
-
-#### Frog evolution in response to Bd
-
-We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects.
-Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering).
-These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality.
-Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
-
-<!--# Mention sampled declining populations also? -->
-
-DNA samples were collected via buccal swabbing of xx-xx frogs from seven Bd-naive populations <!--# Dusy 10220 not included due to small sample size? --> and seven recovering populations.
-These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
-
-<!--# Create map of sample sites -->
 
 #### Population viability modeling
 
@@ -214,23 +227,25 @@ Using Approximate Bayesian Computing and rejection sampling (Kosmala et al. 2015
 The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution (Beaumont 2010).
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
 
-### References and Notes:
+### References
 
-### Acknowledgements:
+### Acknowledgements
 
-\#### Funding
+### Author contributions
 
-\#### Author contributions:
+### Competing interests statement
 
-\#### Competing interests:
+### Additional information
 
-\#### Data and materials availability
+Supplementary Information is available for this paper.
 
-### Supplementary Materials:
+Correspondence and requests for materials should be addressed to Roland Knapp.
 
-### Fig. #.
+Peer review information.
 
-### Table #.
+Reprints and permissions information is available at www.nature.com/reprints.
+
+### Supplementary Information
 
 ### Notes (author use only - not part of manuscript)
 
