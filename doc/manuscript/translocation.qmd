@@ -21,8 +21,7 @@ Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Jos
 
 ^2^Earth Research Institute, University of California, Santa Barbara, CA, USA
 
-^3^Department of Environmental Science, Policy, and Management, University of California.
-Berkeley, Berkeley, CA, USA
+^3^Department of Environmental Science, Policy, and Management, University of California. Berkeley, Berkeley, CA, USA
 
 ^4^Museum of Vertebrate Zoology, University of California, Berkeley, Berkeley, CA, USA
 
@@ -52,8 +51,7 @@ Host evolution and population persistence/recovery
 
 -   Species recovery in the face of disease will depend on the ability of a species to move or change.
 
--   Rapid evolution termed "evolutionary rescue" can reverse ongoing declines in some species (Golas et al. 2021; Searle et al. 2021).
-    (Not sure if Allie wants to go the ER direction)
+-   Rapid evolution termed "evolutionary rescue" can reverse ongoing declines in some species (Golas et al. 2021; Searle et al. 2021). (Not sure if Allie wants to go the ER direction)
 
 -   ER has been proposed as a mechanism of recovery in wildlife populations decimated by disease (Epstein et al. 2016, Schiebelhut et al. 2018).
 
@@ -65,11 +63,9 @@ Host evolution and population persistence/recovery
 
     -   Frogs in the Sierra Nevada: Knapp et al. (2016) @knapp2016
 
-    -   Sea Star Wasting Disease: Menge et al., Plos One (2016), Schiebelhut et al.
-        PNAS (2018)
+    -   Sea Star Wasting Disease: Menge et al., Plos One (2016), Schiebelhut et al. PNAS (2018)
 
--   **Potential knowledge gap**: Subsequent recoveries from disease-induced declines following observed genetic changes have rarely \[never?\]
-    been documented in wildlife populations (Sea stars: Moritsch and Raimondi 2018?).
+-   **Potential knowledge gap**: Subsequent recoveries from disease-induced declines following observed genetic changes have rarely \[never?\] been documented in wildlife populations (Sea stars: Moritsch and Raimondi 2018?).
 
 Population reestablishment using reintroduction of resistant hosts
 
@@ -81,10 +77,7 @@ Population reestablishment using reintroduction of resistant hosts
 
 -   Joseph and Knapp (2018)
 
--   **Potential knowledge gap/opportunity/selling point**: For rescued populations to contribute to landscape-scale species recovery, the fitness benefits gained through selection should manifest beyond the natal environment, allowing for the long-term growth and persistence of incipient populations in novel environmental conditions.
-    A unique attribute of this study is that we describe the genetic changes associated with evolutionary rescue, and combine repeated translocations of "rescued" populations, longitudinal surveys, mark-recapture analysis, and population modeling to demonstrate the capacity of "rescued" populations to persist across a landscape of disease.
-    Thus, ER combined with translocations promotes the recovery of a species on the brink of disease-induced extinction.
-    These results may have broad implications for the many species worldwide that are threatened with extinction by the emergence of novel diseases.
+-   **Potential knowledge gap/opportunity/selling point**: For rescued populations to contribute to landscape-scale species recovery, the fitness benefits gained through selection should manifest beyond the natal environment, allowing for the long-term growth and persistence of incipient populations in novel environmental conditions. A unique attribute of this study is that we describe the genetic changes associated with evolutionary rescue, and combine repeated translocations of "rescued" populations, longitudinal surveys, mark-recapture analysis, and population modeling to demonstrate the capacity of "rescued" populations to persist across a landscape of disease. Thus, ER combined with translocations promotes the recovery of a species on the brink of disease-induced extinction. These results may have broad implications for the many species worldwide that are threatened with extinction by the emergence of novel diseases.
 
 Description of MYL frog species complex, impacts of Bd, and evidence of recent recovery.
 
@@ -111,55 +104,33 @@ Description of MYL frog species complex, impacts of Bd, and evidence of recent r
 
 <!--# subheadings can be used, up to 40 characters -->
 
-We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects.
-Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering).
-These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality.
-Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
+We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects. Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering). These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality. Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
 
 <!--# Mention sampled declining populations also? -->
 
-DNA samples were collected via buccal swabbing of xx-xx frogs from seven Bd-naive populations <!--# Dusy 10220 not included due to small sample size? --> and seven recovering populations.
-These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
+DNA samples were collected via buccal swabbing of xx-xx frogs from seven Bd-naive populations <!--# Dusy 10220 not included due to small sample size? --> and seven recovering populations. These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
 
 <!--# Create map of sample sites -->
 
 #### Frog translocations
 
-Translocations of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
-We identified donor populations from which adult frogs could be collected using several years of visual encounter surveys (VES) and skin swab collections (Knapp et al. 2016).
-Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and had recovered from previous Bd-caused declines.
-Bd prevalence donor populations is high and Bd infection intensity (load) is below the level at which frog mortality is predicted (calculate mean prevalence and load).
-Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species (Knapp 2005).
+Translocations of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species. We identified donor populations from which adult frogs could be collected using several years of visual encounter surveys (VES) and skin swab collections (Knapp et al. 2016). Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and had recovered from previous Bd-caused declines. Bd prevalence donor populations is high and Bd infection intensity (load) is below the level at which frog mortality is predicted (calculate mean prevalence and load). Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species (Knapp 2005).
 
-Between 2006 and 2020 we conducted 1-4 translocations of adult frogs to 13 recipient sites (Table S1).
-In each translocation, adult frogs ($\geq$ 40 mm snout-vent length) were collected from one of three donor populations and measured, weighed, swabbed, and PIT tagged.
-Frogs were transported to the recipient site either on foot or via helicopter.
-Following release, translocated populations were visited one to six times per summer (calculate min, max, mean) and assessed using diurnal capture-mark-recapture (CMR) surveys and VES.
-CMR surveys allowed quantification of adult frog survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and subadult abundance.
+Between 2006 and 2020 we conducted 1-4 translocations of adult frogs to 13 recipient sites (Table S1). In each translocation, adult frogs ($\geq$ 40 mm snout-vent length) were collected from one of three donor populations and measured, weighed, swabbed, and PIT tagged. Frogs were transported to the recipient site either on foot or via helicopter. Following release, translocated populations were visited one to six times per summer (calculate min, max, mean) and assessed using diurnal capture-mark-recapture (CMR) surveys and VES. CMR surveys allowed quantification of adult frog survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and subadult abundance.
 
 <!--# Create table of translocation sites, years, frog numbers. Could also create a map if necessary -->
 
-During 2006-2012, CMR surveys were conducted conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs.
-Frog were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
-During 2013-2022, we used a robust design in which all habitats were searched during several consecutive days (secondary periods - calculate min, max, mean), and frogs were processed as described above.
-Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed only during the first capture, and identified only during subsequent captures.
-Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods as described in Joseph and Knapp (2018).
+During 2006-2012, CMR surveys were conducted conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs. Frog were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location. During 2013-2022, we used a robust design in which all habitats were searched during several consecutive days (secondary periods - calculate min, max, mean), and frogs were processed as described above. Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed only during the first capture, and identified only during subsequent captures. Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods as described in Joseph and Knapp (2018).
 
-During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
-VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and subadults.
-These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance.
+During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys. VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and subadults. These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance.
 
 #### Population viability modeling
 
 **Model description**
 
-To determine the implications of acquired Bd resistance on long-term population viability, we developed a dynamic, population model for MYLF.
-Our central question was: how does the magnitude and variation in observed adult survival probability across translocated populations affect the long-term persistence probability of populations?
-We developed a model that tracked seven state variables of an MYLF population: the density of translocated adults ($A_T$), the density of adults naturally recruited into the population ($A_R$), the density of first year larvae ($L_1$), the density of second year larvae ($L_2$), the density of third year larvae ($L_3$), the density of first year juveniles ($J_1$), and the density of second year juveniles ($J_2$).
-We divided adults into two classes $A_T$ and $A_R$ because there was evidence that the survival probability of translocated adults and naturally recruited adults differed.
+To determine the implications of acquired Bd resistance on long-term population viability, we developed a dynamic, population model for MYLF. Our central question was: how does the magnitude and variation in observed adult survival probability across translocated populations affect the long-term persistence probability of populations? We developed a model that tracked seven state variables of an MYLF population: the density of translocated adults ($A_T$), the density of adults naturally recruited into the population ($A_R$), the density of first year larvae ($L_1$), the density of second year larvae ($L_2$), the density of third year larvae ($L_3$), the density of first year juveniles ($J_1$), and the density of second year juveniles ($J_2$). We divided adults into two classes $A_T$ and $A_R$ because there was evidence that the survival probability of translocated adults and naturally recruited adults differed.
 
-We modeled the dynamics of these seven state variables using a discrete-time, stage-structured model where a time step is one year.
-The dynamics are given by
+We modeled the dynamics of these seven state variables using a discrete-time, stage-structured model where a time step is one year. The dynamics are given by
 
 $$
 \begin{bmatrix}
@@ -190,51 +161,29 @@ A_T \\
 \end{bmatrix}(t)
 $$
 
-The parameters in this model are yearly survival probability $\sigma_{*}$, where the "\*" indicates a particular state variable, the probability that a female frog reproduces in a given year $p_F$, the number of eggs produced by a female frog in a year that successfully hatch $F$, the probability of a first year tadpole remaining as a tadpole $p_{L1}$, the probability of a second year tadpole remaining as a tadpole $p_{L2}$, and the probability of a first year juvenile remaining as a juvenile $p_{J1}$.
-The parameter $\omega$ gives the probability of a juvenile successfully recruiting to an adult.
+The parameters in this model are yearly survival probability $\sigma_{*}$, where the "\*" indicates a particular state variable, the probability that a female frog reproduces in a given year $p_F$, the number of eggs produced by a female frog in a year that successfully hatch $F$, the probability of a first year tadpole remaining as a tadpole $p_{L1}$, the probability of a second year tadpole remaining as a tadpole $p_{L2}$, and the probability of a first year juvenile remaining as a juvenile $p_{J1}$. The parameter $\omega$ gives the probability of a juvenile successfully recruiting to an adult.
 
-In this model we ignore density-dependent recruitment because we were interested in the growth of the population from an initial reintroduction and whether this growth was sufficient to prevent extinction over 50 years following the introduction.
-We also did not directly consider the dynamics of Bd in this model.
-We made this decision because i) all translocated populations are infected with Bd at high prevalence ii) host density does not seem to play a significant role in multi-year Bd infection dynamics in this system.
-Thus, ignoring Bd infection dynamics and instead assuming all host vital rates are in the presence of high Bd prevalence significantly simplifies the model without much loss of realism.
+In this model we ignore density-dependent recruitment because we were interested in the growth of the population from an initial reintroduction and whether this growth was sufficient to prevent extinction over 50 years following the introduction. We also did not directly consider the dynamics of Bd in this model. We made this decision because i) all translocated populations are infected with Bd at high prevalence ii) host density does not seem to play a significant role in multi-year Bd infection dynamics in this system. Thus, ignoring Bd infection dynamics and instead assuming all host vital rates are in the presence of high Bd prevalence significantly simplifies the model without much loss of realism.
 
 **Model analysis**
 
 **Incorporating yearly variability in vital rates**
 
-We extracted yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the mark-recapture model described elsewhere.
-While we observed yearly variability in adult survival *within* a population, the magnitude of this variability was small compared to *among* population variability.
-Thus, we did not include yearly within-population variability in adult survival in this analysis.
+We extracted yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the mark-recapture model described elsewhere. While we observed yearly variability in adult survival *within* a population, the magnitude of this variability was small compared to *among* population variability. Thus, we did not include yearly within-population variability in adult survival in this analysis.
 
-However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability about a mean value.
-Therefore, we allowed for yearly variability in the probability of successful recruitment $\omega$ (more details below).
+However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability about a mean value. Therefore, we allowed for yearly variability in the probability of successful recruitment $\omega$ (more details below).
 
 **Estimating model parameters**
 
-The baseline parameter values for the model and how they were estimated are given in Table 1.
-Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our mark-recapture model described elsewhere.
-For populations where we had a sufficient number of pit-tagged, naturally recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$.
-For populations where we had not pit-tagged any naturally recruited adults, we could not directly estimate $\sigma_{A_R}$ and set $\sigma_{A_R} = \sigma_{A_T}$.
+The baseline parameter values for the model and how they were estimated are given in Table 1. Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our mark-recapture model described elsewhere. For populations where we had a sufficient number of pit-tagged, naturally recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$. For populations where we had not pit-tagged any naturally recruited adults, we could not directly estimate $\sigma_{A_R}$ and set $\sigma_{A_R} = \sigma_{A_T}$.
 
 **Model analysis and simulation**
 
-We performed four analyses on our model.
-First, we considered a deterministic version of our model with no yearly heterogeneity in probability of successful recruitment $\omega$ and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\omega$.
-We then fixed $\omega = 0.1$ and calculated the predicted growth rate of our six populations.
-Second, we performed a local sensitivity analysis on $\lambda$ with respect to parameters $\omega$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations.
+We performed four analyses on our model. First, we considered a deterministic version of our model with no yearly heterogeneity in probability of successful recruitment $\omega$ and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\omega$. We then fixed $\omega = 0.1$ and calculated the predicted growth rate of our six populations. Second, we performed a local sensitivity analysis on $\lambda$ with respect to parameters $\omega$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations.
 
-Third, we defined version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among year variability in $\omega$.
-We used this model to simulate a one time introduction of 40 translocated adult frogs.
-We ran this simulation 1000 times for each population and computed the probability of a population becoming extinct after 50 years given the observed parameter values and environmental stochasticity in $\omega$.
-We varied the mean recruitment probability $\omega$ from 0.05 and 0.3 and drew values of $\omega$ each year from a beta distribution with a dispersion parameter of $\phi = 2$ (when $\omega = 0.5$ and $\phi = 2$ the beta distribution is uniform between 0 and 1).
+Third, we defined version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among year variability in $\omega$. We used this model to simulate a one time introduction of 40 translocated adult frogs. We ran this simulation 1000 times for each population and computed the probability of a population becoming extinct after 50 years given the observed parameter values and environmental stochasticity in $\omega$. We varied the mean recruitment probability $\omega$ from 0.05 and 0.3 and drew values of $\omega$ each year from a beta distribution with a dispersion parameter of $\phi = 2$ (when $\omega = 0.5$ and $\phi = 2$ the beta distribution is uniform between 0 and 1).
 
-Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery.
-We focused on population 70550 because this was our longest mark-recapture time series for a translocated population and because this population shows evidence of recovery.
-We simulated our model for 16 years, repeating the simulation 50,000 times.
-For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or a beta distribution with mean 0.5 and $\phi = 2$).
-Using Approximate Bayesian Computing and rejection sampling (Kosmala et al. 2015, Ecology), we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
-The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution (Beaumont 2010).
-Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
+Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery. We focused on population 70550 because this was our longest mark-recapture time series for a translocated population and because this population shows evidence of recovery. We simulated our model for 16 years, repeating the simulation 50,000 times. For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or a beta distribution with mean 0.5 and $\phi = 2$). Using Approximate Bayesian Computing and rejection sampling (Kosmala et al. 2015, Ecology), we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data. The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution (Beaumont 2010). Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
 
 ### Data availability
 
@@ -268,8 +217,7 @@ Science (impact factor = 63.714)
 
     -   Present a major advance.
 
-    -   Up to approximately 4500 words, including references, notes and captions.
-        Corresponds to approximately 5 printed pages in journal (approxiumately 11 manuscript pages).
+    -   Up to approximately 4500 words, including references, notes and captions. Corresponds to approximately 5 printed pages in journal (approxiumately 11 manuscript pages).
 
     -   Up to 6 figures or tables, and about 40 references.
 
@@ -277,8 +225,7 @@ Science (impact factor = 63.714)
 
     -   New research results of broad significance.
 
-    -   Up to \~2500 words, including references, notes and captions.
-        Corresponds to approximately 3 printed pages in journal (approximately 6 manuscript pages).
+    -   Up to \~2500 words, including references, notes and captions. Corresponds to approximately 3 printed pages in journal (approximately 6 manuscript pages).
 
     -   Up to 4 figures or tables, and about 30 references.
 
@@ -288,8 +235,7 @@ Nature (impact factor = 69.8)
 
     -   Original reports whose conclusions represent a substantial advance in understanding of an important problem and have immediate, far-reaching implications.
 
-    -   Biological sciences papers do not normally exceed 8 pages.
-        This would be approximately 4300 words and 5-6 modest display items.
+    -   Biological sciences papers do not normally exceed 8 pages. This would be approximately 4300 words and 5-6 modest display items.
 
 PNAS (impact factor = 12.77)
 
@@ -297,24 +243,19 @@ PNAS (impact factor = 12.77)
 
     -   Original research of exceptional importance.
 
-    -   Preferred length is 6 pages, but up to 12 pages is allowed.
-        6 page article is approximately 4,000 words, 50 references, and 4 medium-size figures or tables.
+    -   Preferred length is 6 pages, but up to 12 pages is allowed. 6 page article is approximately 4,000 words, 50 references, and 4 medium-size figures or tables.
 
 Nature Communications (impact factor = 17.694)
 
 -   Article
 
-    -   Papers published by the journal represent important advances of significance to specialists within each field.
-        Open access.
+    -   Papers published by the journal represent important advances of significance to specialists within each field. Open access.
 
-    -   The main text (not including abstract, Methods, References and figure legends) is limited to 5,000 words.
-        The maximum title length is 15 words.
+    -   The main text (not including abstract, Methods, References and figure legends) is limited to 5,000 words. The maximum title length is 15 words.
 
 Science Advances (impact factor = 14.957)
 
--   Publishes impactful research papers and reviews in any area of science.
-    Journal extends the capacity of *Science* magazine to identify and promote significant advances in science and engineering.
-    Open access.
+-   Publishes impactful research papers and reviews in any area of science. Journal extends the capacity of *Science* magazine to identify and promote significant advances in science and engineering. Open access.
 
 -   Research article
 
@@ -324,8 +265,7 @@ Science Advances (impact factor = 14.957)
 
 ## Running Code
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code.
-You can embed code like this:
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
 1 + 1
