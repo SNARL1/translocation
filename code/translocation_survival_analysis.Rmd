@@ -4,9 +4,10 @@ author: "Roland Knapp"
 output: html_notebook
 ---
 
-The goal of the analyses in this notebook is to identify predictors of frog survival following translocation. The analyses are conducted in a Bayesian framework using the R package rstanarm.
+The goal of the analyses in this notebook is to identify predictors of frog survival following translocation.
+The analyses are conducted in a Bayesian framework using the R package rstanarm.
 
-# Model 1: Site-level and frog-level predictors
+# Analysis 1: Site-level and frog-level predictors
 
 ## Load packages
 
@@ -23,9 +24,11 @@ library(janitor)
 source("classification_summary.R")
 ```
 
-## Create frog translocation dataset for analysis  
-* Read in data, create variables for analysis, standardize continuous variables. 
-* arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
+## Create frog translocation dataset for analysis
+
+-   Read in data, create variables for analysis, standardize continuous variables.
+-   arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
+
 ```{r read-translocation-data}
 d1 <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
   drop_na(bd_load) %>%  # drop 12 records where bd_load is NA (9 are from 70413)
@@ -70,7 +73,9 @@ d1 %>% summarize(across(everything(), ~ sum(is.na(.))))
 ```
 
 ## Model using non-standardized predictors
+
 ### Model specification
+
 ```{r}
 m1a <- stan_glm(
   surv ~ length + snow_t + snow_t1 + day + bdload_l + elevation + first + male + donor,
@@ -83,6 +88,7 @@ m1a <- stan_glm(
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m1a)
 
@@ -91,27 +97,33 @@ mcmc_dens_overlay(m1a)
 
 summary(m1a)
 ```
-- mcmc diagnostics all look good.
+
+-   mcmc diagnostics all look good.
 
 ### List model variable names
+
 ```{r}
 get_variables(m1a)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m1a, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
-- Posterior predictive distribution implied by regression model closely matches original data (based on mean frog survival).
+
+-   Posterior predictive distribution implied by regression model closely matches original data (based on mean frog survival).
 
 ### Calculate leave-one-out cross-validation (loo)
+
 ```{r}
 loo_m1a <- loo(m1a, cores = 4, save_psis = TRUE)
 print(loo_m1a)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1a, conf.int = TRUE, conf.level = 0.90)
 
@@ -127,11 +139,14 @@ mcmc_areas(m1a, area_method = "equal height", prob = 0.90) +
 
 mean(bayes_R2(m1a))
 ```
-- Using non-standardized predictors makes plot hard to read due to vastly different scales of predictors.  
-- Based on 90% uncertainty intervals, important predictors are snow_t1, elevation, first, donor70567, and donor72996.
+
+-   Using non-standardized predictors makes plot hard to read due to vastly different scales of predictors.\
+-   Based on 90% uncertainty intervals, important predictors are snow_t1, elevation, first, donor70567, and donor72996.
 
 ## Model using standardized predictors
+
 ### Model specification
+
 ```{r}
 m1b <- stan_glm(
   surv ~ length_z + snowt_z + snowt1_z + day_z + bdload_z + elev_z + first_c + male_c + donor,
@@ -144,35 +159,42 @@ m1b <- stan_glm(
 ```
 
 ### Priors, chain diagnostics, posterior predictive check
+
 ```{r}
 prior_summary(m1b)
 
 mcmc_trace(m1b, size = 0.1)
-mcmc_dens_overlay(m1a)
+mcmc_dens_overlay(m1b)
 
 summary(m1b)
 ```
-- mcmc diagnostics all look good.
+
+-   mcmc diagnostics all look good.
 
 ### List model variable names
+
 ```{r}
 get_variables(m1b)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m1b, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
-- Posterior predictive distribution implied by regression model closely matches original data (based on mean frog survival).
+
+-   Posterior predictive distribution implied by regression model closely matches original data (based on mean frog survival).
 
 ### Calculate loo
+
 ```{r}
 loo_m1b <- loo(m1b, cores = 4, save_psis = TRUE)
 print(loo_m1b)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1b, conf.int = TRUE, conf.level = 0.90)
 
@@ -183,20 +205,34 @@ mcmc_areas(m1b, area_method = "equal height", prob = 0.90) +
 
 mean(bayes_R2(m1b))
 ```
-- As expected, using standardized predictors allows easy comparison across predictors. Important predictors are unchanged. 
-- Based on 90% uncertainty intervals, important predictors are snow_t1, elevation, first, donor70567, and donor72996.
+
+-   As expected, using standardized predictors allows easy comparison across predictors. Important predictors are unchanged.
+-   Based on 90% uncertainty intervals, important predictors are snow_t1, elevation, first, donor70567, and donor72996.
 
 ## Compare models
+
 ```{r}
 loo_compare(loo_m1a, loo_m1b)
 ```
-- As expected, models with non-standardized and standardized predictor variables have identical predictive accuracy.  
+
+-   As expected, models with non-standardized and standardized predictor variables have identical predictive accuracy.
 
 ## Possible grouping structures to add to model
-The dataset has three groups: site_id, translocation_id, and donor site. Donor site is not suitable as a grouping variable because there are only 3 levels (i.e., site ids), not enough to make this useful. Site_id and translocation_id contain 12 and 24 levels, respectively, making them suitable as grouping variables. Including both site_id and translocation_id as nested grouping variables (i.e., translocations nested within site ids) also seems justified. Having more levels within a group would seem to increase the power to detect effects of predictors. With fewer levels/less variability, effect may be accounted for primarily by grouping variable itself instead of predictor. With only 1-4 translocations per site and only 12 site ids total, it is possible that model with site_id as sole grouping variable and model with site_id and translocation_id as nested grouping variables will attribute more of the variation in frog survival to the grouping variables and less to the predictors. A priori, that would suggest that the model with translocation_id as the grouping variable might be the most useful model structure (assuming that all models have similar posterior predictive accuracy). Lacking any strong rationale for  one model structure over another, built 3 models and compared their posterior predictive accuracy using loo. 
+
+The dataset has three groups: site_id, translocation_id, and donor site.
+Donor site is not suitable as a grouping variable because there are only 3 levels (i.e., site ids), not enough to make this useful.
+Site_id and translocation_id contain 12 and 24 levels, respectively, making them suitable as grouping variables.
+Including both site_id and translocation_id as nested grouping variables (i.e., translocations nested within site ids) also seems justified.
+Having more levels within a group would seem to increase the power to detect effects of predictors.
+With fewer levels/less variability, effect may be accounted for primarily by grouping variable itself instead of predictor.
+With only 1-4 translocations per site and only 12 site ids total, it is possible that model with site_id as sole grouping variable and model with site_id and translocation_id as nested grouping variables will attribute more of the variation in frog survival to the grouping variables and less to the predictors.
+A priori, that would suggest that the model with translocation_id as the grouping variable might be the most useful model structure (assuming that all models have similar posterior predictive accuracy).
+Lacking any strong rationale for one model structure over another, built 3 models and compared their posterior predictive accuracy using loo.
 
 ## Model using standardized predictors and site_id grouping variable
+
 ### Model specification
+
 ```{r}
 m1c <- stan_glmer(
   surv ~ length_z + snowt_z + snowt1_z + day_z + bdload_z + elev_z + first_c + male_c + donor + (1 | site_id),
@@ -209,6 +245,7 @@ m1c <- stan_glmer(
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m1c)
 
@@ -221,18 +258,21 @@ summary(m1c)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m1c, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Calculate loo
+
 ```{r}
 loo_m1c <- loo(m1c, cores = 4, save_psis = TRUE)
 print(loo_m1c)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1c, conf.int = TRUE, conf.level = 0.90)
 
@@ -248,10 +288,13 @@ mcmc_areas_ridges(m1c, regex_pars = "site_id") +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Frog survival for each recipient site_id")
 ```
-- Based on 90% uncertainty intervals, important predictors reduced to elevation and male. 
+
+-   Based on 90% uncertainty intervals, important predictors reduced to elevation and male.
 
 ## Model using standardized predictors and translocation_id grouping variable)
+
 ### Model specification
+
 ```{r}
 m1d <- stan_glmer(
   surv ~ length_z + snowt_z + snowt1_z + day_z + bdload_z + elev_z + first_c + male_c + donor + (1 | translocation_id),
@@ -264,6 +307,7 @@ m1d <- stan_glmer(
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m1d)
 
@@ -276,18 +320,21 @@ summary(m1d)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m1d, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Calculate loo
+
 ```{r}
 loo_m1d <- loo(m1d, cores = 4, save_psis = TRUE)
 print(loo_m1d)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1d, conf.int = TRUE, conf.level = 0.90)
 
@@ -303,11 +350,14 @@ mcmc_areas_ridges(m1d, regex_pars = "translocation_id") +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Frog survival for each translocation_id")
 ```
-- Based on loo, model with translocation_id as grouping variable provides slightly better fit than model with site_id as grouping variable. 
-- Based on 90% uncertainty intervals, important predictors are similar to those in model without grouping variable: snowt1_z, elev_z, male_c0.548, donor72996. 
+
+-   Based on loo, model with translocation_id as grouping variable provides slightly better fit than model with site_id as grouping variable.
+-   Based on 90% uncertainty intervals, important predictors are similar to those in model without grouping variable: snowt1_z, elev_z, male_c0.548, donor72996.
 
 ## Model using standardized predictors and 2 grouping variables: translocation_id nested within site_id)
+
 ### Model specification
+
 ```{r}
 m1e <- stan_glmer(
   surv ~ length_z + snowt_z + snowt1_z + day_z + bdload_z + elev_z + first_c + male_c + donor + (1 | translocation_id) + (1 | site_id),
@@ -320,6 +370,7 @@ m1e <- stan_glmer(
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m1e)
 
@@ -332,18 +383,21 @@ summary(m1e)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m1e, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Calculate loo
+
 ```{r}
 loo_m1e <- loo(m1e, cores = 4, save_psis = TRUE)
 print(loo_m1e)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1e, conf.int = TRUE, conf.level = 0.90)
 
@@ -366,15 +420,19 @@ mcmc_areas_ridges(m1e, regex_pars = ("site_id")) +
 ```
 
 ## Compare 4 models with different grouping structures
+
 ```{r}
 loo_compare(loo_m1b, loo_m1c, loo_m1d, loo_m1e)
 ```
-- Based on expected log-predictive densities (ELPD), 3 models with grouping variables all have substantially higher posterior predictive accuracy than model without any grouping variables (elpd_diff of m1b is more than 2 SE lower than elpd_diff of m1c: elpd_diff = -18.2 $\pm$ 12.6, 2 SE interval does not overlap 0: -5.6 -- -30.8). 
-- 3 models with 1 or more grouping variables are equivalent and have similar posterior predictive accuracy (elpd_diff of m1e and m1d are within 2 SE of elpd_diff of m1c).  
-- m1d seems to provide more insight into the effect of the predictors, so chose this model for additional analysis. 
+
+-   Based on expected log-predictive densities (ELPD), 3 models with grouping variables all have substantially higher posterior predictive accuracy than model without any grouping variables (elpd_diff of m1b is more than 2 SE lower than elpd_diff of m1c: elpd_diff = -18.2 $\pm$ 12.6, 2 SE interval does not overlap 0: -5.6 -- -30.8).
+-   3 models with 1 or more grouping variables are equivalent and have similar posterior predictive accuracy (elpd_diff of m1e and m1d are within 2 SE of elpd_diff of m1c).\
+-   m1d seems to provide more insight into the effect of the predictors, so chose this model for additional analysis.
 
 ## Additional analysis of model m1d
+
 ### Posterior classification accuracy
+
 ```{r}
 # Posterior predictive models for each frog in dataset
 set.seed(84735)
@@ -399,11 +457,14 @@ survival_predict_2 %>%
 set.seed(84735)
 classification_summary(m1d, data = d1, cutoff = 0.5)
 ```
-- Sensitivity or "true positive rate" measures the proportion of Y = 1 observations that are accurately classified.  
-- Specificity or "true negative rate" measures the proportion of Y = 0 observations that are accurately classified (i.e., proportion of frogs correctly identified as not surviving).  
+
+-   Sensitivity or "true positive rate" measures the proportion of Y = 1 observations that are accurately classified.\
+-   Specificity or "true negative rate" measures the proportion of Y = 0 observations that are accurately classified (i.e., proportion of frogs correctly identified as not surviving).
 
 ### Create reduced model containing only important predictors for subsequent analyses
-- Reduced model is helpful because it reduces the number of values used to calculate predictive models. 
+
+-   Reduced model is helpful because it reduces the number of values used to calculate predictive models.
+
 ```{r}
 m1d_reduce <- stan_glmer(
   surv ~ snowt1_z + elev_z + male_c + donor + (1 | translocation_id),
@@ -416,6 +477,7 @@ m1d_reduce <- stan_glmer(
 ```
 
 ### Confirm fit of reduced model is comparable to full model
+
 ```{r}
 loo_m1d_reduce <- loo(m1d, cores = 4, save_psis = TRUE)
 print(loo_m1d)
@@ -424,6 +486,7 @@ loo_compare(loo_m1d, loo_m1d_reduce)
 ```
 
 ### Simulate and plot posterior predictive models & observations
+#### Reduced model with translocation_id as grouping variable
 ```{r}
 m1d_group_means <- d1 %>% 
   group_by(translocation_id) %>% 
@@ -436,30 +499,70 @@ m1d_group_means <- d1 %>%
       TRUE ~ "72996")) %>% 
   arrange(psurv)  # to arrange plot values/labels by psurv
 
-predictions_m1d <- posterior_predict(m1d_reduce, newdata = m1d_group_means)
+predictions_m1d <- posterior_epred(m1d_reduce, newdata = m1d_group_means)
+# predictions_m1d <- posterior_predict(m1d_reduce, newdata = m1d_group_means) # original code that produced incorrect uncertainty estimates
 
 ppc_intervals(
   y = m1d_group_means$psurv,
   yrep = predictions_m1d, 
-  prob = 0.5, 
-  prob_outer = 0.8) +
+  prob = 0.8, 
+  prob_outer = 0.9) +
 ggplot2::scale_x_continuous(
   labels = m1d_group_means$translocation_id,
   breaks = 1:nrow(m1d_group_means)) +
   xaxis_text(angle = 90, vjust = 0.5) +
 xlab("Translocation_id")
 ```
-- Uncertainty intervals appear incorrect for binomial model, but not sure how to adjust.  
-- Based on mean values, model does an adequate job of predicting survival based on group-level and individual-level characteristics.  
-- What explains the low predicted survival at 70370 (both translocations), and high versus low predicted survival at 70550 for 1st and 2nd translocations, respectively? Both sites seem to contain high quality habitat (i.e., high elevation).  
-- The predicted survival is based on assumption that only males are included. Run another set of models for females?  
+
+-   Model does a good job of predicting survival based on group-level and individual-level characteristics.\
+-   What explains the low predicted survival at 70370 (both translocations), and high versus low predicted survival at 70550 for 1st and 2nd translocations, respectively? Both sites seem to contain high quality habitat (i.e., high elevation).\
+-   The predicted survival is based on assumption that only males are included. Run another set of models for females?
+
+#### Reduced model without grouping variable
+To explore how addition of grouping variable affected predictions, especially that for 70370 and 70550. 
+```{r}
+m1d_reduce_nogroup <- stan_glm(
+  surv ~ snowt1_z + elev_z + male_c + donor,
+  data = d1,
+  family = binomial,
+  chains = 4, 
+  iter = 5000*2, 
+  cores = 4,
+  seed = 84735)
+
+m1d_group_means <- d1 %>% 
+  group_by(translocation_id) %>% 
+  summarize(count = n(), psurv = mean(surv), elev_z = mean(elev_z), snowt1_z = mean(snowt1_z)) %>% 
+  mutate(
+    male_c = as.factor(0.548), 
+    donor = case_when(
+      str_detect(translocation_id, "74976") | str_detect(translocation_id, "70556") ~ "70459",
+      str_detect(translocation_id, "70413") ~ "70567",
+      TRUE ~ "72996")) %>% 
+  arrange(psurv)  # to arrange plot values/labels by psurv
+
+predictions_m1d_nogroup <- posterior_epred(m1d_reduce_nogroup, newdata = m1d_group_means)
+
+ppc_intervals(
+  y = m1d_group_means$psurv,
+  yrep = predictions_m1d_nogroup, 
+  prob = 0.8, 
+  prob_outer = 0.9) +
+ggplot2::scale_x_continuous(
+  labels = m1d_group_means$translocation_id,
+  breaks = 1:nrow(m1d_group_means)) +
+  xaxis_text(angle = 90, vjust = 0.5) +
+xlab("Translocation_id")
+```
 
 ### Plot posterior plausible relationships between each predictor and the probability of frog survival (conditional effects)
-- As described in https://rdrr.io/cran/brms/man/conditional_effects.brmsfit.html, "When creating conditional_effects for a particular predictor (or interaction of two predictors), one has to choose the values of all other predictors to condition on. By default, the mean is used for continuous variables and the reference category is used for factors, but you may change these values via argument conditions. This also has an implication for the points argument: In the created plots, only those points will be shown that correspond to the factor levels actually used in the conditioning, in order not to create the false impression of bad model fit, where it is just due to conditioning on certain factor levels."  
-- Using rstanarm, I was unable to do this as I expected to: Start with data = d1 and using "newdata = " to specify that predictions should be based on data in d1_elevz (for example), in which non-plotted continuous predictors are set to the mean value. Not sure if my alternative approach is correct.  
-- Approach used: Instead of starting the routine with d1, I started with the new dataset in which all variables except the one of interest were set to mean values (continuous variables) and the reference level (categorical variables). This produced plots/results that were very similar to those produced in brms using the conditional_effects function. 
+
+-   As described in <https://rdrr.io/cran/brms/man/conditional_effects.brmsfit.html>, "When creating conditional_effects for a particular predictor (or interaction of two predictors), one has to choose the values of all other predictors to condition on. By default, the mean is used for continuous variables and the reference category is used for factors, but you may change these values via argument conditions. This also has an implication for the points argument: In the created plots, only those points will be shown that correspond to the factor levels actually used in the conditioning, in order not to create the false impression of bad model fit, where it is just due to conditioning on certain factor levels."\
+-   Using rstanarm, I was unable to do this as I expected to: Start with data = d1 and using "newdata =" to specify that predictions should be based on data in d1_elevz (for example), in which non-plotted continuous predictors are set to the mean value. Not sure if my alternative approach is correct.\
+-   Approach used: Instead of starting the routine with d1, I started with the new dataset in which all variables except the one of interest were set to mean values (continuous variables) and the reference level (categorical variables). This produced plots/results that were very similar to those produced in brms using the conditional_effects function.
 
 #### Effect of elevation
+
 ```{r}
 d1_elevz <- d1 %>% 
   mutate(snowt1_z = mean(snowt1_z), 
@@ -487,6 +590,7 @@ d1_elevz %>%
 ```
 
 #### Effect of winter severity in year t1
+
 ```{r}
 d1_snowt1z <- d1 %>% 
   mutate(elev_z = mean(elev_z), 
@@ -505,6 +609,7 @@ d1_snowt1z %>%
 ```
 
 #### Effect of sex
+
 ```{r}
 d1_malec <- d1 %>% 
   mutate(elev_z = mean(elev_z), 
@@ -523,6 +628,7 @@ d1_malec %>%
 ```
 
 #### Effect of donor
+
 ```{r}
 d1_donor <- d1 %>% 
   mutate(elev_z = mean(elev_z), 
@@ -541,6 +647,7 @@ d1_donor %>%
 ```
 
 #### Joint effects of elevation and sex
+
 ```{r}
 d1_elevz_malec <- d1 %>% 
   mutate(snowt1_z = mean(snowt1_z), 
@@ -560,9 +667,10 @@ d1_elevz_malec %>%
     theme_classic()
 ```
 
-
 ## For comparison, fit model using brms and conditional_effects function to plot variable-specific effects
+
 ### Fit model
+
 ```{r}
 m1d_reduce_brms <- brm(
   surv ~ snowt1_z + elev_z + male_c + donor + (1 | translocation_id),
@@ -575,14 +683,16 @@ m1d_reduce_brms <- brm(
 ```
 
 ### Plot conditional effects
+
 ```{r}
 plot(conditional_effects(m1d_reduce_brms, spaghetti = TRUE, mean = TRUE, ndraws = 100), ask = FALSE)
 ```
 
+# Analysis 2: Survival of frogs from first translocation as predictor of survival in subsequent translocations
 
-# Model 2: Survival of frogs from first translocation as predictor of survival in subsequent translocations
-
-This analysis explores the results shown in translocation_survival_exploratory.Rmd (code chunk name = "frog-survival-by-site"). This plot shows frog survival of all translocations grouped by site, and indicates that survival is highly variable across sites, but repeatable within a site. This analysis quantifies the association between survival in the first translocation and survival in subsequent translocations. 
+This analysis explores the results shown in translocation_survival_exploratory.Rmd (code chunk name = "frog-survival-by-site").
+This plot shows frog survival of all translocations grouped by site, and indicates that survival is highly variable across sites, but repeatable within sites.
+This analysis quantifies the association between survival in the first translocation and survival in subsequent translocations.
 
 ## Load packages
 
@@ -599,9 +709,11 @@ library(janitor)
 source("classification_summary.R")
 ```
 
-## Create frog translocation dataset for analysis  
-* Read in data, create variables for analysis, standardize continuous variables. 
-* arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
+## Create frog translocation dataset for analysis
+
+-   Read in data, create variables for analysis, standardize continuous variables.
+-   arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
+
 ```{r}
 d2 <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
   select(site_id, year, pit_tag_ref, survival) %>% 
@@ -626,6 +738,7 @@ d2 <- d2 %>%
 ```
 
 ## Restructure dataset
+
 ```{r}
 # Remove sites that received only 1 translocation
 d2 <- d2 %>% 
@@ -654,7 +767,9 @@ d2 <- d2 %>%
 ```
 
 ## Model with non-standardized predictor, no grouping variable
+
 ### Model specification
+
 ```{r}
 m2a <- stan_glm(
   surv ~ survival_trans1,
@@ -667,11 +782,13 @@ m2a <- stan_glm(
 ```
 
 ### List model variable names
+
 ```{r}
 get_variables(m2a)
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m2a)
 
@@ -684,18 +801,21 @@ summary(m2a)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m2a, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Calculate loo
+
 ```{r}
 loo_m2a <- loo(m2a, cores = 4, save_psis = TRUE)
 print(loo_m2a)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m2a, conf.int = TRUE, conf.level = 0.90)
 
@@ -708,7 +828,9 @@ mean(bayes_R2(m2a))
 ```
 
 ## Model with standardized predictor, no grouping variable
+
 ### Model specification
+
 ```{r}
 m2b <- stan_glm(
   surv ~ survival_trans1_z,
@@ -721,11 +843,13 @@ m2b <- stan_glm(
 ```
 
 ### List model variable names
+
 ```{r}
 get_variables(m2b)
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m2b)
 
@@ -738,18 +862,21 @@ summary(m2b)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m2b, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Calculate loo
+
 ```{r}
 loo_m2b <- loo(m2b, cores = 4, save_psis = TRUE)
 print(loo_m2b)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m2b, conf.int = TRUE, conf.level = 0.90)
 
@@ -762,7 +889,9 @@ mean(bayes_R2(m2b))
 ```
 
 ## Model with standardized predictor, translocation_id grouping variable
+
 ### Model specification
+
 ```{r}
 m2c <- stan_glmer(
   surv ~ survival_trans1_z + (1 | translocation_id),
@@ -775,6 +904,7 @@ m2c <- stan_glmer(
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m2c)
 
@@ -787,18 +917,21 @@ summary(m2c)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m2c, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Calculate loo
+
 ```{r}
 loo_m2c <- loo(m2c, cores = 4, save_psis = TRUE)
 print(loo_m2c)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m2c, conf.int = TRUE, conf.level = 0.90)
 
@@ -816,7 +949,9 @@ mcmc_areas_ridges(m2c, regex_pars = "translocation_id") +
 ```
 
 ## Model with standardized predictor, site_id grouping variable
+
 ### Model specification
+
 ```{r}
 m2d <- stan_glmer(
   surv ~ survival_trans1_z + (1 | site_id),
@@ -829,6 +964,7 @@ m2d <- stan_glmer(
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m2d)
 
@@ -841,18 +977,21 @@ summary(m2d)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m2d, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Calculate loo
+
 ```{r}
 loo_m2d <- loo(m2d, cores = 4, save_psis = TRUE)
 print(loo_m2d)
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m2d, conf.int = TRUE, conf.level = 0.90)
 
@@ -870,13 +1009,16 @@ mcmc_areas_ridges(m2d, regex_pars = "site_id") +
 ```
 
 ### Compare 3 models with different grouping structures
+
 ```{r}
 loo_compare(loo_m2b, loo_m2c, loo_m2d)
 ```
-- Based on expected log-predictive densities (ELPD), models with and without grouping variables have similar posterior predictive accuracy (elpd_diff of m2b is less than 2 SE lower than elpd_diff of m2d: elpd_diff = -3.1 $\pm$ 5.8, 2 SE interval overlaps 0: 2.7 -- -8.9).  
-- Conclusion from all 3 models is the same: Average frog survival of first translocation is an important predictor of survival of individual frogs in subsequent translocations.  
+
+-   Based on expected log-predictive densities (ELPD), models with and without grouping variables have similar posterior predictive accuracy (elpd_diff of m2b is less than 2 SE lower than elpd_diff of m2d: elpd_diff = -3.1 $\pm$ 5.8, 2 SE interval overlaps 0: 2.7 -- -8.9).\
+-   Conclusion from all 3 models is the same: Average frog survival of first translocation is an important predictor of survival of individual frogs in subsequent translocations.
 
 ## Posterior classification accuracy of best models
+
 ```{r}
 # Generate confusion matrix for m2b
 set.seed(84735)
@@ -886,12 +1028,11 @@ classification_summary(m2b, data = d2, cutoff = 0.5)
 set.seed(84735)
 classification_summary(m2d, data = d2, cutoff = 0.5)
 ```
-- As expected from loo results, models with and without grouping variable have the same posterior predictive accuracy. 
 
+-   As expected from loo results, models with and without grouping variable have the same posterior predictive accuracy.
 
 ## TO DO
-- Validate priors, tune as necessary. Add final priors to model specification (in case the defaults change).  
-- Check approach to plotting conditional effects.  
-- Try un-standardizing predictor values in conditional-effects plots (and other plots?) to produce more intuitive visualizations.  
 
-
+-   Validate priors, tune as necessary. Add final priors to model specification (in case the defaults change).\
+-   Check approach to plotting conditional effects.\
+-   Try un-standardizing predictor values in conditional-effects plots (and other plots?) to produce more intuitive visualizations.
