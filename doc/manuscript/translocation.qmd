@@ -64,8 +64,8 @@ Host evolution and population persistence/recovery
     -   Frogs in the Sierra Nevada: Knapp et al. (2016) @knapp2016
 
     -   Sea Star Wasting Disease: Menge et al., Plos One (2016), Schiebelhut et al. PNAS (2018)
-    
-    -  White-nose syndrome: Gignoux-Wolfsohn et al. (2021) Molecular ecology.
+
+    -   White-nose syndrome: Gignoux-Wolfsohn et al. (2021) Molecular ecology.
 
 -   **Potential knowledge gap**: Subsequent recoveries from disease-induced declines following observed genetic changes have rarely \[never?\] been documented in wildlife populations (Sea stars: Moritsch and Raimondi 2018?).
 
@@ -238,6 +238,8 @@ Nature (impact factor = 69.8)
     -   Original reports whose conclusions represent a substantial advance in understanding of an important problem and have immediate, far-reaching implications.
 
     -   Biological sciences papers do not normally exceed 8 pages. This would be approximately 4300 words and 5-6 modest display items.
+
+    -   This [article](https://www.nature.com/articles/s41586-022-04824-9) provides a potentially useful (e.g., recent) example of formatting and structure for a paper focused on ecology/evolution
 
 PNAS (impact factor = 12.77)
 
