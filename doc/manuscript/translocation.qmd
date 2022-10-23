@@ -89,9 +89,17 @@ Description of MYL frog species complex, impacts of Bd, and evidence of recent r
 
 #### Population viability modeling
 
+Given observed yearly adult survival probabilities, our stage-structured model predicted that six of our twelve translocated population should experience a long-run growth rate $\lambda$ near or greater than 1 in the presence of Bd (Fig. XA; Fig. SXA; median predicted $\lambda$ ranges from 0.95-1.16 for these six populations). When the probability of successful recruitment $\omega$ was greater than 0.1 (the conservative estimate we used as a baseline value in our model), long-run growth rate of these populations could be notably greater than 1 (Fig. XA). In contrast, for the other six translocated populations where yearly adult survival was less than 0.5, our modeled predicted that it was unlikely that long-run growth rate in these populations was greater than 1, even when the probability of successful recruitment to the adult lifestage was near 0.4 (Fig. XA). A sensitivity analysis of long-run growth rate $\lambda$ to recruitment probability $\omega$ and yearly adult survival probability of naturally recruited individuals $\sigma_{A_R}$ showed that $\lambda$ was most sensitive to small changes in $\sigma_{A_R}$ (Fig. SXA).
+
+Given demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of adult recruitment $\omega$, our model predicted that, following a a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities had 50 year extinction probabilities of less 1 (Fig. XB) -- in other words, even under conservative assumptions about recruitment probability $\omega$, these populations had some probability of persistence over 50 years following a single introduction. For these six populations, as $\omega$ increased to 0.3, 50 year extinction probability was less 0.5, indicating strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment success (Fig. XB). In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1. To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest surveillance history (Fig. SXB; population 70550, surveyed for 16 years).
+
 ### Figures and figure legends
 
 <!--# In initial submission, include figure legends with their corresponding figures. -->
+
+<!--# Discuss referencing and in-text generation of figures.  We don't want to re-run the population viability modeling figures each time we compile the manuscript.  A makefile could be a good solution. -->
+
+![Figure X: A. The predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability or recruitment $\omega$, given the parameterized, deterministic model for translocated $R. sierrae$. Color points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment to adults is $\omega = 0.1$ (given by the dashed line). B. The predicted fifty-year extinction probabilities of the twelve translocated populations given demographic stochasticity, environmental variability in $\omega$ and different mean values of $\omega$. The dashed line shows where $\omega = 0.1$, for comparison to A.](figures/pop_viability_figures_for_manuscript.jpg)
 
 ### References
 
@@ -160,7 +168,7 @@ J_1 \\
 J_2 \\
 A_R \\
 A_T \\
-\end{bmatrix}(t)
+\end{bmatrix}(t) 
 $$
 
 The parameters in this model are yearly survival probability $\sigma_{*}$, where the "\*" indicates a particular state variable, the probability that a female frog reproduces in a given year $p_F$, the number of eggs produced by a female frog in a year that successfully hatch $F$, the probability of a first year tadpole remaining as a tadpole $p_{L1}$, the probability of a second year tadpole remaining as a tadpole $p_{L2}$, and the probability of a first year juvenile remaining as a juvenile $p_{J1}$. The parameter $\omega$ gives the probability of a juvenile successfully recruiting to an adult.
