@@ -589,6 +589,48 @@ d1_elevz %>%
 #   labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival")
 ```
 
+Demonstrate how to unstandardize effect of elevation. This can be applied to all other effect plots.
+
+```{r}
+d1_elevz <- d1 %>% 
+  mutate(snowt1_z = mean(snowt1_z), 
+         male_c = recode(male_c, "-0.452" = "0.548"),
+         donor = recode(donor, "70567" = "70459", "72996" = "70459"))
+
+d1_elevz %>% distinct(snowt1_z, male_c, donor) # ensure variables were set to correct values
+  
+### Try unstandardizing two ways and confirm both give the same answer
+
+
+# First: Just replace elev_z with elevation
+set.seed(12) # set seed for comparison between the two
+d1_elevz %>% 
+  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv, elevation) %>% 
+  add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
+  ggplot(aes(x = elevation, y = surv)) +
+    geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
+#    geom_point(aes(y = .epred)) +
+  labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival")
+
+# Second: Untransform elev_z based on mean and sd
+set.seed(12) # Same seed for comparison
+
+# Calculate mean and sd for elevation covariate
+mean_elev = mean(d1$elevation)
+sd_elev = sd(d1$elevation)
+
+d1_elevz %>% 
+  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv, elevation) %>% 
+  add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
+  ggplot(aes(x = (elev_z * 2*sd_elev) + mean_elev, y = surv)) +
+    geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
+#    geom_point(aes(y = .epred)) +
+  labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival")
+
+```
+
+These two approaches give the same answer and can be applied to the code below.
+
 #### Effect of winter severity in year t1
 
 ```{r}
