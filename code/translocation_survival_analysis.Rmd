@@ -87,6 +87,29 @@ m1a <- stan_glm(
   seed = 84735)
 ```
 
+## Explore a flat prior
+
+We can explore a flat prior on the intercept using the code below. 
+
+```{r}
+m1_flat <- stan_glm(
+  surv ~ length + snow_t + snow_t1 + day + bdload_l + elevation + first + male + donor,
+  data = d1,
+  family = binomial,
+  prior_intercept=NULL,
+  chains = 4, 
+  iter = 5000*2,
+  cores = 4,
+  seed = 84735)
+
+# Confirm our prior is flat
+prior_summary(m1_flat)
+
+# Notice that the estimate of the intercept is unchanged between the two models
+m1_flat
+m1a
+```
+
 ### Priors & chain diagnostics
 
 ```{r}
