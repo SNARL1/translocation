@@ -353,4 +353,23 @@ frog_translocation %>% write_csv(here::here("data", "clean", "frog_translocation
 # frog_translocation <- read_csv(here::here("data", "clean", "frog_translocation_final.csv"))
 ```
 
+### Description of dataset columns
+- site_id: Unique 5-digit site identifier.
+- elevation: Elevation of site above sea level (in meters). Obtained from 7.5' USGS topographic maps. 
+- shore: Complex shoreline habitats (boulders, overhanging banks, rock crevices) available to frogs during winter, or not present and/or unavailable due to reduction in water level (1 or 0, respectively). 
+- snow_t: April 1 snow water equivalent (SWE) in year of translocation, measured at Dana Meadows (DAN station).
+- snow_t1: April 1 snow water equivalent (SWE) in year following translocation, measured at Dana Meadows (DAN station).
+- date: Date of translocation (yyyy-mm-dd).
+- year: Year of translocation.
+- day: Day of year on which translocation occurred, expressed as number of days since 01-January.  
+- order: Order of translocation at the site. 1 = first translocation, 2 = second translocation, etc.
+- pit_tag_ref: Unique 9 or 15-digit PIT tag identifier.  
+- donor: Unique 5-digit identifier of donor site at which frogs were collected. 
+- sex: Sex of translocated frog. 
+- length: Snout-vent length of translocated frog, measured at donor site at time of capture and $\leq$ 24 hours before translocation (in millimeters).
+- weight: Weight of translocated frog, measured at donor site at time of capture and $\leq$ 24 hours before translocation (in grams).
+- bd_load: Bd infection intensity, measured at donor site at time of capture and $\leq$ 24 hours before translocation (ITS1 copies * 80).
+- survival: Probability of surviving one year after translocation. 
+
+
 
