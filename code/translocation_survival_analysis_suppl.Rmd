@@ -212,3 +212,155 @@ mcmc_areas_ridges(m1d_allna, regex_pars = "translocation_id") +
 - Inclusion of all records (i.e., 12 records where bd_load = NA that were excluded in primary analysis) did not change the results.   
 
 
+
+
+## Analysis of changes in Bd load following translocation
+
+-  Rescale bd_load, center period variable. 
+-  Compare loads at time of translocation to those from CMR years 0 and 1. Exclude years > 1.
+-  Possible models: 
+  -  bd_load ~ period + (1 | pit_tag_ref) + (1 | translocation_id)
+  -  bd_load ~ period + (1 | pit_tag_ref) + (1 | site_id)
+  
+### Load additional libraries
+```{r}
+library(RPostgreSQL)
+library(lubridate)
+```
+
+### Read in raw translocation and capture datasets, bind them
+```{r read-data}
+translocation <- read_csv(here::here("data", "raw", "frog_translocation.csv")) %>% 
+  relocate(visit_date = release_date, .before = type) %>% 
+  rename(survey_type = type) %>% 
+  mutate(pit_tag_ref = replace(pit_tag_ref, pit_tag_ref == "900067000117396" & site_id == 70641, "111111111111111")) %>% # remove incorrect pit_tag_ref identified in translocation_survival_createdata.Rmd
+  filter(pit_tag_ref != "111111111111111")
+
+capture <- read_csv(here::here("data", "raw", "frog_captures.csv")) %>% 
+  select(-capture_life_stage, -capture_animal_state, -sex)
+
+# select only translocated frogs (exclude naturally-recruited frogs and translocated frogs that were never recaptured after translocation)
+capture <- translocation %>% 
+  select(pit_tag_ref) %>% 
+  inner_join(capture, by = c("pit_tag_ref")) %>% 
+  relocate(pit_tag_ref, .after = last_col())
+
+frogs_all <- bind_rows(translocation, capture)
+```
+
+### Connect to PostgreSQL database `amphibians`
+```{r}
+con = dbConnect(dbDriver("PostgreSQL"),
+                user = rstudioapi::askForPassword("user name"),
+                password = rstudioapi::askForPassword("password"),
+                host = "frogdb.eri.ucsb.edu",
+                port = 5432,
+                dbname = "amphibians")
+
+```
+
+### Retrieve Bd data for translocated frogs from database
+```{sql retrieve-translocation-bd-data, connection=con, output.var="translocate_bd"}
+select
+  release_date as visit_date,
+  pit_tag_ref,
+  swab_id,
+  bd_load
+from relocate
+inner join relocate_frog on relocate.id = relocate_id
+inner join bd_load on swab_id = sample_id  
+where release_siteid1 in (70134, 70279, 70370, 70413, 70414, 70449, 70505, 70550, 70556, 70619, 70628, 70641, 74976) and
+  (replicate = 1 or replicate is null)
+```
+
+### Retrieve Bd data for captured frogs from database
+```{sql retrieve-capture-bd-data, connection=con, output.var="capture_bd"}
+select
+	visit_date,
+	pit_tag_ref, 
+	swab_id,
+	bd_load
+from visit
+inner join survey on visit.id = visit_id
+inner join capture_survey on survey.id = survey_id
+inner join bd_load on swab_id = sample_id  
+where site_id in (70134, 70688, 70370, 70114, 70175, 70279, 70413, 71570, 71968, 72008, 72093, 72264, 72390, 72442, 72694, 70414, 70449, 70034, 70505, 72092, 70550, 70556, 70619, 70628, 70641, 74976, 72973) and 
+	survey_type = 'cmr' and
+	capture_animal_state != 'dead' and
+	(replicate = 1 or replicate is null)
+```  
+
+### Disconnect from database
+```{r}
+dbDisconnect(con) 
+rm("con")
+```
+
+### Combine Bd data from translocate and capture datasets
+```{r}
+bd_add <- bind_rows(translocate_bd, capture_bd)
+```
+
+### Add Bd data to frog data, restructure dataset
+```{r}
+frogsbd <- frogs_all %>% 
+  inner_join(bd_add, by = c("visit_date", "pit_tag_ref")) %>% 
+  mutate(period = if_else(survey_type == "cmr", "after", "before")) %>% # use 0/1 instead?
+  relocate(period, .after = survey_type) %>% 
+  arrange(site_id, visit_date)
+```
+
+### Add years since translocation
+```{r}
+frogsbd <- translocation %>% 
+  mutate(year_translocate = year(visit_date)) %>% 
+  select(year_translocate, pit_tag_ref) %>% 
+  inner_join(frogsbd, by = c("pit_tag_ref")) %>% 
+  relocate(year_translocate, .after = visit_date) %>% 
+  relocate(pit_tag_ref, .after = period) %>% 
+  mutate(year_capture = year(visit_date), .after = year_translocate) %>% 
+  mutate(interval = (year_capture - year_translocate), .after = year_capture) %>% 
+  arrange(site_id, visit_date, pit_tag_ref)
+```
+
+### Update site ids to standardize usage
+```{r}
+frogsbd <- frogsbd %>% 
+  mutate(site_id1 = site_id, .after = site_id,
+         site_id1 = replace(site_id1, site_id == 70034, 70449),
+         site_id1 = replace(site_id1, site_id == 70175, 70413),
+         site_id1 = replace(site_id1, site_id == 70279, 70413),
+         site_id1 = replace(site_id1, site_id == 72093, 70413),
+         site_id1 = replace(site_id1, site_id == 72442, 70413),
+         site_id1 = replace(site_id1, site_id == 70688, 70134),
+         site_id1 = replace(site_id1, site_id == 72092, 70505),
+         site_id1 = replace(site_id1, site_id == 72973, 74976))
+```
+
+### Add translocation_id
+```{r}
+frogsbd <- frogsbd %>% 
+  distinct(site_id1, year_translocate) %>% 
+  arrange(site_id1, year_translocate) %>% 
+  group_by(site_id1) %>% 
+  mutate(transno = seq_len(n())) %>% 
+  ungroup(site_id1) %>% 
+  unite(translocation_id, c("site_id1", "transno"), remove = FALSE) %>% 
+  select(-transno) %>% 
+  inner_join(frogsbd, by = c("site_id1", "year_translocate")) %>% 
+  select(site_id, site_id1, translocation_id, visit_date, survey_type, period, year_translocate, year_capture, interval, pit_tag_ref, swab_id, bd_load) %>% 
+  arrange(site_id1, visit_date)
+```
+
+### Save frog-Bd dataset
+```{r}
+frogsbd %>% write_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv"))
+```
+
+
+
+
+
+
+
+
