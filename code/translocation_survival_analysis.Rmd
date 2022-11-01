@@ -50,7 +50,7 @@ d1 <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>%
     first_c = first - mean(first),
     across(c(shore_c, male_c, elevlo_c, first_c), round, 3), 
     across(c(site_id, shore_c, first_c, donor, male_c, elevlo_c, year), as.factor),
-    surv = as.integer(surv))
+    surv = as.integer(round(surv)))
 
 # Add a descriptive translocation_id
 d1 <- d1 %>% 
