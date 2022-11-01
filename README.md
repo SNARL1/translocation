@@ -2,9 +2,11 @@
 
 ## Authors of this repository
 
-Roland A. Knapp (roland.knapp(at)ucsb.edu) [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--1954--2745-green.svg)](http://orcid.org/0000-0002-1954-2745)
+Roland A. Knapp (roland.knapp(at)ucsb.edu) [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--1954--2745-green.svg)](https://orcid.org/0000-0002-1954-2745)
 
-Thomas C. Smith (tcsmith(at)ucsb.edu [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0001--7908--438X-green.svg)](http://orcid.org/0000-0001-7908-438X)
+Mark Q. Wilber (mqwilber(at)gmail.com) [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--8274--8025-green.svg)](https://orcid.org/0000-0002-8274-8025) 
+
+Thomas C. Smith (tcsmith(at)ucsb.edu [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0001--7908--438X-green.svg)](https://orcid.org/0000-0001-7908-438X)
 
 ## Overview of contents
 
@@ -22,7 +24,7 @@ This repository contains the following directories and files:
 
 ## Notebooks
 
-Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/notebooks_code/](https://github.com/SNARL1/translocation/tree/main/out/notebooks_code#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/` notebook describes issues of interest related to dataset creation and analysis. The `out/notebooks_code/` notebooks are rendered from the `Rmd` files in the `code\` directory, and describe dataset creation/data analysis steps for each population. 
+Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/notebooks_code/](https://github.com/SNARL1/translocation/tree/main/out/notebooks_code#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/` notebook describes issues of interest related to dataset creation and analysis. The `out/notebooks_code/` notebooks are rendered from the `Rmd` files in the `code/` directory, and describe dataset creation/data analysis steps for each population. 
 
 ## Contact
 
