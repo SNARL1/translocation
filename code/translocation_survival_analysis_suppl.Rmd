@@ -215,13 +215,10 @@ mcmc_areas_ridges(m1d_allna, regex_pars = "translocation_id") +
 
 
 ## Analysis of changes in Bd load following translocation
+-  Compare loads at time of translocation to those from CMR years 0 and 1. Exclude years > 1. Only frogs that were recaptured at least once following translocation are included. 
 
--  Rescale bd_load, center period variable. 
--  Compare loads at time of translocation to those from CMR years 0 and 1. Exclude years > 1.
--  Possible models: 
-  -  bd_load ~ period + (1 | pit_tag_ref) + (1 | translocation_id)
-  -  bd_load ~ period + (1 | pit_tag_ref) + (1 | site_id)
-  
+### Create dataset 
+
 ### Load additional libraries
 ```{r}
 library(RPostgreSQL)
@@ -357,10 +354,248 @@ frogsbd <- frogsbd %>%
 frogsbd %>% write_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv"))
 ```
 
+## Analyze dataset
+### Read in data, standardize variables
+```{r}
+d1 <- read_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv")) %>% 
+  mutate(after = if_else(period == "after", 1, 0),
+         bd_load = as.integer(round(bd_load)),  # if using negative binomial distribution
+         after_c = after - mean(after))
+```
 
+### Null values - check
+```{r check-null}
+d1 %>% summarize(across(everything(), ~ sum(is.na(.))))
+```
 
+### Include only CMR years 0 and 1
+```{r}
+d2 <- d1 %>% 
+  filter(interval < 2)
+```
 
+### Plot distribution of bd_load response variable
+```{r}
+d2 %>% 
+  ggplot(aes(x = bd_load)) +
+    geom_histogram()
 
+d2 %>% 
+  ggplot(aes(sample = bd_load)) +
+    geom_qq() +
+    geom_qq_line()
+```
+* Data are strongly left-skewed, possibly zero-inflated. Model using negative binomial family.
 
+### Model without group-level effects
+#### Model specification
+```{r}
+m1a <- stan_glm(
+  bd_load ~ after_c,
+  data = d2,
+  family = neg_binomial_2(),
+  chains = 4, 
+  iter = 5000*2,
+  cores = 4,
+  seed = 84735)
+```
 
+#### Priors and chain diagnostics
+```{r}
+prior_summary(m1a)
 
+mcmc_trace(m1a, size = 0.1)
+mcmc_dens_overlay(m1a)
+
+summary(m1a)
+```
+
+#### Posterior predictive check
+```{r}
+pp_check(m1a, plotfun = "stat") +
+    xlab("Bd load")
+```
+
+-   Posterior predictive distribution implied by regression model closely matches original data (based on mean Bd load).
+
+#### Calculate loo
+```{r}
+loo_m1a <- loo(m1a, cores = 4, save_psis = TRUE)
+print(loo_m1a)
+```
+
+#### Posterior analysis
+```{r}
+tidy(m1a, conf.int = TRUE, conf.level = 0.90)
+
+mcmc_areas(m1a, area_method = "equal height", prob = 0.90) +
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
+  ggtitle("Model with standardized predictors, no group-level effects",
+          "Posterior distributions with medians & 90% uncertainty intervals")
+
+# mean(bayes_R2(m1a))   # bayes_R2 not available for negative binomials models in stanreg. 
+```
+
+### Model with 1 grouping variable: pit_tag_ref
+#### Model specification
+```{r}
+m1b <- stan_glmer(
+  bd_load ~ after_c + (1 | pit_tag_ref),
+  data = d2,
+  family = neg_binomial_2(),
+  chains = 4, 
+  iter = 5000*2,
+  cores = 4,
+  seed = 84735)
+```
+
+#### List model variable names
+
+```{r}
+get_variables(m1b)
+```
+
+#### Priors and chain diagnostics
+```{r}
+prior_summary(m1b)
+
+b1 <- c("(Intercept)", "after_c")
+
+mcmc_trace(m1b, size = 0.1, pars = b1)
+mcmc_dens_overlay(m1b, pars = b1)
+
+summary(m1b)
+```
+
+#### Posterior predictive check
+```{r}
+pp_check(m1b, plotfun = "stat") +
+    xlab("Bd load")
+```
+
+-   Posterior predictive distribution implied by regression model shows some mismatch between actual data and model results (based on mean Bd load).
+
+#### Calculate loo
+```{r}
+loo_m1b <- loo(m1b, cores = 4, save_psis = TRUE)
+print(loo_m1b)
+```
+
+#### Posterior analysis
+```{r}
+tidy(m1b, conf.int = TRUE, conf.level = 0.90)
+
+mcmc_areas(m1b, area_method = "equal height", prob = 0.90, pars = b1) +
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
+  ggtitle("Model with pit_tag_ref as grouping variable",
+          "Posterior distributions with medians & 90% uncertainty intervals")
+
+# mean(bayes_R2(m1b))
+```
+
+### Model with 2 grouping variables: pit_tag_ref nested within translocation_id
+#### Model specification
+```{r}
+m1c <- stan_glmer(
+  bd_load ~ after_c + (1 | pit_tag_ref) + (1 | translocation_id),
+  data = d2,
+  family = neg_binomial_2(),
+  chains = 4, 
+  iter = 5000*2,
+  cores = 4,
+  seed = 84735)
+```
+
+#### Priors and chain diagnostics
+```{r}
+prior_summary(m1c)
+
+b1 <- c("(Intercept)", "after_c")
+
+mcmc_trace(m1c, size = 0.1, pars = b1)
+mcmc_dens_overlay(m1c, pars = b1)
+
+summary(m1c)
+```
+
+#### Posterior predictive check
+```{r}
+pp_check(m1c, plotfun = "stat") +
+    xlab("Bd load")
+```
+
+-   Posterior predictive distribution implied by regression model closely matches original data (based on mean Bd load).
+
+#### Calculate loo
+```{r}
+loo_m1c <- loo(m1c, cores = 4, save_psis = TRUE)
+print(loo_m1c)
+```
+
+#### Posterior analysis
+```{r}
+tidy(m1c, conf.int = TRUE, conf.level = 0.90)
+
+mcmc_areas(m1c, area_method = "equal height", prob = 0.90, pars = b1) +
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
+  ggtitle("Model with pit_tag_ref and translocation_id as grouping variables",
+          "Posterior distributions with medians & 90% uncertainty intervals")
+
+# mean(bayes_R2(m1c))
+```
+
+### Model with 2 grouping variables: pit_tag_ref nested within site_id1
+#### Model specification
+```{r}
+m1d <- stan_glmer(
+  bd_load ~ after_c + (1 | pit_tag_ref) + (1 | site_id1),
+  data = d2,
+  family = neg_binomial_2(),
+  chains = 4, 
+  iter = 5000*2,
+  cores = 4,
+  seed = 84735)
+```
+
+#### Priors and chain diagnostics
+```{r}
+prior_summary(m1d)
+
+b1 <- c("(Intercept)", "after_c")
+
+mcmc_trace(m1d, size = 0.1, pars = b1)
+mcmc_dens_overlay(m1d, pars = b1)
+
+summary(m1d)
+```
+
+#### Posterior predictive check
+```{r}
+pp_check(m1d, plotfun = "stat") +
+    xlab("Bd load")
+```
+
+-   Posterior predictive distribution implied by regression model closely matches original data (based on mean Bd load).
+
+#### Calculate loo
+```{r}
+loo_m1d <- loo(m1d, cores = 4, save_psis = TRUE)
+print(loo_m1d)
+```
+
+#### Posterior analysis
+```{r}
+tidy(m1d, conf.int = TRUE, conf.level = 0.90)
+
+mcmc_areas(m1d, area_method = "equal height", prob = 0.90, pars = b1) +
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
+  ggtitle("Model with pit_tag_ref and site_id1 as grouping variables",
+          "Posterior distributions with medians & 90% uncertainty intervals")
+
+# mean(bayes_R2(m1d))
+```
+
+## Compare 4 models with different grouping structures
+```{r}
+loo_compare(loo_m1a, loo_m1b, loo_m1c, loo_m1d)
+```
