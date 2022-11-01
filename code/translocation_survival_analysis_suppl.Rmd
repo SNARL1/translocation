@@ -354,12 +354,28 @@ frogsbd <- frogsbd %>%
 frogsbd %>% write_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv"))
 ```
 
+### Description of dataset columns 
+-  site_id: Unique 5-digit site identifier.  
+-  site_id1: Assigned 5-digit site identifier for a collection of nearby sites utilized by a frog population.
+-  translocation_id: Unique identifier for each translocation.  
+-  visit_date: Date on which translocation/survey was conducted.  
+-  survey_type: "translocation" or "cmr".  
+-  period: "before" or "after" translocation.
+-  year_translocate: Year in which translocation was conducted.  
+-  year_capture: Year in which frog was captured.  
+-  interval: Number of years between translocation and frog capture.  
+-  pit_tag_ref: Unique PIT tag identifier.  
+-  swab_id: Unique identifier for skin swab sample.  
+-  bd_load: Bd infection intensity determined from skin swab sample, units are number of ITS1 copies * 80. 
+
+
+
 ## Analyze dataset
 ### Read in data, standardize variables
 ```{r}
 d1 <- read_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv")) %>% 
   mutate(after = if_else(period == "after", 1, 0),
-         bd_load = as.integer(round(bd_load)),  # if using negative binomial distribution
+         bd_load = as.integer(round(bd_load)), 
          after_c = after - mean(after))
 ```
 
