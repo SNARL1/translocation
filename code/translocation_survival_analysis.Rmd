@@ -426,7 +426,7 @@ tidy(m1e, conf.int = TRUE, conf.level = 0.90)
 
 mcmc_areas(m1e, area_method = "equal height", prob = 0.90, pars = b1) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
-  ggtitle("Model with standardized predictors & translocation_id as grouping variable",
+  ggtitle("Model with standardized predictors & translocation_id/site_id as grouping variables",
           "Posterior distributions with medians & 90% uncertainty intervals")
 
 mean(bayes_R2(m1e))
@@ -499,6 +499,18 @@ m1d_reduce <- stan_glmer(
   seed = 84735)
 ```
 
+### Posterior analysis
+```{r}
+tidy(m1d_reduce, conf.int = TRUE, conf.level = 0.90)
+
+b2 <- c("(Intercept)", "snowt1_z", "elev_z", "male_c0.548", "donor70567", "donor72996")
+
+mcmc_areas(m1d_reduce, area_method = "equal height", prob = 0.90, pars = b2) +
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
+  ggtitle("Reduced model with standardized predictors & translocation_id as grouping variable",
+          "Posterior distributions with medians & 90% uncertainty intervals")
+```
+
 ### Confirm fit of reduced model is comparable to full model
 
 ```{r}
@@ -537,8 +549,7 @@ ggplot2::scale_x_continuous(
 xlab("Translocation_id")
 ```
 
--   Model does a good job of predicting survival based on group-level and individual-level characteristics.\
--   What explains the low predicted survival at 70370 (both translocations), and high versus low predicted survival at 70550 for 1st and 2nd translocations, respectively? Both sites seem to contain high quality habitat (i.e., high elevation).\
+-   Model does a good job of predicting survival based on group-level and individual-level characteristics.  
 -   The predicted survival is based on assumption that only males are included. Run another set of models for females?
 
 #### Reduced model without grouping variable
@@ -578,6 +589,18 @@ ggplot2::scale_x_continuous(
 xlab("Translocation_id")
 ```
 
+### Values of important predictors for translocations of interest
+```{r}
+d1 %>% 
+  filter(site_id == "70370" | site_id == "70550") %>% 
+  distinct(translocation_id, elevation, snow_t1, donor)
+  
+```
+
+-   This helps to explain the low predicted survival at 70370 (both translocations), and high versus low predicted survival at 70550 for 1st and 2nd translocations, respectively.  
+  -   Without translocation_id as group-level effect, survival from two translocations at 70550 are not predicted well and both are predicted to have similar (and moderate) frog survival (based on high elevation, low snow_t1, and donor = 72996 for both translocations). Therefore, the group-level effect is responsible for good prediction of survival at this site. 
+  -   Low survival at 70370 in both translocations is predicted relatively well by models with and without group-level effect. Low predicted survival can be attributed to high snow_t1 and donor = 72996 in both translocations (although high elevation of site should have positive effect).
+
 ### Plot posterior plausible relationships between each predictor and the probability of frog survival (conditional effects)
 
 -   As described in <https://rdrr.io/cran/brms/man/conditional_effects.brmsfit.html>, "When creating conditional_effects for a particular predictor (or interaction of two predictors), one has to choose the values of all other predictors to condition on. By default, the mean is used for continuous variables and the reference category is used for factors, but you may change these values via argument conditions. This also has an implication for the points argument: In the created plots, only those points will be shown that correspond to the factor levels actually used in the conditioning, in order not to create the false impression of bad model fit, where it is just due to conditioning on certain factor levels."\
@@ -593,66 +616,16 @@ d1_elevz <- d1 %>%
          donor = recode(donor, "70567" = "70459", "72996" = "70459"))
 
 d1_elevz %>% distinct(snowt1_z, male_c, donor) # ensure variables were set to correct values
-  
+
+# use untransformed predictor (elevation) to make plot easier to interpret  
 d1_elevz %>% 
-  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv) %>% 
+  select(site_id, translocation_id, snowt1_z, elev_z, elevation, male_c, donor, surv) %>% 
   add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
-  ggplot(aes(x = elev_z, y = surv)) +
+  ggplot(aes(x = elevation, y = surv)) +  #   "ggplot(aes(x = (elev_z * 2*sd_elev) + mean_elev, y = surv)) +" gives identical result
     geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
-#    geom_point(aes(y = .epred)) +
-  labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival")
-
-
-# d1 %>%  # Test of add_predicted_draws used for similar purpose - unsuccessful
-#   select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv) %>% 
-#   add_predicted_draws(m1d_reduce, ndraws = 100, re_formula = NA, newdata = d1_elevz) %>% View()
-#   ggplot(aes(x = elev_z, y = surv)) +
-#     geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
-#     geom_point(aes(y = .epred)) +
-#   labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival")
+    # geom_point(aes(y = .epred)) +
+  labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year frog survival")
 ```
-
-Demonstrate how to unstandardize effect of elevation. This can be applied to all other effect plots.
-
-```{r}
-d1_elevz <- d1 %>% 
-  mutate(snowt1_z = mean(snowt1_z), 
-         male_c = recode(male_c, "-0.452" = "0.548"),
-         donor = recode(donor, "70567" = "70459", "72996" = "70459"))
-
-d1_elevz %>% distinct(snowt1_z, male_c, donor) # ensure variables were set to correct values
-  
-### Try unstandardizing two ways and confirm both give the same answer
-
-
-# First: Just replace elev_z with elevation
-set.seed(12) # set seed for comparison between the two
-d1_elevz %>% 
-  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv, elevation) %>% 
-  add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
-  ggplot(aes(x = elevation, y = surv)) +
-    geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
-#    geom_point(aes(y = .epred)) +
-  labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival")
-
-# Second: Untransform elev_z based on mean and sd
-set.seed(12) # Same seed for comparison
-
-# Calculate mean and sd for elevation covariate
-mean_elev = mean(d1$elevation)
-sd_elev = sd(d1$elevation)
-
-d1_elevz %>% 
-  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv, elevation) %>% 
-  add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
-  ggplot(aes(x = (elev_z * 2*sd_elev) + mean_elev, y = surv)) +
-    geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
-#    geom_point(aes(y = .epred)) +
-  labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival")
-
-```
-
-These two approaches give the same answer and can be applied to the code below.
 
 #### Effect of winter severity in year t1
 
@@ -665,12 +638,12 @@ d1_snowt1z <- d1 %>%
 d1_snowt1z %>% distinct(elev_z, male_c, donor) # ensure variables were set to correct values
   
 d1_snowt1z %>% 
-  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv) %>% 
+  select(site_id, translocation_id, snowt1_z, snow_t1, elev_z, male_c, donor, surv) %>% 
   add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
-  ggplot(aes(x = snowt1_z, y = surv)) +
+  ggplot(aes(x = snow_t1, y = surv)) +
     geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
 #    geom_point(aes(y = .epred)) +
-  labs(x = "Winter severity in year following translocation (standardized)", y = "Probability of 1-year frog survival") 
+  labs(x = "Winter severity in year following translocation (% of average snow depth)", y = "Probability of 1-year frog survival") 
 ```
 
 #### Effect of sex
@@ -684,12 +657,12 @@ d1_malec <- d1 %>%
 d1_malec %>% distinct(elev_z, snowt1_z, donor) # ensure variables were set to correct values
   
 d1_malec %>% 
-  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv) %>% 
+  select(site_id, translocation_id, snowt1_z, elev_z, male_c, sex, donor, surv) %>% 
   add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
-  ggplot(aes(x = male_c, y = surv)) +
-    geom_boxplot(aes(y = .epred, x = male_c)) +
+  ggplot(aes(x = male, y = surv)) +
+    geom_boxplot(aes(y = .epred, x = sex)) +
 #    geom_point(aes(y = .epred)) +
-    labs(x = "Sex (centered)", y = "Probability of 1-year frog survival")
+    labs(x = "Sex", y = "Probability of 1-year frog survival")
 ```
 
 #### Effect of donor
@@ -722,13 +695,13 @@ d1_elevz_malec %>% distinct(snowt1_z, donor) # ensure variables were set to corr
   
 pal <- c("#0d0887", "#f89540")
 d1_elevz_malec %>% 
-  select(site_id, translocation_id, snowt1_z, elev_z, male_c, donor, surv) %>% 
+  select(site_id, translocation_id, snowt1_z, elev_z, elevation, male_c, sex, donor, surv) %>% 
   add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
-  ggplot(aes(x = elev_z, y = surv, color = male_c)) +
-    geom_line(aes(y = .epred, group = paste(male_c, .draw)), size = 0.4, alpha = 0.5) +
+  ggplot(aes(x = elevation, y = surv, color = sex)) +
+    geom_line(aes(y = .epred, group = paste(sex, .draw)), size = 0.4, alpha = 0.5) +
 #    geom_point(aes(y = .epred)) +
-    labs(x = "Elevation of recipient site (standardized)", y = "Probability of 1-year frog survival") +
-    scale_color_manual(values = pal)  + 
+    labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year frog survival") +
+    scale_color_manual(values = pal) + 
     theme_classic()
 ```
 
@@ -756,8 +729,7 @@ plot(conditional_effects(m1d_reduce_brms, spaghetti = TRUE, mean = TRUE, ndraws 
 # Analysis 2: Survival of frogs from first translocation as predictor of survival in subsequent translocations
 
 This analysis explores the results shown in translocation_survival_exploratory.Rmd (code chunk name = "frog-survival-by-site").
-This plot shows frog survival of all translocations grouped by site, and indicates that survival is highly variable across sites, but repeatable within sites.
-This analysis quantifies the association between survival in the first translocation and survival in subsequent translocations.
+This plot shows frog survival of all translocations grouped by site, and indicates that survival is highly variable across sites, but repeatable within sites. The following analysis quantifies the association between survival in the first translocation and survival in subsequent translocations.
 
 ## Load packages
 
