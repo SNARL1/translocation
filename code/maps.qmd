@@ -1,0 +1,52 @@
+---
+title: "maps"
+format: html
+editor: visual
+---
+## Load packages
+```{r}
+library(sf)
+library(tmap)
+library(stars)
+library(tidyverse)
+```
+
+
+## Map of sample sites for exome capture analysis
+### Import data
+```{r}
+nps_boundary <- st_read("/home/roland/pCloudDrive/MLRG/gis/Coverages/NPS_boundary/yose_kica_sequ_boundaries.shp", stringsAsFactors=F) #read in shapefile like a dataframe using sf package
+class(nps_boundary)
+str(nps_boundary)
+st_crs(nps_boundary) #determine CRS
+utm11nCRS <- st_crs(nps_boundary)
+
+# California Color Hillshade (90m) from koordinates.com
+hillshade <- read_stars("/home/roland/Downloads/hillshade-90m-GTiff-UTMzone11/california-color-hillshade-90m.tif")
+hillshade
+
+```
+
+### Check if shapefile polygons are valid
+```{r}
+st_is_valid(nps_boundary) # all 3 are invalid
+
+nps_boundary <- st_make_valid(nps_boundary$geometry)
+# tmap_options(check.and.fix = TRUE) # Don't know how to use this option, or whether it would fix the issue
+
+st_is_valid(nps_boundary) # fixed
+```
+
+### Create map
+```{r}
+tm_shape(hillshade) + 
+  tm_raster(style = "cont") + 
+  tm_shape(nps_boundary) +
+  tm_polygons()
+
+tm_shape(nps_boundary) +
+  tm_polygons()
+
+
+```
+
