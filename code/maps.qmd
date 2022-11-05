@@ -3,7 +3,9 @@ title: "maps"
 format: html
 editor: visual
 ---
+
 ## Load packages
+
 ```{r}
 library(sf)
 library(tmap)
@@ -11,23 +13,27 @@ library(stars)
 library(tidyverse)
 ```
 
-
 ## Map of sample sites for exome capture analysis
+
 ### Import data
+
 ```{r}
 nps_boundary <- st_read("/home/roland/pCloudDrive/MLRG/gis/Coverages/NPS_boundary/yose_kica_sequ_boundaries.shp", stringsAsFactors=F) #read in shapefile like a dataframe using sf package
 class(nps_boundary)
 str(nps_boundary)
 st_crs(nps_boundary) #determine CRS
-utm11nCRS <- st_crs(nps_boundary)
+#utm11nCRS <- st_crs(nps_boundary)
 
 # California Color Hillshade (90m) from koordinates.com
 hillshade <- read_stars("/home/roland/Downloads/hillshade-90m-GTiff-UTMzone11/california-color-hillshade-90m.tif")
 hillshade
+str_rgb
+st_crs(hillshade)
 
 ```
 
 ### Check if shapefile polygons are valid
+
 ```{r}
 st_is_valid(nps_boundary) # all 3 are invalid
 
@@ -37,16 +43,36 @@ nps_boundary <- st_make_valid(nps_boundary$geometry)
 st_is_valid(nps_boundary) # fixed
 ```
 
+### Set projection
+
+```{r}
+crs(hillshade) <- crs(nps_boundary)
+```
+
+### Crop raster with bounding box
+
+```{r}
+# as example
+b <- as(extent(6, 6.4, 49.75, 50), 'SpatialPolygons')
+crs(b) <- crs(r)
+rb <- crop(r, b)
+```
+
 ### Create map
+
 ```{r}
 tm_shape(hillshade) + 
-  tm_raster(style = "cont") + 
-  tm_shape(nps_boundary) +
-  tm_polygons()
+  tm_rgb(r = 1, g = 2, b = 3) +
+  tm_shape(nps_boundary) + 
+  tm_borders(col = "black")
 
-tm_shape(nps_boundary) +
-  tm_polygons()
+
+# Need to crop raster to smaller size: https://semba-blog.netlify.app/12/14/2020/manipulate-and-visualize-raster-data-with-leaflet-and-tmap-in-r/#crop-raster
+
+# Might be easier to re-export smaller shape
+
 
 
 ```
 
+Add study site points, north arrow, distance bar
