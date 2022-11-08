@@ -11,68 +11,128 @@ library(sf)
 library(tmap)
 library(stars)
 library(tidyverse)
+library(RPostgreSQL)
 ```
 
 ## Map of sample sites for exome capture analysis
 
-### Import data
+Run the following 5 chunks only if you have access to the project database. For those without the necessary credentials, use the saved output file in data/maps/ that is available via the "import-map-data" chunk.
+
+### Create dataset of sample collection points
+```{r}
+exome_sites <- read_csv(here::here("data", "maps", "exome_sample_sites.csv"))
+```
+#### Connect to database
 
 ```{r}
-nps_boundary <- st_read("/home/roland/pCloudDrive/MLRG/gis/Coverages/NPS_boundary/yose_kica_sequ_boundaries.shp", stringsAsFactors=F) #read in shapefile like a dataframe using sf package
-class(nps_boundary)
-str(nps_boundary)
-st_crs(nps_boundary) #determine CRS
-#utm11nCRS <- st_crs(nps_boundary)
+source("db_connect.R")
+```
+
+#### Retrieve data
+
+```{sql retrieve-site-xy, connection=con, output.var="exome_sites_db"}
+select
+  id as site_id,
+  utme,
+  utmn
+from site
+where id in (74281, 50731, 50307, 52127, 10220, 10490, 50837, 20169, 72996, 72808, 70567, 54188, 10055, 10593, 50783)
+```
+
+#### Disconnect from database
+
+```{r}
+source("db_disconnect.R")
+```
+
+#### Create points layer
+
+```{r}
+exome_sites_xy <- 
+  exome_sites %>% 
+  inner_join(exome_sites_db, by = "site_id")
+
+# Add x-y random noise to obscure exact site locations
+exome_sites_xy <- exome_sites_xy %>% 
+  add_column(x = sample(-2000:2000, size = 15),
+             y = sample(-2000:2000, size = 15))
+
+exome_sites_xy <- exome_sites_xy %>% 
+  mutate(utme_noise = utme + x,
+         utmn_noise = utmn + y) %>% 
+  select(-utme, -utmn, -x, -y)
+
+# Save file 
+write_csv(exome_sites_xy, here::here("data", "maps", "exome_sites_xy.csv"))
+```
+
+### Import map layers
+
+```{r import-map-data}
+# Read file, if lacking database access
+exome_sites_xy <- read_csv(here::here("data", "maps", "exome_sites_xy.csv"))
+exome_points = st_as_sf(exome_sites_xy, coords = c("utme_noise", "utmn_noise"), crs = st_crs(26911))
+
+nps_boundaries <- st_read(here::here(
+  "data", "maps", "nps-boundaries", "yose_kica_sequ_boundaries.shp"))
+st_crs(nps_boundaries) #determine coordinate reference system (CRS)
 
 # California Color Hillshade (90m) from koordinates.com
-hillshade <- read_stars("/home/roland/Downloads/hillshade-90m-GTiff-UTMzone11/california-color-hillshade-90m.tif")
-hillshade
-str_rgb
+hillshade <- read_stars(here::here(
+  "data", "maps", "hillshade-90m", "california-color-hillshade-90m.tif"))
 st_crs(hillshade)
-
 ```
 
-### Check if shapefile polygons are valid
+### Check & fix shapefile polygons
 
 ```{r}
-st_is_valid(nps_boundary) # all 3 are invalid
+st_is_valid(nps_boundaries) # all 3 are invalid
 
-nps_boundary <- st_make_valid(nps_boundary$geometry)
-# tmap_options(check.and.fix = TRUE) # Don't know how to use this option, or whether it would fix the issue
+nps_boundaries <- st_make_valid(nps_boundaries$geometry)
 
-st_is_valid(nps_boundary) # fixed
+st_is_valid(nps_boundaries) # fix polygons
 ```
 
-### Set projection
+### Transform CRS of nps_boundary
 
 ```{r}
-crs(hillshade) <- crs(nps_boundary)
+nps_boundaries <- st_transform(nps_boundaries, 26911)
 ```
 
 ### Crop raster with bounding box
 
 ```{r}
-# as example
-b <- as(extent(6, 6.4, 49.75, 50), 'SpatialPolygons')
-crs(b) <- crs(r)
-rb <- crop(r, b)
+bbox <- st_bbox(c(xmin = 238000, ymax = 4235000, xmax = 403000, ymin = 4011000), crs = st_crs(nps_boundaries))
+hillshade_crop <- st_crop(hillshade, bbox)
+hillshade_crop <- st_transform(hillshade_crop, 26911)
 ```
 
 ### Create map
 
 ```{r}
-tm_shape(hillshade) + 
+exome_points_map <- tm_shape(hillshade_crop) + 
   tm_rgb(r = 1, g = 2, b = 3) +
-  tm_shape(nps_boundary) + 
-  tm_borders(col = "black")
+  tm_shape(nps_boundaries) + 
+  tm_borders(col = "black") +
+  tm_shape(exome_points) + 
+  tm_symbols(size = 0.5, 
+             col = "bd_status", 
+             palette = c("#FFEC8B", "#87CEFA"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
+             title.col = "Bd status") +
+  tm_layout(legend.position = c("right", "top")) +
+  tm_compass(type = "4star",
+             position = c("left", "bottom"),
+             size = 2) +
+  tm_scale_bar(breaks = c(0, 25, 50), 
+               text.size = 0.7, 
+               position = c("left", "bottom"))
 
-
-# Need to crop raster to smaller size: https://semba-blog.netlify.app/12/14/2020/manipulate-and-visualize-raster-data-with-leaflet-and-tmap-in-r/#crop-raster
-
-# Might be easier to re-export smaller shape
-
-
-
+exome_points_map
 ```
 
-Add study site points, north arrow, distance bar
+### Save map
+```{r}
+tmap_save(exome_points_map, here::here("out", "map_exome_points.png"))
+```
+
+
