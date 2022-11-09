@@ -19,9 +19,11 @@ library(RPostgreSQL)
 Run the following 5 chunks only if you have access to the project database. For those without the necessary credentials, use the saved output file in data/maps/ that is available via the "import-map-data" chunk.
 
 ### Create dataset of sample collection points
+
 ```{r}
 exome_sites <- read_csv(here::here("data", "maps", "exome_sample_sites.csv"))
 ```
+
 #### Connect to database
 
 ```{r}
@@ -115,7 +117,7 @@ exome_points_map <- tm_shape(hillshade_crop) +
   tm_shape(nps_boundaries) + 
   tm_borders(col = "black") +
   tm_shape(exome_points) + 
-  tm_symbols(size = 0.5, 
+  tm_symbols(size = 0.5, # increase point size, use darker blue
              col = "bd_status", 
              palette = c("#FFEC8B", "#87CEFA"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
              title.col = "Bd status") +
@@ -131,8 +133,7 @@ exome_points_map
 ```
 
 ### Save map
+
 ```{r}
 tmap_save(exome_points_map, here::here("out", "map_exome_points.png"))
 ```
-
-

@@ -359,12 +359,12 @@ print(loo_m1d)
 ### Posterior analysis
 
 ```{r}
-tidy(m1d, conf.int = TRUE, conf.level = 0.90)
+tidy(m1d, conf.int = TRUE, conf.level = 0.95)
 
-mcmc_areas(m1d, area_method = "equal height", prob = 0.90, pars = b1) +
+mcmc_areas(m1d, area_method = "equal height", prob = 0.95, pars = b1) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Model with standardized predictors & translocation_id as grouping variable",
-          "Posterior distributions with medians & 90% uncertainty intervals")
+          "Posterior distributions with medians & 95% uncertainty intervals")
 
 mean(bayes_R2(m1d))
 
