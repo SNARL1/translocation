@@ -117,9 +117,9 @@ exome_points_map <- tm_shape(hillshade_crop) +
   tm_shape(nps_boundaries) + 
   tm_borders(col = "black") +
   tm_shape(exome_points) + 
-  tm_symbols(size = 0.5, # increase point size, use darker blue
+  tm_symbols(size = 0.7, # increase point size, use darker blue
              col = "bd_status", 
-             palette = c("#FFEC8B", "#87CEFA"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
+             palette = c("#FFEC8B", "#00B2EE"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
              title.col = "Bd status") +
   tm_layout(legend.position = c("right", "top")) +
   tm_compass(type = "4star",
