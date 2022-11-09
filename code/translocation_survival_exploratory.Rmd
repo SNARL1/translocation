@@ -99,7 +99,14 @@ frog_translocation %>%
 
 ## Plot of frog survival for each translocation - grouped by site and arranged by site-specific median survival 
 
+-  Points colored by donor site. 
+
 ```{r frog-survival-by-site}
+palette1 <- c("green4", "blue", "black")
+
+donors <- frog_translocation %>% 
+  distinct(site_id, donor)
+
 cohort_survival %>% 
   mutate(release_year = year(release_date)) %>% 
   group_by(site_id) %>% 
@@ -107,9 +114,11 @@ cohort_survival %>%
   arrange(plot_survival) %>% 
   mutate(siteid_order = row_number()) %>% 
   inner_join(cohort_survival, by = "site_id") %>% 
+  inner_join(donors, by = "site_id") %>% 
   select(-plot_survival) %>% 
-    ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival)) +  # reorder site_id by siteid_order)
-      geom_point(size = 3) +
+    ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, group = donor)) +  # reorder site_id by siteid_order)
+      geom_point(aes(color = donor), size = 3) +
+      scale_color_manual(values = palette1) + 
       labs(x = "Recipient site", y = "1-year frog survival")
 ```
 * Strong effect of site/translocation on frog survival.
