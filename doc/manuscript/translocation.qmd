@@ -87,6 +87,12 @@ Description of MYL frog species complex, impacts of Bd, and evidence of recent r
 
 #### Frog translocations
 
+Results text will be added soon. Figure XX is likely to be included in the main manuscript, and Figure XXX will probably be moved to the Supplementary Information.
+
+![Figure XX. Average survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median survival per translocation. Frog survival for the one-year period following each transloation was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected.](figures/translocation_survival_bysiteid.png)
+
+![Figure XXX. For the best model predicting frog survival following translocations, 95% uncertainty intervals for the coefficients of each predictor variable. Uncertainty intervals are shown as shaded areas under the estimated posterior density curve. Posterior medians are indicated by the verical line in each curve. Important predictors of frog survival are those for which the uncertainty interval does not include zero (vertical red dashed line). Bd load at the time of translocation did not affect subsequent frog survival.](figures/mcmc_areas_m1d.png)
+
 #### Population viability modeling
 
 Given observed yearly adult survival probabilities, our stage-structured model predicted that six of our twelve translocated population should experience a long-run growth rate $\lambda$ near or greater than 1 in the presence of Bd (Fig. XA; Fig. SXA; median predicted $\lambda$ ranges from 0.95-1.16 for these six populations). When the probability of successful recruitment $\omega$ was greater than 0.1 (the conservative estimate we used as a baseline value in our model), long-run growth rate of these populations could be notably greater than 1 (Fig. XA). In contrast, for the other six translocated populations where yearly adult survival was less than 0.5, our modeled predicted that it was unlikely that long-run growth rate in these populations was greater than 1, even when the probability of successful recruitment to the adult lifestage was near 0.4 (Fig. XA). A sensitivity analysis of long-run growth rate $\lambda$ to recruitment probability $\omega$ and yearly adult survival probability of naturally recruited individuals $\sigma_{A_R}$ showed that $\lambda$ was most sensitive to small changes in $\sigma_{A_R}$ (Fig. SXA).
@@ -114,13 +120,13 @@ Given demographic stochasticity (i.e., probabilistic births and deaths of indivi
 
 <!--# subheadings can be used, up to 40 characters -->
 
-We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to identify putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects. Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering). These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality. Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
+We used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure, in an effort to identify putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects. Specifically, we compared genomes of frogs that have never experienced a Bd-caused epizootic ("Bd-naive") versus populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering"). These populations persist in an enzootic state, characterized by high Bd prevalence and Bd infection intensities (load) in adults that are well below the level expected to cause frog mortality. Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing.
 
 <!--# Mention sampled declining populations also? -->
 
-DNA samples were collected via buccal swabbing of xx-xx frogs from seven Bd-naive populations <!--# Dusy 10220 not included due to small sample size? --> and seven recovering populations. These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure Sx), and the latitudinal range of the two population types was similar.
+DNA samples were collected via buccal swabbing of xx-xx frogs from seven Bd-naive populations and seven recovering populations. These populations represented a wide latitudinal range in the southern Sierra Nevada from northern Yosemite National Park to south of Sequoia National Park (Figure SXXXX), and the latitudinal range of the two population types was similar.
 
-<!--# Create map of sample sites -->
+![Figure SXXXX. Map showing the locations of Bd-naive or recovering frog populations from which DNA samples were collected for the exome capture analyses. To obscure the exact locations of populations, random noise was added to all point coordinates. Black polygons indicate the boundaries of Yosemite, Kings Canyon, and Sequoia national parks (from top to bottom).](figures/map_exome_points.png)
 
 #### Frog translocations
 
@@ -133,6 +139,8 @@ Between 2006 and 2020 we conducted 1-4 translocations of adult frogs to 13 recip
 During 2006-2012, CMR surveys were conducted conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs. Frog were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location. During 2013-2022, we used a robust design in which all habitats were searched during several consecutive days (secondary periods - calculate min, max, mean), and frogs were processed as described above. Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed only during the first capture, and identified only during subsequent captures. Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods as described in Joseph and Knapp (2018).
 
 During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys. VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and subadults. These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance.
+
+<!--# Add modeling methods -->
 
 #### Population viability modeling
 
