@@ -12,3 +12,6 @@ doc/notebook/notebook_translocation_files/
 *.aux
 *.out
 *.docx
+
+code/translocation_survival_analysis.knit.md
+code/translocation_survival_analysis.nb.html

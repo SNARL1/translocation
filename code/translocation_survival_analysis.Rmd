@@ -625,6 +625,21 @@ d1_elevz %>%
     geom_line(aes(y = .epred, group = .draw), color = "blue", size = 0.2, alpha = 0.5) +
     # geom_point(aes(y = .epred)) +
   labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year frog survival")
+
+# Plot with confidence bands
+alpha = 1 - 0.95
+d1_elevz %>% 
+  select(site_id, translocation_id, snowt1_z, elev_z, elevation, male_c, donor, surv) %>% 
+  add_epred_draws(m1d_reduce, ndraws = 1000, re_formula = NA) %>% 
+  group_by(elevation) %>%
+  summarise(lower=quantile(.epred, alpha), 
+            upper=quantile(.epred, 1 - alpha),  
+            med=quantile(.epred, 0.5)) %>%
+  ggplot(aes(x=elevation)) + 
+          geom_line(aes(y = med), color = "blue", size = 1, alpha = 0.8) +
+          geom_ribbon(aes(ymin=lower, ymax=upper), fill="blue", alpha=0.1) +
+          labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year frog survival") +
+          theme_classic()
 ```
 
 #### Effect of winter severity in year t1
