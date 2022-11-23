@@ -10,6 +10,7 @@ editor: visual
 library(sf)
 library(tmap)
 library(stars)
+library(grid)
 library(tidyverse)
 library(RPostgreSQL)
 ```
@@ -77,12 +78,16 @@ exome_points = st_as_sf(exome_sites_xy, coords = c("utme_noise", "utmn_noise"), 
 
 nps_boundaries <- st_read(here::here(
   "data", "maps", "nps-boundaries", "yose_kica_sequ_boundaries.shp"))
-st_crs(nps_boundaries) #determine coordinate reference system (CRS)
+st_crs(nps_boundaries) # determine coordinate reference system (CRS)
+nps_boundaries <- st_transform(nps_boundaries, 26911) # transform to NAD83 UTM11
 
 # California Color Hillshade (90m) from koordinates.com
-hillshade <- read_stars(here::here(
+hillshade_90m <- read_stars(here::here(
   "data", "maps", "hillshade-90m", "california-color-hillshade-90m.tif"))
-st_crs(hillshade)
+st_crs(hillshade_90m)
+
+hillshade_300m <- read_stars(here::here(
+  "data", "maps", "hillshade-300m", "california-color-hillshade-300m.tif"))
 ```
 
 ### Check & fix shapefile polygons
@@ -95,21 +100,17 @@ nps_boundaries <- st_make_valid(nps_boundaries$geometry)
 st_is_valid(nps_boundaries) # fix polygons
 ```
 
-### Transform CRS of nps_boundary
-
-```{r}
-nps_boundaries <- st_transform(nps_boundaries, 26911)
-```
-
 ### Crop raster with bounding box
 
 ```{r}
-bbox <- st_bbox(c(xmin = 238000, ymax = 4235000, xmax = 403000, ymin = 4011000), crs = st_crs(nps_boundaries))
-hillshade_crop <- st_crop(hillshade, bbox)
+bbox <- st_bbox(c(xmin = 238000, ymax = 4235000, xmax = 403000, ymin = 4011000), 
+                crs = st_crs(nps_boundaries)) %>%  
+  st_as_sfc()
+hillshade_crop <- st_crop(hillshade_90m, bbox)
 hillshade_crop <- st_transform(hillshade_crop, 26911)
 ```
 
-### Create map
+### Create study area map
 
 ```{r}
 exome_points_map <- tm_shape(hillshade_crop) + 
@@ -132,8 +133,33 @@ exome_points_map <- tm_shape(hillshade_crop) +
 exome_points_map
 ```
 
+### Create inset map of California
+
+```{r}
+inset_map <- tm_shape(hillshade_300m) +
+  tm_rgb(r = 1, g = 2, b = 3) +
+  tm_shape(bbox) + 
+  tm_borders(col = "black")
+
+inset_map
+```
+
+### Study area map with inset map
+
+```{r}
+exome_points_map
+print(inset_map, vp = viewport(0.35, 0.37, width = 0.2, height = 0.2))
+```
+
 ### Save map
 
 ```{r}
-tmap_save(exome_points_map, here::here("out", "map_exome_points.png"))
+tmap_save(exome_points_map, 
+          here::here("out", "map_exome_points.png"),
+          insets_tm = inset_map,
+          insets_vp = viewport(0.14, 0.24, width = 0.2, height = 0.2))
 ```
+
+#### To Do
+
+-   Exported CA tif has no whitespace around state, has black border. How to remove border and add whitespace?
