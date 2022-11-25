@@ -17,7 +17,7 @@ library(RPostgreSQL)
 
 ## Map of sample sites for exome capture analysis
 
-Run the following 5 chunks only if you have access to the project database. For those without the necessary credentials, use the saved output file in data/maps/ that is available via the "import-map-data" chunk.
+Run the following 4 chunks only if you have access to the project database. For those without the necessary credentials, use the saved output file in data/maps/ that is available via the "import-map-data1" chunk.
 
 ### Create dataset of sample collection points
 
@@ -31,15 +31,23 @@ exome_sites <- read_csv(here::here("data", "maps", "exome_sample_sites.csv"))
 source("db_connect.R")
 ```
 
-#### Retrieve data
+#### Retrieve data & create points layer
 
-```{sql retrieve-site-xy, connection=con, output.var="exome_sites_db"}
-select
-  id as site_id,
-  utme,
-  utmn
-from site
-where id in (74281, 50731, 50307, 52127, 10220, 10490, 50837, 20169, 72996, 72808, 70567, 54188, 10055, 10593, 50783)
+```{r}
+n <- nrow(exome_sites)
+
+exome_points <- dbReadTable(con, c("site")) %>% 
+  as_tibble() %>% 
+  rename(site_id = id) %>% 
+  select(site_id, utme, utmn) %>% 
+  inner_join(exome_sites, by = "site_id") %>% 
+  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
+             y = sample(-2000:2000, size = n)) %>% 
+  mutate(utme_noise = utme + x,
+         utmn_noise = utmn + y) %>% 
+  select(-utme, -utmn, -x, -y)
+
+write_csv(exome_points, here::here("data", "maps", "exome_points.csv"))
 ```
 
 #### Disconnect from database
@@ -48,33 +56,12 @@ where id in (74281, 50731, 50307, 52127, 10220, 10490, 50837, 20169, 72996, 7280
 source("db_disconnect.R")
 ```
 
-#### Create points layer
-
-```{r}
-exome_sites_xy <- 
-  exome_sites %>% 
-  inner_join(exome_sites_db, by = "site_id")
-
-# Add x-y random noise to obscure exact site locations
-exome_sites_xy <- exome_sites_xy %>% 
-  add_column(x = sample(-2000:2000, size = 15),
-             y = sample(-2000:2000, size = 15))
-
-exome_sites_xy <- exome_sites_xy %>% 
-  mutate(utme_noise = utme + x,
-         utmn_noise = utmn + y) %>% 
-  select(-utme, -utmn, -x, -y)
-
-# Save file 
-write_csv(exome_sites_xy, here::here("data", "maps", "exome_sites_xy.csv"))
-```
-
 ### Import map layers
 
-```{r import-map-data}
+```{r import-map-data1}
 # Read file, if lacking database access
-exome_sites_xy <- read_csv(here::here("data", "maps", "exome_sites_xy.csv"))
-exome_points = st_as_sf(exome_sites_xy, coords = c("utme_noise", "utmn_noise"), crs = st_crs(26911))
+exome_points <- read_csv(here::here("data", "maps", "exome_points.csv"))
+exome_points <- st_as_sf(exome_points, coords = c("utme_noise", "utmn_noise"), crs = st_crs(26911))
 
 nps_boundaries <- st_read(here::here(
   "data", "maps", "nps-boundaries", "yose_kica_sequ_boundaries.shp"))
@@ -155,11 +142,131 @@ print(inset_map, vp = viewport(0.35, 0.37, width = 0.2, height = 0.2))
 
 ```{r}
 tmap_save(exome_points_map, 
-          here::here("out", "map_exome_points.png"),
+          here::here("doc", "manuscript", "figures",  "map_exome_points.png"),
           insets_tm = inset_map,
           insets_vp = viewport(0.14, 0.24, width = 0.2, height = 0.2))
 ```
 
-#### To Do
+### To Do
 
--   Exported CA tif has no whitespace around state, has black border. How to remove border and add whitespace?
+-   Exported California hillshade tif has no whitespace around edges, has black border. How to remove border and add whitespace?
+
+## Map of Yosemite translocation & donor sites
+
+Run the following 4 chunks only if you have access to the project database. For those without the necessary credentials, use the saved output file in data/maps/ that is available via the "import-map-data2" chunk.
+
+### Create dataset of site points
+
+```{r}
+donor_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
+  distinct(donor) %>% 
+  rename(site_id = donor) %>% 
+  add_column(type = "donor")
+
+translocation_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
+  distinct(site_id) %>% 
+  add_column(type = "translocation") %>% 
+  bind_rows(donor_sites)
+
+rm(donor_sites)
+```
+
+#### Connect to database
+
+```{r}
+source("db_connect.R")
+```
+
+#### Retrieve data & create points layer
+
+```{r}
+n <- nrow(translocation_sites)
+
+translocation_points <- dbReadTable(con, c("site")) %>% 
+  as_tibble() %>% 
+  rename(site_id = id) %>% 
+  select(site_id, utme, utmn) %>% 
+  inner_join(translocation_sites, by = "site_id") %>% 
+  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
+             y = sample(-2000:2000, size = n)) %>% 
+  mutate(utme_noise = utme + x,
+         utmn_noise = utmn + y) %>% 
+  select(-utme, -utmn, -x, -y)
+
+write_csv(translocation_points, here::here("data", "maps", "translocation_points.csv"))
+```
+
+#### Disconnect from database
+
+```{r}
+source("db_disconnect.R")
+```
+
+### Import map layers
+
+```{r import-map-data2}
+translocation_points <- read_csv(here::here("data", "maps", "translocation_points.csv"))
+translocation_points <- st_as_sf(translocation_points, coords = c("utme_noise", "utmn_noise"), crs = st_crs(26911))
+
+yose_boundary <- st_read(here::here(
+  "data", "maps", "nps-boundaries", "yose_boundary.shp"))
+st_crs(yose_boundary) # determine coordinate reference system (CRS)
+yose_boundary <- st_transform(yose_boundary, 26911) # transform to NAD83 UTM11
+
+# California Color Hillshade (90m) from koordinates.com
+hillshade_90m <- read_stars(here::here(
+  "data", "maps", "hillshade-90m", "california-color-hillshade-90m.tif"))
+st_crs(hillshade_90m)
+```
+
+### Check & fix shapefile polygons
+
+```{r}
+st_is_valid(yose_boundary) # invalid polygon
+
+yose_boundary <- st_make_valid(yose_boundary$geometry)
+
+st_is_valid(yose_boundary) # confirm that polygon is valid
+```
+
+### Crop raster with bounding box
+
+```{r}
+# For printing on screen: xmin = 244000, ymax = 4242500, xmax = 309000, ymin = 4142000
+bbox <- st_bbox(c(xmin = 245000, ymax = 4231000, xmax = 308000, ymin = 4151000), 
+                crs = st_crs(yose_boundary)) %>%  
+  st_as_sfc()
+hillshade_yose_crop <- st_crop(hillshade_90m, bbox)
+hillshade_yose_crop <- st_transform(hillshade_yose_crop, 26911)
+```
+
+### Create study area map
+
+```{r}
+translocation_points_map <- tm_shape(hillshade_yose_crop) + 
+  tm_rgb(r = 1, g = 2, b = 3) +
+  tm_shape(yose_boundary) + 
+  tm_borders(col = "black") +
+  tm_shape(translocation_points) + 
+  tm_symbols(size = 0.7, # increase point size, use darker blue
+             col = "type", 
+             palette = c("#008B00", "#C0FF3E"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
+             title.col = "Population type") +
+  tm_layout(legend.position = c("right", "top"),
+            legend.bg.color = "white") +
+  tm_compass(type = "4star",
+             position = c(0.80, 0.10),
+             size = 2) +
+  tm_scale_bar(breaks = c(0, 10, 20, 30), 
+               text.size = 0.7, 
+               position = c("right", "bottom"))
+
+translocation_points_map
+```
+
+### Save map
+
+```{r}
+tmap_save(translocation_points_map, 
+          here::here("doc", "manuscript", "figures", "map_translocation_points.png"))
+```
