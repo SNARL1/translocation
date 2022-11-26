@@ -4,7 +4,7 @@ author: "Roland Knapp"
 output: html_notebook
 ---
 
-The supplemental analyses in this notebook provide additional details to analyses in `translocation_survival_analysis.Rmd`. 
+The supplemental analyses in this notebook provide additional details to analyses in `translocation_survival_analysis.Rmd`.
 
 ## Load packages
 
@@ -21,12 +21,12 @@ library(janitor)
 source("classification_summary.R")
 ```
 
+## Evaluate effect of frog size independent of donor populationRead in frog translocation dataset
 
-## Evaluate effect of frog size independent of donor population: Model m1d from `translocation_survival_analysis.Rmd` but using data subset where donor = 72996
+-   Model m1d from `translocation_survival_analysis.Rmd` but using data subset where donor = 72996
+-   Read in data, create variables for analysis, standardize continuous variables.
+-   arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
 
-### Read in frog translocation dataset  
-* Read in data, create variables for analysis, standardize continuous variables. 
-* arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
 ```{r read-translocation-data}
 d1 <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
   drop_na(bd_load) %>%  # drop 12 records where bd_load is NA (9 are from 70413)
@@ -65,6 +65,7 @@ d1 <- d1 %>%
 ```
 
 ### Model specification
+
 ```{r}
 d1_72996 <- d1 %>% 
   filter(donor == "72996" & !is.na(bd_load))
@@ -80,6 +81,7 @@ m1d_72996 <- stan_glmer(
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m1d_72996)
 
@@ -92,12 +94,14 @@ summary(m1d_72996)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m1d_72996, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1d_72996, conf.int = TRUE, conf.level = 0.90)
 
@@ -113,13 +117,16 @@ mcmc_areas_ridges(m1d_72996, regex_pars = "translocation_id") +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Frog survival for each translocation_id")
 ```
-- Using dataset containing only frogs translocated from 72996 had relatively little effect on the predictors of frog survival. Specific to the objective of this analysis, frog size remained unimportant as a predictor of survival. However, effect of Bd load became marginally unimportant instead of unimportant (i.e., uncertainty interval includes 0 but barely). 
+
+-   Using dataset containing only frogs translocated from 72996 had relatively little effect on the predictors of frog survival. Specific to the objective of this analysis, frog size remained unimportant as a predictor of survival. However, effect of Bd load became marginally unimportant instead of unimportant (i.e., uncertainty interval includes 0 but barely).
 
 ## Assess effect on m1d of including all records, including where bd_load = NA
 
-### Read in frog translocation dataset  
-* Read in data, create variables for analysis, standardize continuous variables. 
-* arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
+### Read in frog translocation dataset
+
+-   Read in data, create variables for analysis, standardize continuous variables.
+-   arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
+
 ```{r read-translocation-data-including-na}
 d1_allna <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
 #  drop_na(bd_load) %>%  # drop 12 records where bd_load is NA (9 are from 70413)
@@ -158,6 +165,7 @@ d1_allna <- d1_allna %>%
 ```
 
 ### Model specification
+
 ```{r}
 m1d_allna <- stan_glmer(
   surv ~ length_z + snowt_z + snowt1_z + day_z + elev_z + first_c + male_c + donor + (1 | translocation_id),
@@ -170,11 +178,13 @@ m1d_allna <- stan_glmer(
 ```
 
 ### List model variable names
+
 ```{r}
 get_variables(m1d_allna)
 ```
 
 ### Priors & chain diagnostics
+
 ```{r}
 prior_summary(m1d_allna)
 
@@ -187,12 +197,14 @@ summary(m1d_allna)
 ```
 
 ### Posterior predictive check
+
 ```{r}
 pp_check(m1d_allna, plotfun = "stat") +
     xlab("Frog survival rate")
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1d_allna, conf.int = TRUE, conf.level = 0.90)
 
@@ -209,23 +221,23 @@ mcmc_areas_ridges(m1d_allna, regex_pars = "translocation_id") +
   ggtitle("Frog survival for each translocation_id")
 ```
 
-- Inclusion of all records (i.e., 12 records where bd_load = NA that were excluded in primary analysis) did not change the results.   
-
-
-
+-   Inclusion of all records (i.e., 12 records where bd_load = NA that were excluded in primary analysis) did not change the results.
 
 ## Analysis of changes in Bd load following translocation
--  Compare loads at time of translocation to those from CMR years 0 and 1. Exclude years > 1. Only frogs that were recaptured at least once following translocation are included. 
 
-### Create dataset 
+-   Compare loads at time of translocation to those from CMR years 0 and 1. Exclude years \> 1. Only frogs that were recaptured at least once following translocation are included.
+
+### Create dataset
 
 ### Load additional libraries
+
 ```{r}
 library(RPostgreSQL)
 library(lubridate)
 ```
 
 ### Read in raw translocation and capture datasets, bind them
+
 ```{r read-data}
 translocation <- read_csv(here::here("data", "raw", "frog_translocation.csv")) %>% 
   relocate(visit_date = release_date, .before = type) %>% 
@@ -246,6 +258,7 @@ frogs_all <- bind_rows(translocation, capture)
 ```
 
 ### Connect to PostgreSQL database `amphibians`
+
 ```{r}
 con = dbConnect(dbDriver("PostgreSQL"),
                 user = rstudioapi::askForPassword("user name"),
@@ -257,6 +270,7 @@ con = dbConnect(dbDriver("PostgreSQL"),
 ```
 
 ### Retrieve Bd data for translocated frogs from database
+
 ```{sql retrieve-translocation-bd-data, connection=con, output.var="translocate_bd"}
 select
   release_date as visit_date,
@@ -271,6 +285,7 @@ where release_siteid1 in (70134, 70279, 70370, 70413, 70414, 70449, 70505, 70550
 ```
 
 ### Retrieve Bd data for captured frogs from database
+
 ```{sql retrieve-capture-bd-data, connection=con, output.var="capture_bd"}
 select
 	visit_date,
@@ -285,20 +300,23 @@ where site_id in (70134, 70688, 70370, 70114, 70175, 70279, 70413, 71570, 71968,
 	survey_type = 'cmr' and
 	capture_animal_state != 'dead' and
 	(replicate = 1 or replicate is null)
-```  
+```
 
 ### Disconnect from database
+
 ```{r}
 dbDisconnect(con) 
 rm("con")
 ```
 
 ### Combine Bd data from translocate and capture datasets
+
 ```{r}
 bd_add <- bind_rows(translocate_bd, capture_bd)
 ```
 
 ### Add Bd data to frog data, restructure dataset
+
 ```{r}
 frogsbd <- frogs_all %>% 
   inner_join(bd_add, by = c("visit_date", "pit_tag_ref")) %>% 
@@ -308,6 +326,7 @@ frogsbd <- frogs_all %>%
 ```
 
 ### Add years since translocation
+
 ```{r}
 frogsbd <- translocation %>% 
   mutate(year_translocate = year(visit_date)) %>% 
@@ -321,6 +340,7 @@ frogsbd <- translocation %>%
 ```
 
 ### Update site ids to standardize usage
+
 ```{r}
 frogsbd <- frogsbd %>% 
   mutate(site_id1 = site_id, .after = site_id,
@@ -335,6 +355,7 @@ frogsbd <- frogsbd %>%
 ```
 
 ### Add translocation_id
+
 ```{r}
 frogsbd <- frogsbd %>% 
   distinct(site_id1, year_translocate) %>% 
@@ -350,47 +371,76 @@ frogsbd <- frogsbd %>%
 ```
 
 ### Save frog-Bd dataset
+
 ```{r}
 frogsbd %>% write_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv"))
 ```
 
-### Description of dataset columns 
--  site_id: Unique 5-digit site identifier.  
--  site_id1: Assigned 5-digit site identifier for a collection of adjacent sites that are utilized by a frog population.
--  translocation_id: Unique identifier for each translocation.  
--  visit_date: Date on which translocation or survey was conducted.  
--  survey_type: "translocation" or "cmr".  
--  period: "before" or "after" translocation.
--  year_translocate: Year in which translocation was conducted.  
--  year_capture: Year in which frog was captured.  
--  interval: Number of years between translocation and frog capture.  
--  pit_tag_ref: Unique PIT tag identifier.  
--  swab_id: Unique identifier for skin swab sample.  
--  bd_load: Bd infection intensity determined from skin swab samples, units are number of ITS1 copies * 80. 
+### Description of dataset columns
 
+-   site_id: Unique 5-digit site identifier.\
+-   site_id1: Assigned 5-digit site identifier for a collection of adjacent sites that are utilized by a frog population.
+-   translocation_id: Unique identifier for each translocation.\
+-   visit_date: Date on which translocation or survey was conducted.\
+-   survey_type: "translocation" or "cmr".\
+-   period: "before" or "after" translocation.
+-   year_translocate: Year in which translocation was conducted.\
+-   year_capture: Year in which frog was captured.\
+-   interval: Number of years between translocation and frog capture.\
+-   pit_tag_ref: Unique PIT tag identifier.\
+-   swab_id: Unique identifier for skin swab sample.\
+-   bd_load: Bd infection intensity determined from skin swab samples, units are number of ITS1 copies \* 80.
 
+### Analyze dataset
 
-## Analyze dataset
-### Read in data, standardize variables
+#### Read in data
+
 ```{r}
-d1 <- read_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv")) %>% 
-  mutate(after = if_else(period == "after", 1, 0),
-         bd_load = as.integer(round(bd_load)), 
-         after_c = after - mean(after))
+d1 <- read_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv")) 
 ```
 
-### Null values - check
+#### Data exploration
+
+```{r}
+d1 %>% 
+  mutate(period = factor(period, levels = c("before", "after"))) %>% 
+  ggplot(aes(x = period, y = log10(bd_load + 1))) +
+          geom_boxplot()
+
+d1 %>% 
+  mutate(period = factor(period, levels = c("before", "after"))) %>% 
+  ggplot(aes(x = period, y = log10(bd_load + 1))) +
+    geom_boxplot() + 
+    facet_grid(. ~ site_id1) +
+    theme(axis.text.x = element_text(angle = 90))
+```
+
+-   In most cases, relatively small increases in load following translocation.
+
+#### Prepare variables for analysis
+
+```{r}
+d1 <- d1 %>% 
+  mutate(after = if_else(period == "after", 1, 0),
+         bd_load = as.integer(round(bd_load)), 
+         after_c = after - mean(after)) 
+```
+
+#### Null values - check
+
 ```{r check-null}
 d1 %>% summarize(across(everything(), ~ sum(is.na(.))))
 ```
 
-### Include only CMR years 0 and 1
+#### Include only CMR years 0 and 1
+
 ```{r}
 d2 <- d1 %>% 
   filter(interval < 2)
 ```
 
-### Plot distribution of bd_load response variable
+#### Plot distribution of bd_load response variable
+
 ```{r}
 d2 %>% 
   ggplot(aes(x = bd_load)) +
@@ -401,10 +451,13 @@ d2 %>%
     geom_qq() +
     geom_qq_line()
 ```
-* Data are strongly left-skewed, possibly zero-inflated. Model using negative binomial family.
+
+-   Data are strongly left-skewed, possibly zero-inflated. Model using negative binomial family.
 
 ### Model without group-level effects
+
 #### Model specification
+
 ```{r}
 m1a <- stan_glm(
   bd_load ~ after_c,
@@ -417,6 +470,7 @@ m1a <- stan_glm(
 ```
 
 #### Priors and chain diagnostics
+
 ```{r}
 prior_summary(m1a)
 
@@ -427,6 +481,7 @@ summary(m1a)
 ```
 
 #### Posterior predictive check
+
 ```{r}
 pp_check(m1a, plotfun = "stat") +
     xlab("Bd load")
@@ -435,12 +490,14 @@ pp_check(m1a, plotfun = "stat") +
 -   Posterior predictive distribution implied by regression model closely matches original data (based on mean Bd load).
 
 #### Calculate loo
+
 ```{r}
 loo_m1a <- loo(m1a, cores = 4, save_psis = TRUE)
 print(loo_m1a)
 ```
 
 #### Posterior analysis
+
 ```{r}
 tidy(m1a, conf.int = TRUE, conf.level = 0.90)
 
@@ -453,7 +510,9 @@ mcmc_areas(m1a, area_method = "equal height", prob = 0.90) +
 ```
 
 ### Model with 1 grouping variable: pit_tag_ref
+
 #### Model specification
+
 ```{r}
 m1b <- stan_glmer(
   bd_load ~ after_c + (1 | pit_tag_ref),
@@ -472,6 +531,7 @@ get_variables(m1b)
 ```
 
 #### Priors and chain diagnostics
+
 ```{r}
 prior_summary(m1b)
 
@@ -484,6 +544,7 @@ summary(m1b)
 ```
 
 #### Posterior predictive check
+
 ```{r}
 pp_check(m1b, plotfun = "stat") +
     xlab("Bd load")
@@ -492,12 +553,14 @@ pp_check(m1b, plotfun = "stat") +
 -   Posterior predictive distribution implied by regression model shows some mismatch between actual data and model results (based on mean Bd load).
 
 #### Calculate loo
+
 ```{r}
 loo_m1b <- loo(m1b, cores = 4, save_psis = TRUE)
 print(loo_m1b)
 ```
 
 #### Posterior analysis
+
 ```{r}
 tidy(m1b, conf.int = TRUE, conf.level = 0.90)
 
@@ -510,7 +573,9 @@ mcmc_areas(m1b, area_method = "equal height", prob = 0.90, pars = b1) +
 ```
 
 ### Model with 2 grouping variables: pit_tag_ref nested within translocation_id
+
 #### Model specification
+
 ```{r}
 m1c <- stan_glmer(
   bd_load ~ after_c + (1 | pit_tag_ref) + (1 | translocation_id),
@@ -523,6 +588,7 @@ m1c <- stan_glmer(
 ```
 
 #### Priors and chain diagnostics
+
 ```{r}
 prior_summary(m1c)
 
@@ -535,6 +601,7 @@ summary(m1c)
 ```
 
 #### Posterior predictive check
+
 ```{r}
 pp_check(m1c, plotfun = "stat") +
     xlab("Bd load")
@@ -543,12 +610,14 @@ pp_check(m1c, plotfun = "stat") +
 -   Posterior predictive distribution implied by regression model closely matches original data (based on mean Bd load).
 
 #### Calculate loo
+
 ```{r}
 loo_m1c <- loo(m1c, cores = 4, save_psis = TRUE)
 print(loo_m1c)
 ```
 
 #### Posterior analysis
+
 ```{r}
 tidy(m1c, conf.int = TRUE, conf.level = 0.90)
 
@@ -561,7 +630,9 @@ mcmc_areas(m1c, area_method = "equal height", prob = 0.90, pars = b1) +
 ```
 
 ### Model with 2 grouping variables: pit_tag_ref nested within site_id1
+
 #### Model specification
+
 ```{r}
 m1d <- stan_glmer(
   bd_load ~ after_c + (1 | pit_tag_ref) + (1 | site_id1),
@@ -574,6 +645,7 @@ m1d <- stan_glmer(
 ```
 
 #### Priors and chain diagnostics
+
 ```{r}
 prior_summary(m1d)
 
@@ -586,6 +658,7 @@ summary(m1d)
 ```
 
 #### Posterior predictive check
+
 ```{r}
 pp_check(m1d, plotfun = "stat") +
     xlab("Bd load")
@@ -594,12 +667,14 @@ pp_check(m1d, plotfun = "stat") +
 -   Posterior predictive distribution implied by regression model closely matches original data (based on mean Bd load).
 
 #### Calculate loo
+
 ```{r}
 loo_m1d <- loo(m1d, cores = 4, save_psis = TRUE)
 print(loo_m1d)
 ```
 
 #### Posterior analysis
+
 ```{r}
 tidy(m1d, conf.int = TRUE, conf.level = 0.90)
 
@@ -612,6 +687,7 @@ mcmc_areas(m1d, area_method = "equal height", prob = 0.90, pars = b1) +
 ```
 
 ## Compare 4 models with different grouping structures
+
 ```{r}
 loo_compare(loo_m1a, loo_m1b, loo_m1c, loo_m1d)
 ```
