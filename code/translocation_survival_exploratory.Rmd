@@ -107,7 +107,7 @@ palette1 <- c("green4", "blue", "black")
 donors <- frog_translocation %>% 
   distinct(site_id, donor)
 
-cohort_survival %>% 
+cohort_survival_plot <- cohort_survival %>% 
   mutate(release_year = year(release_date)) %>% 
   group_by(site_id) %>% 
   summarize(plot_survival = mean(median_survival)) %>%  # create variable by which to order sites for plotting
@@ -119,11 +119,26 @@ cohort_survival %>%
     ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, group = donor)) +  # reorder site_id by siteid_order)
       geom_point(aes(color = donor), size = 3) +
       scale_color_manual(values = palette1) + 
-      labs(x = "Recipient site", y = "1-year frog survival")
+      labs(x = "Recipient site", y = "1-year frog survival") +
+      theme_classic() +
+      theme(
+        legend.background = element_rect(color = "black", size = 0.3),
+        legend.position = c(0.2, 0.8),
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
+
+
+cohort_survival_plot
 ```
 * Strong effect of site/translocation on frog survival.
 * Survival is highly variable across sites, but highly repeatable within a site. 
 * Indicates need to include site_id and/or translocation_id as group-level effect(s). 
+
+### Save plot
+
+```{r}
+ggsave(here::here("doc", "manuscript", "figures", "translocation_survival_bysiteid.png"), width = 5, height = 5) 
+```
+
 
 ## Plot of frog survival for each translocation - grouped by elevation
 
