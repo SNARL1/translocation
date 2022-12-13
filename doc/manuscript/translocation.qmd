@@ -334,7 +334,7 @@ The baseline parameter values for the model and how they were estimated are give
 Table 1: Description and values of parameters used in the model. All survival probabilities are in the presence of the fungal pathogen Bd. <!--# Roland, please add any additional details needed to the "Source" column.  We ideally want to keep this succinct.  -->
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:----------------------------|:------------------|:-----------------------|
+|:--------------------------------------------------------------------------|:---------------------|:-------------------------------------------------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
