@@ -333,21 +333,21 @@ The baseline parameter values for the model and how they were estimated are give
 
 Table 1: Description and values of parameters used in the model. All survival probabilities are in the presence of the fungal pathogen Bd. <!--# Roland, please add any additional details needed to the "Source" column.  We ideally want to keep this succinct.  -->
 
-| **Parameter**                                                             | **Value**            | **Source**                                                             |
+| **Parameter**                                                             | **Value**            | **Source**                                                         |
 |:----------------------------|:------------------|:-----------------------|
-| $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge     |
-| $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, and natural history knowledge |
-| $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, and natural history knowledge |
-| $\sigma_{J_1}$, Yearly survival probability of year 1 juveniles           | 0.25                 | Estimated from field data, observations, natural history knowledge     |
-| $\sigma_{J_2}$, Yearly survival probability of year 2 juveniles           | 0.5                  | Estimated from field data, observations, natural history knowledge     |
-| $\sigma_{A_R}$, Yearly survival probability of naturally recruited adults | Varies by population | Estimated from mark-recapture studies                                  |
-| $\sigma_{A_T}$, Yearly survival probability of translocated adults        | Varies by population | Estimated from mark-recapture studies                                  |
-| $p_{L_1}$, Probability of a year 1 larvae remaining as a larvae           | 1                    | Estimated from field data, observations, and natural history knowledge |
-| $p_{L_2}$, Probability of a year 2 larvae remaining as a larvae           | 0.25                 | Estimated from field data, observations, and natural history knowledge |
-| $p_{J_1}$, Probability of a year 1 juvenile remaining as a juvenile       | 0.25                 | Estimated from field data, observations, and natural history knowledge |
-| $p_F$, Probability of a adult female reproducing in a year                | 0.5                  | Could be as high at 1, based on field observations                     |
-| $F$, Number of surviving eggs produced by an adult female                 | 100                  | From observations of captive frogs                                     |
-| $\omega$, Probability of juvenile successfully recruiting to an adult     | Varies yearly        | Explored different values of this parameter                            |
+| $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{J_1}$, Yearly survival probability of year 1 juveniles           | 0.25                 | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{J_2}$, Yearly survival probability of year 2 juveniles           | 0.5                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{A_R}$, Yearly survival probability of naturally recruited adults | Varies by population | Estimated from mark-recapture studies                              |
+| $\sigma_{A_T}$, Yearly survival probability of translocated adults        | Varies by population | Estimated from mark-recapture studies                              |
+| $p_{L_1}$, Probability of a year 1 tadpoles remaining as a tadpoles       | 1                    | Estimated from field data, observations, natural history knowledge |
+| $p_{L_2}$, Probability of a year 2 tadpoles remaining as a tadpoles       | 0.25                 | Estimated from field data, observations, natural history knowledge |
+| $p_{J_1}$, Probability of a year 1 juvenile remaining as a juvenile       | 0.25                 | Estimated from field data, observations, natural history knowledge |
+| $p_F$, Probability of a adult female reproducing in a year                | 0.5                  | Could be as high at 1, based on field observations                 |
+| $F$, Number of surviving eggs produced by an adult female                 | 100                  | From observations of captive frogs                                 |
+| $\omega$, Probability of juvenile successfully recruiting to an adult     | Varies yearly        | Explored different values of this parameter                        |
 
 ###### Model analysis and simulation
 
