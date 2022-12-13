@@ -21,11 +21,13 @@ library(janitor)
 source("classification_summary.R")
 ```
 
-## Evaluate effect of frog size independent of donor populationRead in frog translocation dataset
+## Evaluate effect of frog size independent of donor population
 
 -   Model m1d from `translocation_survival_analysis.Rmd` but using data subset where donor = 72996
 -   Read in data, create variables for analysis, standardize continuous variables.
 -   arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
+
+### Read in frog translocation dataset
 
 ```{r read-translocation-data}
 d1 <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
@@ -690,4 +692,227 @@ mcmc_areas(m1d, area_method = "equal height", prob = 0.90, pars = b1) +
 
 ```{r}
 loo_compare(loo_m1a, loo_m1b, loo_m1c, loo_m1d)
+```
+
+## Calculate parameters for viability analysis
+
+### Load packages
+
+```{r}
+library(RPostgreSQL)
+library(lubridate)
+library(dplyr)
+library(magrittr)
+library(readr)
+```
+
+### Estimate subadult survival
+
+#### Connect to database
+
+-   Use 2nd chunk when connecting via SSH.
+
+-   Users without credentials to access database can start with `subadult_survival.csv` saved below.
+
+```{r}
+con = dbConnect(dbDriver("PostgreSQL"),
+                host = Sys.getenv("host"), 
+                port = Sys.getenv("port"), 
+                dbname = Sys.getenv("dbname"),
+                user = rstudioapi::askForPassword("user name"),
+                password = rstudioapi::askForPassword("password")
+               )
+```
+
+```{r}
+con = dbConnect(dbDriver("PostgreSQL"),
+                host = "localhost",
+                port = 15432,
+                dbname = Sys.getenv("dbname"), 
+                user = rstudioapi::askForPassword("user name"),
+                password = rstudioapi::askForPassword("password")
+                )
+```
+
+#### Retrieve Bd data for translocated frogs from database
+
+-   Used 70550 because of its long and relatively intensive survey history.
+
+```{sql, connection=con, output.var="surv"}
+select
+  site_id,
+  visit_date,
+  species,
+  visual_life_stage,
+  visual_animal_state,
+  count
+from visit
+inner join survey on visit_id = visit.id
+inner join visual_survey on survey_id = survey.id  
+where site_id in (70550) and
+  species = 'ramu' and
+  visual_life_stage = 'subadult' and
+  visual_animal_state = 'alive'
+order by site_id, visit_date
+```
+
+#### Disconnect from database
+
+```{r}
+dbDisconnect(con) 
+rm("con")
+```
+
+#### Save raw dataset
+
+```{r}
+surv %>% write_csv(here::here("data", "raw", "subadult_survival.csv"))
+```
+
+#### Calculate maximum annual counts
+
+```{r}
+surv <- surv %>% 
+  group_by(visit_date) %>% 
+  summarize(count_sum = sum(count)) %>% 
+  ungroup() %>% 
+  mutate(year = year(visit_date)) %>% 
+  group_by(year) %>% 
+  summarize(count_max = max(count_sum))
+```
+
+#### Extract number of new recruits from mrmr model
+
+```{r}
+model <- read_rds(here::here("data", "clean", "70550_model.rds"))
+
+get_numeric_indices <- function(string) {
+  idx_mat <- stringr::str_extract_all(string, "[0-9]+", simplify = TRUE)
+  colnames(idx_mat) <- paste0("index_", seq_len(ncol(idx_mat)))
+  tibble::as_tibble(idx_mat) %>%
+    dplyr::mutate_all(readr::parse_integer)
+}
+
+survey_prim_periods <- model$data$surveys %>%
+  group_by(.data$primary_period) %>%
+  filter(.data$secondary_period == min(.data$secondary_period)) %>% 
+  ungroup()
+
+p <- model$m_fit$draws("B", format = "draws_df") %>%
+  tidyr::pivot_longer(tidyselect::starts_with("B")) %>%
+  suppressWarnings() %>%
+  mutate(
+    get_numeric_indices(.data$name),
+    primary_period = .data$index_1 + 1
+  ) %>%
+  group_by(.data$primary_period) %>%
+  summarize(lo = quantile(.data$value, .025),
+            med = median(.data$value),
+            hi = quantile(.data$value, .975),
+            .groups = "drop") %>%
+  left_join(survey_prim_periods, by = "primary_period")
+
+recruit <- p %>% 
+  group_by(year) %>% 
+  summarize(recruit_sum = sum(med))
+```
+
+#### Create final dataset
+
+```{r}
+subadult_survival <- surv %>% 
+  inner_join(recruit, by = c("year"))
+```
+
+#### Calculate subadult survival
+
+-   Assumes that p(detection) for subadults is 0.25.
+
+```{r}
+subadult_sum <- subadult_survival %>% 
+  filter(between(year, 2008, 2020)) %>% 
+  summarize(sum(count_max))
+
+recruit_sum <- subadult_survival %>% 
+  filter(between(year, 2009, 2021)) %>% 
+  summarize(sum(recruit_sum))
+
+survival_sub <- recruit_sum / (subadult_sum * 4) 
+```
+
+### Estimate 1st-year tadpole survival
+
+-   Used 74976 due to its shallow habitats that allow accurate tadpole counts.
+
+-   1st-year tadpole counts are from field notebooks.
+
+```{r}
+surv_tad <- tibble(site_id = 74976, year = 2019:2021, count = c(250, 300, 305))
+```
+
+#### Extract adult abundance from mrmr model
+
+-   Used minimum survey date per year to estimate number of females during breeding season.
+
+```{r}
+model <- read_rds(here::here("data", "clean", "74976_model.rds"))
+
+get_numeric_indices <- function(string) {
+  idx_mat <- stringr::str_extract_all(string, "[0-9]+", simplify = TRUE)
+  colnames(idx_mat) <- paste0("index_", seq_len(ncol(idx_mat)))
+  tibble::as_tibble(idx_mat) %>%
+    dplyr::mutate_all(readr::parse_integer)
+}
+
+survey_prim_periods <- model$data$surveys %>%
+  group_by(.data$primary_period) %>%
+  filter(.data$secondary_period == min(.data$secondary_period)) %>% 
+  ungroup()
+
+p <- model$m_fit$draws("N", format = "draws_df") %>%
+        tidyr::pivot_longer(tidyselect::starts_with("N")) %>%
+        suppressWarnings() %>%
+        mutate(
+          get_numeric_indices(.data$name),
+          primary_period = .data$index_1 + 1
+        ) %>%
+        group_by(.data$primary_period) %>%
+        summarize(lo = quantile(.data$value, .025),
+                  med = median(.data$value),
+                  hi = quantile(.data$value, .975),
+                  .groups = "drop") %>%
+        left_join(survey_prim_periods, by = "primary_period")
+
+abund_ad <- p %>% 
+  group_by(year) %>% 
+  summarize(survey_date = min(survey_date)) %>%
+  select(survey_date) %>% 
+  inner_join(p, by = c("survey_date")) %>% 
+  select(year, med)
+```
+
+#### Create final dataset
+
+```{r}
+surv_tad <- surv_tad %>% 
+  inner_join(abund_ad, by = "year") %>% 
+  rename(adults = med)
+```
+
+#### Calculate tadpole survival
+
+-   Assumptions:
+
+    -   p(detection) for 1st-year tadpoles is 0.5.
+
+    -   \# females is half of total adult abundance
+
+    -   female fecundity = 100 eggs
+
+-   Assume that
+
+```{r}
+surv_tad <- surv_tad %>% 
+  mutate(surv_1styr = (count * 2) / ((adults / 2) * 100)) %>% 
+  summarize(mean(surv_1styr))
 ```
