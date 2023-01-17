@@ -83,11 +83,11 @@ Description of MYL frog species complex, impacts of Bd, and evidence of recent r
 
 Describe expectations if frog populations are recovering due to evolutionary rescue.
 
--   Differences in allele frequencies between naive and recovering populations
+-   Differences in allele frequencies exist between Bd-naive and recovering populations
 
 -   Shared selective response across recovering populations
 
--   Changes in population growth rate extend beyond the natal environment
+-   Changes in population growth rate due to evolution extend beyond the natal environment
 
 -   In populations established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics)
 
