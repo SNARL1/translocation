@@ -91,7 +91,7 @@ Describe expectations if frog populations are recovering due to evolutionary res
 
 -   In populations established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics)
 
--   Population viability: Any expectation here?
+-   Population viability: Yearly population growth rate of translocated populations in similar environments to the natal environment should be greater than 1, indicating the capacity of the selected frogs to recover in the presence of the pathogen. 
 
 Then show how each result is consistent with those expectations.
 
@@ -284,7 +284,7 @@ During each site visit, we conducted VES either immediately before CMR surveys o
 
 ##### Estimation of frog survival and abundance
 
-We estimated survival of translocated frogs, recruitment of new frogs into the adult population, and population size using a Bayesian open-population Jolly-Seber mark-recapture model with known additions (i.e., translocated cohorts) to the population, as implemented by the mrmr package [@joseph2019] and using R Statistical Software \[v4.4.4; \@rsoftware2022\]. The model tracks the states of *M* individuals that comprise a superpopulation made up of real and pseudo-individuals [see @joseph2018 for details]. The possible states of individuals include "not recruited", "alive", and "dead". The possible observations of individuals include "detected" and "not detected". We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records). For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each). We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat). Code used to construct CMR datasets and fit models for each translocated population is available from a GitHub repository ([https://github.com/SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis.)).
+We estimated survival of translocated frogs, recruitment of new frogs into the adult population, and population size using a Bayesian open-population Jolly-Seber mark-recapture model with known additions (i.e., translocated cohorts) to the population, as implemented by the mrmr package [@joseph2019] and using R Statistical Software [v4.4.4; \@rsoftware2022]. The model tracks the states of *M* individuals that comprise a superpopulation made up of real and pseudo-individuals [see @joseph2018 for details]. The possible states of individuals include "not recruited", "alive", and "dead". The possible observations of individuals include "detected" and "not detected". We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records). For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each). We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat). Code used to construct CMR datasets and fit models for each translocated population is available from a GitHub repository ([https://github.com/SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis.)).
 
 ##### Predictors of post-translocation frog survival
 
@@ -348,7 +348,7 @@ The baseline parameter values for the model and how they were estimated are give
 Table 1: Description and values of parameters used in the model. All survival probabilities are in the presence of the fungal pathogen Bd. <!--# Roland, please add any additional details needed to the "Source" column.  We ideally want to keep this succinct.  -->
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:----------------------------|:-----------------|:-------------------------|
+|:---------------------------|:-----------------|:-------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
