@@ -1,59 +1,67 @@
 ---
 format: docx
 editor: visual
-csl: nature.csl
+csl: pnas.csl
 bibliography: translocation.bib
 ---
 
+<!--# Intended outlet is PNAS. Preferred length of research reports is 6 pages, but up to 12 pages is allowed. A standard 6-page article is approximately 4,000 words, 50 references, and 4 medium-size graphical elements (i.e., figures and tables) -->
+
 ## Title: Reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease
 
-<!--# 75 characters. Suggestions to make this more compelling? Use "Evolutionary rescue"? -->
+<!--# Title should be less than 135 characters -->
 
 ### Authors:
 
-Roland A. Knapp^1,2^\*, Allison Q. Byrne^3,4^, Mark Q. Wilber^5^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^3,4^, Rob L. Grasso^8^, Erica Bree Rosenblum^3,4^
+Roland A. Knapp^1,2^\*, Mark Q. Wilber^3^, Allison Q. Byrne^4,5^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^3,4^, Rob L. Grasso^8^, Erica Bree Rosenblum^4,5^
 
 <!--# Exact author order to be determined -->
 
 ### Affiliations:
 
-^1^Sierra Nevada Aquatic Research Laboratory, University of California, Mammoth Lakes, CA, USA
+^1^Sierra Nevada Aquatic Research Laboratory, University of California, Mammoth Lakes, CA, 93546
 
-^2^Earth Research Institute, University of California, Santa Barbara, CA, USA
+^2^Earth Research Institute, University of California, Santa Barbara, CA, 93106-3060
 
-^3^Department of Environmental Science, Policy, and Management, University of California. Berkeley, Berkeley, CA, USA
+^3^Department of Forestry, Wildlife, and Fisheries, University of Tennessee Institute of Agriculture, Knoxville, TN, 37996
 
-^4^Museum of Vertebrate Zoology, University of California, Berkeley, Berkeley, CA, USA
+^4^Department of Environmental Science, Policy, and Management, University of California. Berkeley, Berkeley, CA, 94720-3114
 
-^5^Department of Forestry, Wildlife, and Fisheries, University of Tennessee Institute of Agriculture, Knoxville, TN, USA
+^5^Museum of Vertebrate Zoology, University of California, Berkeley, Berkeley, CA, 94720-3160
 
-^6^Earth Lab, University of Colorado, Boulder, CO, USA
+^6^Earth Lab, University of Colorado, Boulder, CO, 80303
 
-^7^NCX, San Francisco, CA, USA
+^7^NCX, San Francisco, CA, 94115
 
-^8^Resources Management and Science, Yosemite National Park, El Portal, CA, USA
+^8^Resources Management and Science, Yosemite National Park, El Portal, CA, 95318
 
-\*Corresponding author: roland.knapp\@ucsb.edu
+\*Corresponding author: Sierra Nevada Aquatic Research Laboratory, 1016 Mount Morrison Road, Mammoth Lakes, CA 93546, phone: 760.647.0034, email: roland.knapp\@ucsb.edu
+
+**Preprint Server:**
+
+**Classification:** Biological Sciences - Ecology
 
 ### Abstract
 
-<!--# No more than 200 words, follow structure described in instructions for authors. 2-3 sentences of basic-level introduction to the field; a brief account of the background and rationale of the work; a statement of the main conclusions (introduced by the phrase 'Here we show' or its equivalent); and finally, 2-3 sentences putting the main findings into general context so it is clear how the results described in the paper have moved the field forwards. See [annotated example](https://www.nature.com/documents/nature-summary-paragraph.pdf).  -->
+<!--# No more than 250 words -->
 
-### Main
+### Significance Statement
 
-<!--# subheadings can be used, can be "teasers" of results (up to 40 characters) -->
+<!--# Less than 120 words. Explain the significance of the research at a level understandable to an undergraduate-educated scientist outside their field of specialty.  -->
+
+### Introduction
 
 P1: Emerging infectious diseases pose a severe threat to human, livestock, and wildlife populations.
 
 -   In wildlife populations, disease has been responsible for dramatic declines, extirpations, and even extinctions in mammals, birds, echinoderms, amphibians, and other taxa (Scheele, avian malaria, black-footed ferrets, sea stars, etc.).
 
--   While the dramatic and immediate nature of disease-induced declines in wildlife has led to intensive focus on documenting, understanding, and mitigating disease impacts (citations), populations previously decimated by disease are also beginning to recover (citations).
+-   Although the dramatic and immediate nature of disease-induced declines in wildlife has led to intensive focus on documenting, understanding, and mitigating disease impacts (citations), populations previously decimated by disease are also beginning to recover (citations).
 
 -   However, given the nascent nature of wildlife recoveries in the presence of disease, we know far less about the mechanisms driving population recovery and how these mechanisms can be leveraged to re-establish host populations across large spatial scales.
 
 -   In particular, for species of conservation concern as a result of disease-induced declines, demonstrating the long-term viability and feasibility of potential recovery actions in the presence of disease and elucidating the mechanisms underlying long-term recovery success remain largely absent from conservation biology (but see XX).
 
-P2: Host evolution following disease-induced declines is one mechanisms through which hosts can recover (Carlson et al. 2014, TREE, Searle et al. 2020).
+P2: Host evolution following disease-induced declines is one mechanism by which hosts can recover (Carlson et al. 2014, TREE, Searle et al. 2020).
 
 -   Evolutionary rescue describes natural host evolution whereby rapid evolutionary changes originating from variation within a host population reverse ongoing population declines (Carlson).
 
@@ -63,17 +71,17 @@ P2: Host evolution following disease-induced declines is one mechanisms through 
 
 P3: For resistant populations to contribute to landscape-scale species recovery, the fitness benefits gained through selection should manifest beyond the natal environment, allowing for the long-term growth and persistence of incipient populations in novel environments.
 
--   Translocations of individuals from putatively resistant populations to formerly-occupied-but-now-extirpated habitats provides a way to disentangle the contributions of natal environment and host genetics on host persistence and recovery.
+-   Translocation of individuals from putatively resistant populations to sites that were formerly occupied but from which populations were extirpated by disease provides a way to disentangle the contributions of natal environment and host genetics on host persistence and recovery.
 
 -   Something here about previous work with translocations and disease.
 
 -   Simply put, resistant hosts that demonstrate disease resistance, population growth, and long-term viability in non-natal environments provide a means to recover disease-impacted species at a landscape-scale.
 
-P4: Description of MYL frog species complex, impacts of Bd, and evidence of recent recovery.
+P4: Description of MYL frog species complex, impacts of Bd, and evidence of recent recovery. Cite Knapp et al. (2016) to emphasize that frogs in recovering populations are more resistant to Bd than those in Bd-naive populations.
 
-P5: Here, we combine X translocations of resistant MYL populations, X longitudinal surveys, mark-recapture analysis, and population modeling to demonstrate that resistant populations of an endangered amphibian species can recover and persist across a landscape of disease.
+P5: Here, we combine 24 translocations of resistant MYL populations, X longitudinal surveys, mark-recapture analysis, and population modeling to demonstrate that resistant populations of an endangered amphibian species can recover and persist across a landscape of disease.
 
--   We then use genetic evidence to demonstrate that observed disease resistance is likely a result of selection and provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for emergence of this resistance.
+We then use genetic evidence to demonstrate that observed disease resistance is likely a result of selection and provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for emergence of this resistance.
 
 1.  Epidemiological conditions in MYL-Bd systems X, Y, and Z are conducive to evolutionary rescue.
 2.  Differences in allele frequencies exist between adjacent Bd-naive and recovering populations.
@@ -81,11 +89,11 @@ P5: Here, we combine X translocations of resistant MYL populations, X longitudin
 4.  Changes in population growth rate due to evolution extend beyond the natal environment.
 5.  In populations established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics).
 
--   As such, we conclude that natural selection combined with translocations promotes the recovery of a species on the brink of disease-induced extinction. These results may have broad implications for the many species worldwide that are threatened with extinction by the emergence of novel diseases.
+<!--# These bullet points might be better addressed in the Discussion than in the Introduction. -->
 
-#### Frog evolution in response to Bd
+As such, we conclude that natural selection combined with translocations promotes the recovery of a species on the brink of disease-induced extinction. These results may have broad implications for the many species worldwide that are threatened with extinction by the emergence of novel diseases.
 
-@fig-exomemap
+### Results
 
 #### Translocations allow population reestablishment
 
@@ -207,58 +215,68 @@ robust_year_max <- surveys %>%
   summarize(max(max_2period))
 ```
 
-During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of adult frogs to `r n_distinct(d1$site_id)` recipient sites in Yosemite (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap). Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs collected from one of `r n_distinct(d1$donor)` donor populations (@fig-yosemap). <!--# Create table of translocation sites, years, frog numbers? --> Estimates of frog survival during the one year following translocation indicate that survival was highly variable between sites, but relatively constant within sites (for the subset of sites that received multiple translocations; @fig-translocation-survival). As such, for sites that received more than one translocation, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in all subsequent translocations to that site (median of posterior distribution = 4.14, uncertainty interval = 3.06\--5.28; see Supporting Information for analysis details). The relatively constant within-site frog survival across all translocations suggests an important effect of site characteristics on frog survival. <!--# How to extract these values from table produced by line 934 in translocation_survival_analysis.Rmd (or from associated code output)? -->
+<!--# Likely need an introductory few sentences to put the translocations in the proper context. -->During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of adult frogs to `r n_distinct(d1$site_id)` recipient sites in Yosemite (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap). Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs collected from one of `r n_distinct(d1$donor)` donor populations (@fig-yosemap). Estimates of frog survival during the one year following translocation indicate that survival was highly variable between sites, but relatively constant within sites (for the subset of sites that received multiple translocations; @fig-translocation-survival). As such, for sites that received more than one translocation, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in all subsequent translocations to that site (median of posterior distribution = 4.14, uncertainty interval = 3.06\--5.28; see Supporting Information for analysis details). The relatively constant within-site frog survival across all translocations suggests an important effect of site characteristics on frog survival. <!--# How to extract these values from table produced by line 934 in translocation_survival_analysis.Rmd (or from associated code output)? -->
 
-The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens). This result is consistent with the exome capture results suggesting that frogs in recovering populations have evolved increased resistance and/or tolerance to Bd infection. Important predictors are shown in @fig-cond-effects, and included winter severity in the year following translocation (snow_t1), site elevation (elevation), and donor population (donor_72996). Males had higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects). In addition to Bd load, effects of frog size (length), winter severity in the year of translocation (snow_t), day of year on which translocation was conducted (day), and translocation order (order_first) were all unimportant (@fig-survival-postdens).
+The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens). This result is consistent with our hypothesis that frogs in recovering populations have evolved increased resistance and/or tolerance to Bd infection. Important predictors are shown in @fig-cond-effects, and included winter severity in the year following translocation (snow_t1), site elevation (elevation), and donor population (donor_72996). Males had somewhat higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects). In addition to Bd load, effects of frog size (length), winter severity in the year of translocation (snow_t), day of year on which a translocation was conducted (day), and translocation order (order_first) were all unimportant (@fig-survival-postdens).
+
+<!--# Add concluding 1-2 sentences to emphasize take-home message. -->
 
 <!--# Present results indicating that Bd loads on frogs changed little following translocation? -->
 
+<!--# Present results suggesting what donor-specific characteristics are responsible for important effect of donor population? -->
+
+<!--# Mention the improved survival in recent compared with early translocations resulting from our better-informed site selection? Would put the viability results in better context because most of the low-viability populatons are those resulting from early translocations. -->
+
 #### Long-term persistence of reestablished populations
 
-Given observed yearly adult survival probabilities, our stage-structured model predicted that six of twelve translocated populations should experience a long-run growth rate $\lambda$ near or greater than 1 in the presence of Bd (@fig-viability A; median predicted $\lambda$ ranges from 0.95-1.16 for these six populations). When the probability of successful recruitment $\omega$ was greater than 0.1 (the conservative estimate we used as a baseline value in our model), long-run growth rate of these populations could be notably greater than 1 (@fig-viability A). In contrast, for the other six translocated populations where yearly adult survival was less than 0.5, our model predicted that it was unlikely that long-run growth rate in these populations was greater than 1, even when the probability of successful recruitment to the adult life stage was near 0.4 (@fig-viability A). A sensitivity analysis of long-run growth rate $\lambda$ to recruitment probability $\omega$ and yearly adult survival probability of naturally recruited individuals $\sigma_{A_R}$ showed that $\lambda$ was most sensitive to small changes in $\sigma_{A_R}$ (@fig-viability-supp A).
+<!--# Likely need an introductory few sentences to put the viability analyses in the proper context. -->Given observed yearly adult survival probabilities, our stage-structured model predicted that six of twelve translocated populations should experience a long-run growth rate $\lambda$ near or greater than 1 in the presence of Bd (@fig-viability A; median predicted $\lambda$ ranges from 0.95-1.16 for these six populations). When the probability of successful recruitment $\omega$ was greater than 0.1 (the conservative estimate we used as a baseline value in our model), long-run growth rate of these populations could be notably greater than 1 (@fig-viability A). In contrast, for the other six translocated populations where yearly adult survival was less than 0.5, our model predicted that it was unlikely that long-run growth rate in these populations was greater than 1, even when the probability of successful recruitment to the adult life stage was near 0.4 (@fig-viability A). A sensitivity analysis of long-run growth rate $\lambda$ to recruitment probability $\omega$ and yearly adult survival probability of naturally recruited individuals $\sigma_{A_R}$ showed that $\lambda$ was most sensitive to small changes in $\sigma_{A_R}$ (@fig-viability-supp A).
 
-Given demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of adult recruitment $\omega$, our model predicted that, following a a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of less than 1 (@fig-viability B). Therefore, even under conservative assumptions about recruitment probability $\omega$, these populations had some probability of persistence over 50 years following a single introduction. For these six populations, as $\omega$ increased from 0.1 to 0.3, 50 year extinction probability was less 0.5, indicating strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment success (@fig-viability B). In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1. To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest surveillance history (@fig-viability-supp B; population 70550, surveyed for 16 years). <!--# To help constrain the possible values of omega, add information about recruitment probability observed in the study populations? Because we don't have accurate counts of subadults, can we even provide rough estimate of recruitment probability? -->
+Given demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of adult recruitment $\omega$, our model predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of less than 1 (@fig-viability B). Therefore, even under conservative assumptions about recruitment probability $\omega$, these populations had some probability of persistence over 50 years following a single introduction. For these six populations, as $\omega$ increased from 0.1 to 0.3, 50 year extinction probability was less 0.5, indicating strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment success (@fig-viability B). In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1. To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability-supp B; population 70550, surveyed for 16 years). <!--# To help constrain the possible values of omega, add information about recruitment probability observed in the study populations? Because we don't have accurate counts of subadults, can we even provide rough estimate of recruitment probability? -->
+
+#### Frog evolution in response to Bd
+
+@fig-exomemap
+
+@fig-selectionresults
+
+@fig-allelefrequencies
 
 ### Figures and figure legends
 
 <!--# Discuss referencing and in-text generation of figures.  We don't want to re-run the population viability modeling figures each time we compile the manuscript.  A makefile could be a good solution. Caching figures could be another option (https://quarto.org/docs/computations/caching.html) -->
 
-![Map showing the locations of Bd-naive or recovering frog populations from which DNA samples were collected for the exome capture analyses. Black polygons indicate the boundaries of Yosemite, Kings Canyon, and Sequoia National Parks (from top to bottom). To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of the study area within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation)](figures/map_exome_points.png){#fig-exomemap width="450"}
+![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). To obscure the exact locations of populations, random noise was added to all point coordinates. Elevations are indicated as in @fig-exomemap. See inset map in @fig-exomemap to locate Yosemite National Park within California. <!--# Move to Supporting Information. Add YOSE boundary to inset map of fig-exomemap? Also, is basemap necessary/helpful? Finally, better to add color coding showing which donor was used at which sites?-->](figures/map_translocation_points.png){#fig-yosemap width="450"}
 
-![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). To obscure the exact locations of populations, random noise was added to all point coordinates. Elevations are indicated as in @fig-exomemap. See inset map in @fig-exomemap to locate Yosemite National Park within California. <!--# Add park boundaries to inset map? Also, for this and previous figure, is basemap necessary/helpful -->](figures/map_translocation_points.png){#fig-yosemap width="450"}
+![Median survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Frog survival was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
 
-![Median survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median survival per translocation at each site. Frog survival for the one-year period following each translocation was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
-
-![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for all predictor variables. Variables are considered important predictors if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
-
-<!--# Change @fig-survival-postdens from mcmc_areas to mcmc_intervals? -->
+![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for all predictor variables. Variables are considered important predictors if the associated uncertainty interval does not overlap zero (dashed red line). <!--# Move to Supporting Information. Change @fig-survival-postdens from mcmc_areas to mcmc_intervals? -->](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
 
 ![Conditional effects of the important predictors of 1-year frog survival: (A) elevation of recipient site, (B) winter severity in the year following translocation, (C) sex, and (D) donor population. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects}
 
-![A. The predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability of recruitment $\omega$, given the parameterized, deterministic model for translocated *R. sierrae*. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (given by the dashed line). B. The predicted fifty-year extinction probabilities of the twelve translocated populations given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to A.](figures/pop_viability_figures_for_manuscript_v2.jpg){#fig-viability}
+![<!--# Add first sentence that provides a brief overview of the entire figure. --> A. The predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability of recruitment $\omega$, given the parameterized, deterministic model for translocated *R. sierrae*. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (given by the dashed line). B. The predicted fifty-year extinction probabilities of the twelve translocated populations given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to A.](figures/pop_viability_figures_for_manuscript_v2.jpg){#fig-viability}
 
-![A. The elasticity of $\lambda$ with changes in three parameters: $\sigma_{A_R}$, $\omega$, and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3. B. The 100 simulated trajectories (black lines) that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp}
+![<!--# Add first sentence that provides a brief overview of the entire figure. --> A. The elasticity of $\lambda$ with changes in three parameters: $\sigma_{A_R}$, $\omega$, and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3. B. The 100 simulated trajectories (black lines) that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp}
 
-<!-- Left color palette as is as 12-color color-blind friendly is not the most friendly color palette to look at.  We can discuss. -->
+<!-- Left panel color palette is 12-color color-blind friendly, but is not the most friendly color palette to look at.  We can discuss. -->
+
+![Map showing the locations of Bd-naive or recovering frog populations from which DNA samples were collected for the exome capture analyses. Black polygons indicate the boundaries of Yosemite, Kings Canyon, and Sequoia National Parks (from top to bottom). To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of the study area within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). <!--# Remove this map. Map in Allie's fig-selectionresults is likely sufficient. -->](figures/map_exome_points.png){#fig-exomemap width="450"}
+
+![<!--# Add first sentence that provides a brief overview of the entire figure. --> (a) Map of sampling locations showing Bd-naive populations in red and persistent populations in blue. (b) PCA calculated from binary SNPs showing genomic relationship of samples. Labels match sampling location in (a) and are colored as in (a). (c) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows Bonferroni corrected p-value for threshold of 0.01. (d) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and Contigs are sorted by size. Red line shows Bonferroni corrected p-value for threshold of 0.01. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/mylf_selection_figure_5Dec2022.png){#fig-selectionresults}
+
+![Allele frequencies of the outlier SNPs for each of the sampled naive and recovering *R. sierrae* populations. The results for RIN3 are consistent with strong selection on this gene following the arrival of Bd, and suggests are role for RIN3 in frog resistance against Bd infection and associated population recovery. ](figures/outlier_map_draft_figure.png){#fig-allelefrequencies}
+
+### Tables
+
+<!--# Include table of translocation sites, years, frog numbers? -->
+
+<!--# Include Allie's table describing outlier SNPs? -->
 
 ### References
 
 ::: {#refs}
 :::
 
-### Methods
-
-<!-- Typically less than 3000 words -->
-
-#### Frog evolution in response to Bd
-
-<!-- subheadings can be used, up to 40 characters -->
-
-To identify putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure. Specifically, we compared genomes of frogs from populations that have never experienced a Bd-caused epizootic ("Bd-naive") versus frogs from populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ["recovering"; @knapp2016, @vredenburg2010]. These latter populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection intensities (load) in adults that are typically well below the level expected to cause frog mortality [@knapp2011, @vredenburg2010]. Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing [e.g., @knapp2016].
-
-<!--# Mention that we sampled declining populations also? Will need to update map and text to show only the samples that were sequenced. -->
-
-DNA samples were collected via buccal swabbing [@broquet2007] of xx-xx frogs from seven Bd-naive populations and seven recovering populations. These populations represented a wide latitudinal range in the southern Sierra Nevada, from northern Yosemite National Park to south of Sequoia National Park (@fig-exomemap). To minimize potential biases associated with different latitudinal ranges of the two population types, we selected populations to represent similar latitudinal ranges.
+### Materials and methods
 
 #### Frog translocations
 
@@ -361,31 +379,19 @@ Third, we defined a version of the model with demographic and environmental stoc
 
 Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery. We focused on population 70550 because this was our longest CMR time series for a translocated population and because this population shows evidence of substantial post-translocation increases in adult abundance associated with population establishment and recovery. We simulated our model for 16 years, repeating the simulation 50,000 times. For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or a beta distribution with mean 0.5 and $\phi = 2$). Using Approximate Bayesian Computing and rejection sampling (@kosmala2016), we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data. The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010]. Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
 
-### Data availability
+#### Frog evolution in response to Bd
+
+To identify putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure. Specifically, we compared genomes of frogs from populations that have never experienced a Bd-caused epizootic ("Bd-naive") versus frogs from populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ["recovering"; @knapp2016, @vredenburg2010]. These latter populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection intensities (load) in adults that are typically well below the level expected to cause frog mortality [@knapp2011, @vredenburg2010]. Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing [e.g., @knapp2016].
+
+DNA samples were collected via buccal swabbing [@broquet2007] of xx-xx frogs from seven Bd-naive populations and seven recovering populations. These populations represented a wide latitudinal range in the southern Sierra Nevada, from northern Yosemite National Park to south of Sequoia National Park (@fig-exomemap). To minimize potential biases associated with different latitudinal ranges of the two population types, we selected populations to represent similar latitudinal ranges.
+
+### Acknowledgements and funding sources
 
 ### References
 
-<!--# References for Methods section only -->
+### Figure legends
 
-### Acknowledgements
-
-### Author contributions
-
-### Competing interests
-
-The authors declare no competing interests.
-
-### Additional information
-
-Supplementary Information is available for this paper.
-
-Correspondence and requests for materials should be addressed to Roland Knapp.
-
-Peer review information.
-
-Reprints and permissions information is available at www.nature.com/reprints.
-
-### Supplementary Information
+### Supporting Information
 
 ### Notes (author use only - not part of manuscript)
 
