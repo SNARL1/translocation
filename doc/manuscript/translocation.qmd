@@ -217,7 +217,7 @@ robust_year_max <- surveys %>%
 
 <!--# Likely need an introductory few sentences to put the translocations in the proper context. -->
 
-<!--# Mark W: Pulling from the methods, we say: "Translocations of [putatively resistant] *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species."  Could be a good starting sentence.  Also, as I am reading through the results, our sections do not elude to the Allie's section.  We should discuss how our sections can set-up Allie's section with a few well-chosen words throughout.  -->
+<!--# Mark W: Pulling from the methods, we say: "Translocations of [putatively resistant] *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species."  Could be a good starting sentence.  Also, as I am reading through the results, our sections do not allude to the Allie's section.  We should discuss how our sections can set-up Allie's section with a few well-chosen words throughout.  -->
 
 During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of adult frogs to `r n_distinct(d1$site_id)` recipient sites in Yosemite (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap). Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs collected from one of `r n_distinct(d1$donor)` donor populations (@fig-yosemap). Estimates of frog survival during the one year following translocation indicate that survival was highly variable between sites, but relatively constant within sites (for the subset of sites that received multiple translocations; @fig-translocation-survival). As such, for sites that received more than one translocation, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in all subsequent translocations to that site (median of posterior distribution = 4.14, uncertainty interval = 3.06\--5.28; see Supporting Information for analysis details). The relatively constant within-site frog survival across all translocations suggests an important effect of site characteristics on frog survival. <!--# How to extract these values from table produced by line 934 in translocation_survival_analysis.Rmd (or from associated code output)? -->
 
@@ -225,7 +225,7 @@ The best model of 1-year frog survival identified several important predictors, 
 
 <!--# Suggested text to wrap this section up and build into the next two sections: Overall, our analyses show that putatively resistant frogs can maintain the benefits of resistance (i.e., minimal Bd-induced mortality despite ongoing infection) in non-natal habitats. Moreover, in three locations where longer mark-recapture time series allow us to assess the survival of adults recruited to the population due to the breeding of translocated individuals, naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults. These results show that putative resistance in non-natal habitats is maintained across generations of frogs, suggesting that acquired, heritable resistance in donor populations could promote the long-term viability of translocated populations.  We test these claims in the following sections. -->
 
-<!--# Mark W: Regarding the above paragraph, what evidence do we have of "tolerance"? Are Bd loads significantly reduced in populations compared to epizootic levels? Can we convincingly state that the likely mechanism is more consistent with resistance or tolerance?  I ask because it would be nice to just use one of these terms in the paper and not get caught up in any resistance vs. tolerance discussions with reviewers.  -->
+<!--# Mark W: Regarding the above paragraph, what evidence do we have of "tolerance"? Are Bd loads significantly reduced in populations compared to epizootic levels? Can we convincingly state that the likely mechanism is more consistent with resistance or tolerance?  I ask because it would be nice to just use one of these terms in the paper and not get caught up in any resistance vs. tolerance discussions with reviewers.  Roland: Have a look at this paragraph of Knapp et al. PeerJ 2022: https://peerj.com/articles/12712/#p-61. We argue that there is evidence for resistance and tolerance. -->
 
 <!--# Add concluding 1-2 sentences to emphasize take-home message. -->
 
@@ -243,19 +243,19 @@ To test whether the observed yearly survival probabilities of putatively resista
 
 Given demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of adult recruitment $\omega$, our model predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of less than 1 (@fig-viability B). Therefore, even under conservative assumptions about recruitment probability $\omega$, these populations had some probability of persistence over 50 years following a single introduction. For these six populations, as $\omega$ increased from 0.1 to 0.3, 50 year extinction probability was less 0.5, indicating strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment success (@fig-viability B). In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1. To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability-supp B; population 70550, surveyed for 16 years). Overall, our model demonstrates that given observed yearly adult survival probabilities of putatively resistance frogs in non-natal locations, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
 
-<!--# To help constrain the possible values of omega, add information about recruitment probability observed in the study populations? Because we don't have accurate counts of subadults, can we even provide rough estimate of recruitment probability?  Mark W here: This would be great. If we have even ballpark estimates of \omega it would be useful to inclue.-->
+<!--# To help constrain the possible values of omega, add information about recruitment probability observed in the study populations? Because we don't have accurate counts of subadults, can we even provide rough estimate of recruitment probability?  Mark W here: This would be great. If we have even ballpark estimates of \omega it would be useful to include.-->
 
 #### Frog evolution in response to Bd
-
-#### Conclusions
-
-<!--# Placeholder for our conclusions section -->
 
 @fig-exomemap
 
 @fig-selectionresults
 
 @fig-allelefrequencies
+
+#### Conclusions
+
+<!--# Placeholder for our conclusions section -->
 
 ### Figures and figure legends
 
