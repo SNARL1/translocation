@@ -391,7 +391,7 @@ DNA samples were collected via buccal swabbing [@broquet2007] of xx-xx frogs fro
 
 ### Supporting Information
 
-![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of the study area within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). <!--# Add color coding showing which donor was used at which sites. Add inset map locating YOSE within California. Zoom in on eastern YOSE only instead of entire park. -->](figures/map_translocation_points.png){#fig-yosemap width="450"}
+![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). ](figures/map_translocation_points.png){#fig-yosemap width="450"}
 
 ![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for all predictor variables. Variables are considered important predictors if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
 

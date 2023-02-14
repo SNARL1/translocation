@@ -1,5 +1,5 @@
 ---
-title: "maps"
+title: "Maps for translocation paper"
 format: html
 editor: visual
 ---
@@ -160,11 +160,13 @@ Run the following 4 chunks only if you have access to the project database. For 
 ```{r}
 donor_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
   distinct(donor) %>% 
-  rename(site_id = donor) %>% 
+  mutate(site_id = donor, .before = donor) %>% 
+  rename(donor_id = donor) %>% 
   add_column(type = "donor")
 
 translocation_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
-  distinct(site_id) %>% 
+  distinct(site_id, donor) %>% 
+  rename(donor_id = donor) %>% 
   add_column(type = "translocation") %>% 
   bind_rows(donor_sites)
 
@@ -205,7 +207,9 @@ source("db_disconnect.R")
 ### Import map layers
 
 ```{r import-map-data2}
-translocation_points <- read_csv(here::here("data", "maps", "translocation_points.csv"))
+translocation_points <- read_csv(here::here("data", "maps", "translocation_points.csv")) %>% 
+  mutate(donor_id = as.factor(donor_id))
+
 translocation_points <- st_as_sf(translocation_points, coords = c("utme_noise", "utmn_noise"), crs = st_crs(26911))
 
 yose_boundary <- st_read(here::here(
@@ -213,10 +217,13 @@ yose_boundary <- st_read(here::here(
 st_crs(yose_boundary) # determine coordinate reference system (CRS)
 yose_boundary <- st_transform(yose_boundary, 26911) # transform to NAD83 UTM11
 
-# California Color Hillshade (90m) from koordinates.com
+# California Color Hillshade (90m & 300m) from koordinates.com
 hillshade_90m <- read_stars(here::here(
   "data", "maps", "hillshade-90m", "california-color-hillshade-90m.tif"))
 st_crs(hillshade_90m)
+
+hillshade_300m <- read_stars(here::here(
+  "data", "maps", "hillshade-300m", "california-color-hillshade-300m.tif"))
 ```
 
 ### Check & fix shapefile polygons
@@ -246,27 +253,50 @@ hillshade_yose_crop <- st_transform(hillshade_yose_crop, 26911)
 translocation_points_map <- tm_shape(hillshade_yose_crop) + 
   tm_rgb(r = 1, g = 2, b = 3) +
   tm_shape(yose_boundary) + 
-  tm_borders(col = "black") +
+  tm_borders(col = "black", lwd = 2) +
   tm_shape(translocation_points) + 
-  tm_symbols(size = 0.7, # increase point size, use darker blue
+  tm_symbols(size = 0.7, 
+             shape = "donor_id",
              col = "type", 
-             palette = c("#008B00", "#C0FF3E"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
+             legend.shape.show = FALSE, 
+             palette = c("#0000FF", "#C0FF3E"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
              title.col = "Population type") +
   tm_layout(legend.position = c("right", "top"),
-            legend.bg.color = "white") +
+            legend.bg.color = "white",
+            legend.title.size = 1.3,
+            legend.text.size = 1.0) +
   tm_compass(type = "4star",
-             position = c(0.80, 0.10),
-             size = 2) +
-  tm_scale_bar(breaks = c(0, 10, 20, 30), 
-               text.size = 0.7, 
+             position = c(0.80, 0.11),
+             size = 3) +
+  tm_scale_bar(breaks = c(0, 10, 20), 
+               text.size = 1.0, 
                position = c("right", "bottom"))
 
 translocation_points_map
+```
+
+### Create inset map of California
+
+```{r}
+inset_map <- tm_shape(hillshade_300m) +
+  tm_rgb(r = 1, g = 2, b = 3) +
+  tm_shape(yose_boundary) +
+  tm_borders(col = "black")
+inset_map
+```
+
+### Study area map with inset map
+
+```{r}
+translocation_points_map
+print(inset_map, vp = viewport(0.34, 0.20, width = 0.2, height = 0.2))
 ```
 
 ### Save map
 
 ```{r}
 tmap_save(translocation_points_map, 
+          insets_tm = inset_map,
+          insets_vp = viewport(0.17, 0.15, width = 0.25, height = 0.25),
           here::here("doc", "manuscript", "figures", "map_translocation_points.png"))
 ```
