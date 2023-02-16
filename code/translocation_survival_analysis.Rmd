@@ -772,7 +772,7 @@ p_elevsex
 ### Create multiplot conditional effects figure
 
 ```{r}
-cond_effects_plot <- (p_snowt1 | p_elev) / (p_sex | p_donor)
+cond_effects_plot <- (p_snowt1 | p_elev) / (p_donor | p_sex)
 ```
 
 ### Save plot
