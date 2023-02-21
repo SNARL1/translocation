@@ -413,8 +413,10 @@ d1 %>%
   mutate(period = factor(period, levels = c("before", "after"))) %>% 
   ggplot(aes(x = period, y = log10(bd_load + 1))) +
     geom_boxplot() + 
+    labs(x = "Period", y = "Bd load (log10(bd_load + 1))") +
     facet_grid(. ~ site_id1) +
     theme(axis.text.x = element_text(angle = 90))
+ggsave(here::here("doc", "manuscript", "figures", "bdload_beforeafter.png"), width = 5, height = 3)
 ```
 
 -   In most cases, relatively small increases in load following translocation.
