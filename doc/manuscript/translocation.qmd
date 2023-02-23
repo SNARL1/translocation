@@ -223,26 +223,25 @@ We refer to these reintroductions as "translocations".
 During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of frogs to `r n_distinct(d1$site_id)` recipient sites (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap) <!--# How to restart numbering for figures in SI, add "S" prefix? -->.
 Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs collected from one of `r n_distinct(d1$donor)` donor populations (@fig-yosemap).
 Estimates of frog survival during the one year following translocation indicate that survival was highly variable between recipient sites, but relatively constant within recipient sites (for the subset of sites that received multiple translocations; @fig-translocation-survival).
-As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in all subsequent translocations to that site (@fig-transsurvival-postdens; see **Materials and Methods - Frog translocations** for analysis details), and suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
-For translocated frogs, Bd load changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter; see SI for analysis details).
-<!--# Add text describing that loads were below lethal threshold -->
+As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in subsequent translocations to that site (@fig-transsurvival-postdens; see **Materials and Methods - Frog translocations** for analysis details).
+This suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
+In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (\@tbl-viability-earlylate; Table 2) <!--# Why isn't cross-referencing working for this table? -->, which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
+Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter; see SI for analysis details), and were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale; @vredenburg2010; @joseph2018). <!--# Add median Bd load, proportion below 5.8 copies threshold? The text repeats in part similar results in Methods -- Translocaiton. -->
 
-To identify drivers of post-translocation frog survival, we developed a multilevel model in a Bayesian framework (see **Materials and Methods - Frog translocations** for analysis details).
+To identify site and frog-specific drivers of post-translocation frog survival, we developed a multilevel model in a Bayesian framework (see **Materials and Methods - Frog translocations** for analysis details).
 Our specific interest was whether Bd load had an important effect on adult survival, as would be expected if the effect of frog resistance was insufficient to overcome the negative effect of Bd.
 The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens).
 Important predictors included winter severity in the year following translocation (snow_t1), site elevation (elevation), and donor population (donor_72996; @fig-cond-effects).
 Males had somewhat higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects).
 In addition to Bd load, effects of frog size (length), winter severity in the year of translocation (snow_t), day of year on which a translocation was conducted (day), and translocation order (order_first) were all unimportant (@fig-survival-postdens).
 In summary, our analyses show that Bd load is not a predictor of the survival of translocated frogs, consistent with frogs in recovering populations having evolved sufficient resistance and/or tolerance to minimize the adverse effects of Bd infection.
-In addition, the small changes in Bd load following translocation and relatively high survival of frogds in the majority of translocated cohorts suggests that resistant frogs from recovering populations can maintain the benefits of resistance (i.e., low-moderate Bd loads, minimal Bd-induced mortality despite ongoing infection) in non-natal habitats.
-Finally, in three locations where longer mark-recapture time series allowed us to assess the survival of adults recruited to the population that are the progeny of translocated individuals, naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults <!--# Show results. -->.
-Collectively, these results show that putative resistance in non-natal habitats is maintained across generations of frogs.
+In addition, the small changes in Bd load following translocation and relatively high survival of frogs in a substantial number of translocated cohorts suggests that resistant frogs from recovering populations can maintain the benefits of resistance in non-natal habitats (i.e., low-moderate Bd loads, minimal Bd-induced mortality).
+Finally, in three locations where longer mark-recapture time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults <!--# Show results. -->.
+This result shows that frog resistance in non-natal habitats is maintained across generations of frogs.
 
 <!--# Mark W: Regarding the above paragraph, what evidence do we have of "tolerance"? Are Bd loads significantly reduced in populations compared to epizootic levels? Can we convincingly state that the likely mechanism is more consistent with resistance or tolerance?  I ask because it would be nice to just use one of these terms in the paper and not get caught up in any resistance vs. tolerance discussions with reviewers.  Roland: Have a look at this paragraph of Knapp et al. PeerJ 2022: https://peerj.com/articles/12712/#p-61. We argue that there is evidence for resistance and tolerance. -->
 
-<!--# Present results suggesting what donor-specific characteristics are responsible for important effect of donor population? -->
-
-<!--# Mention the improved survival in recent compared with early translocations resulting from our better-informed site selection? Would put the viability results in better context because most of the low-viability populatons are those resulting from early translocations. Mark W: Yes, I think this is important.  I think we want to drive home the point that i) Acquired, heritable resistance in donor populations could promote the long-term viability of translocated populations and b) but survival is still highly dependent on environment independent of Bd. -->
+<!--# Drive home the point that i) Acquired, heritable resistance in donor populations could promote the long-term viability of translocated populations and b) but survival is still highly dependent on environment independent of Bd. -->
 
 #### Long-term persistence of reestablished populations
 
@@ -268,9 +267,7 @@ Overall, our model demonstrates that given observed yearly adult survival probab
 
 @fig-allelefrequencies
 
-#### Conclusions
-
-<!--# Placeholder for our conclusions section -->
+#### Discussion
 
 We provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for emergence of this resistance.
 <!--# Consider broadening the scope of this sentence and the paragraph to be developed from it to encompass all of our findings -->
@@ -280,6 +277,8 @@ We provide five lines of evidence that evolutionary rescue is a strong candidate
 3.  There is a shared selective response across recovering populations.
 4.  Changes in population growth rate due to evolution extend beyond the natal environment.
 5.  In populations established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics).
+
+<!--# Discuss effect of donor population on survival of translocated frogs. Differences in Bd resistance? -->
 
 ### Figures and figure legends
 
@@ -347,13 +346,14 @@ The possible observations of individuals include "detected" and "not detected".
 We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records).
 For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each).
 We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat).
-Code used to construct CMR datasets and fit models for each translocated population is available from a GitHub repository ([https://github.com/SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis.)).
+Code used to construct CMR datasets and fit models for each translocated population is available from the following GitHub repository: [https://github.com/SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis.).
 
 ##### Predictors of post-translocation frog survival
 
 To identify important predictors of frog survival following translocation, we developed multilevel models in a Bayesian framework.
 We performed all analyses using R Statistical Software [v4.4.4; @rsoftware2022] and the rstanarm package [@rstanarm2022].
-We started with models that included all relevant population-level effects and, when data contained possible hierarchical structure, we included group-level effects in the full model.
+We used default, weakly informative priors.
+Starting models included all relevant population-level effects and, when data contained possible hierarchical structure, we included group-level effects in the full model.
 Within each analysis, we evaluated model fit using visualizations of leave-one-out ("LOO") probability integral transformations [@gelman2013, @gabry2019], and compared fits of models with and without group-level effects, and with differing group-level effects using LOO cross-validation [@vehtari2016].
 Both approaches utilized the loo package.
 
@@ -363,8 +363,6 @@ In both analyses, the response variable, probability of frog survival, was round
 For all models, we used default priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked convergence of the MCMC algorithm using trace plots and Rhat.
 Code to create datasets and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
-
-<!-- Mark W: We should specify whether the default priors were uninformative, slightly informative, etc. -->
 
 #### Population viability modeling
 
@@ -434,7 +432,7 @@ For populations where we had a sufficient number of pit-tagged, naturally recrui
 For populations lacking any naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:--------------------------------------------------------------------------|:---------------------|:-------------------------------------------------------------------|
+|:--------------------------|:------------------|:-------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
@@ -495,11 +493,35 @@ To minimize potential biases associated with different latitudinal ranges of the
 
 ![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).](figures/map_translocation_points.png){#fig-yosemap width="450"}
 
+![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. A variable is considered an important predictor if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
+
+![For frogs translocated to each recipient site, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. <!--# Remove gray background and gridlines -->](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="450"}
+
 ![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. Variables are considered important predictors if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
 
-![For frogs translocated to each recipient site, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="450"}
+```{r}
+#| label: tbl-viability-earlylate
+#| tbl-cap: "Proportion of populations translocated early versus late in the study period (< 2013 or >= 2013), respectively) for which the probability of extinction over 50 years was 1 or < 1 (viability = 0 or 1, respectively)."
+#| echo: FALSE
+#| message: FALSE
 
-![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. A variable is considered an important predictor if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
+viability_table <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
+  distinct(site_id, year) %>% 
+  group_by(site_id) %>% 
+  filter(year == min(year)) %>% 
+  mutate(site_id = as.character(site_id),
+         viability = if_else(site_id %in% c(70414, 70370, 70134, 70641, 70619, 70505), 0, 1),
+         period = if_else(year < 2013, "early", "late")) %>% 
+  group_by(period) %>% 
+  count(period, viability) %>% 
+  mutate(n_period = sum(n), 
+         prop = (n / n_period)) %>% 
+  mutate(across(prop, round, 3)) %>% 
+  arrange(viability, period)
+  
+  knitr::kable(viability_table, "pipe", align = "lcccr", caption = ) 
+
+```
 
 ### Notes (author use only - not part of manuscript)
 
