@@ -38,7 +38,7 @@ cohort_survival <- read_csv(files, id = "path") %>%
   mutate(site_id = str_extract(path, "(\\d)+"), .after = path) %>%  # extracts site_id as numeric string from file path
   rename(years_since_intro = years_since_introduction) %>% 
   filter(years_since_intro == 1) %>% 
-  select(site_id, release_date, years_since_intro, median_survival)
+  select(site_id, release_date, years_since_intro, median_survival, lo_survival, hi_survival)
 rm(files)
 ```
 
@@ -116,8 +116,9 @@ cohort_survival_plot <- cohort_survival %>%
   inner_join(cohort_survival, by = "site_id") %>% 
   inner_join(donors, by = "site_id") %>% 
   select(-plot_survival) %>% 
-    ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, group = donor)) +  # reorder site_id by siteid_order)
-      geom_point(aes(color = donor), size = 3) +
+    ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, color = donor)) +  # reorder site_id by siteid_order)
+      geom_errorbar(aes(ymin = lo_survival, ymax = hi_survival), color = "black", width = 0.15, position = position_dodge2(width = 0.3)) +
+      geom_point(size = 3) +
       scale_color_manual(values = palette1) + 
       labs(x = "Recipient site", y = "1-year frog survival") +
       theme_classic() +
@@ -126,8 +127,9 @@ cohort_survival_plot <- cohort_survival %>%
         legend.position = c(0.2, 0.8),
         axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
 
-
 cohort_survival_plot
+
+# Unable to dodge points and error bars together using position_dodge and group = site_id. Why?
 ```
 * Strong effect of site/translocation on frog survival.
 * Survival is highly variable across sites, but highly repeatable within a site. 

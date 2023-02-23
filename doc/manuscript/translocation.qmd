@@ -25,10 +25,9 @@ Roland A. Knapp^1,2^\*, Mark Q. Wilber^3^, Allison Q. Byrne^4,5^, Maxwell B. Jos
 
 ^3^School of Natural Resources, University of Tennessee Institute of Agriculture, Knoxville, TN, 37996
 
-^4^Department of Environmental Science, Policy, and Management, University of California.
-Berkeley, Berkeley, CA, 94720-3114
+^4^Department of Environmental Science, Policy, and Management, University of California - Berkeley, Berkeley, CA, 94720-3114
 
-^5^Museum of Vertebrate Zoology, University of California, Berkeley, Berkeley, CA, 94720-3160
+^5^Museum of Vertebrate Zoology, University of California - Berkeley, Berkeley, CA, 94720-3160
 
 ^6^Earth Lab, University of Colorado, Boulder, CO, 80303
 
@@ -89,11 +88,9 @@ Here, we report the results of a greatly expanded MYL frog reintroduction effort
 Collectively, the results show that MYL frogs generally meet the four conditions for reintroduction feasibility outlined above, and provide a novel example of how the reintroduction of resistant frogs can allow the large-scale recovery of this disease-impacted amphibian.
 These results may have broad implications for the many species worldwide that are threatened with extinction by emerging diseases.
 
-<!--# The following point was made in the original outline but is not included in P3, P4, or P5. Could be useful to include when introducing translocations in Results: Translocation of individuals from putatively resistant populations to sites that were formerly occupied but from which populations were extirpated by disease provides a way to disentangle the contributions of natal environment and host genetics on host persistence and recovery. -->
-
 ### Results
 
-<!--# Let's revisit whether the selection results should go here or at the end of the results. Putting those results here would reduce the need to describe populations as "putatively resistant". Mark W: Agreed. -->
+<!--# Add Allie's selection results here -->
 
 #### Reintroductions allow population reestablishment
 
@@ -215,8 +212,6 @@ robust_year_max <- surveys %>%
   summarize(max(max_2period))
 ```
 
-<!--# Mark W: As I am reading through the results, our sections do not allude to the Allie's section.  We should discuss how our sections can set-up Allie's section with a few well-chosen words throughout.  -->
-
 Reintroductions of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
 These reintroductions involved the collection of adult frogs from large, Bd-positive donor populations that have recovered in recent years following Bd-caused declines [@knapp2016] and translocating them to nearby recipient sites.
 We refer to these reintroductions as "translocations".
@@ -226,7 +221,8 @@ Estimates of frog survival during the one year following translocation indicate 
 As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in subsequent translocations to that site (@fig-transsurvival-postdens; see **Materials and Methods - Frog translocations** for analysis details).
 This suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
 In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (\@tbl-viability-earlylate; Table 2) <!--# Why isn't cross-referencing working for this table? -->, which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
-Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter; see SI for analysis details), and were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale; @vredenburg2010; @joseph2018). <!--# Add median Bd load, proportion below 5.8 copies threshold? The text repeats in part similar results in Methods -- Translocaiton. -->
+Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter; see SI for analysis details), and were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale; @vredenburg2010; @joseph2018).
+<!--# Add median Bd load, proportion below 5.8 copies threshold? The text repeats in part similar results in Methods -- Translocaiton. -->
 
 To identify site and frog-specific drivers of post-translocation frog survival, we developed a multilevel model in a Bayesian framework (see **Materials and Methods - Frog translocations** for analysis details).
 Our specific interest was whether Bd load had an important effect on adult survival, as would be expected if the effect of frog resistance was insufficient to overcome the negative effect of Bd.
@@ -258,8 +254,7 @@ For these six populations, as $\omega$ increased from 0.1 to 0.3, 50 year extinc
 In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability-supp B; population 70550, surveyed for 16 years).
 Overall, our model demonstrates that given observed yearly adult survival probabilities of resistance frogs in non-natal locations, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
-
-<!--# To help constrain the possible values of omega, add information about recruitment probability observed in the study populations? Because we don't have accurate counts of subadults, can we even provide rough estimate of recruitment probability?  Mark W here: This would be great. If we have even ballpark estimates of \omega it would be useful to include.-->
+<!--# Add text to the end of this paragraph that refers to higher survival of cohorts translocated later in the 2006-2020 study period (Table 2), to make the case that more than 50% of future cohorts are expected to have high survival. -->
 
 #### Frog evolution in response to Bd
 
@@ -280,11 +275,13 @@ We provide five lines of evidence that evolutionary rescue is a strong candidate
 
 <!--# Discuss effect of donor population on survival of translocated frogs. Differences in Bd resistance? -->
 
+<!--# The following point was made in the original Introduction outline but ultimately not addressed there: Translocation of individuals from putatively resistant populations to sites that were formerly occupied but from which populations were extirpated by disease provides a way to disentangle the contributions of natal environment and host genetics on host persistence and recovery. -->
+
 ### Figures and figure legends
 
 <!--# Discuss referencing and in-text generation of figures.  We don't want to re-run the population viability modeling figures each time we compile the manuscript.  A makefile could be a good solution. Caching figures could be another option (https://quarto.org/docs/computations/caching.html) -->
 
-![Median survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Frog survival was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. <!--# Include error bars on these median estimates. -->](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
+![Median survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Frog survival was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 2.5% and 97.5% posterior quantiles (i.e., 95% uncertainty intervals). <!--# Unable to dodge points and associated error bars together using group. Any help with this? Code is in translocation_survival_exploratory.Rmd -->](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
 
 ![Conditional effects of the important predictors of 1-year frog survival: (A) elevation of recipient site, (B) winter severity in the year following translocation, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects}
 
