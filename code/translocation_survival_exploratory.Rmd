@@ -115,10 +115,10 @@ cohort_survival_plot <- cohort_survival %>%
   mutate(siteid_order = row_number()) %>% 
   inner_join(cohort_survival, by = "site_id") %>% 
   inner_join(donors, by = "site_id") %>% 
-  select(-plot_survival) %>% 
-    ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, color = donor)) +  # reorder site_id by siteid_order)
-      geom_errorbar(aes(ymin = lo_survival, ymax = hi_survival), color = "black", width = 0.15, position = position_dodge2(width = 0.3)) +
-      geom_point(size = 3) +
+  select(-plot_survival) %>%
+  ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, color = donor)) +  # reorder site_id by siteid_order)
+      geom_linerange(aes(ymin = lo_survival, ymax = hi_survival), color = "black", width = 0.5, position = position_dodge2(width=0.5)) +
+      geom_point(aes(x = reorder(site_id, siteid_order), y = median_survival, color = donor), size = 3, position = position_dodge2(width=0.5)) + 
       scale_color_manual(values = palette1) + 
       labs(x = "Recipient site", y = "1-year frog survival") +
       theme_classic() +
@@ -131,6 +131,7 @@ cohort_survival_plot
 
 # Unable to dodge points and error bars together using position_dodge and group = site_id. Why?
 ```
+
 * Strong effect of site/translocation on frog survival.
 * Survival is highly variable across sites, but highly repeatable within a site. 
 * Indicates need to include site_id and/or translocation_id as group-level effect(s). 
