@@ -116,6 +116,7 @@ However, the outlier SNP in the RIN3 gene showed consistent differences in frequ
 
 ```{r}
 #| include: false
+#| code-fold: true
 
 library(readr)
 library(dplyr)
@@ -234,17 +235,17 @@ robust_year_max <- surveys %>%
 
 Reintroductions of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
 These reintroductions involved the collection of adult frogs from large, Bd-positive donor populations that have recovered in recent years following Bd-caused declines [@knapp2016] and translocating them to nearby recipient sites [@joseph2018].
-We refer to these reintroductions as "translocations".
+We refer to these reintroductions as "translocations" [@seddon2014].
 During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of frogs to `r n_distinct(d1$site_id)` recipient sites (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap SI) <!--# How to restart numbering for figures in SI, add "S" prefix? -->.
 Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs collected from one of `r n_distinct(d1$donor)` donor populations (@fig-yosemap SI).
 Estimates of frog survival during the one year following translocation indicate that survival was highly variable between recipient sites, but relatively constant within recipient sites (for the subset of sites that received multiple translocations; @fig-translocation-survival).
 As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in subsequent translocations to that site (@fig-transsurvival-postdens SI).
 This suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
 In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-viability-earlylate SI) <!--# Should be Table 1, not Table 2. Rearrange table order in manuscript. -->, which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
-Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter SI), and were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale) [@vredenburg2010; @joseph2018].
-<!--# Add median Bd load, proportion below 5.8 copies threshold? The text repeats in part similar results in Methods -- Translocation. -->
+Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter SI), and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale) [@vredenburg2010; @joseph2018].
+<!--# Add median Bd load, proportion below 5.8 copies threshold? --> <!--# The Methods -- Translocation section contains text that repeats similar results. Edit to reduce repetition. --> <!--# To allow comparison with other translocation studies, consider adding information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
 
-To identify site and frog-specific drivers of post-translocation frog survival, we developed a multilevel model in a Bayesian framework.
+To identify site and frog-specific drivers of post-translocation survival, we developed a multilevel model in a Bayesian framework.
 Our specific interest was whether Bd load had an important effect on adult survival, as would be expected if the effect of frog resistance was insufficient to overcome the negative effect of Bd.
 The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens SI).
 Important predictors included winter severity in the year following translocation (snow_t1), site elevation (elevation), and donor population (donor_72996; @fig-cond-effects).
@@ -252,7 +253,7 @@ Males had somewhat higher survival than females, but this effect was only margin
 In addition to Bd load, effects of frog size (length), winter severity in the year of translocation (snow_t), day of year on which a translocation was conducted (day), and translocation order (order_first) were all unimportant (@fig-survival-postdens SI).
 Collectively, these results show that Bd load is not a predictor of the survival of translocated frogs, consistent with frogs in recovering populations having evolved sufficient resistance to minimize the adverse effects of Bd infection.
 In addition, the low-moderate Bd loads that characterized frogs following translocation and relatively high survival of frogs in the majority of more-recently translocated cohorts suggests that resistant frogs from recovering populations can maintain the benefits of resistance in non-natal habitats.
-Finally, in three locations where longer mark-recapture time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs).
+Finally, in three locations where longer mark-recapture time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
 Therefore, frog resistance in non-natal habitats is maintained across generations.
 
 <!--# Mark W: Regarding the above paragraph, what evidence do we have of "tolerance"? Are Bd loads significantly reduced in populations compared to epizootic levels? Can we convincingly state that the likely mechanism is more consistent with resistance or tolerance?  I ask because it would be nice to just use one of these terms in the paper and not get caught up in any resistance vs. tolerance discussions with reviewers.  Roland: Have a look at this paragraph of Knapp et al. PeerJ 2022: https://peerj.com/articles/12712/#p-61. We argue that there is evidence for resistance and tolerance. -->
@@ -262,26 +263,29 @@ Therefore, frog resistance in non-natal habitats is maintained across generation
 #### Population viability modeling
 
 To test whether the observed yearly survival probabilities of resistant adults in translocated populations was sufficient to promote long-term viability, we built a stage-structured matrix model that captured known frog demography and included demographic and environmental stochasticity.
-We parameterized the model using mark-recapture data and known life history values in this system (@tbl-param_values).
+We parameterized the model using mark-recapture data and known life history values in this system (@tbl-param_values SI).
 Given observed yearly adult survival probabilities and a baseline yearly juvenile recruitment probability of 0.3 (i.e., the probability that, following survival, juveniles successfully recruit to the adult class), our stage-structured model predicted that six of twelve translocated populations should experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd (@fig-viability A; median predicted $\lambda$ ranges from 1.15-1.36 for these six populations).
 When we reduced the probability of successful recruitment $\omega$ to 0.1 (a highly conservative estimate), long-run growth rate of five of these six populations was still greater than 1 (@fig-viability A).
 In contrast, for the other six translocated populations where yearly adult survival was less than 0.5, our model predicted that it was unlikely that long-run growth rate in these populations was greater than 1, even when the probability of successful recruitment to the adult life stage was near 0.4 (@fig-viability A).
 A sensitivity analysis of long-run growth rate $\lambda$ to recruitment probability $\omega$ and yearly adult survival probability of naturally recruited individuals $\sigma_{A_R}$ showed that $\lambda$ was most sensitive to small changes in $\sigma_{A_R}$ (@fig-viability-supp A).
 
-Given demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of juvenile recruitment to adults $\omega$ (the transition that we expect to be the most subject to environmental stochasticity in the presence of Bd), our model predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of less than 1 (@fig-viability B).
+Given demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of juvenile recruitment to the adult class $\omega$ (the transition that we expect to be the most subject to environmental stochasticity in the presence of Bd), our model predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of less than 1 (@fig-viability B).
 Therefore, even under conservative assumptions about recruitment probability $\omega$, these populations had some probability of persistence over 50 years following a single introduction.
 For these six populations, as $\omega$ increased from 0.1 to 0.3, 50 year extinction probability was less 0.5, indicating strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment success (@fig-viability B).
 In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability-supp B; population 70550, surveyed for 16 years).
-Overall, our model demonstrates that given observed yearly adult survival probabilities of resistance frogs in non-natal locations, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
+Overall, our model demonstrates that given observed yearly adult survival probabilities of resistant frogs in non-natal locations, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
 Moreover, five of the seven populations translocated after 2013 were predicted to have long-term viability, compared to only one of five populations translocated prior to 2013.
 Thus, there is some trend in our improved ability to select appropriate habitat to promote long-term viability of translocated, resistant populations.
 <!--# Mark here: Just figured I would point this out. This is trending in the right direction, but there isn't strong statistical evidence that these two proportions differ.  I tried to phrase this carefully. -->
 
 ### Discussion
 
-We provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for emergence of this resistance.
 <!--# Consider broadening the scope of this sentence and the paragraph to be developed from it to encompass all of our findings -->
+
+TO BE WRITTEN.
+
+We provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for emergence of this resistance.
 
 1.  Epidemiological conditions in MYL-Bd systems X, Y, and Z are conducive to evolutionary rescue.
 2.  Differences in allele frequencies exist between adjacent Bd-naive and recovering populations.
@@ -293,26 +297,27 @@ We provide five lines of evidence that evolutionary rescue is a strong candidate
 
 <!--# The following point was made in the original Introduction outline but ultimately not addressed there: Translocation of individuals from putatively resistant populations to sites that were formerly occupied but from which populations were extirpated by disease provides a way to disentangle the contributions of natal environment and host genetics on host persistence and recovery. -->
 
+<!--# Translocation "success" often defined as evidence of reproduction by translocated individuals (see IUCN and related references in notes). We used a much higher and more conservative standard to assess success, i.e.,  -->
+
 ### Materials and Methods
 
 #### Frog evolution in response to Bd
 
 To identify putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure.
-Specifically, we compared genomes of frogs from populations that have never experienced a Bd-caused epizootic ("Bd-naive") versus frogs from populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ["recovering"; @knapp2016, @vredenburg2010].
-These latter populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection intensities (load) in adults that are typically well below the level expected to cause frog mortality [@knapp2011, @vredenburg2010].
+Specifically, we compared genomes of frogs from populations that have never experienced a Bd-caused epizootic ("Bd-naive") versus frogs from populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ["recovering": @knapp2016; @vredenburg2010].
+These latter populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection loads in adults that are typically well below the level expected to cause frog mortality [@knapp2011; @vredenburg2010].
 Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing [e.g., @knapp2016].
 
-DNA samples were collected via buccal swabbing [@broquet2007] of xx-xx frogs from seven Bd-naive populations and seven recovering populations.
-These populations represented a wide latitudinal range in the southern Sierra Nevada, from northern Yosemite National Park to south of Sequoia National Park (@fig-selectionresults).
-To minimize potential biases associated with different latitudinal ranges of the two population types, we selected populations to represent similar latitudinal ranges.
+DNA samples were collected via buccal swabbing [@broquet2007] of xx-xx frogs from four Bd-naive populations and five recovering populations.
+These populations represented a wide latitudinal range in the southern Sierra Nevada, from northern Yosemite National Park to northern Sequoia National Park (@fig-selectionresults A).
+To minimize potential confounding effects caused by variation in frog genotypes across latitude [e.g., @rothstein2020], we selected sampling sites such that both population types were represented across similar latitudinal ranges.
 
 #### Frog translocations
 
 ##### Field methods
 
 Translocations of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
-We identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016].
-Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and that frog abundances were recovering from previous Bd-caused declines [@knapp2016].
+We identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], as well as landscape genetic information [@poorten2017]. Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and that frog abundances were recovering from previous Bd-caused declines [@knapp2016].
 As is typical for recovering MYL frog populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd infection intensity ("load", expressed as median by site: `r round(bdload_min, 2)`--`r round(bdload_max, 2)`) was two or more orders of magnitude below the level at which frog mortality is expected (log~10~(load) $\approx$ 5.78 ITS copies per swab)[@vredenburg2010; @joseph2018].
 Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species [@knapp2005].
 
@@ -350,14 +355,29 @@ We performed all analyses using R Statistical Software [v4.4.4; @rsoftware2022] 
 We used default, weakly informative priors.
 Starting models included all relevant population-level effects and, when data contained possible hierarchical structure, we included group-level effects in the full model.
 Within each analysis, we evaluated model fit using visualizations of leave-one-out ("LOO") probability integral transformations [@gelman2013, @gabry2019], and compared fits of models with and without group-level effects, and with differing group-level effects using LOO cross-validation [@vehtari2016].
-Both approaches utilized the loo package.
+Both approaches utilized the loo package [@vehtari2022].
+Group-level effects included translocation_id,
 
-Of the two analyses we conducted, one focused on identifying predictors of post-translocation frog survival from a wide range of variables describing characteristics of frogs, habitat, and translocations [@fig-survival-postdens].
-The other analysis focused specifically on whether survival of frogs in the first translocation to a site predicted the survival of frogs in subsequent translocations.
-In both analyses, the response variable, probability of frog survival, was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
+We conducted two analyses.
+In the first, we addressed the question of whether survival of frogs in the first translocation to a site predicted the survival of frogs in subsequent translocations.
+The second analysis focused specifically on identifying predictors of post-translocation frog survival using a wide range of variables describing characteristics of frogs, sites, and translocations [@fig-survival-postdens].
+In both analyses, the response variable, probability of 1-year frog survival, was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
 For all models, we used default priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked convergence of the MCMC algorithm using trace plots and Rhat.
-Code to create datasets and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
+Code to create the datasets and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
+
+##### Changes in Bd load following translocations
+
+To assess the magnitude of changes in Bd load on frogs following translocations, we compared Bd loads measured before versus after translocation.
+Before-translocation loads were quantified using skin swabs collected from all to-be-translocated frogs at the donor site on the day before or the day of the translocation.
+After-translocation Bd loads were based on all swabs collected from translocated frogs at the recipient site in the year of and the year following translocation.
+Individual frogs and their associated Bd loads were included in the dataset only if frogs were captured at the recipient site at least once during the year 0-1 period.
+
+To quantify changes in Bd load, we used a workflow similar to that described above (in "Predictors of post-translocation frog survival").
+Briefly, the response variable was before-translocation load and the predictor variable was after-translocation load.
+We compared models with and without group-level effects, and group-level effects included (i) pit tag id, (ii) pit tag id nested within site id, and (iii) pit tag id nested within translocation id.
+All models used a negative binomial family.
+Code to create the dataset and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
 
 #### Population viability modeling
 
@@ -421,28 +441,10 @@ Therefore, we allowed for yearly variability in the probability of successful re
 
 ###### Estimating model parameters
 
-The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
+The baseline parameter values for the model and how they were estimated are given in @tbl-param_values : SI.
 Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR model described previously in this study.
 For populations where we had a sufficient number of pit-tagged, naturally recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$.
 For populations lacking any naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
-
-| **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:---------------------------|:-----------------|:-------------------------|
-| $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
-| $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
-| $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
-| $\sigma_{J_1}$, Yearly survival probability of year 1 juveniles           | 0.25                 | Estimated from field data, observations, natural history knowledge |
-| $\sigma_{J_2}$, Yearly survival probability of year 2 juveniles           | 0.5                  | Estimated from field data, observations, natural history knowledge |
-| $\sigma_{A_R}$, Yearly survival probability of naturally recruited adults | Varies by population | Estimated from mark-recapture studies                              |
-| $\sigma_{A_T}$, Yearly survival probability of translocated adults        | Varies by population | Estimated from mark-recapture studies                              |
-| $p_{L_1}$, Probability of a year 1 tadpoles remaining as a tadpoles       | 1                    | Estimated from field data, observations, natural history knowledge |
-| $p_{L_2}$, Probability of a year 2 tadpoles remaining as a tadpoles       | 0.25                 | Estimated from field data, observations, natural history knowledge |
-| $p_{J_1}$, Probability of a year 1 juvenile remaining as a juvenile       | 0.25                 | Estimated from field data, observations, natural history knowledge |
-| $p_F$, Probability of a adult female reproducing in a year                | 0.5                  | Could be as high at 1, based on field observations                 |
-| $F$, Number of surviving eggs produced by an adult female                 | 100                  | From observations of captive frogs                                 |
-| $\omega$, Probability of juvenile successfully recruiting to an adult     | Varies yearly        | Explored different values of this parameter                        |
-
-: Description and values of parameters used in the model. All survival probabilities are in the presence of the fungal pathogen Bd. {#tbl-param_values}
 
 ###### Model analysis and simulation
 
@@ -478,7 +480,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ![Allele frequencies of the outlier SNPs for each of the sampled naive and recovering *R. sierrae* populations. The results for RIN3 are consistent with strong selection on this gene following the arrival of Bd, and suggests a role for RIN3 in frog resistance against Bd infection and associated population recovery.](figures/outlier_map_draft_figure.png){#fig-allelefrequencies}
 
-![Median survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Frog survival was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 2.5% and 97.5% posterior quantiles (i.e., 95% uncertainty intervals). <!--# Unable to dodge points and associated error bars together using group. Any help with this? Code is in translocation_survival_exploratory.Rmd -->](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
+![Median survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Frog survival was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 2.5% and 97.5% posterior quantiles (i.e., 95% uncertainty intervals). When multiple points exist for a site, points/error bars are slightly offset to avoid overlap.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
 
 ![Conditional effects of the important predictors of 1-year frog survival: (A) elevation of recipient site, (B) winter severity in the year following translocation, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects}
 
@@ -486,15 +488,13 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ![Sensitivity analysis and empirical validation of the stage-structured *R. sierrae* model. A. The elasticity of $\lambda$ with changes in three parameters: $\sigma_{A_R}$, $\omega$, and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3\$. B. The 100 simulated trajectories (black lines) that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp}
 
-<!-- Left panel color palette is 12-color color-blind friendly, but is not the most friendly color palette to look at.  We can discuss. -->
+<!-- Left panel color palette is 12-color color-blind friendly, but is not the most friendly color palette to look at.  We can discuss. Roland says: Maybe try a palette that you like better and for those colors that will be hard for eyeballs like mine to distinguish, we can either tweak the colors or add diagnonal lines (ggpattern::geom_bar_pattern). -->
 
 ## Supporting Information
 
 ### References
 
 ### Figures
-
-<!--# Add text and results describing Bd load before versus after translocation. -->
 
 ![<!--# Add first sentence that provides a brief overview of the entire figure. --> (a) Map of sampling locations showing Bd-naive populations in red and persistent populations in blue. (b) PCA calculated from binary SNPs showing genomic relationship of samples. Labels match sampling location in (a) and are colored as in (a). (c) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows Bonferroni corrected p-value for threshold of 0.01. (d) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and Contigs are sorted by size. Red line shows Bonferroni corrected p-value for threshold of 0.01. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/mylf_selection_figure_5Dec2022.png){#fig-selectionresults}
 
@@ -506,7 +506,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. Variables are considered important predictors if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
 
-![A comparison of the average yearly adult survival probabilities for translocated adults and adults that were naturally recruited to a population as a result of reproduction by translocated frogs. In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but averaged survival probabilities across multiple years. Points are median estimates and error bars give the 90% credible intervals around the estimates. All estimates are derived from the mrmr package [see @joseph2018 for details].](figures/compare_surv_probs.jpg){#fig-compare_surv_probs}
+![A comparison of the average yearly adult survival probabilities for translocated adults versus adults that were naturally recruited to a population as a result of reproduction by translocated frogs. In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but averaged survival probabilities across multiple years. Points are median estimates and error bars give the 90% uncertainty intervals around the estimates. All estimates are derived from the mrmr package [see @joseph2018 for details]. <!--# Should we use 95% intervals to be consistent with other analyses?  -->](figures/compare_surv_probs.jpg){#fig-compare_surv_probs}
 
 ### Tables
 
@@ -531,8 +531,25 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
   arrange(viability, period)
   
   knitr::kable(viability_table, "pipe", align = "lcccr", caption = ) 
-
 ```
+
+| **Parameter**                                                             | **Value**            | **Source**                                                         |
+|:----------------------------|:-----------------|:-------------------------|
+| $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{J_1}$, Yearly survival probability of year 1 juveniles           | 0.25                 | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{J_2}$, Yearly survival probability of year 2 juveniles           | 0.5                  | Estimated from field data, observations, natural history knowledge |
+| $\sigma_{A_R}$, Yearly survival probability of naturally recruited adults | Varies by population | Estimated from mark-recapture studies                              |
+| $\sigma_{A_T}$, Yearly survival probability of translocated adults        | Varies by population | Estimated from mark-recapture studies                              |
+| $p_{L_1}$, Probability of a year 1 tadpoles remaining as a tadpoles       | 1                    | Estimated from field data, observations, natural history knowledge |
+| $p_{L_2}$, Probability of a year 2 tadpoles remaining as a tadpoles       | 0.25                 | Estimated from field data, observations, natural history knowledge |
+| $p_{J_1}$, Probability of a year 1 juvenile remaining as a juvenile       | 0.25                 | Estimated from field data, observations, natural history knowledge |
+| $p_F$, Probability of a adult female reproducing in a year                | 0.5                  | Could be as high at 1, based on field observations                 |
+| $F$, Number of surviving eggs produced by an adult female                 | 100                  | From observations of captive frogs                                 |
+| $\omega$, Probability of juvenile successfully recruiting to an adult     | Varies yearly        | Explored different values of this parameter                        |
+
+: Description and values of parameters used in the model. All survival probabilities are in the presence of the fungal pathogen Bd. {#tbl-param_values}
 
 <!--# Include table of translocation sites, years, frog numbers? -->
 
