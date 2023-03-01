@@ -187,13 +187,13 @@ surveys <- read_csv(files, id = "path") %>%
   select(-path)
 rm(files)
 
-surveys_yr_mean <- surveys %>% 
+surveys_yr_median <- surveys %>% 
   mutate(yr = year(ymd(survey_date))) %>%
   filter(survey_type == "cmr") %>% 
   distinct(site_id, primary_period, .keep_all = TRUE) %>% 
   group_by(site_id) %>% 
   count(yr) %>% ungroup() %>% 
-  summarize(mean(n))
+  summarize(median(n))
 
 surveys_yr_max <- surveys %>% 
   mutate(yr = year(ymd(survey_date))) %>%
@@ -211,12 +211,12 @@ surveys_yr_min <- surveys %>%
   count(yr) %>% ungroup() %>% 
   summarize(min(n))
 
-robust_year_mean <- surveys %>% 
+robust_year_median <- surveys %>% 
   mutate(yr = year(ymd(survey_date))) %>%
   filter(survey_type == "cmr" & secondary_period > 1) %>% 
   group_by(site_id) %>% 
   summarize(max_2period = max(secondary_period)) %>% ungroup() %>% 
-  summarize(mean(max_2period))
+  summarize(median(max_2period))
 
 robust_year_min <- surveys %>% 
   mutate(yr = year(ymd(survey_date))) %>%
@@ -317,17 +317,18 @@ To minimize potential confounding effects caused by variation in frog genotypes 
 ##### Field methods
 
 Translocations of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
-We identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], as well as landscape genetic information [@poorten2017]. Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and that frog abundances were recovering from previous Bd-caused declines [@knapp2016].
+We identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], as well as landscape genetic information [@poorten2017].
+Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and that frog abundances were recovering from previous Bd-caused declines [@knapp2016].
 As is typical for recovering MYL frog populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd infection intensity ("load", expressed as median by site: `r round(bdload_min, 2)`--`r round(bdload_max, 2)`) was two or more orders of magnitude below the level at which frog mortality is expected (log~10~(load) $\approx$ 5.78 ITS copies per swab)[@vredenburg2010; @joseph2018].
 Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species [@knapp2005].
 
 During each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
 Frogs were transported to the recipient site either on foot or via helicopter.
-Following release, translocated populations were visited approximately once per month during the summer active season (mean number of visits per summer = `r round(surveys_yr_mean)`; range = `r surveys_yr_min`--`r surveys_yr_max`) and assessed using diurnal capture-mark-recapture (CMR) surveys and VES.
+Following release, translocated populations were visited approximately once per month during the summer active season (median number of visits per summer = `r round(surveys_yr_median)`; range = `r surveys_yr_min`--`r surveys_yr_max`) and assessed using diurnal capture-mark-recapture (CMR) surveys and VES.
 CMR surveys allowed quantification of adult survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and subadult abundance.
 During 2006-2012, CMR surveys were conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs.
 Frogs were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
-During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (mean number of secondary periods per primary period = `r round(robust_year_mean)`; range = `r robust_year_min`--`r robust_year_max`)<!--# calculate min, max, median-->), and frogs were processed as described above.
+During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (median number of secondary periods per primary period = `r round(robust_year_median)`; range = `r robust_year_min`--`r robust_year_max`), and frogs were processed as described above.
 However, when the number of frogs detected on the first survey day was low, we conducted only a single-day CMR survey.
 Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed only during the first capture, and during subsequent captures were only identified and released.
 Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods.
@@ -339,7 +340,7 @@ These *R. sierrae* life stages have high detectablility, and counts are highly r
 
 ##### Estimation of frog survival and abundance
 
-We estimated survival of translocated frogs, recruitment of new frogs into the adult population, and population size using a Bayesian open-population Jolly-Seber mark-recapture model with known additions (i.e., translocated cohorts) to the population, as implemented by the mrmr package [@joseph2019] and using R Statistical Software [v4.4.4; @rsoftware2022].
+We estimated survival of translocated frogs, recruitment of new frogs into the adult population, and adult population size using a Bayesian open-population Jolly-Seber mark-recapture model with known additions to the population (i.e., translocated cohorts), as implemented by the mrmr package [@joseph2019] and using R Statistical Software [v4.4.4, @rsoftware2022].
 The model tracks the states of *M* individuals that comprise a superpopulation made up of real and pseudo-individuals [see @joseph2018 for details].
 The possible states of individuals include "not recruited", "alive", and "dead".
 The possible observations of individuals include "detected" and "not detected".
@@ -351,32 +352,34 @@ Code used to construct CMR datasets and fit models for each translocated populat
 ##### Predictors of post-translocation frog survival
 
 To identify important predictors of frog survival following translocation, we developed multilevel models in a Bayesian framework.
-We performed all analyses using R Statistical Software [v4.4.4; @rsoftware2022] and the rstanarm package [@rstanarm2022].
+We performed all analyses using the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022] .
 We used default, weakly informative priors.
 Starting models included all relevant population-level effects and, when data contained possible hierarchical structure, we included group-level effects in the full model.
 Within each analysis, we evaluated model fit using visualizations of leave-one-out ("LOO") probability integral transformations [@gelman2013, @gabry2019], and compared fits of models with and without group-level effects, and with differing group-level effects using LOO cross-validation [@vehtari2016].
 Both approaches utilized the loo package [@vehtari2022].
-Group-level effects included translocation_id,
 
 We conducted two analyses.
-In the first, we addressed the question of whether survival of frogs in the first translocation to a site predicted the survival of frogs in subsequent translocations.
-The second analysis focused specifically on identifying predictors of post-translocation frog survival using a wide range of variables describing characteristics of frogs, sites, and translocations [@fig-survival-postdens].
+In the first, we addressed the more general question of whether survival of frogs in the first translocation to a site predicted the survival of frogs in subsequent translocations.
+Group-level effects included site_id or translocation_id.
+The second analysis focused specifically on identifying predictors of post-translocation frog survival using a wide range of variables describing characteristics of frogs, sites, and translocations [@fig-survival-postdens] SI.
+Group-level effects included site_id, translocation_id, or translocation_id nested within site_id.
 In both analyses, the response variable, probability of 1-year frog survival, was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
 For all models, we used default priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked convergence of the MCMC algorithm using trace plots and Rhat.
 Code to create the datasets and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
 
-##### Changes in Bd load following translocations
+##### Changes in Bd load following translocation
 
-To assess the magnitude of changes in Bd load on frogs following translocations, we compared Bd loads measured before versus after translocation.
+To assess the magnitude of changes in Bd load on frogs following translocation, we compared Bd loads measured before versus after translocation.
 Before-translocation loads were quantified using skin swabs collected from all to-be-translocated frogs at the donor site on the day before or the day of the translocation.
 After-translocation Bd loads were based on all swabs collected from translocated frogs at the recipient site in the year of and the year following translocation.
 Individual frogs and their associated Bd loads were included in the dataset only if frogs were captured at the recipient site at least once during the year 0-1 period.
 
 To quantify changes in Bd load, we used a workflow similar to that described above (in "Predictors of post-translocation frog survival").
 Briefly, the response variable was before-translocation load and the predictor variable was after-translocation load.
-We compared models with and without group-level effects, and group-level effects included (i) pit tag id, (ii) pit tag id nested within site id, and (iii) pit tag id nested within translocation id.
+We compared models with and without group-level effects, and group-level effects included pit_tag_id, pit_tag_id nested within site_id, or pit_tag_id nested within translocation_id.
 All models used a negative binomial family.
+Priors, chains, iterations, and checks were as described above.
 Code to create the dataset and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
 
 #### Population viability modeling
@@ -534,7 +537,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 ```
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:----------------------------|:-----------------|:-------------------------|
+|:---------------------------|:------------------|:-------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
