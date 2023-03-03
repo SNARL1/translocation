@@ -1,8 +1,8 @@
 ---
-format: docx
-editor: visual
 bibliography: translocation.bib
 csl: pnas.csl
+format: docx
+editor: visual
 ---
 
 <!--# Intended outlet is PNAS. Preferred length of research reports is 6 pages, but up to 12 pages is allowed. A standard 6-page article is approximately 4,000 words, 50 references, and 4 medium-size graphical elements (i.e., figures and tables) -->
@@ -59,19 +59,19 @@ Unfortunately, given the nascent nature of wildlife recoveries in the presence o
 At a time when novel infectious diseases are emerging at an unprecedented rate [@fisher2012], this knowledge gap has far-reaching consequences for global biodiversity.
 
 Host evolution following disease-induced declines is one mechanism by which hosts can recover [@carlson2014; @searle2020].
-Evolutionary rescue describes natural host evolution whereby rapid evolutionary changes originating from variation within a host population reverse ongoing population declines [@carlson2014].
+"Evolutionary rescue" describes rapid evolutionary change originating from variation within a host population that reverses ongoing population declines [@carlson2014].
 In host-pathogen systems, evolutionary rescue is more likely to occur when hosts experience repeated selection events (e.g., through re-infections), there is a persistent pathogen reservoir or frequency-dependent infection dynamics, and populations experience increased per capita birth rates at small population sizes [@golas2021].
-Evolutionary changes following disease-induced declines are known from a diversity wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], but linking these selective responses directly to population recoveries, as necessary for evolutionary rescue, remains rare.
-Important for conservation action, selection that promotes recovery of focal populations can also provide sources of individuals with increased resistance and/or tolerance (hereafter, "resistance") to reestablish populations extirpated following disease emergence [e.g., @mendelson2019].
-To date, the use of resistant individuals for species recovery is rare [see @joseph2018 for a notable example], and studies that evaluate its potential utility are critically needed.
+Evolutionary changes following disease-induced declines are known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], but linking these selective responses directly to population recoveries, as necessary for evolutionary rescue, is difficult and remains rare.
+In addition to promoting recovery of remnant populations after disease-induced declines, selection that promotes recovery of focal populations can also provide sources of individuals with increased resistance and/or tolerance (hereafter, "resistance") to reestablish populations extirpated following disease emergence [e.g., @mendelson2019].
+To date, the use of resistant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
 <!--# Other examples in addition to Joseph and Knapp (2018)? In other taxa besides amphibians? -->
 
 There are four conditions that will often determine the feasibility of using individuals from populations that are recovering following disease-induced declines to reestablish extirpated populations.
 First, populations that survived following disease arrival have evolved increased resistance.
 Second, increased resistance contributes to higher individual fitness in the presence of disease and allows positive population growth.
-Third, the fitness benefits gained through selection for increased resistance manifest beyond the natal environment and are maintained across generations, allowing for the establishment of populations reintroduced into novel environments.
-And fourth, reintroduced populations show long-term growth and persistence in a landscape of disease.
-To date, few of these conditions are documented for any single species impacted by disease, and as a result the reintroduction of resistant hosts as a means to recover species of conservation concern remains largely an untested idea [@scheele2021].
+Third, the fitness benefits gained through selection for increased resistance manifest beyond the natal environment and are maintained across generations, allowing for the establishment of reintroduced populations.
+And fourth, reintroduced populations show long-term growth and persistence.
+To date, few of these conditions are documented for any single species impacted by disease, and as a result the reintroduction of resistant hosts as a means to recover species of conservation concern remains largely an untested idea [@scheele2021; @mendelson2019].
 
 The mountain yellow-legged (MYL) frog, comprised of the sister species *Rana muscosa* and *Rana sierrae* [@vredenburg2007], is emblematic of the unprecedented global declines of amphibians caused by the recently-emerged amphibian chytrid fungus [*Batrachochytrium dendrobatidis,* @scheele2019].
 Once the most common amphibian in the high elevation portion of the Sierra Nevada mountains [California, USA, @grinnell1924], this frog has disappeared from more than 90% of its historical range during the past century [@vredenburg2007].
@@ -84,7 +84,7 @@ In contrast, Bd appears to persist in habitats even in the absence of amphibian 
 Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are driven to extirpation following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
 Frogs in these recovering populations show reduced susceptibility to Bd infection, consistent with selection for more resistant genotypes [@knapp2016].
 Furthermore, exploratory efforts to reintroduce frogs collected from recovering populations to sites from which frogs were previously extirpated indicate that population establishment is possible despite ongoing Bd infection [@joseph2018].
-Here, we report the results of (i) a greatly expanded MYL frog reintroduction effort, (ii) population viability modeling, and (iii) an analysis to evaluate genomic signatures of selection following MYL frog exposure to Bd.
+Here, we report the results of (i) an analysis to evaluate genomic signatures of selection following MYL frog exposure to Bd, (ii) a greatly expanded MYL frog reintroduction effort, and (iii) population viability modeling to assess the long-term persistence of reintroduced populations.
 Collectively, the results show that MYL frogs generally meet the four conditions for reintroduction feasibility outlined above, and provide a novel example of how the reintroduction of resistant frogs can allow the large-scale recovery of this disease-impacted amphibian.
 These results may have broad implications for the many species worldwide that are threatened with extinction by emerging diseases.
 
@@ -95,12 +95,12 @@ These results may have broad implications for the many species worldwide that ar
 To identify putative genes under selection and potentially related to increased frog resistance to Bd, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure.
 Specifically, we compared genomes of frogs sampled in four populations that have never experienced a Bd-caused epizootic ("naive") versus in five populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees (@fig-selectionresults A: SI) [@knapp2016; @vredenburg2010].
 These "recovering" populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection intensities ("load") in adults that are typically well below the level expected to cause frog mortality [@knapp2011, @vredenburg2010].
-<!--# Modify text/remove text here/elsewhere to avoid repetition of this. --> Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing [e.g., @knapp2016].
-The comparison of frog genomes between naive and recovering populations is not as powerful as comparing samples collected from populations before and after Bd exposure, but because Bd arrived in most MYL frog populations decades ago and population persistence/recovery is rare and unpredictable, no such samples are available and are unlikely to be available in the future.
+<!--# Modify text/remove text here/elsewhere to avoid repetition of this. --> Bd-exposure histories of these populations are based on a decade or more of data from visual encounter surveys and Bd surveillance using skin swabbing [e.g., @knapp2016].
+Our comparison of frog genomes between naive and recovering populations is not as powerful an approach as comparing samples collected from populations before and after Bd exposure, but because Bd arrived in most MYL frog populations decades ago and population persistence/recovery is rare and unpredictable, no such samples are available and are unlikely to be available in the future.
 As such, the current study design is the best possible under the circumstances.
-To detect regions of the genome under selection, we used a multivariate linear mixed model to compare genomes of frogs from naive and recovering populations, and created "liberal" and "stringent" sets of outlier variants using a Bonferroni-corrected significance level of 0.05 and 0.01, respectively.
+To detect regions of the genome under selection, we compared genomes of frogs from naive and recovering populations using a multivariate linear mixed model, and created "liberal" and "stringent" sets of outlier variants using a Bonferroni-corrected significance level of 0.05 and 0.01, respectively.
 
-The samples clustered into three separate groups in principal component space, each containing at least one population from both the naïve and persistent groups (@fig-selectionresults B: SI).
+The samples clustered into three separate groups in principal component space, each containing at least one population from both the naive and persistent groups (@fig-selectionresults B: SI).
 The liberal set of variants contained 38 outliers (35 SNPs and 3 structural variants) from 30 distinct genes across 16 contigs (@fig-selectionresults C, D: SI).
 One gene in this group does not have an associated annotation.
 No biological functions, molecular functions, or cellular processes were significantly overrepresented in the set of 29 annotated outlier genes.
@@ -150,6 +150,12 @@ transfrogs_min <- d1 %>%
   count() %>% 
   ungroup() %>% 
   summarize(min(n))
+
+transfrogs_median <- d1 %>% 
+  group_by(site_id, date) %>% 
+  count() %>% 
+  ungroup() %>% 
+  summarize(median(n))
 
 bdload_min <- d1 %>% 
   filter(!is.na(bd_load)) %>% 
@@ -236,24 +242,24 @@ robust_year_max <- surveys %>%
 Reintroductions of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
 These reintroductions involved the collection of adult frogs from large, Bd-positive donor populations that have recovered in recent years following Bd-caused declines [@knapp2016] and translocating them to nearby recipient sites [@joseph2018].
 We refer to these reintroductions as "translocations" [@seddon2014].
-During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of frogs to `r n_distinct(d1$site_id)` recipient sites (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap SI) <!--# How to restart numbering for figures in SI, add "S" prefix? -->.
-Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs collected from one of `r n_distinct(d1$donor)` donor populations (@fig-yosemap SI).
+During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of frogs to `r n_distinct(d1$site_id)` recipient sites (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap SI).
+Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`) collected from 1 of `r n_distinct(d1$donor)` donor populations (@fig-yosemap SI).
 Estimates of frog survival during the one year following translocation indicate that survival was highly variable between recipient sites, but relatively constant within recipient sites (for the subset of sites that received multiple translocations; @fig-translocation-survival).
 As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in subsequent translocations to that site (@fig-transsurvival-postdens SI).
 This suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
-In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-viability-earlylate SI) <!--# Should be Table 1, not Table 2. Rearrange table order in manuscript. -->, which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
+In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-viability-earlylate SI), which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
 Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter SI), and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale) [@vredenburg2010; @joseph2018].
-<!--# Add median Bd load, proportion below 5.8 copies threshold? --> <!--# The Methods -- Translocation section contains text that repeats similar results. Edit to reduce repetition. --> <!--# To allow comparison with other translocation studies, consider adding information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
+<!--# Add median Bd load, proportion below 5.8 copies threshold? Mention results from statistical model more explicitly? --> <!--# The Methods-Translocation section contains text that repeats similar results. Edit to reduce repetition. --> <!--# To allow comparison with other translocation studies, consider adding information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
 
 To identify site and frog-specific drivers of post-translocation survival, we developed a multilevel model in a Bayesian framework.
 Our specific interest was whether Bd load had an important effect on adult survival, as would be expected if the effect of frog resistance was insufficient to overcome the negative effect of Bd.
 The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens SI).
 Important predictors included winter severity in the year following translocation (snow_t1), site elevation (elevation), and donor population (donor_72996; @fig-cond-effects).
-Males had somewhat higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects).
+Males had somewhat higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects, @fig-survival-postdens SI).
 In addition to Bd load, effects of frog size (length), winter severity in the year of translocation (snow_t), day of year on which a translocation was conducted (day), and translocation order (order_first) were all unimportant (@fig-survival-postdens SI).
 Collectively, these results show that Bd load is not a predictor of the survival of translocated frogs, consistent with frogs in recovering populations having evolved sufficient resistance to minimize the adverse effects of Bd infection.
-In addition, the low-moderate Bd loads that characterized frogs following translocation and relatively high survival of frogs in the majority of more-recently translocated cohorts suggests that resistant frogs from recovering populations can maintain the benefits of resistance in non-natal habitats.
-Finally, in three locations where longer mark-recapture time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
+In addition, the moderate Bd loads that characterized frogs following translocation and relatively high survival of frogs in the majority of more-recently translocated cohorts suggests that resistant frogs from recovering populations can maintain the benefits of resistance in non-natal habitats.
+Finally, in three locations where longer capture-mark-recapture (CMR) time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
 Therefore, frog resistance in non-natal habitats is maintained across generations.
 
 <!--# Mark W: Regarding the above paragraph, what evidence do we have of "tolerance"? Are Bd loads significantly reduced in populations compared to epizootic levels? Can we convincingly state that the likely mechanism is more consistent with resistance or tolerance?  I ask because it would be nice to just use one of these terms in the paper and not get caught up in any resistance vs. tolerance discussions with reviewers.  Roland: Have a look at this paragraph of Knapp et al. PeerJ 2022: https://peerj.com/articles/12712/#p-61. We argue that there is evidence for resistance and tolerance. -->
@@ -303,14 +309,52 @@ We provide five lines of evidence that evolutionary rescue is a strong candidate
 
 #### Frog evolution in response to Bd
 
-To identify putative genes under selection that are linked to reduced frog susceptibility to Bd-caused lethal and sub-lethal effects, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure.
-Specifically, we compared genomes of frogs from populations that have never experienced a Bd-caused epizootic ("Bd-naive") versus frogs from populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ["recovering": @knapp2016; @vredenburg2010].
-These latter populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection loads in adults that are typically well below the level expected to cause frog mortality [@knapp2011; @vredenburg2010].
-Bd-exposure histories of these populations are based on a decade or more of data from VES and Bd surveillance using skin swabbing [e.g., @knapp2016].
+##### Sampling and Sequencing
 
-DNA samples were collected via buccal swabbing [@broquet2007] of xx-xx frogs from four Bd-naive populations and five recovering populations.
-These populations represented a wide latitudinal range in the southern Sierra Nevada, from northern Yosemite National Park to northern Sequoia National Park (@fig-selectionresults A).
+We collected DNA samples via buccal swabbing [@broquet2007] from 53 *Rana muscosa*/*Rana sierrae* individuals: 24 from four Bd-naive populations, and 29 from five persistent/recovering populations.
+These populations were located in the southern Sierra Nevada, from northern Yosemite National Park to northern Sequoia National Park (@fig-selectionresults A).
+Sampling was even across the sites, with 5-6 samples per population.
 To minimize potential confounding effects caused by variation in frog genotypes across latitude [e.g., @rothstein2020], we selected sampling sites such that both population types were represented across similar latitudinal ranges.
+DNA was extracted following Qiagen DNEasy manufacturer's protocols.
+We sequenced the samples using an exome capture assay as described in Byrne et al. (in review).
+Briefly, genomic libraries were prepared and captured using a custom Nimblegen capture pool.
+Capture baits were designed based on the coding regions of the *Rana muscosa* transcriptome (GenBank accession GKCT00000000).
+Captured libraries were then pooled and sequenced on a NovaSeq 6000 150PE Flow Cell S1 at the Vincent J. Coates Genomics Sequencing Lab at UC Berkeley.
+
+##### Data Pre-processing and Cleaning
+
+Raw reads were filtered for adapters and contaminants using fastp [@chen2018] and aligned to the *Rana muscosa* genome (NCBI SRA: SRS6533475 [@hon2020]) with repetitive elements masked using bwa ("mem" mode) [@li2013].
+Exact PCR Duplicates were marked using Picard.
+Variants were then called following GATK best practices (v.XX, GATK ref).
+Briefly, raw variants were called for each sample using HaplotypeCaller and combined using CombineGVCFs.
+Next, genotypes were jointly called using GenotypeGVCFs.
+Variants were then hard filtered using gatk VariantFiltration using the following parameters to remove sites: QD \< 2.0, FS \> 40.0, SOR \> 3.0, MQ \< 50.0, MQRankSum \> 3.0, MQRankSum \< -3.0, ReadPosRankSum \> 3.0, ReadPosRankSum \< -3.0.
+This initial filter resulted in 1,595,206 variant sites across 53 individuals.
+
+We then further filtered our dataset at the individual and variant level.
+First, we trimmed our variants to only include those with minor allele frequency \> 0.03, a maximum depth of 250 and minimum depth of 5, a minimum genotype quality of 20, and a maximum missing proportion of 0.5.
+This filter resulted in 427,038 sites, of which 353,172 were single nucleotide polymorphisms (SNPs) and 73,866 were insertions or deletions (INDELS).
+Finally, we trimmed samples with an average depth across filtered sites \< 7x.
+Our final dataset included 50 samples (23 from naive and 27 from persistent/recovering populations) with an average depth of 16.7x (range = 7.4x -- 26.1x).
+
+##### Data Analysis
+
+To visualize the genomic relationship of our populations we created a PCA using the glPCA function in the adegenet package [@jombart2008].
+Next, to detect regions of the genome under selection between naive and persistent populations, we used a multivariate linear mixed model as implemented in the program GEMMA [@zhou2014].
+GEMMA calculates and incorporates a relatedness matrix for input samples, allowing us to account for relatedness and population structure when calculating likelihood ratio statistics for our association test.
+For this analysis we used a stringent data filter to include only SNPs with \<5% missing data (missing for no more than 2 individuals).
+GEMMA then calculated the likelihood ratio statistic for the set of 148,307 high quality SNPs across 127 contigs.
+We then calculated two statistical thresholds for identifying outliers using a Bonferroni correction for a significance level of 0.05 (liberal set) and 0.01 (stringent set).
+Results were visualized using a Manhattan plot and qqplot.
+
+Using the liberal set of outliers, we performed a statistical overrepresentation test using PANTHER.
+First, we retrieved the UnitProtKB ID for each gene in the *Xenopus laevis* genome, Next, we compared the 29 unique outlier genes from the stringent set to the complete set of genes in the *X. laevis* genome to determine if any GO biological functions, molecular functions, or cellular processes were overrepresented.
+
+Finally, for the stringent set of outliers we determined whether the variant was synonymous (protein sequence the same for each variant) or non-synonymous (protein sequence differs between variants), and where in the gene it was located.
+First, we extracted the reference genome sequence surrounding the variant using bedtools "getfasta" [@quinlan2010].
+Next, we reannotated each sequence using blast to get the predicted gene location based on the closest annotated reference [@altschul1997].
+We then translated each variant to amino acids and aligned this translation to that of the gene annotation to ensure proper frame of reference using Geneious [@kearse2012].
+After ensuring proper translation, we characterized variants as within or outside the coding sequence of the gene and as either synonymous or non-synonymous.
 
 #### Frog translocations
 
@@ -324,13 +368,13 @@ Recipient sites to which frogs were translocated were chosen based on previous *
 
 During each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
 Frogs were transported to the recipient site either on foot or via helicopter.
-Following release, translocated populations were visited approximately once per month during the summer active season (median number of visits per summer = `r round(surveys_yr_median)`; range = `r surveys_yr_min`--`r surveys_yr_max`) and assessed using diurnal capture-mark-recapture (CMR) surveys and VES.
+Following release, translocated populations were visited approximately once per month during the summer active season (median number of visits per summer = `r round(surveys_yr_median)`; range = `r surveys_yr_min`--`r surveys_yr_max`) and assessed using diurnal CMR surveys and VES.
 CMR surveys allowed quantification of adult survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and subadult abundance.
 During 2006-2012, CMR surveys were conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs.
 Frogs were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
 During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (median number of secondary periods per primary period = `r round(robust_year_median)`; range = `r robust_year_min`--`r robust_year_max`), and frogs were processed as described above.
 However, when the number of frogs detected on the first survey day was low, we conducted only a single-day CMR survey.
-Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed only during the first capture, and during subsequent captures were only identified and released.
+Within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed during the first capture, and during subsequent captures were only identified and released.
 Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods.
 For details of survey and swab analysis methods, see @joseph2018.
 
@@ -361,7 +405,7 @@ Both approaches utilized the loo package [@vehtari2022].
 We conducted two analyses.
 In the first, we addressed the more general question of whether survival of frogs in the first translocation to a site predicted the survival of frogs in subsequent translocations.
 Group-level effects included site_id or translocation_id.
-The second analysis focused specifically on identifying predictors of post-translocation frog survival using a wide range of variables describing characteristics of frogs, sites, and translocations [@fig-survival-postdens] SI.
+The second analysis focused specifically on identifying predictors of post-translocation frog survival using a wide range of variables describing characteristics of frogs, sites, and translocations ([@fig-survival-postdens] : SI).
 Group-level effects included site_id, translocation_id, or translocation_id nested within site_id.
 In both analyses, the response variable, probability of 1-year frog survival, was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
 For all models, we used default priors, four chains, and 5000 iterations each for warmup and post-warmup.
@@ -381,15 +425,16 @@ We compared models with and without group-level effects, and group-level effects
 All models used a negative binomial family.
 Priors, chains, iterations, and checks were as described above.
 Code to create the dataset and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
+<!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect. That is the model that is most analogous to a paired t-test. -->
 
 #### Population viability modeling
 
 ##### Model description
 
-To determine the implications of observed yearly adult survival on the long-term population viability of putatively resistant frogs in non-natal habitats, we developed a population model for *R. sierrae*.
+To determine the implications of observed 1-year adult survival on the long-term viability of populations established via translocation, we developed a population model for *R. sierrae*.
 Our central question was: how does the magnitude and variation in observed adult survival probability across translocated populations affect the long-term persistence probability of populations?
 We developed a model that tracked seven state variables of an *R. sierrae* population: the density of translocated adults ($A_T$), the density of adults naturally recruited into the population ($A_R$), the density of first year larvae ($L_1$), the density of second year larvae ($L_2$), the density of third year larvae ($L_3$), the density of first year juveniles ($J_1$), and the density of second year juveniles ($J_2$).
-We divided adults into two classes $A_T$ and $A_R$ because there was evidence that the survival probability of translocated adults and naturally recruited adults differed.
+We divided adults into two classes $A_T$ and $A_R$ because there is evidence that the survival probability of translocated adults and naturally recruited adults differs ([@fig-compare_surv_probs] : SI).
 
 We modeled the dynamics of these seven state variables using a discrete-time, stage-structured model where a time step is one year.
 The dynamics are given by
@@ -428,7 +473,7 @@ The parameter $\omega$ gives the probability of a juvenile successfully recruiti
 
 In this model we ignore density-dependent recruitment because we were interested in the growth of the population from an initial reintroduction and whether this growth was sufficient to prevent extinction over 50 years following the introduction.
 We also did not directly consider the dynamics of Bd in this model.
-We made this decision because i) translocated populations are infected with Bd at high prevalence [@joseph2018], and ii) host density does not seem to play a significant role in multi-year Bd infection dynamics in this system [@wilber2022].
+We made this decision because (i) translocated populations are infected with Bd at high prevalence [@joseph2018], and (ii) host density does not seem to play a significant role in multi-year Bd infection dynamics in this system [@wilber2022].
 Thus, ignoring Bd infection dynamics and instead assuming all host vital rates are in the presence of high Bd prevalence significantly simplifies the model without much loss of realism.
 
 ##### Model analysis
@@ -436,9 +481,8 @@ Thus, ignoring Bd infection dynamics and instead assuming all host vital rates a
 ###### Incorporating yearly variability in vital rates
 
 We extracted yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the CMR model used to estimate population-level parameters of translocated populations (see "Estimation of adult survival and population size" above).
-Although we observed yearly variability in adult survival *within* a population, the magnitude of this variability was small compared to *among* population variability.
+Although we observed yearly variability in adult survival *within* a population, the magnitude of this variability was small compared to *among* population variability ([@fig-translocation-survival]).
 Thus, we did not include yearly within-population variability in adult survival in this analysis.
-
 However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability about a mean value.
 Therefore, we allowed for yearly variability in the probability of successful recruitment $\omega$ (additional details provided in "Estimating model parameters" below).
 
@@ -446,7 +490,7 @@ Therefore, we allowed for yearly variability in the probability of successful re
 
 The baseline parameter values for the model and how they were estimated are given in @tbl-param_values : SI.
 Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR model described previously in this study.
-For populations where we had a sufficient number of pit-tagged, naturally recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$.
+For populations where we had a sufficient number of pit-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs] : SI).
 For populations lacking any naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
 
 ###### Model analysis and simulation
@@ -465,12 +509,12 @@ We varied the mean recruitment probability $\omega$ from 0.15 and 0.4 and drew v
 Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery.
 We focused on population 70550 because this was our longest CMR time series for a translocated population and because this population shows evidence of substantial post-translocation increases in adult abundance associated with population establishment and recovery.
 We simulated our model for 16 years, repeating the simulation 50,000 times.
-For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or a beta distribution with mean 0.5 and $\phi = 2$).
-Using Approximate Bayesian Computing and rejection sampling (@kosmala2016), we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
+For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or a beta distribution with mean 0.5 and $\phi = 2$) <!--# Why 2 distributions? When was one used versus the other? Or are these 2 distributions equivalent? -->.
+Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
 The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
 
-### Acknowledgements and funding sources
+### Acknowledgments and funding sources
 
 ### References
 
@@ -481,15 +525,17 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 <!--# Discuss referencing and in-text generation of figures.  We don't want to re-run the population viability modeling figures each time we compile the manuscript.  A makefile could be a good solution. Caching figures could be another option (https://quarto.org/docs/computations/caching.html) -->
 
-![Allele frequencies of the outlier SNPs for each of the sampled naive and recovering *R. sierrae* populations. The results for RIN3 are consistent with strong selection on this gene following the arrival of Bd, and suggests a role for RIN3 in frog resistance against Bd infection and associated population recovery.](figures/outlier_map_draft_figure.png){#fig-allelefrequencies}
+<!--# Standardize panel labels. I suggest capital letters with no punctuation, e.g., "A", not "A.". -->
 
-![Median survival of each cohort of translocated frogs to the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Frog survival was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 2.5% and 97.5% posterior quantiles (i.e., 95% uncertainty intervals). When multiple points exist for a site, points/error bars are slightly offset to avoid overlap.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
+![Allele frequencies of all outlier SNPs in the stringent set for each of the naive and recovering *R. sierrae* populations. The results for RIN3 are consistent with strong selection on this gene following the arrival of Bd, and suggests a role for RIN3 in frog resistance against Bd infection and associated population recovery. <!--# Allie: Rearrange panels and add panel identifiers (A, B, C) as shown here. -->](figures/outlier_map_draft_figure.png){#fig-allelefrequencies}
 
-![Conditional effects of the important predictors of 1-year frog survival: (A) elevation of recipient site, (B) winter severity in the year following translocation, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects}
+![Median 1-year survival of each cohort of translocated frogs at the 12 recipient sites included in this study. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Frog survival was estimated using capture-mark-recapture methods. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 2.5% and 97.5% posterior quantiles (i.e., 95% uncertainty intervals). When multiple translocations were conducted to a site, points and error bars are slightly offset to avoid overlap.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="450"}
 
-![A population viability analysis of translocated *R. sierrae* that quantifies the long-run growth rate and extinction probability of frog populations. A. The predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability of recruitment $\omega$, given the parameterized, deterministic model for translocated *R. sierrae*. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (given by the dashed line). B. The predicted fifty-year extinction probabilities of the twelve translocated populations given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to A.](figures/pop_viability_figures_for_manuscript_v2.jpg){#fig-viability}
+![Conditional effects of the important predictors of 1-year frog survival. (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects}
 
-![Sensitivity analysis and empirical validation of the stage-structured *R. sierrae* model. A. The elasticity of $\lambda$ with changes in three parameters: $\sigma_{A_R}$, $\omega$, and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3\$. B. The 100 simulated trajectories (black lines) that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp}
+![A population viability analysis of translocated *R. sierrae* that quantifies the long-run growth rate and extinction probability of frog populations: (A) The predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability of recruitment $\omega$, given the parameterized, deterministic model for translocated *R. sierrae*. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (given by the dashed line). (B) The predicted fifty-year extinction probabilities of the twelve translocated populations given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to A. <!--# Mention that there are six lines at p(extinction) = 1? -->](figures/pop_viability_figures_for_manuscript_v2.jpg){#fig-viability}
+
+![Sensitivity analysis and empirical validation of the stage-structured *R. sierrae* model. (A) The elasticity of $\lambda$ with changes in three parameters: $\sigma_{A_R}$, $\omega$, and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3. (B) The 100 simulated trajectories (black lines) that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp}
 
 <!-- Left panel color palette is 12-color color-blind friendly, but is not the most friendly color palette to look at.  We can discuss. Roland says: Maybe try a palette that you like better and for those colors that will be hard for eyeballs like mine to distinguish, we can either tweak the colors or add diagnonal lines (ggpattern::geom_bar_pattern). -->
 
@@ -499,7 +545,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ### Figures
 
-![<!--# Add first sentence that provides a brief overview of the entire figure. --> (a) Map of sampling locations showing Bd-naive populations in red and persistent populations in blue. (b) PCA calculated from binary SNPs showing genomic relationship of samples. Labels match sampling location in (a) and are colored as in (a). (c) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows Bonferroni corrected p-value for threshold of 0.01. (d) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and Contigs are sorted by size. Red line shows Bonferroni corrected p-value for threshold of 0.01. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/mylf_selection_figure_5Dec2022.png){#fig-selectionresults}
+![Results from the exome capture selection study. (A) Map of sampling locations showing Bd-naive populations in red and persistent/recovering populations in blue. (B) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels match those in (A) and are colored as in (A). (C) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows Bonferroni corrected p-value for threshold of 0.01. (D) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows Bonferroni corrected p-value for threshold of 0.01. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene. <!--# Is panel (C) important to include here? Or should it be moved to the SI? -->](figures/mylf_selection_figure_5Dec2022.png){#fig-selectionresults}
 
 ![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).](figures/map_translocation_points.png){#fig-yosemap width="450"}
 
@@ -509,13 +555,13 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. Variables are considered important predictors if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
 
-![A comparison of the average yearly adult survival probabilities for translocated adults versus adults that were naturally recruited to a population as a result of reproduction by translocated frogs. In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but averaged survival probabilities across multiple years. Points are median estimates and error bars give the 90% uncertainty intervals around the estimates. All estimates are derived from the mrmr package [see @joseph2018 for details]. <!--# Should we use 95% intervals to be consistent with other analyses?  -->](figures/compare_surv_probs.jpg){#fig-compare_surv_probs}
+![A comparison of the average yearly adult survival probabilities for adults translocated to each of three sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years. Points are median estimates and error bars give the 90% uncertainty intervals around the estimates. All estimates are derived from the mrmr package [@joseph2018]. <!--# Use 95% intervals to be consistent with other analyses?  -->](figures/compare_surv_probs.jpg){#fig-compare_surv_probs}
 
 ### Tables
 
 ```{r}
 #| label: tbl-viability-earlylate
-#| tbl-cap: "Proportion of populations translocated early versus late in the study period (< 2013 or >= 2013), respectively) for which the probability of extinction over 50 years was 1 or < 1 (viability = 0 or 1, respectively)."
+#| tbl-cap: "Proportion of populations translocated early versus late in the study period (< 2013 or >= 2013, respectively) for which the probability of extinction over 50 years was 1 or < 1 (i.e., viability = 0 or 1, respectively)."
 #| echo: FALSE
 #| message: FALSE
 
@@ -537,7 +583,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 ```
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:---------------------------|:------------------|:-------------------------|
+|:--------------------------|:------------------|:-------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
