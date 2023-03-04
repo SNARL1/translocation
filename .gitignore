@@ -15,3 +15,14 @@ doc/notebook/notebook_translocation_files/
 
 code/translocation_survival_analysis.knit.md
 code/translocation_survival_analysis.nb.html
+
+data/surv_probs_for_stan.csv
+data/translocation_recruitment_values.csv
+out/adult_survival_probability_model.rds
+out/compare_surv_probs.csv
+out/compare_surv_probs.jpg
+out/lakes_to_use_in_analysis.rds
+out/survival_distribution_parameters.rds
+out/yearly_survival_estimates_all_individuals.csv
+out/yearly_survival_estimates_only_recruited_individuals.csv
+data/clean/abundance_and_recruitment/*.csv
