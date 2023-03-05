@@ -4,7 +4,7 @@ list.of.packages <- c("data.table", "ggplot2", "patchwork", "cmdstanr", "magritt
 					  "rstan", "lubridate", "tidyverse", 
 					  "coda","mvtnorm","devtools","loo","dagitty")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
+if(length(new.packages)) install.packages(new.packages, repos='http://cran.us.r-project.org')
 
 # Load Github packages
 github_packages = c("rethinking", "mrmr")
