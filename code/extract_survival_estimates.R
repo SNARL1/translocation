@@ -25,9 +25,8 @@ for(l in 1:length(lake_ids)){
 
 	lake_number = lake_ids[l]
 	cat("Working on lake", lake_number, "\n")
-	basepath = file.path("", "Users", "mqwilber", "Repos")
-	modelpath = file.path(basepath, "cmr-analysis", "out", "model", paste0(lake_number, "_model.rds"))
-	datapath = file.path(basepath, "cmr-analysis", "data", "clean", paste0(lake_number, "_survey.csv"))
+	modelpath = file.path("..", "cmr-analysis", "out", "model", paste0(lake_number, "_model.rds"))
+	datapath = file.path("..", "cmr-analysis", "data", "clean", paste0(lake_number, "_survey.csv"))
 
 	model = readRDS(modelpath)
 	survey_dat = fread(datapath)
