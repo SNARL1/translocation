@@ -7,6 +7,22 @@ output: html_notebook
 The goal of these analyses is to identify predictors of frog survival following translocation.
 The analyses are conducted in a Bayesian framework using the R package rstanarm.
 
+## Load packages
+
+```{r}
+library(tidyverse)
+library(brms)
+library(rstanarm)
+library(bayesplot)
+library(tidybayes)
+library(loo)
+library(broom.mixed)
+library(janitor)
+library(patchwork)
+
+source("classification_summary.R")
+```
+
 ## ANALYSIS 1: Effect of site on survival of all translocated cohorts
 
 ### Visualize survival across sites
@@ -451,22 +467,6 @@ classification_summary(m2d, data = d2, cutoff = 0.5)
 -   Validate priors, tune as necessary. Add final priors to model specification (in case the defaults change).
 
 ## ANALYSIS 2: Model of site-level and frog-level predictors
-
-### Load packages
-
-```{r}
-library(tidyverse)
-library(brms)
-library(rstanarm)
-library(bayesplot)
-library(tidybayes)
-library(loo)
-library(broom.mixed)
-library(janitor)
-library(patchwork)
-
-source("classification_summary.R")
-```
 
 ### Create frog translocation dataset for analysis
 
