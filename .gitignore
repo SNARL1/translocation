@@ -1,6 +1,6 @@
-secrets/
 working/
 doc/notebook/notebook_translocation_files/
+_extensions/
 .Rproj.user
 *.Rproj
 .Rhistory
