@@ -9,7 +9,9 @@ The following are supplemental analyses, some related to analyses in `translocat
 ## Load packages
 
 ```{r}
+library(RPostgreSQL)
 library(tidyverse)
+library(lubridate)
 library(brms)
 library(rstanarm)
 library(bayesplot)
@@ -26,13 +28,6 @@ source("classification_summary.R")
 -   Compare loads at time of translocation to those from CMR years 0 and 1. Exclude years \> 1. Only frogs that were recaptured at least once following translocation are included.
 
 ### Create dataset
-
-### Load additional libraries
-
-```{r}
-library(RPostgreSQL)
-library(lubridate)
-```
 
 ### Read in raw translocation and capture datasets, bind them
 
@@ -706,21 +701,9 @@ mcmc_areas_ridges(m1d_allna, regex_pars = "translocation_id") +
 
 ## ANALYSIS 4: Calculate parameters for viability analysis
 
-### Load packages
-
-```{r}
-library(RPostgreSQL)
-library(lubridate)
-library(dplyr)
-library(magrittr)
-library(readr)
-```
-
 ### Estimate subadult survival
 
 #### Connect to database
-
--   Use 2nd chunk when connecting via SSH.
 
 -   Users without credentials to access database can start with `subadult_survival.csv` saved below.
 
@@ -732,16 +715,6 @@ con = dbConnect(dbDriver("PostgreSQL"),
                 user = rstudioapi::askForPassword("user name"),
                 password = rstudioapi::askForPassword("password")
                )
-```
-
-```{r}
-con = dbConnect(dbDriver("PostgreSQL"),
-                host = "localhost",
-                port = 15432,
-                dbname = Sys.getenv("dbname"), 
-                user = rstudioapi::askForPassword("user name"),
-                password = rstudioapi::askForPassword("password")
-                )
 ```
 
 #### Retrieve Bd data for translocated frogs from database

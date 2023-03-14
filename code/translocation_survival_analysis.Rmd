@@ -19,6 +19,7 @@ library(loo)
 library(broom.mixed)
 library(janitor)
 library(patchwork)
+library(lubridate)
 
 source("classification_summary.R")
 ```
@@ -1203,6 +1204,7 @@ p_elevsex
 
 ```{r}
 cond_effects_plot <- (p_snowt1 | p_elev) / (p_donor | p_sex)
+cond_effects_plot
 ```
 
 ##### Save plot
