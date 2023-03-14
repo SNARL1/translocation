@@ -90,7 +90,7 @@ m1a <- stan_glm(
 
 ## Explore a flat prior
 
-We can explore a flat prior on the intercept using the code below. 
+We can explore a flat prior on the intercept using the code below.
 
 ```{r}
 m1_flat <- stan_glm(
@@ -385,7 +385,6 @@ mcmc_areas_ridges(m1d, regex_pars = "translocation_id") +
 ggsave(here::here("doc", "manuscript", "figures", "mcmc_areas_m1d.png"), width = 5, height = 5)
 ```
 
-
 ## Model using standardized predictors and 2 grouping variables: translocation_id nested within site_id)
 
 ### Model specification
@@ -497,7 +496,7 @@ classification_summary(m1d, data = d1, cutoff = 0.5)
 
 ### Create reduced model containing only important predictors for subsequent analyses
 
-- Reduced model is helpful because it reduces the number of values used to calculate probabilities from predictive models.  
+-   Reduced model is helpful because it reduces the number of values used to calculate probabilities from predictive models.
 
 ```{r}
 m1d_reduce <- stan_glmer(
@@ -511,6 +510,7 @@ m1d_reduce <- stan_glmer(
 ```
 
 ### Posterior analysis
+
 ```{r}
 tidy(m1d_reduce, conf.int = TRUE, conf.level = 0.95)
 
@@ -532,7 +532,9 @@ loo_compare(loo_m1d, loo_m1d_reduce)
 ```
 
 ### Simulate and plot posterior predictive models & observations
+
 #### Reduced model with translocation_id as grouping variable
+
 ```{r}
 m1d_group_means <- d1 %>% 
   group_by(translocation_id) %>% 
@@ -560,11 +562,13 @@ ggplot2::scale_x_continuous(
 xlab("Translocation_id")
 ```
 
-- Model does a good job of predicting survival based on group-level and individual-level characteristics.  
-- Predicted survival is based on assumption that only males are included. Run another set of models for females?  
+-   Model does a good job of predicting survival based on group-level and individual-level characteristics.\
+-   Predicted survival is based on assumption that only males are included. Run another set of models for females?
 
 #### Reduced model without grouping variable
-To explore how addition of grouping variable affected predictions, especially that for 70370 and 70550. 
+
+To explore how addition of grouping variable affected predictions, especially that for 70370 and 70550.
+
 ```{r}
 m1d_reduce_nogroup <- stan_glm(
   surv ~ snowt1_z + elev_z + male_c + donor,
@@ -601,6 +605,7 @@ xlab("Translocation_id")
 ```
 
 ### Values of important predictors for translocations of interest
+
 ```{r}
 d1 %>% 
   filter(site_id == "70370" | site_id == "70550") %>% 
@@ -608,13 +613,13 @@ d1 %>%
   
 ```
 
-- This helps to explain the low predicted survival at 70370 (both translocations), and high versus low predicted survival at 70550 for 1st and 2nd translocations, respectively.  
-  - Without translocation_id as group-level effect, survival from two translocations at 70550 are not predicted well and both are predicted to have similar (and moderate) frog survival (based on high elevation, low snow_t1, and donor = 72996 for both translocations). Therefore, the group-level effect is responsible for good prediction of survival at this site. 
-  - Low survival at 70370 in both translocations is predicted relatively well by models with and without group-level effect. Low predicted survival can be attributed to high snow_t1 and donor = 72996 in both translocations (although high elevation of site should have positive effect).
+-   This helps to explain the low predicted survival at 70370 (both translocations), and high versus low predicted survival at 70550 for 1st and 2nd translocations, respectively.
+    -   Without translocation_id as group-level effect, survival from two translocations at 70550 are not predicted well and both are predicted to have similar (and moderate) frog survival (based on high elevation, low snow_t1, and donor = 72996 for both translocations). Therefore, the group-level effect is responsible for good prediction of survival at this site.
+    -   Low survival at 70370 in both translocations is predicted relatively well by models with and without group-level effect. Low predicted survival can be attributed to high snow_t1 and donor = 72996 in both translocations (although high elevation of site should have positive effect).
 
 ### Plot posterior plausible relationships between each predictor and the probability of frog survival (conditional effects)
 
-- As described in <https://rdrr.io/cran/brms/man/conditional_effects.brmsfit.html>, "When creating conditional_effects for a particular predictor (or interaction of two predictors), one has to choose the values of all other predictors to condition on. By default, the mean is used for continuous variables and the reference category is used for factors, but you may change these values via argument conditions. This also has an implication for the points argument: In the created plots, only those points will be shown that correspond to the factor levels actually used in the conditioning, in order not to create the false impression of bad model fit, where it is just due to conditioning on certain factor levels."\
+-   As described in <https://rdrr.io/cran/brms/man/conditional_effects.brmsfit.html>, "When creating conditional_effects for a particular predictor (or interaction of two predictors), one has to choose the values of all other predictors to condition on. By default, the mean is used for continuous variables and the reference category is used for factors, but you may change these values via argument conditions. This also has an implication for the points argument: In the created plots, only those points will be shown that correspond to the factor levels actually used in the conditioning, in order not to create the false impression of bad model fit, where it is just due to conditioning on certain factor levels."\
 -   Using rstanarm, I was unable to do this as I expected to: Start with data = d1 and using "newdata =" to specify that predictions should be based on data in d1_elevz (for example), in which non-plotted continuous predictors are set to the mean value. Not sure if my alternative approach is correct.\
 -   Approach used: Instead of starting the routine with d1, I started with the new dataset in which all variables except the one of interest were set to mean values (continuous variables) and the reference level (categorical variables). This produced plots/results that were very similar to those produced in brms using the conditional_effects function.
 
@@ -781,7 +786,6 @@ cond_effects_plot <- (p_snowt1 | p_elev) / (p_donor | p_sex)
 ggsave(here::here("doc", "manuscript", "figures", "cond_effects_plot.png"), width = 7, height = 4)
 ```
 
-
 ## For comparison, fit model using brms and conditional_effects function to plot variable-specific effects
 
 ### Fit model
@@ -806,7 +810,8 @@ plot(conditional_effects(m1d_reduce_brms, spaghetti = TRUE, mean = TRUE, ndraws 
 # Analysis 2: Survival of frogs from first translocation as predictor of survival in subsequent translocations
 
 This analysis explores the results shown in translocation_survival_exploratory.Rmd (code chunk name = "frog-survival-by-site").
-This plot shows frog survival of all translocations grouped by site, and indicates that survival is highly variable across sites, but repeatable within sites. The following analysis quantifies the association between survival in the first translocation and survival in subsequent translocations.
+This plot shows frog survival of all translocations grouped by site, and indicates that survival is highly variable across sites, but repeatable within sites.
+The following analysis quantifies the association between survival in the first translocation and survival in subsequent translocations.
 
 ## Load packages
 
@@ -1005,10 +1010,10 @@ mean(bayes_R2(m2b))
 ```
 
 ### Save plot
+
 ```{r}
 ggsave(here::here("doc", "manuscript", "figures", "mcmc_areas_m2b.png"), bg = "white", width = 7, height = 4)
 ```
-
 
 ## Model with standardized predictors, translocation_id grouping variable
 
