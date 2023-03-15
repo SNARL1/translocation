@@ -11,7 +11,7 @@
 
 <meta name="author" content="Roland Knapp" />
 
-<meta name="date" content="2023-03-14" />
+<meta name="date" content="2023-03-15" />
 
 <title>Create datasets for supplemental analyses</title>
 
@@ -1757,7 +1757,7 @@ display: none;
 <h1 class="title toc-ignore">Create datasets for supplemental
 analyses</h1>
 <h4 class="author">Roland Knapp</h4>
-<h4 class="date">2023-03-14</h4>
+<h4 class="date">2023-03-15</h4>
 
 </div>
 
@@ -1793,37 +1793,17 @@ following translocation are included.</li>
 <h3>Read in raw translocation and capture datasets, bind them</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhbnNsb2NhdGlvbiA8LSByZWFkX2NzdihoZXJlOjpoZXJlKFwiZGF0YVwiLCBcInJhd1wiLCBcImZyb2dfdHJhbnNsb2NhdGlvbi5jc3ZcIikpICU+JSBcbiAgcmVsb2NhdGUodmlzaXRfZGF0ZSA9IHJlbGVhc2VfZGF0ZSwgLmJlZm9yZSA9IHR5cGUpICU+JSBcbiAgcmVuYW1lKHN1cnZleV90eXBlID0gdHlwZSkgJT4lIFxuICBtdXRhdGUocGl0X3RhZ19yZWYgPSByZXBsYWNlKHBpdF90YWdfcmVmLCBwaXRfdGFnX3JlZiA9PSBcIjkwMDA2NzAwMDExNzM5NlwiICYgc2l0ZV9pZCA9PSA3MDY0MSwgXCIxMTExMTExMTExMTExMTFcIikpICU+JSAjIHJlbW92ZSBpbmNvcnJlY3QgcGl0X3RhZ19yZWYgaWRlbnRpZmllZCBpbiB0cmFuc2xvY2F0aW9uX3N1cnZpdmFsX2NyZWF0ZWRhdGEuUm1kXG4gIGZpbHRlcihwaXRfdGFnX3JlZiAhPSBcIjExMTExMTExMTExMTExMVwiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhbnNsb2NhdGlvbiA8LSByZWFkX2NzdihoZXJlOjpoZXJlKFwiZGF0YVwiLCBcInJhd1wiLCBcImZyb2dfdHJhbnNsb2NhdGlvbi5jc3ZcIikpICU+JSBcbiAgcmVsb2NhdGUodmlzaXRfZGF0ZSA9IHJlbGVhc2VfZGF0ZSwgLmJlZm9yZSA9IHR5cGUpICU+JSBcbiAgcmVuYW1lKHN1cnZleV90eXBlID0gdHlwZSkgJT4lIFxuICBtdXRhdGUocGl0X3RhZ19yZWYgPSByZXBsYWNlKHBpdF90YWdfcmVmLCBwaXRfdGFnX3JlZiA9PSBcIjkwMDA2NzAwMDExNzM5NlwiICYgc2l0ZV9pZCA9PSA3MDY0MSwgXCIxMTExMTExMTExMTExMTFcIikpICU+JSAjIHJlbW92ZSBpbmNvcnJlY3QgcGl0X3RhZ19yZWYgaWRlbnRpZmllZCBpbiB0cmFuc2xvY2F0aW9uX3N1cnZpdmFsX2NyZWF0ZWRhdGEuUm1kXG4gIGZpbHRlcihwaXRfdGFnX3JlZiAhPSBcIjExMTExMTExMTExMTExMVwiKVxuXG5jYXB0dXJlIDwtIHJlYWRfY3N2KGhlcmU6OmhlcmUoXCJkYXRhXCIsIFwicmF3XCIsIFwiZnJvZ19jYXB0dXJlcy5jc3ZcIikpICU+JSBcbiAgc2VsZWN0KC1jYXB0dXJlX2xpZmVfc3RhZ2UsIC1jYXB0dXJlX2FuaW1hbF9zdGF0ZSwgLXNleClcblxuIyBzZWxlY3Qgb25seSB0cmFuc2xvY2F0ZWQgZnJvZ3MgKGV4Y2x1ZGUgbmF0dXJhbGx5LXJlY3J1aXRlZCBmcm9ncyBhbmQgdHJhbnNsb2NhdGVkIGZyb2dzIHRoYXQgd2VyZSBuZXZlciByZWNhcHR1cmVkIGFmdGVyIHRyYW5zbG9jYXRpb24pXG5jYXB0dXJlIDwtIHRyYW5zbG9jYXRpb24gJT4lIFxuICBzZWxlY3QocGl0X3RhZ19yZWYpICU+JSBcbiAgaW5uZXJfam9pbihjYXB0dXJlLCBieSA9IGMoXCJwaXRfdGFnX3JlZlwiKSkgJT4lIFxuICByZWxvY2F0ZShwaXRfdGFnX3JlZiwgLmFmdGVyID0gbGFzdF9jb2woKSlcblxuZnJvZ3NfYWxsIDwtIGJpbmRfcm93cyh0cmFuc2xvY2F0aW9uLCBjYXB0dXJlKVxuYGBgIn0= -->
 <pre class="r"><code>translocation &lt;- read_csv(here::here(&quot;data&quot;, &quot;raw&quot;, &quot;frog_translocation.csv&quot;)) %&gt;% 
   relocate(visit_date = release_date, .before = type) %&gt;% 
   rename(survey_type = type) %&gt;% 
   mutate(pit_tag_ref = replace(pit_tag_ref, pit_tag_ref == &quot;900067000117396&quot; &amp; site_id == 70641, &quot;111111111111111&quot;)) %&gt;% # remove incorrect pit_tag_ref identified in translocation_survival_createdata.Rmd
-  filter(pit_tag_ref != &quot;111111111111111&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNzc5IENvbHVtbnM6IDTilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5EZWxpbWl0ZXI6IFwiLFwiXG5jaHIgICgyKTogdHlwZSwgcGl0X3RhZ19yZWZcbmRibCAgKDEpOiBzaXRlX2lkXG5kYXRlICgxKTogcmVsZWFzZV9kYXRlXG7ihLkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG7ihLkgU3BlY2lmeSB0aGUgY29sdW1uIHR5cGVzIG9yIHNldCBgc2hvd19jb2xfdHlwZXMgPSBGQUxTRWAgdG8gcXVpZXQgdGhpcyBtZXNzYWdlLlxuIn0= -->
-<pre><code>Rows: 779 Columns: 4── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr  (2): type, pit_tag_ref
-dbl  (1): site_id
-date (1): release_date
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FwdHVyZSA8LSByZWFkX2NzdihoZXJlOjpoZXJlKFwiZGF0YVwiLCBcInJhd1wiLCBcImZyb2dfY2FwdHVyZXMuY3N2XCIpKSAlPiUgXG4gIHNlbGVjdCgtY2FwdHVyZV9saWZlX3N0YWdlLCAtY2FwdHVyZV9hbmltYWxfc3RhdGUsIC1zZXgpXG5gYGAifQ== -->
-<pre class="r"><code>capture &lt;- read_csv(here::here(&quot;data&quot;, &quot;raw&quot;, &quot;frog_captures.csv&quot;)) %&gt;% 
-  select(-capture_life_stage, -capture_animal_state, -sex)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNjYwNSBDb2x1bW5zOiA34pSA4pSAIENvbHVtbiBzcGVjaWZpY2F0aW9uIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgFxuRGVsaW1pdGVyOiBcIixcIlxuY2hyICAoNSk6IHN1cnZleV90eXBlLCBjYXB0dXJlX2xpZmVfc3RhZ2UsIGNhcHR1cmVfYW5pbWFsX3N0YXRlLCBwaXRfdGFnX3JlZiwgc2V4XG5kYmwgICgxKTogc2l0ZV9pZFxuZGF0ZSAoMSk6IHZpc2l0X2RhdGVcbuKEuSBVc2UgYHNwZWMoKWAgdG8gcmV0cmlldmUgdGhlIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb24gZm9yIHRoaXMgZGF0YS5cbuKEuSBTcGVjaWZ5IHRoZSBjb2x1bW4gdHlwZXMgb3Igc2V0IGBzaG93X2NvbF90eXBlcyA9IEZBTFNFYCB0byBxdWlldCB0aGlzIG1lc3NhZ2UuXG4ifQ== -->
-<pre><code>Rows: 6605 Columns: 7── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr  (5): survey_type, capture_life_stage, capture_animal_state, pit_tag_ref, sex
-dbl  (1): site_id
-date (1): visit_date
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzZWxlY3Qgb25seSB0cmFuc2xvY2F0ZWQgZnJvZ3MgKGV4Y2x1ZGUgbmF0dXJhbGx5LXJlY3J1aXRlZCBmcm9ncyBhbmQgdHJhbnNsb2NhdGVkIGZyb2dzIHRoYXQgd2VyZSBuZXZlciByZWNhcHR1cmVkIGFmdGVyIHRyYW5zbG9jYXRpb24pXG5jYXB0dXJlIDwtIHRyYW5zbG9jYXRpb24gJT4lIFxuICBzZWxlY3QocGl0X3RhZ19yZWYpICU+JSBcbiAgaW5uZXJfam9pbihjYXB0dXJlLCBieSA9IGMoXCJwaXRfdGFnX3JlZlwiKSkgJT4lIFxuICByZWxvY2F0ZShwaXRfdGFnX3JlZiwgLmFmdGVyID0gbGFzdF9jb2woKSlcblxuZnJvZ3NfYWxsIDwtIGJpbmRfcm93cyh0cmFuc2xvY2F0aW9uLCBjYXB0dXJlKVxuYGBgIn0= -->
-<pre class="r"><code># select only translocated frogs (exclude naturally-recruited frogs and translocated frogs that were never recaptured after translocation)
+  filter(pit_tag_ref != &quot;111111111111111&quot;)
+
+capture &lt;- read_csv(here::here(&quot;data&quot;, &quot;raw&quot;, &quot;frog_captures.csv&quot;)) %&gt;% 
+  select(-capture_life_stage, -capture_animal_state, -sex)
+
+# select only translocated frogs (exclude naturally-recruited frogs and translocated frogs that were never recaptured after translocation)
 capture &lt;- translocation %&gt;% 
   select(pit_tag_ref) %&gt;% 
   inner_join(capture, by = c(&quot;pit_tag_ref&quot;)) %&gt;% 

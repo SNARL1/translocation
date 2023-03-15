@@ -118,22 +118,7 @@ frog_translocation %>%
 
 -   This analysis explores the results shown in the plot created above (frog survival for all translocations grouped by site).
 
-#### Load packages
-
-```{r}
-library(tidyverse)
-library(brms)
-library(rstanarm)
-library(bayesplot)
-library(tidybayes)
-library(loo)
-library(broom.mixed)
-library(janitor)
-
-source("classification_summary.R")
-```
-
-#### Create frog translocation dataset for analysis
+#### Frog translocation dataset for analysis
 
 -   Read in data, create variables for analysis, standardize continuous variables.
 -   arm package used to rescale continuous variables (substract mean, divide by 2 SD), manual centering of binary variables.
