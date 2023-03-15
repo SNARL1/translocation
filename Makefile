@@ -20,11 +20,11 @@ VIABILITY_SCRIPT = code/extinction_and_growth_rate_analysis.R
 POP_FXNS = code/population_viability_functions.R
 
 # CMR output
-CMR_SURVEYS = $(wildcard ../cmr-analysis/data/clean/*_survey.csv) 
-CMR_MODELS = $(wildcard ../cmr-analysis/out/model/*_model.rds)
-CMR_TABLES = $(wildcard ../cmr-analysis/out/tables/model/*survival_cohort.csv)
-CMR_CAPTURE = $(wildcard ../cmr-analysis/data/clean/*_capture.csv) 
-CMR_TRANS = $(wildcard ../cmr-analysis/data/clean/*_translocation.csv) 
+CMR_SURVEYS = $(wildcard data/raw/cmr-analysis/survey/*_survey.csv) 
+CMR_MODELS = $(wildcard data/raw/cmr-analysis/model/*_model.rds)
+CMR_TABLES = $(wildcard data/raw/cmr-analysis/survival/*survival_cohort.csv)
+CMR_CAPTURE = $(wildcard data/raw/cmr-analysis/capture/*_capture.csv) 
+CMR_TRANS = $(wildcard data/raw/cmr-analysis/translocation/*_translocation.csv) 
 
 # Survival script output
 SURV_OUTPUT1 = out/yearly_survival_estimates_all_individuals.csv

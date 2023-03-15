@@ -11,15 +11,14 @@ library(lubridate)
 
 # The base path of the CMR analysis.  Assumes the working directory is code
 # and that CMR analyses are stored two directories up.
-home_path = file.path("..", "..")
+cmr_path = file.path("..", "data", "raw", "cmr-analysis")
 
 #####################################
 #### Extract survival estimates #####
 #####################################
 
 # Extract survival estimates for all translocated lakes
-table_path = file.path(home_path, "cmr-analysis", "out", "tables")
-table_files = Sys.glob(file.path(table_path, "*survival_cohort.csv"))
+table_files = Sys.glob(file.path(cmr_path, "survival", "*survival_cohort.csv"))
 
 # Loop through each file and load table
 yearly_surv_probs = list()
@@ -163,15 +162,15 @@ keep_lakes = readRDS(file.path("..", "out", "lakes_to_use_in_analysis.rds"))
 all_recruit = list()
 for(lake in keep_lakes){
 
-	file = file.path(home_path, "cmr-analysis", "out", "model", paste0(lake, "_model.rds"))
+	file = file.path(cmr_path, "model", paste0(lake, "_model.rds"))
 	fit = readRDS(file)
 	recruitment = data.table(fit$m_fit$summary(variables="B"))
 	pop_size = data.table(fit$m_fit$summary(variables="N"))
 
 	# Build the stan data so we know when translocations occurred
-	captures = readr::read_csv(file.path(home_path, "cmr-analysis", "data", "clean", paste0(lake, "_capture.csv")))
-	surveys = readr::read_csv(file.path(home_path, "cmr-analysis","data", "clean", paste0(lake, "_survey.csv")))
-	translocations = readr::read_csv(file.path(home_path, "cmr-analysis","data", "clean", paste0(lake, "_translocation.csv")))
+	captures = readr::read_csv(file.path(cmr_path, "capture" paste0(lake, "_capture.csv")))
+	surveys = readr::read_csv(file.path(cmr_path, "survey", paste0(lake, "_survey.csv")))
+	translocations = readr::read_csv(file.path(cmr_path, translocation, paste0(lake, "_translocation.csv")))
 	mrmr_dat = clean_data(captures = captures, surveys = surveys, translocations = translocations)
 
 	# Extract year of primary period
