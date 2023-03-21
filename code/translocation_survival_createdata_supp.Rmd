@@ -15,7 +15,7 @@ library(tidyr)
 library(lubridate)
 ```
 
--   Users without credentials to access the database can utilize .csv files saved below when running code in the `translocation_survival_supp.Rmd` and `maps.qmd` files. 
+-   Users without credentials to access database can utilize `subadult_survival.csv` and `tadpole_survival.csv` saved below.
 
 ## DATASET 1: Bd load before versus after translocation
 
@@ -361,85 +361,3 @@ surv_tad <- surv_tad %>%
   mutate(surv_1styr = (count * 2) / ((adults / 2) * 100)) %>% 
   summarize(mean(surv_1styr))
 ```
-
-## DATASETS 3: Create datasets for study site maps
-
-### Map of sample sites for exome capture analysis
-
-#### Create dataset of sample collection points
-
-```{r}
-exome_sites <- read_csv(here::here("data", "maps", "exome_sample_sites.csv"))
-```
-
-#### Retrieve data from database & create points layer
-
-```{r}
-source("db_connect.R")
-
-n <- nrow(exome_sites)
-
-exome_points <- dbReadTable(con, c("site")) %>% 
-  as_tibble() %>% 
-  rename(site_id = id) %>% 
-  select(site_id, utme, utmn) %>% 
-  inner_join(exome_sites, by = "site_id") %>% 
-  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
-             y = sample(-2000:2000, size = n)) %>% 
-  mutate(utme_noise = utme + x,
-         utmn_noise = utmn + y) %>% 
-  select(-utme, -utmn, -x, -y)
-
-source("db_disconnect.R")
-
-write_csv(exome_points, here::here("data", "maps", "exome_points.csv"))
-```
-
-### Map of Yosemite translocation & donor sites
-
-#### Create dataset of site points
-
-```{r}
-donor_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
-  distinct(donor) %>% 
-  mutate(site_id = donor, .before = donor) %>% 
-  rename(donor_id = donor) %>% 
-  add_column(type = "donor")
-
-translocation_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
-  distinct(site_id, donor) %>% 
-  rename(donor_id = donor) %>% 
-  add_column(type = "translocation") %>% 
-  bind_rows(donor_sites)
-
-rm(donor_sites)
-```
-
-#### Retrieve data from database & create points layer
-
-```{r}
-source("db_connect.R")
-
-n <- nrow(translocation_sites)
-
-translocation_points <- dbReadTable(con, c("site")) %>% 
-  as_tibble() %>% 
-  rename(site_id = id) %>% 
-  select(site_id, utme, utmn) %>% 
-  inner_join(translocation_sites, by = "site_id") %>% 
-  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
-             y = sample(-2000:2000, size = n)) %>% 
-  mutate(utme_noise = utme + x,
-         utmn_noise = utmn + y) %>% 
-  select(-utme, -utmn, -x, -y)
-
-source("db_disconnect.R")
-
-write_csv(translocation_points, here::here("data", "maps", "translocation_points.csv"))
-```
-
-
-
-
-
-
