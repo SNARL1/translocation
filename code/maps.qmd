@@ -11,50 +11,10 @@ library(sf)
 library(tmap)
 library(stars)
 library(grid)
-library(tidyverse)
-library(RPostgreSQL)
+library(readr)
 ```
 
-## Map of sample sites for exome capture analysis
-
-Run the following 4 chunks only if you have access to the project database. For those without the necessary credentials, use the saved output file in data/maps/ that is available via the "import-map-data1" chunk.
-
-### Create dataset of sample collection points
-
-```{r}
-exome_sites <- read_csv(here::here("data", "maps", "exome_sample_sites.csv"))
-```
-
-#### Connect to database
-
-```{r}
-source("db_connect.R")
-```
-
-#### Retrieve data & create points layer
-
-```{r}
-n <- nrow(exome_sites)
-
-exome_points <- dbReadTable(con, c("site")) %>% 
-  as_tibble() %>% 
-  rename(site_id = id) %>% 
-  select(site_id, utme, utmn) %>% 
-  inner_join(exome_sites, by = "site_id") %>% 
-  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
-             y = sample(-2000:2000, size = n)) %>% 
-  mutate(utme_noise = utme + x,
-         utmn_noise = utmn + y) %>% 
-  select(-utme, -utmn, -x, -y)
-
-write_csv(exome_points, here::here("data", "maps", "exome_points.csv"))
-```
-
-#### Disconnect from database
-
-```{r}
-source("db_disconnect.R")
-```
+## Map of exome capture sample sites
 
 ### Import map layers
 
@@ -152,57 +112,6 @@ tmap_save(exome_points_map,
 -   Exported California hillshade tif has no whitespace around edges, has black border. How to remove border and add whitespace?
 
 ## Map of Yosemite translocation & donor sites
-
-Run the following 4 chunks only if you have access to the project database. For those without the necessary credentials, use the saved output file in data/maps/ that is available via the "import-map-data2" chunk.
-
-### Create dataset of site points
-
-```{r}
-donor_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
-  distinct(donor) %>% 
-  mutate(site_id = donor, .before = donor) %>% 
-  rename(donor_id = donor) %>% 
-  add_column(type = "donor")
-
-translocation_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
-  distinct(site_id, donor) %>% 
-  rename(donor_id = donor) %>% 
-  add_column(type = "translocation") %>% 
-  bind_rows(donor_sites)
-
-rm(donor_sites)
-```
-
-#### Connect to database
-
-```{r}
-source("db_connect.R")
-```
-
-#### Retrieve data & create points layer
-
-```{r}
-n <- nrow(translocation_sites)
-
-translocation_points <- dbReadTable(con, c("site")) %>% 
-  as_tibble() %>% 
-  rename(site_id = id) %>% 
-  select(site_id, utme, utmn) %>% 
-  inner_join(translocation_sites, by = "site_id") %>% 
-  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
-             y = sample(-2000:2000, size = n)) %>% 
-  mutate(utme_noise = utme + x,
-         utmn_noise = utmn + y) %>% 
-  select(-utme, -utmn, -x, -y)
-
-write_csv(translocation_points, here::here("data", "maps", "translocation_points.csv"))
-```
-
-#### Disconnect from database
-
-```{r}
-source("db_disconnect.R")
-```
 
 ### Import map layers
 
