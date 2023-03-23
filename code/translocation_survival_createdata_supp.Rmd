@@ -11,6 +11,7 @@ output: html_notebook
 library(RPostgreSQL)
 library(dplyr) 
 library(readr)
+library(tibble)
 library(tidyr)
 library(lubridate)
 ```
@@ -360,4 +361,69 @@ Assumptions:
 surv_tad <- surv_tad %>% 
   mutate(surv_1styr = (count * 2) / ((adults / 2) * 100)) %>% 
   summarize(mean(surv_1styr))
+```
+
+## DATASETS 3: Create datasets for maps
+
+### Dataset for map of sample sites for exome capture analysis
+
+Users without the necessary credentials to access the database can access the final dataset at data/maps/exome_points.csv.
+
+```{r}
+exome_sites <- read_csv(here::here("data", "maps", "exome_sample_sites.csv"))
+n <- nrow(exome_sites)
+
+source("db_connect.R")
+exome_points <- dbReadTable(con, c("site")) %>% 
+  as_tibble() %>% 
+  rename(site_id = id) %>% 
+  select(site_id, utme, utmn) %>% 
+  inner_join(exome_sites, by = "site_id") %>% 
+  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
+             y = sample(-2000:2000, size = n)) %>% 
+  mutate(utme_noise = utme + x,
+         utmn_noise = utmn + y) %>% 
+  select(-utme, -utmn, -x, -y)
+source("db_disconnect.R")
+
+write_csv(exome_points, here::here("data", "maps", "exome_points.csv"))
+```
+
+## Dataset for map of Yosemite translocation & donor sites
+
+Users without the necessary credentials to access the database can access the final dataset at data/maps/translocation_points.csv.
+
+### Retrieve data & create points layer
+
+```{r}
+donor_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
+  distinct(donor) %>% 
+  mutate(site_id = donor, .before = donor) %>% 
+  rename(donor_id = donor) %>% 
+  add_column(type = "donor")
+
+translocation_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
+  distinct(site_id, donor) %>% 
+  rename(donor_id = donor) %>% 
+  add_column(type = "translocation") %>% 
+  bind_rows(donor_sites)
+
+n <- nrow(translocation_sites)
+
+rm(donor_sites)
+
+source("db_connect.R")
+translocation_points <- dbReadTable(con, c("site")) %>% 
+  as_tibble() %>% 
+  rename(site_id = id) %>% 
+  select(site_id, utme, utmn) %>% 
+  inner_join(translocation_sites, by = "site_id") %>% 
+  add_column(x = sample(-2000:2000, size = n), # Add x-y random noise to obscure exact site locations
+             y = sample(-2000:2000, size = n)) %>% 
+  mutate(utme_noise = utme + x,
+         utmn_noise = utmn + y) %>% 
+  select(-utme, -utmn, -x, -y)
+source("db_disconnect.R")
+
+write_csv(translocation_points, here::here("data", "maps", "translocation_points.csv"))
 ```
