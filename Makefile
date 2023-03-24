@@ -4,6 +4,7 @@
 # ------------
 # 1. Run `make install_packages` to load the necessary R packages into your environment
 # 2. Run `make`
+# 3. Run `make clean` to remove temporary .R scripts not removed by other rules
 
 # Outputs
 OUTPUT1 = doc/manuscript/figures/translocation_survival_bysiteid.png
@@ -60,9 +61,12 @@ $(OUTPUT6): $(DEPEND6) $(DEPEND7) $(DEPEND8) $(DEPEND9) $(DEPEND10)
 
 # SCRIPT4 is removed as expected.
 
-# Run make install_packages to ensure R environment has the necessary packages
+# Run `make install_packages` to ensure R environment has the necessary packages
 install_packages:
 	cd code; \
 	Rscript install_R_packages.R; \
 	cd ..
 
+# Run `make clean` to remove temporary files that are not removed by the above rules
+clean:
+	rm -f $(SCRIPT2) $(SCRIPT3)
