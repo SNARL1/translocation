@@ -20,7 +20,7 @@ library(loo)
 library(broom.mixed)
 library(janitor)
 
-source("classification_summary.R")
+source("code/classification_summary.R")
 ```
 
 ## ANALYSIS 1: Analysis of changes in Bd load following translocation
