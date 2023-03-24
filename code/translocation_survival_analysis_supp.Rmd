@@ -9,18 +9,13 @@ The following are supplemental analyses, some related to analyses in `translocat
 ## Load packages
 
 ```{r}
-library(RPostgreSQL)
 library(tidyverse)
-library(lubridate)
-library(brms)
 library(rstanarm)
 library(bayesplot)
 library(tidybayes)
 library(loo)
 library(broom.mixed)
 library(janitor)
-
-source("classification_summary.R")
 ```
 
 ## ANALYSIS 1: Analysis of changes in Bd load following translocation
