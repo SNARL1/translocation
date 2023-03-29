@@ -81,7 +81,7 @@ Although this decline was initiated by the introduction of non-native trout into
 These Bd-caused declines are fundamentally different from the fish-caused declines because removal of fish populations is feasible and results in the rapid recovery of frogs [@knapp2007; @vredenburg2004].
 In contrast, Bd appears to persist in habitats even in the absence of amphibian hosts [@walker2007], and therefore represents a permanent alteration of invaded ecosystems that amphibians will need to overcome to reestablish populations.
 
-Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are driven to extirpation following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
+<!--# Roland will address some of Bree's points here -->Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are driven to extirpation following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
 Frogs in these recovering populations show reduced susceptibility to Bd infection, consistent with selection for more resistant genotypes [@knapp2016].
 Furthermore, exploratory efforts to reintroduce frogs collected from recovering populations to sites from which frogs were previously extirpated indicate that population establishment is possible despite ongoing Bd infection [@joseph2018].
 Here, we report the results of (i) an analysis to evaluate genomic signatures of selection following MYL frog exposure to Bd, (ii) a greatly expanded MYL frog reintroduction effort, and (iii) population viability modeling to assess the long-term persistence of reintroduced populations.
@@ -124,6 +124,8 @@ Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) 
 This region (854kb from the beginning of the outlier windows to the VARS SNP) contained a total of 10 annotated genes.
 In *Xenopus*, four of these genes occur in the extended MHC Class I region (FLOT1, TUBB, MDC1,TCF19) and three occur in the extended MHC Class II region (HSP70, LSM2, VARS) [@ohta2006].
 Therefore, we conclude that this candidate region under selection is a part of the extended MHC Class I and II complex and shows synteny with other amphibian genomes.
+
+<!--# Need summary of importance of genetic results, also need better integration of different selection  results -->
 
 <!--# Figure edits:  selectionresults: Capitalize panel labels, label liberal and stringent outlier sets. outlier map: Rearrange panels to put RIN3 last? Relocate pie charts to avoid the perception that all recovering populations are west of naive populations, add A, B, C labels to panels. -->
 
@@ -256,7 +258,7 @@ robust_year_max <- surveys %>%
 
 <!--# Bree comment: Here or elsewhere - it feels like we need a more specific bridge from the genomics section into the translocation section. I think we need to be explicit about how the populations we chose for the genomics section relate to the populations used in translocations. Even if they aren't matched in any way, we should reiterate something about how the experimental designs comport. For example, we could explain how the genomic analyses were conducted with multiple recovering populations so we know evidence for selection is strong in multiple areas of the genome in multiple recovering populations. -->
 
-<!--# Roland comment: 2 of the 3 donor populations are included in the selection study. -->
+<!--# Roland comment: 2 of the 3 donor populations are included in the selection study. Add 2 sentences that summarize selection results and bridge to translocation section. -->
 
 Reintroductions of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species.
 These reintroductions involved the collection of adult frogs from large, Bd-positive donor populations that have recovered in recent years following Bd-caused declines [@knapp2016] and translocating them to nearby recipient sites [@joseph2018].
@@ -271,7 +273,7 @@ Finally, Bd loads changed little between immediately prior to translocation vers
 <!--# Add median Bd load, proportion below 5.8 copies threshold? Mention results from statistical model more explicitly? --> <!--# The Methods-Translocation section contains text that repeats similar results. Edit to reduce repetition. --> <!--# To allow comparison with other translocation studies, consider adding information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
 
 To identify site and frog-specific drivers of post-translocation survival, we developed a multilevel model in a Bayesian framework.
-Our specific interest was whether Bd load had an important effect on adult survival, as would be expected if the effect of frog resistance was insufficient to overcome the negative effect of Bd.
+Our specific interest was whether Bd load had a negative effect on adult survival, as would be expected if frogs were highly susceptible to Bd infection.
 <!--# Allie comment: This phrasing is a bit confusing for me. --> The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens SI).
 Important predictors included winter severity in the year following translocation (snow_t1), site elevation (elevation), and donor population (donor_72996; @fig-cond-effects).
 Males had somewhat higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects, @fig-survival-postdens SI).
@@ -280,8 +282,6 @@ Collectively, these results show that Bd load is not a predictor of the survival
 <!--# Allie comment: Maybe tolerance is a better word here? Since they were infected. Or maybe we need to explicitly define what we mean with resistance vs tolerance. Bree comment: I noticed this also – in the Intro, you do say that you are lumping both resistance and tolerance into the phrase "resistance" but you are talking about multiple things (being able to avoid infection, being able to fight infection, being able to tolerate infection, etc). Maybe at some point we want to address specifically that the genomic changes we are observing could contribute to multiple facets of resistance / tolerance.  And that we are lumping those together in an "evolved resistance" bin. --> In addition, the moderate Bd loads that characterized frogs following translocation and relatively high survival of frogs in the majority of more-recently translocated cohorts suggests that resistant frogs from recovering populations can maintain the benefits of resistance in non-natal habitats.
 Finally, in three locations where longer capture-mark-recapture (CMR) time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
 Therefore, frog resistance in non-natal habitats is maintained across generations.
-
-<!--# Mark W: Regarding the above paragraph, what evidence do we have of "tolerance"? Are Bd loads significantly reduced in populations compared to epizootic levels? Can we convincingly state that the likely mechanism is more consistent with resistance or tolerance?  I ask because it would be nice to just use one of these terms in the paper and not get caught up in any resistance vs. tolerance discussions with reviewers.  Roland: Have a look at this paragraph of Knapp et al. PeerJ 2022: https://peerj.com/articles/12712/#p-61. We argue that there is evidence for resistance and tolerance. -->
 
 <!--# Drive home the point that i) Acquired, heritable resistance in donor populations could promote the long-term viability of translocated populations and b) but survival is still highly dependent on environment independent of Bd. -->
 
