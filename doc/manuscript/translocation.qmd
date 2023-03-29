@@ -516,11 +516,6 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ### Acknowledgments and funding sources
 
-### References
-
-::: {#refs}
-:::
-
 ### Figures
 
 <!--# Discuss referencing and in-text generation of figures.  We don't want to re-run the population viability modeling figures each time we compile the manuscript.  A makefile could be a good solution. Caching figures could be another option (https://quarto.org/docs/computations/caching.html) -->
@@ -540,8 +535,6 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 <!-- Left panel color palette is 12-color color-blind friendly, but is not the most friendly color palette to look at.  We can discuss. Roland says: Maybe try a palette that you like better and for those colors that will be hard for eyeballs like mine to distinguish, we can either tweak the colors or add diagnonal lines (ggpattern::geom_bar_pattern). -->
 
 ## Supporting Information
-
-### References
 
 ### Figures
 
@@ -603,5 +596,3 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 <!--# Include table of translocation sites, years, frog numbers? -->
 
 <!--# Include Allie's table describing outlier SNPs? -->
-
-### 
