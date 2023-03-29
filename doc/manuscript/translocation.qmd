@@ -306,23 +306,31 @@ Thus, there is some trend in our improved ability to select appropriate habitat 
 
 ### Discussion
 
-<!--# Consider broadening the scope of this sentence and the paragraph to be developed from it to encompass all of our findings -->
+1.  Summary of all of the results in a way that integrates the different components/sections (selection, translocations, viability), and makes the pitch for how unique the results are (as per comment from Bree):
+    -   Evidence for evolutionary rescue in a conservation-relevant species.
+    -   Successful reestablishment of extirpated populations via translocation despite ongoing Bd infection.
+    -   Evidence for long-term viability of reestablished populations.
 
-TO BE WRITTEN.
+```{=html}
+<!-- -->
+```
+2.  Evolutionary rescue: We provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for observed resistance.
+    -   Epidemiological conditions in MYL-Bd systems X, Y, and Z are conducive to evolutionary rescue.
+    -   Differences in allele frequencies exist between adjacent Bd-naive and recovering populations.
+    -   There is a shared selective response across recovering populations.
+    -   Changes in population growth rate due to evolution extend beyond the natal environment.
+    -   In populations established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics).
 
-We provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for emergence of this resistance.
+Could include mention here of why MYL frogs show evidence of evolutionary rescue in response to Bd exposure when so few other amphibians do.
+Text from Introduction describing the conditions under which evolutionary rescue is most likely?
 
-1.  Epidemiological conditions in MYL-Bd systems X, Y, and Z are conducive to evolutionary rescue.
-2.  Differences in allele frequencies exist between adjacent Bd-naive and recovering populations.
-3.  There is a shared selective response across recovering populations.
-4.  Changes in population growth rate due to evolution extend beyond the natal environment.
-5.  In populations established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics).
-
-<!--# Discuss effect of donor population on survival of translocated frogs. Differences in Bd resistance? -->
-
-<!--# The following point was made in the original Introduction outline but ultimately not addressed there: Translocation of individuals from putatively resistant populations to sites that were formerly occupied but from which populations were extirpated by disease provides a way to disentangle the contributions of natal environment and host genetics on host persistence and recovery. -->
-
-<!--# Translocation "success" often defined as evidence of reproduction by translocated individuals (see IUCN and related references in notes). We used a much higher and more conservative standard to assess success, i.e.,  -->
+3.  Translocations (including viability results?):
+    -   Recovery of Bd-impacted amphibians worldwide is expected to be challenging at best. Hundreds of declining species, but mostly failed attempts at recovery. Failures may be due in part to a general inability by amphibians to mount an effective immune response against Bd infection. In contrast, in our study MYL frogs (a species highly susceptible to chytridiomycosis) showed relatively high frog survival despite ongoing Bd infection and low probability of extinction for many reestablished populations.
+    -   Observed reduced susceptibility is likely due to evolutionary rescue, and this outcome is likely facilitating both natural recovery (Knapp et al. 2016) and success of translocation efforts described in this study. MYL frogs provide a rare example of highly susceptible species recovering in the presence of pathogen/disease. Recovery would likely not be possible without evolutionary rescue, as suggested by numerous failed attempts to reestablish populations of Bd-impacted amphibians.
+    -   IUCN guidance for reintroduction/translocation success is the presence of reproduction. Based on this standard, X of our 12 translocation efforts would be deemed successful. We used a higher standard - 1 year survival and probability of extinction over 50 years. More relevant standard because of the bottleneck to population establishment posed by subadult survival which despite evolutionary rescue is strongly influenced by disease.
+    -   This success in the face of a highly virulent pathogen is all the more surprising given the generally low rate of translocation/reintroduction success (several review papers). Despite relatively high success rate in MYL frogs, it is apparent that not all such recovery efforts will succeed. In addition to ongoing effects of Bd, several deterministic and stochastic factors likely also play an important role: (1) effects of elevation, winter severity, and donor population on frog survival, and (2) variability in recruitment driven by Bd-caused mortality of subadults.
+    -   Now have a means of reestablishing MYL frog populations across their historical range, including in areas in which natural recolonization is precluded by dispersal limitation. Nonetheless, recovery across this large landscape will require substantial resources over many decades.
+    -   Big picture: May also have implications for the recovery of the many Bd-impacted amphibians worldwide. Remains to be seen how many other amphibians respond to Bd exposure via evolutionary rescue.
 
 ### Materials and Methods
 
@@ -571,9 +579,9 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ### Figures
 
-![Results from the exome capture selection study. (A) Map of sampling locations in the Sierra Nevada study area showing Bd-naive populations in red and persistent/recovering populations in blue. Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) are shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada is shown in light gray. (B) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels match those in (A) and are colored as in (A). (C) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows Bonferroni corrected p-value for threshold of 0.01. (D) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows Bonferroni corrected p-value for threshold of 0.01. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene. <!--# Map is duplicated here and in the mapped allele frequency figure. Remove from this figure? -->](figures/map_qqplot_manhattan.jpg){#fig-selectionresults}
+![Results from the exome capture selection study. (A) Map of sampling locations in the Sierra Nevada study area showing Bd-naive populations in red and persistent/recovering populations in blue. Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) are shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada is shown in light gray. (B) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels match those in (A) and are colored as in (A). (C) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows Bonferroni corrected p-value for threshold of 0.01. (D) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows Bonferroni corrected p-value for threshold of 0.01. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene. <!--# Map (panel A) is duplicated here and in the mapped allele frequency figure. Remove from this figure? -->](figures/map_qqplot_manhattan.jpg){#fig-selectionresults}
 
-![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).](figures/map_translocation_points.png){#fig-yosemap width="450"}
+![Map showing the locations of translocated and donor populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). <!--# Make sure all points are inside YOSE polygon -->](figures/map_translocation_points.png){#fig-yosemap width="450"}
 
 ![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. A variable is considered an important predictor if the associated uncertainty interval does not overlap zero (dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
 
