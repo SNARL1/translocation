@@ -21,7 +21,7 @@ library(janitor)
 library(patchwork)
 library(lubridate)
 
-source("code/classification_summary.R")
+source("code/classification_summary.R") # When running code chunks directly from within .Rmd (instead of via Makefile), remove "code/".
 ```
 
 ## ANALYSIS 1: Effect of site on survival of all translocated cohorts
