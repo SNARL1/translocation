@@ -1,14 +1,32 @@
-# Makefile for population viability analysis
+# Makefile for translocation analysis and population analysis for the manuscript
+# 
+#
+# This makefile has been successfully run on a MacBook pro with Big Sur and a Linux
+# machine running Ubuntu.
 # 
 # 
 # Instructions
 # ------------
-# 1. First run `make install_packages` to load the necessary R packages into your environment
-# 2. Then run `make`
-# 
-# Note that the make file assumes that the `cmr-analysis` repository is cloned and is living in the
-# same directory as the `translocation` repository
+# 1. First, run `make install_packages` to ensure that you have the necessary packages
+#    installed in your R environment.  Note that on a Linux machine, you will likely
+#	 need to install additional command-line packages to successfully install the
+#	 devtools R package.  The error message you get will probably tell you what packages
+#	 you need to install.
+# 2. To run the translocation analysis execute `make translocation_analysis`
+# 3. To run the viability analysis execute `make viability_analysis`
+# 4. To clean you directory of extraneous files execute `make clean`
 
+
+############## TRANSLOCATION ANALYSIS #############################
+
+
+
+
+
+############## END TRANSLOCATION ANALYSIS #########################
+
+
+############## START VIABILITY ANALYSIS ############################
 
 VIABILITY_OUTPUT1 = out/lambda_estimates.pdf
 VIABILITY_OUTPUT2 = out/compare_surv_probs.csv
@@ -46,6 +64,9 @@ ABUND_OUTPUT2 = data/clean/abundance_and_recruitment/70449_recruitment.csv
 ABUND_OUTPUT = $(ABUND_OUTPUT1) $(ABUND_OUTPUT2)
 ABUND_SCRIPT = code/extract_abundance_trajectories.R
 
+# .PHONY: viability_analysis
+# viability_analysis : $(VIABILITY_OUTPUT)
+
 # Population viability analysis
 $(VIABILITY_OUTPUT) : $(TRANS_OUTPUT) $(TRANS_SCRIPT) $(SURV_OUTPUT) $(SURV_SCRIPT) $(ABUND_OUTPUT) $(ABUND_SCRIPT) $(VIABILITY_SCRIPT) $(POP_FXNS)
 	cd code; \
@@ -69,6 +90,8 @@ $(SURV_OUTPUT) : $(CMR_SURVEYS) $(CMR_MODELS) $(SURV_SCRIPT) $(SURV_FXNS)
 	cd code; \
 	Rscript $(notdir $(SURV_SCRIPT)); \
 	cd ..
+
+################## END VIABILITY ANALYSIS #################################
 
 .PHONY: install_packages
 
