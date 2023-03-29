@@ -168,7 +168,7 @@ for(lake in keep_lakes){
 	pop_size = data.table(fit$m_fit$summary(variables="N"))
 
 	# Build the stan data so we know when translocations occurred
-	captures = readr::read_csv(file.path(cmr_path, "capture" paste0(lake, "_capture.csv")))
+	captures = readr::read_csv(file.path(cmr_path, "capture", paste0(lake, "_capture.csv")))
 	surveys = readr::read_csv(file.path(cmr_path, "survey", paste0(lake, "_survey.csv")))
 	translocations = readr::read_csv(file.path(cmr_path, translocation, paste0(lake, "_translocation.csv")))
 	mrmr_dat = clean_data(captures = captures, surveys = surveys, translocations = translocations)
