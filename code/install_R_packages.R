@@ -3,7 +3,8 @@
 list.of.packages <- c("data.table", "ggplot2", "patchwork", "cmdstanr", "magrittr",
 					  "rstan", "lubridate", "tidyverse", 
 					  "coda","mvtnorm","devtools","loo","dagitty", "tmap",
-					  "RPostgreSQL", "DBI", "here")
+					  "RPostgreSQL", "DBI", "here", "brms", "rstanarm", 
+					  "tidybayes", "broom.mixed", "janitor", "arm")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, repos='http://cran.us.r-project.org')
 
