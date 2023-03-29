@@ -292,17 +292,13 @@ tidy(m2b, conf.int = TRUE, conf.level = 0.90)
 labels_alt <- c("survival_trans1", "(Intercept)")
 mcmc_areas(m2b, area_method = "equal height", prob = 0.95, pars = b3) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +
-  scale_y_discrete(labels = labels_alt, limits = rev)
-#  ggtitle("Model with standardized predictor & no grouping variable",
-#          "Posterior distributions with medians & 95% uncertainty intervals")
+  scale_y_discrete(labels = labels_alt, limits = rev) +
+  theme(panel.background = element_rect(fill = "white"),
+        axis.line = element_line(color = "black"))
+
+ggsave(here::here("doc", "manuscript", "figures", "mcmc_areas_m2b.png"), bg = "white", width = 7, height = 4)
 
 mean(bayes_R2(m2b))
-```
-
-##### Save plot
-
-```{r}
-ggsave(here::here("doc", "manuscript", "figures", "mcmc_areas_m2b.png"), bg = "white", width = 7, height = 4)
 ```
 
 #### Model with standardized predictors, translocation_id grouping variable
@@ -781,7 +777,10 @@ labels_alt <- c("donor_72996", "donor_70567", "sex_male", "order_first", "elevat
 mcmc_areas(m1d, area_method = "equal height", prob = 0.95, pars = b1) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +
   scale_y_discrete(labels = labels_alt, limits = rev) +
-  theme(plot.background = element_rect(fill = "white", color = "white"))
+  theme(panel.background = element_rect(fill = "white"),
+        axis.line = element_line(color = "black"))
+
+ggsave(here::here("doc", "manuscript", "figures", "mcmc_areas_m1d.png"), width = 5, height = 5)
 
 mean(bayes_R2(m1d))
 
@@ -793,12 +792,6 @@ mcmc_areas_ridges(m1d, regex_pars = "translocation_id") +
 
 -   Based on loo, model with translocation_id as grouping variable provides slightly better fit than model with site_id as grouping variable.
 -   Based on 95% uncertainty intervals, important predictors are similar to those in model without grouping variable: snowt1_z, elev_z, male_c0.548, donor72996.
-
-#### Save plot
-
-```{r}
-ggsave(here::here("doc", "manuscript", "figures", "mcmc_areas_m1d.png"), width = 5, height = 5)
-```
 
 ### Model using standardized predictors and 2 grouping variables: translocation_id nested within site_id)
 
