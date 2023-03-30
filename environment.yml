@@ -1,0 +1,29 @@
+name: r_env_translocation
+channels:
+ - conda-forge
+dependencies:
+  - r-base=4.2
+  - r-data.table 
+  - r-rstan 
+  - r-ggplot2 
+  - r-magrittr 
+  - r-rstan
+  - r-lubridate
+  - r-tidyverse
+  - r-coda
+  - r-mvtnorm
+  - r-devtools
+  - r-loo
+  - r-dagitty
+  - r-tmap
+  - r-RPostgreSQL
+  - r-DBI
+  - r-here
+  - r-rstanarm
+  - r-tidybayes
+  - r-broom.mixed
+  - r-janitor
+  - r-stars
+  - r-patchwork
+  - r-brms
+  - r-arm

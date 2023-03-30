@@ -1,22 +1,7 @@
-# Makefile for translocation analysis and population analysis for the manuscript
+# Makefile for translocation analysis and population viability analysis for the manuscript
 # 
-#
-# This makefile has been successfully run on a MacBook pro with Big Sur and a Linux
+# This makefile has been successfully run on a MacBook Pro (M1 chip) running Ventura and a Linux
 # machine running Ubuntu.
-# 
-# 
-# Instructions
-# ------------
-# 1. First, run `make install_packages` to ensure that you have the necessary packages
-#    installed in your R environment.  Note that on a Linux machine, you will likely
-#	 need to install additional command-line packages to successfully install the
-#	 devtools R package.  The error message you get will probably tell you what packages
-#	 you need to install. You can also open up R and install each of the packages listed
-#	 in your R environment if you are getting errors from install_packages.
-# 2. To run all of the analyses, type `make all`
-# 2. To run only the translocation analysis execute `make trans_analysis`
-# 3. To run only the viability analysis execute `make viability_analysis`
-# 4. To clean you directory of extraneous files execute `make clean`
 
 ############## RUN ALL ANALYSIS ###################################
 
