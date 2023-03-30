@@ -1,7 +1,7 @@
 ---
 bibliography: translocation.bib
 csl: pnas.csl
-format: docx
+format: pdf
 editor: visual
 ---
 
@@ -68,7 +68,7 @@ To date, the use of resistant individuals for species recovery is rare [but see 
 
 There are four conditions that will often determine the feasibility of using individuals from populations that are recovering following disease-induced declines to reestablish extirpated populations.
 First, populations that survived following disease arrival have evolved increased resistance.
-Second, increased resistance contributes to higher individual fitness in the presence of disease and allows positive population growth.
+Second, increased resistance contributes to higher individual fitness in the presence of disease <!--# "disease" or "the pathogen"? Resistance could convey complete prevention of disease, so I often struggle with which word to use -->and allows positive population growth.
 Third, the fitness benefits gained through selection for increased resistance manifest beyond the natal environment and are maintained across generations, allowing for the establishment of reintroduced populations.
 And fourth, reintroduced populations show long-term growth and persistence.
 To date, few of these conditions are documented for any single species impacted by disease, and as a result the reintroduction of resistant hosts as a means to recover species of conservation concern remains largely an untested idea [@scheele2021; @mendelson2019].
@@ -81,13 +81,19 @@ Although this decline was initiated by the introduction of non-native trout into
 These Bd-caused declines are fundamentally different from the fish-caused declines because removal of fish populations is feasible and results in the rapid recovery of frogs [@knapp2007; @vredenburg2004].
 In contrast, Bd appears to persist in habitats even in the absence of amphibian hosts [@walker2007], and therefore represents a permanent alteration of invaded ecosystems that amphibians will need to overcome to reestablish populations.
 
-<!--# Roland will address some of Bree's points here -->Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are driven to extirpation following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
+Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are driven to extirpation following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
 Frogs in these recovering populations show reduced susceptibility to Bd infection, consistent with selection for more resistant genotypes [@knapp2016].
 Furthermore, exploratory efforts to reintroduce frogs collected from recovering populations to sites from which frogs were previously extirpated indicate that population establishment is possible despite ongoing Bd infection [@joseph2018].
-Here, we report the results of (i) an analysis to evaluate genomic signatures of selection following MYL frog exposure to Bd, (ii) a greatly expanded MYL frog reintroduction effort, and (iii) population viability modeling to assess the long-term persistence of reintroduced populations.
-Collectively, the results show that MYL frogs generally meet the four conditions for reintroduction feasibility outlined above, and provide a novel example of how the reintroduction of resistant frogs can allow the large-scale recovery of this disease-impacted amphibian.
-These results may have broad implications for the many species worldwide that are threatened with extinction by emerging diseases.
+
+In the current study, we combine results from novel <!--# better adjective than "novel" --> genomic analyses, a 15-year landscape-scale frog reintroduction effort, and detailed population models to provide an unprecedented example of how evolutionary rescue in response to disease allows the successful reestablishment of extirpated MYL frog populations, and that these populations have a high probability of long-term persistence despite ongoing Bd infection.
+Specifically, we used exome capture methods to show that MYL frogs have undergone substantial evolutionary change associated with Bd exposure and that may provide a genetic basis for the observed reduced susceptibility/increased resistance to Bd infection observed in recovering populations [@vredenburg2010] <!--# How best to make the jump from "reduced susceptibility" to "increased resistance"? -->.
+We then reintroduce these resistant frogs to 24 sites and describe the dynamics and drivers of population establishment using results from long-term capture-mark-recapture (CMR) surveys.
+These data are also used to parameterize population models that extend our inferences of population viability well beyond the multi-year extent of the CMR data.
+Collectively, these results provide one of the first examples of how evolutionary rescue and the reintroduction of resistant animals can allow the large-scale recovery of disease-impacted species, with potentially broad implications for the many taxa worldwide that are threatened with extinction by emerging diseases.
+
 <!--# Bree comment: All of this was written before we knew the genomics had something cool to say. But now that the genomics feel a bit more elevated, I think this paragraph should be more bold. For example, we might want more here or in the Discussion to make it clear how the results of each of these sections are super important on their own. And that combining them is really amazing. I think the current tone is appropriately factual, but at some point we need to be louder about the novelty involved and the incredible amount of work that this represents.  This version feels like, we did a,b,c and so MYLF meet the conditions for feasibility (which makes it sound like we've only just gotten to the *starting* point of the study. I think we need to go further than saying they meet the four conditions of a specific conservation action. This is where beefing up the conclusions about evolutionary rescue seem appropriate. Also, genomic analyses typically come last in our papers as a dive into possible mechanistic explanations for observed patterns in the field. I think the order of the primary sections makes sense given the way you set up the argument about evolutionary rescue. That said, the order combined with the tone feels like it's contributing to the sense that the genomics are a box to be checked rather than contributing something exciting to the overall story. Now that Allie has added new analyses, I think we could make a slightly bolder set-up about how the parts fit together to make a surprisingly strong whole -->
+
+<!--# Original pre-edit text from the above paragraph: Here, we report the results of (i) an analysis to evaluate genomic signatures of selection following MYL frog exposure to Bd, (ii) a greatly expanded MYL frog reintroduction effort, and (iii) population viability modeling to assess the long-term persistence of reintroduced populations. Collectively, the results show that MYL frogs generally meet the four conditions for reintroduction feasibility outlined above, and provide a novel example of how the reintroduction of resistant frogs can allow the large-scale recovery of this disease-impacted amphibian. These results may have broad implications for the many species worldwide that are threatened with extinction by emerging diseases. -->
 
 ### Results
 
@@ -311,9 +317,8 @@ Thus, there is some trend in our improved ability to select appropriate habitat 
     -   Successful reestablishment of extirpated populations via translocation despite ongoing Bd infection.
     -   Evidence for long-term viability of reestablished populations.
 
-```{=html}
 <!-- -->
-```
+
 2.  Evolutionary rescue: We provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for observed resistance.
     -   Epidemiological conditions in MYL-Bd systems X, Y, and Z are conducive to evolutionary rescue.
     -   Differences in allele frequencies exist between adjacent Bd-naive and recovering populations.
