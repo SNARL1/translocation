@@ -81,7 +81,9 @@ Although this decline was initiated by the introduction of non-native trout into
 These Bd-caused declines are fundamentally different from the fish-caused declines because removal of fish populations is feasible and results in the rapid recovery of frogs [@knapp2007; @vredenburg2004].
 In contrast, Bd appears to persist in habitats even in the absence of amphibian hosts [@walker2007], and therefore represents a permanent alteration of invaded ecosystems that amphibians will need to overcome to reestablish populations.
 
-<!--# Roland will address some of Bree's points here -->Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are driven to extirpation following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
+<!--# Roland will address some of Bree's points here -->
+
+Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are driven to extirpation following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
 Frogs in these recovering populations show reduced susceptibility to Bd infection, consistent with selection for more resistant genotypes [@knapp2016].
 Furthermore, exploratory efforts to reintroduce frogs collected from recovering populations to sites from which frogs were previously extirpated indicate that population establishment is possible despite ongoing Bd infection [@joseph2018].
 Here, we report the results of (i) an analysis to evaluate genomic signatures of selection following MYL frog exposure to Bd, (ii) a greatly expanded MYL frog reintroduction effort, and (iii) population viability modeling to assess the long-term persistence of reintroduced populations.
@@ -93,7 +95,8 @@ These results may have broad implications for the many species worldwide that ar
 
 #### Frog evolution in response to Bd
 
-To identify putative genes under selection and potentially related to increased frog resistance to Bd, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure.
+To assess whether frog populations display an evolutionary response to Bd invasion, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure.
+Our goal was to identify putative genes under selection and potentially related to increased frog resistance to Bd.
 Specifically, we compared genomes of frogs sampled in four populations that have never experienced a Bd-caused epizootic ("naive") versus in five populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees (@fig-selectionresults A: SI) [@knapp2016; @vredenburg2010].
 These "recovering" populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection intensities ("load") in adults that are typically well below the level expected to cause frog mortality [@knapp2011, @vredenburg2010].
 <!--# Modify text/remove text here/elsewhere to avoid repetition of this. --> Bd-exposure histories of these populations are based on a decade or more of data from visual encounter surveys and Bd surveillance using skin swabbing [e.g., @knapp2016].
@@ -311,9 +314,8 @@ Thus, there is some trend in our improved ability to select appropriate habitat 
     -   Successful reestablishment of extirpated populations via translocation despite ongoing Bd infection.
     -   Evidence for long-term viability of reestablished populations.
 
-```{=html}
 <!-- -->
-```
+
 2.  Evolutionary rescue: We provide five lines of evidence that evolutionary rescue is a strong candidate mechanism for observed resistance.
     -   Epidemiological conditions in MYL-Bd systems X, Y, and Z are conducive to evolutionary rescue.
     -   Differences in allele frequencies exist between adjacent Bd-naive and recovering populations.
@@ -367,14 +369,14 @@ Our final dataset included 50 samples (23 from naive and 27 from persistent/reco
 ##### Data Analysis
 
 To visualize the genomic relationship of our populations we created a PCA using the glPCA function in the adegenet R package [@jombart2008].
-Next, to detect regions of the genome under selection between naive and persistent populations, we used a multivariate linear mixed model as implemented in the program GEMMA [@zhou2014] <!--# Improve wording in this and subsequent paragraph to clarify that the two approaches were used to identify regions under selection. -->.
+Next, to detect regions of the genome under selection between naive and persistent populations, we used a multivariate linear mixed model as implemented in the program GEMMA [@zhou2014] <!--# Improve wording in this and subsequent paragraph to clarify that the two approaches were used to identify regions under selection.  For example, for use genomics dummies it would be useful to see something like: "We used two related approaches to identify regions under selection. The first approach A, did X, Y, and Z but had C limitations.  The second approach B, did X, Y, and Z and D limitations."-->.
 GEMMA calculates and incorporates a relatedness matrix for input samples, allowing us to account for relatedness and population structure when calculating likelihood ratio statistics for our association test.
 For this analysis we used a stringent data filter to include only SNPs with \<5% missing data (missing for no more than 2 individuals).
-GEMMA then calculated the likelihood ratio statistic for the set of 148,307 high quality SNPs across 127 contigs.
+GEMMA then calculated the likelihood ratio statistic <!--# What is the null with this test (or what are the two models being compared with the LRT)?  Probably obvious for genomics folks, but not totally clear to me.  I am guessing we are testing whether the `population` coefficient (naive vs. persistent) is significant for describing variability in a SNP? --> for the set of 148,307 high quality SNPs across 127 contigs.
 We then calculated two statistical thresholds for identifying outliers using a Bonferroni correction for a significance level of 0.05 (liberal set) and 0.01 (stringent set).
-Results were visualized using a Manhattan plot and qqplot.
+<!--# Could we say something like: "Outliers indicated that a SNP was differently represented in naive vs. persistent populations" or whatever is the correct language." --> Results were visualized using a Manhattan plot and qqplot.
 
-To detect regions of the genome under selection <!--# Improve wording -->, we conducted a splined window analysis for two statistics: *F~ST~* and differential nucleotide diversity ($\pi_{diff}$) between frogs from naive and recovering populations.
+To detect regions of the genome under selection <!--# Improve wording.  Also, can we contrast this with the previous approach? What is this analysis doing that the other one didn't? -->, we conducted a splined window analysis for two statistics: *F~ST~* and differential nucleotide diversity ($\pi_{diff}$) between frogs from naive and recovering populations.
 First, we calculated per-site F~ST~ between the naïve and recovering individuals for all bi-allelic SNPs in the 30 largest contigs (98% of all SNPs) using VCFtools [@danecek2011].
 Next, we calculated per-site $\pi$ separately for individuals from the naive and recovering populations individuals using VCFtools, then calculated $\pi_{diff}$ for each population ($\pi_{diff} = \pi_{naive} - \pi_{recovering}$).
 We concatenated the values for F~ST~ and $\pi_{diff}$ in order of size-sorted chromosome number and adjusted the SNP position based on the relative position in the genome.
