@@ -37,7 +37,7 @@ Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tr
 	- See https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file.
 3. Activate the environment in the terminal
 	- `conda activate r_env_translocation`
-4. NOTE: You don't have to use the conda environment and can use your native R build. Just ensure you have the packages installed that are listed in the environmental.yml file.
+4. NOTE: You don't have to use the conda environment and can use your native R build. Just ensure you have the packages installed that are listed in the `environment.yml` file.
  
 ### Running the Makefile
 
