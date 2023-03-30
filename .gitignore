@@ -1,6 +1,7 @@
 working/
 _extensions/
 doc/notebook/notebook_translocation_files/
+_extensions/
 .Rproj.user
 *.Rproj
 .Rhistory
@@ -12,6 +13,8 @@ doc/notebook/notebook_translocation_files/
 *.aux
 *.out
 *.docx
+Rplots.pdf
+code/Rplots.pdf
 
 code/translocation_survival_analysis.knit.md
 code/translocation_survival_analysis.nb.html
