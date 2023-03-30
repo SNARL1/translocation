@@ -6,7 +6,7 @@
 ############## RUN ALL ANALYSIS ###################################
 
 .PHONY: all
-all: $(OUTPUTS_ALL) $(VIABILITY_OUTPUT)
+all : $(OUTPUTS_ALL) $(VIABILITY_OUTPUT)
 
 ###################################################################
 
@@ -59,7 +59,6 @@ $(OUTPUT5): $(DEPEND4) $(DEPEND5)
 	
 # The script `create_R_scripts.R` only needs to run once to create all .R files for this Makefile, currently is run in each rule. Can this be improved?
 # Removal of SCRIPT3 is not occurring, perhaps due to problem in terminating parallel processing (described in GitHub issue). 
-
 
 $(OUTPUT6): $(DEPEND6) $(DEPEND7) $(DEPEND8) $(DEPEND9) $(DEPEND10)
 	Rscript $(SCRIPT1); \
