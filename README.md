@@ -34,7 +34,7 @@ Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tr
 1. Install the package manager anaconda or miniconda (https://docs.continuum.io/anaconda/install/).
 2. Build the conda environment specified in the environmental.yml to install most of the R packages needed to run the analysis.  This can be done on the command line using the command
 	- `conda env create -f environment.yml`.  
-	- See https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file.
+	- See [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file).
 3. Activate the environment in the terminal
 	- `conda activate r_env_translocation`
 4. NOTE: You don't have to use the conda environment and can use your native R build. Just ensure you have the packages installed that are listed in the `environment.yml` file.
@@ -43,9 +43,9 @@ Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tr
 
 1. First, run `make install_packages` to ensure that you have the necessary packages installed in your R environment.
 2. To run all of the analyses, type `make all` in the command line.
-2. To run only the translocation analysis execute `make trans_analysis` in the command line.
-3. To run only the viability analysis execute `make viability_analysis` in the command line.
-4. To clean you directory of extraneous files execute `make clean` in the command line.
+3. To run only the translocation analysis execute `make trans_analysis` in the command line.
+4. To run only the viability analysis execute `make viability_analysis` in the command line.
+5. To clean you directory of extraneous files execute `make clean` in the command line.
 
 ## Contact
 

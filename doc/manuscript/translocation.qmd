@@ -99,40 +99,48 @@ Collectively, these results provide one of the first examples of how evolutionar
 
 #### Frog evolution in response to Bd
 
-To assess whether frog populations display an evolutionary response to Bd invasion, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure.
-Our goal was to identify putative genes under selection and potentially related to increased frog resistance to Bd.
-Specifically, we compared genomes of frogs sampled in four populations that have never experienced a Bd-caused epizootic ("naive") versus in five populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees (@fig-selectionresults A: SI) [@knapp2016; @vredenburg2010].
-These "recovering" populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection intensities ("load") in adults that are typically well below the level expected to cause frog mortality [@knapp2011, @vredenburg2010].
+To assess whether frog populations have displayed an evolutionary response following Bd invasion, we used exome capture methods to compare genomes of frogs in populations with different histories of Bd exposure.
+Our goals were to identify putative genes and regions of the genome under selection and assess whether these genes could be related to increased frog resistance to Bd.
+Specifically, we compared genomes of frogs sampled in four populations that have never experienced a Bd-caused epizootic ("naive") versus in five populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("persistent"; @fig-selectionresults A: SI) [@knapp2016; @vredenburg2010].
+These recovering populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and Bd infection intensities ("load") in adults that are typically well below the level expected to cause frog mortality [@knapp2011, @vredenburg2010].
 <!--# Modify text/remove text here/elsewhere to avoid repetition of this. --> Bd-exposure histories of these populations are based on a decade or more of data from visual encounter surveys and Bd surveillance using skin swabbing [e.g., @knapp2016].
 Comparing populations with different infection histories allowed larger sample sizes and replication across the landscape.
 The alternative approach of comparing samples from the same populations before and after Bd exposure isn't feasible in this system because Bd arrived in most MYL frog populations decades ago and population persistence/recovery is rare and unpredictable.
 As a result, samples from recovering populations collected from before and after Bd exposure are not available and are unlikely to be available in the future.
-To detect regions of the genome under selection, we compared exome sequences of frogs from naive and recovering populations using (1) a multivariate linear mixed model to evaluate associations between population type and individual variants, and (2) a splined window approach to evaluate larger genomic regions showing differentiation between population types <!--# Reverse the order of these two objectives? -->.
-We then identified outlier variants using a Bonferroni-corrected significance level for single SNPs (liberal = 0.05, stringent = 0.01) , or a threshold for the W-statistic for the splined window analysis (4 standard deviations from the mean).
 
-The samples clustered into three separate groups in principal component space, each containing at least one population from both the naive and recovering groups (@fig-selectionresults B: SI).
+To detect regions of the genome under selection, we used three complementary approaches that together describe the evolutionary response of frog populations to Bd.
+First, we used a multivariate linear mixed model to evaluate associations between population type (i.e., naive vs. persistent) and individual variants.
+Second, we used a splined window approach to evaluate larger genomic regions showing differentiation between population types <!--# Reverse the order of these two objectives? Mark here:  I am actually liking the ordering of the objectives now. -->.
+Finally, we assessed whether putative genes or genomics regions that showed strong evidence of selection were associated with biological functions consistent with possible resistance mechanisms.
+<!--# Could we move the following sentence to the methods? --> We then identified outlier variants using a Bonferroni-corrected significance level for single SNPs (liberal = 0.05, stringent = 0.01) , or a threshold for the W-statistic for the splined window analysis (4 standard deviations from the mean).
+
+Regarding our first analysis, individual frogs clustered into three separate groups in principal component space, each containing at least one population from both the naive and recovering groups (@fig-selectionresults B: SI).
+The clustering reflected the strong signature of spatial proximity on genetic structure, as has been previously documented with this species <!--# Is this true? -->.  We then identified outlier variants using a Bonferroni-corrected significance level for single SNPs (liberal = 0.05, stringent = 0.01).
 The liberal set of variants contained 38 outliers (35 SNPs and 3 structural variants) from 30 distinct genes across 16 contigs (@fig-selectionresults C, D: SI).
-One gene in this group does not have an associated annotation.
-No biological functions, molecular functions, or cellular processes were significantly overrepresented in the set of 29 annotated outlier genes.
 The stringent set contained 11 outlier SNPs from 7 distinct genes across 4 contigs (@fig-selectionresults C, D: SI, Table 2: SI <!--# add this table -->).
 For these SNPs, frequency differences between the persistent and recovering groups ranged from 41% to 86%.
 Most SNPs in the stringent set showed frequency differences in only a subset of the sampled populations (@fig-allelefrequencies A, B) and the patterns may be confounded by frog relatedness and/or population structure despite the methods we used to account for these factors.
 However, the outlier SNP in the RIN3 gene showed consistent differences in frequencies across all populations (@fig-allelefrequencies C), suggestive of strong selection at this locus associated with exposure of frogs to Bd.
+No biological functions, molecular functions, or cellular processes (i.e., GO terms) were significantly overrepresented in the set of 29 annotated outlier genes.
 
-In the splined window analysis, we identified regions of the genome that had both high differentiation (*F~ST~*) and a large difference in nucleotide diversity between naive and persistent populations ($\pi_{diff}$ = $\pi_{naive}$ - $\pi_{recovering}$) <!--# Change to delta pi instead of pi_diff? -->.
+Our second analysis used a splined window to identify regions of the genome under selection.
+We found regions of the genome that had both high differentiation (*F~ST~*) and a large difference in nucleotide diversity between naive and persistent populations ($\pi_{diff}$ = $\pi_{naive}$ - $\pi_{recovering}$) <!--# Change to delta pi instead of pi_diff? -->.
 We identified 58 outlier windows for F~ST~ and 33 outlier windows for $\pi_{diff}$ (@fig-spline-manhattan A, B).
-Of these, 9 regions were outliers in both analyses and two of these shared regions also contained outlier SNPs.
+Of these, 9 regions were outliers for both metrics and two of these shared regions also contained outlier SNPs.
 A total of 33 annotated genes were found in the 9 shared regions and no GO terms were overrepresented within this set of genes (Table 3: SI <!--# add this table -->).
-The strongest signal for a reduction in $\pi$ in recovering populations (highest $\pi_{diff}$) occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
+The strongest signal for a reduction in $\pi$ in recovering populations (highest $\pi_{diff}$), occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
 This region contains \~500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1).
 Additionally, a shared outlier region on Contig1 contained two complement factor genes (C6 and C7).
-Interestingly, this region had higher $\pi_{diff}$ in the recovering populations, consistent with a pattern of balancing selection.
+Interestingly, this region had higher $\pi$ in the recovering populations, consistent with a pattern of balancing selection.
 Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) ([#fig-spline-manhattan](#fig-spline-manhattan) D).
 This region (854kb from the beginning of the outlier windows to the VARS SNP) contained a total of 10 annotated genes.
 In *Xenopus*, four of these genes occur in the extended MHC Class I region (FLOT1, TUBB, MDC1,TCF19) and three occur in the extended MHC Class II region (HSP70, LSM2, VARS) [@ohta2006].
-Therefore, we conclude that this candidate region under selection is a part of the extended MHC Class I and II complex and shows synteny with other amphibian genomes.
+<!--# Here or in the discussion we will need to place this result in the context of previous work on MHC in amphibians.  Readers not familiar with amphibian-Bd systems might miss the importance of this result --> Therefore, we conclude that this candidate region under selection is a part of the extended MHC Class I and II complex and shows synteny with other amphibian genomes.
 
-<!--# Need summary of importance of genetic results, also need better integration of different selection  results -->
+Together, our genomics results show that persistent populations have strong signatures of selection on multiple genes and regions of the genome.
+While the functions of all genes and regions showing signatures of selection were not clearly interpretable biologically, regions of the genome associated with resistant phenotypes in other amphibian systems such as the extended MHC Class I, showed strong evidence of selection in persistent MYL frog populations.
+
+<!--# Need summary of importance of genetic results, also need better integration of different selection  results.  Mark W: I took a crack at this to test my naive understanding of the genetic results. Figured I could be a good test case of how a genetically naive reader would summarize the key results, to see if our genomic message is coming across clearly. -->
 
 <!--# Figure edits:  selectionresults: Capitalize panel labels, label liberal and stringent outlier sets. outlier map: Rearrange panels to put RIN3 last? Relocate pie charts to avoid the perception that all recovering populations are west of naive populations, add A, B, C labels to panels. -->
 
@@ -309,7 +317,6 @@ To test the validity of our model predictions, we demonstrated that our stochast
 Overall, our model demonstrates that given observed yearly adult survival probabilities of resistant frogs in non-natal locations, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
 Moreover, five of the seven populations translocated after 2013 were predicted to have long-term viability, compared to only one of five populations translocated prior to 2013.
 Thus, there is some trend in our improved ability to select appropriate habitat to promote long-term viability of translocated, resistant populations.
-<!--# Mark here: Just figured I would point this out. This is trending in the right direction, but there isn't strong statistical evidence that these two proportions differ.  I tried to phrase this carefully. -->
 
 ### Discussion
 
@@ -554,7 +561,7 @@ We varied the mean recruitment probability $\omega$ from 0.15 and 0.4 and drew v
 Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery.
 We focused on population 70550 because this was our longest CMR time series for a translocated population and because this population shows evidence of substantial post-translocation increases in adult abundance associated with population establishment and recovery.
 We simulated our model for 16 years, repeating the simulation 50,000 times.
-For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or a beta distribution with mean 0.5 and $\phi = 2$) <!--# Why 2 distributions? When was one used versus the other? Or are these 2 distributions equivalent? -->.
+For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or equivalently a beta distribution with mean 0.5 and $\phi = 2$).
 Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
 The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
