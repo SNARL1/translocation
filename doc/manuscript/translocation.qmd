@@ -114,7 +114,7 @@ Finally, we assessed whether putative genes or genomics regions that showed stro
 <!--# Could we move the following sentence to the methods? --> We then identified outlier variants using a Bonferroni-corrected significance level for single SNPs (liberal = 0.05, stringent = 0.01) , or a threshold for the W-statistic for the splined window analysis (4 standard deviations from the mean).
 
 Regarding our first analysis, individual frogs clustered into three separate groups in principal component space, each containing at least one population from both the naive and recovering groups (@fig-selectionresults B: SI).
-The clustering reflected the strong signature of spatial proximity on genetic structure, as has been previously documented with this species <!--# Mark wrote this...confirm validity -->.
+The clustering reflected the strong signature of spatial proximity on genetic structure, as has been previously documented with this species <!--# Mark W wrote this...confirm validity -->.
 We then identified outlier variants using a Bonferroni-corrected significance level for single SNPs (liberal = 0.05, stringent = 0.01).
 The liberal set of variants contained 38 outliers (35 SNPs and 3 structural variants) from 30 distinct genes across 16 contigs (@fig-selectionresults C, D: SI).
 The stringent set contained 11 outlier SNPs from 7 distinct genes across 4 contigs (@fig-selectionresults C, D: SI, Table 2: SI <!--# add this table -->).
@@ -313,45 +313,69 @@ These six populations all had observed yearly adult survival greater than 0.5.
 When we reduced the probability of successful recruitment $\omega$ to 0.1 (a highly conservative estimate), long-run growth rate of five of these six populations was still greater than 1 (@fig-viability A).
 In contrast, for the other six translocated populations, where yearly adult survival was substantially less than 0.5, our model predicted that it was unlikely that long-run growth rate in these populations was greater than 1, even when the probability of successful recruitment to the adult life stage was near 0.4 (@fig-viability A).
 A sensitivity analysis of long-run growth rate $\lambda$ to recruitment probability $\omega$ and yearly adult survival probability of naturally recruited individuals $\sigma_{A_R}$ showed that $\lambda$ was most sensitive to small changes in $\sigma_{A_R}$ (@fig-viability-supp A).
-<!--# May need to add some text early in this section to clarify why so far in this manuscript we have focused on yearly survival probability of translocated adults, but the model focuses more on yearly survival probability of naturally recruited adults (e.g., in the sensitivity analysis, etc.). It is my understanding that you are generally assuming that these two probabilities are equivalent and interchangable, but additional clarification would be helpful. Might also require some clarification in Table 2. You describe this in more detail in the Methods, but it seems that some additional clarification might be helpful here. -->
+Note that we assumed $\sigma_{A_R}$ was equivalent to the survival probability of translocated adults $\sigma_{A_T}$, except for three populations where we had \>5 years of CMR data and recovering populations that together allowed us to estimate $\sigma_{A_R}$ and $\sigma_{A_T}$ separately (@fig-compare_surv_probs SI).
 
-Given demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of juvenile recruitment to the adult class $\omega$ (the transition that we expect to be the most subject to environmental stochasticity in the presence of Bd), our model <!--# Is this a different model, now with demographic stochasiticity and environmental variability in juvenile recruitment, or the same model used to estimate lamda in the previous paragraph? Clarify. I know from the Methods that you developed different versions of the model, some deterministic and some stochastic, but some clarification might be useful here too. -->predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of less than 1 (@fig-viability B).
-Therefore, even under conservative assumptions about recruitment probability $\omega$, these populations had some probability of persistence over 50 years following a single introduction.
-<!--# The wording in the previous two sentences seems overly cautious in describing the extinction probability (i.e., "less than 1", "some probability of persistence". In fact, as the next sentence makes clear, for reasonable probabilities of recruitment, the extinction probabilities are substantially less than 1. Consider tweaking wording to clarify this. I'd argue for a relatively strong initial statement that we then fine tune only slightly, instead of a weak statement that we then strengthen a lot. Initial impressions can be hard to change. --> For these six populations, as $\omega$ increased from 0.1 to 0.3, 50 year extinction probability was less 0.5 <!--# Based on Fig. 5, looks like extinction propability is < 0.5 for all six populations only for omega > ~0.22. Reword as necessary. -->, indicating strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment success (@fig-viability B).
+We then included demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of juvenile recruitment to the adult class $\omega$ (the transition that we expect to be the most subject to environmental stochasticity in the presence of Bd) into our model described above and used it to predict long-term population viability.
+Our model predicted that, following a single introduction of 40 adult individuals into a population, three of six populations with the highest adult survival probabilities had 50-year extinction probabilities less than 0.5 with our most conservative estimate of $\omega = 0.15$ (@fig-viability B).
+As $\omega$ increased from 0.15 to 0.3 <!--# 0.3 is the vertical line on the figure, so I think it makes sense to keep this upper bound in the statement. -->, 50 year extinction probability was less 0.5 for all six populations indicating strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment success (@fig-viability B).
 In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability-supp B; population 70550, surveyed for 16 years).
 Overall, our model demonstrates that given observed yearly adult survival probabilities of resistant frogs in non-natal locations, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
-Moreover, five of the seven populations translocated after 2013 were predicted to have long-term viability, compared to only one of five populations translocated prior to 2013.
+This is likely a conservative estimate because there is evidence that naturally recruited adults have higher survival probability than translocated adults (@fig-compare_surv_probs SI), but we considered these probabilities to be equal in all but three of our populations where we had sufficient data to distinguish these different probabilities.
+Finally, five of the seven populations translocated after 2013 were predicted to have long-term viability, compared to only one of five populations translocated prior to 2013.
 Thus, there is some trend in our improved ability to select appropriate habitat to promote long-term viability of translocated, resistant populations.
-
-<!--# Is it worth mentioning that predictions may be conservative because yearly survival probability of naturally recruited animals may be higher than yearly survival probability of the translocated animals that was used to parameterize model (Figure 12). -->
 
 ### Discussion
 
-Disease-induced declines are a central conservation challenge for wildlife and identifying biologically grounded strategies for assisted recovery is a critical need across systems.
-One such strategy requires leveraging disease-induced genetic changes in host populations and so-called evolutionary rescue to recover a species at the landscape scale.
-While this strategy has been previously proposed, it has never been successfully implemented.
-Here, we provide strong evidence that selection for resistance and evolutionary rescue has led to the recovery of some populations of the endangered MYL frog in the presence of a deadly fungal pathogen.
-Leveraging individuals from these resistant and rescued populations, we use 15 years of translocation effort and population viability modeling to demonstrate that populations that have experienced evolutionary rescue can be used to successfully establish and recover this species across the landscape.
-These results not only provide a rare example of species recovery following disease-induced declines due heritable changes in resistance, but provide the first demonstration of how natural evolutionary rescue can be leveraged to successfully recover a species in the presence of disease.
+Disease-induced declines are a central conservation challenge for wildlife and identifying biologically grounded strategies for assisted recovery is a critical need.
+One potential strategy requires leveraging disease-induced genetic changes in host populations and so-called evolutionary rescue to recover a species at the landscape scale.
+While previously proposed (Mendelson), this strategy has never been successfully implemented in wildlife disease systems.
+Here, we provide strong evidence that selection for resistance and evolutionary rescue has led to the recovery of populations of the endangered MYL frog in the presence of a deadly fungal pathogen.
+Leveraging individuals from these resistant, rescued populations, 15 years of translocation effort and associated population viability modeling demonstrate that populations that have experienced evolutionary rescue can be used to successfully establish and recover this species across the landscape.
+These results not only provide a rare example of species recovery following disease-induced declines due heritable changes in resistance, but provide the first demonstration of how natural evolutionary rescue can be used to successfully recover a species in the presence of disease.
 
-While evolutionary rescue is not the only mechanism that can lead to host recovery in the presence of disease (Brannely), there are four lines of evidence that evolutionary rescue is a strong candidate mechanism for observed resistance and recoveries in MYL frog systems.
-First, in host-pathogen systems, evolutionary rescue is more likely to occur when hosts experience repeated selection events (e.g., through re-infections), there is a persistent pathogen reservoir or frequency-dependent infection dynamics, and populations experience increased per capita birth rates at small population sizes [@golas2021].
-At least two of these conditions are met in the MYL frog system: i) individuals that recover from Bd infection do not gain long-lasting immunity to Bd and are susceptible to re-infection and ii) there are potential Bd reservoirs (Briggs, Reeder) and seasonal frequency-dependent transmission dynamics (Wilber) in the MYL frog system.
-Thus, MYL frog-Bd systems have the epidemiological characteristics necessary for evolutionary rescue to occur.
+Effectively leveraging evolutionary rescue for landscape-level species recovery requires strong evidence that evolutionary rescue is the mechanism of recovery.
+In MYL frog systems there are four lines of evidence that support evolutionary rescue as primary mechanism of recovery.
+First, in host-pathogen systems evolutionary rescue is more likely to occur when hosts experience repeated selection events (e.g., through re-infections), there is a persistent pathogen reservoir or frequency-dependent infection dynamics, and populations experience increased per capita birth rates at small population sizes [@golas2021].
+At least two of these conditions are met in the MYL frog system: i) individuals that recover from Bd infection do not gain permanent immunity to Bd and are susceptible to re-infection (Knapp, PeerJ) and ii) there are potential Bd reservoirs (Briggs, Reeder) and seasonal frequency-dependent transmission dynamics (Wilber) in the MYL frog system.
 Second, our genomic analyses comparing naive and recovering MYL frog populations identified notable differences in allele frequencies between adjacent Bd-naive and recovering population.
-These differences are consistent with strong signatures of selection and regions of the genome under selection are associated with known mechanisms of resistance to Bd infection.
-Third, our translocations allowed us to conclude that observed resistance and recovery of resistant populations is not strictly due to local environmental conditions (though environment does play a role).
-Changes in population growth rate due to evolved resistance extend beyond the natal environment and into subsequent generations, as demonstrated by high survival rates of translocated frog populations in new habitats in the presence of Bd.
-Finally, evolved resistance has a quantifiable phenotype.
-In persistent populations and those established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics).
-While other studies have documented signatures of selection in hosts following disease-induced declines (Epstein, white-nose, Byrne), our study is unique in that we show that evolved resistance is associated with population recovery in both natal and non-natal habitats, providing an actionable strategy for promoting the long-term viability of a species.
+These differences are consistent with strong selection and some regions of the genome under selection are associated with known cellular mechanisms associated with resistance, such those related amphibian immune responses \[vague\].
+Third, our translocations and long-term monitoring have allowed us to demonstrate that evolved resistance extends beyond the natal environment and into subsequent generations, as demonstrated by high survival rates of translocated frog populations in new habitats in the presence of Bd.
+Finally, resistance can be statistically quantified --- in persistent populations and those established via translocation of frogs from recovering populations, Bd load is not an important predictor of post-translocation frog survival (in contrast to important relationship between Bd load and frog survival during Bd-caused epizootics).
+While other studies have documented signatures of selection in hosts following disease-induced declines (Epstein, white-nose, Byrne), few have demonstrated evolutionary rescue: disease-induced selection of host defenses and subsequent host recovery.
+Our study is unique in that we provide strong evidence that evolved resistance begets population recovery in both natal and non-natal habitats, consistent with evolutionary rescue.
 
-Despite the results we present here, recovery of Bd-impacted amphibians worldwide is expected to be challenging at best.
+The ability to harness evolutionary rescue to promote species recovery across a landscape of disease has critical implications for the conservation for MYL frogs.
 
--   Hundreds of declining species, but mostly failed attempts at recovery.
-    Failures may be due in part to a general inability by amphibians to mount an effective immune response against Bd infection.
-    In contrast, in our study MYL frogs (a species highly susceptible to chytridiomycosis) showed relatively high frog survival despite ongoing Bd infection and low probability of extinction for many reestablished populations.
+-   \[Elaborate on this a bit more\]
+
+-   Despite relatively high success rate in MYL frogs, it is apparent that not all such recovery efforts will succeed.
+    In addition to ongoing effects of Bd, several deterministic and stochastic factors likely also play an important role: (1) effects of elevation, winter severity, and donor population on frog survival, and (2) variability in recruitment driven by Bd-caused mortality of subadults.
+
+-   Now have a means of reestablishing MYL frog populations across their historical range, including in areas in which natural recolonization is precluded by dispersal limitation.
+    Nonetheless, recovery across this large landscape will require substantial resources over many decades.
+
+The recovery of other amphibian species impacted by Bd will continue to be challenging.
+
+-   For example, despite hundreds of declining amphibian species, most attempts at treatments and recovery in the presence of Bd have failed \[citations\].
+
+-   *In-situ* treatments such as the application of fungicides, probiotics, or habitat manipulations (Bosch), have shown some case-by-case successes, but generally lack the necessary effectiveness and scalability to promote large-scale recovery.
+
+-   Natural recoveries are occurring in the presence of Bd in other amphibian species (Newell, Tobin, Scheele, Voyles) and assisting natural recoveries may provide the most effective means for large-scale reocvery efforts.
+
+-   However, recoveries in other systems are not necessarily driven by the evolution of host defense (Brannley) and underlying mechanisms of recovery in other amphibian-Bd systems may be less translatable from a single population to the landscape-level than we observe in MYL frogs.
+    For example, if the local biotic (e.g., community interactions) and abiotic (e.g., temperature) environment strongly affect recovery dynamics and there is strong heterogeneity in these conditions across habitat patches on a landscape, then recovery in a natal habitat will be less likely to translate into recovery in a non-natal habitat.
+
+-   The MYL frog system is unique in that low productivity due to short summers provide a homogenizing effect across habitat patches, potentially minimizing the effect of the local environment on landscape-level recovery compared to what we might expect in higher productivity systems (for example, tropical amphibian assemblages) <!--# Roland, I am just brainstorming here and this might not make sense. We can delete all of this if necessary. --> .
+    That being said, even in this low productivity system we still observed a strong site and environmental effect on translocated adult survival.
+
+-   Thus, the local environment will be a key consideration when assessing the feasibility of assisted recovery in other amphibian systems.
+
+What does this study tell us more broadly about disease-induced recovery in other systems and the conservation of biodiversity?
+
+-   Identifying the mechanisms of recovery in the face of disease is huge knowledge gap.
+
+<!--# Previous text from Roland below -->
 
 Could include mention here of why MYL frogs show evidence of evolutionary rescue in response to Bd exposure when so few other amphibians do.
 Text from Introduction describing the conditions under which evolutionary rescue is most likely?
@@ -622,7 +646,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. A variable is considered an important predictor if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
 
-![For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Box plot details are as in @fig-cond-effects. ](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="450"}
+![For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Box plot details are as in @fig-cond-effects.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="450"}
 
 ![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. Variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
 
