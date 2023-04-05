@@ -38,6 +38,7 @@ Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tr
 3. Activate the environment in the terminal
 	- `conda activate r_env_translocation`
 4. NOTE: You don't have to use the conda environment and can use your native R build. Just ensure you have the packages installed that are listed in the `environment.yml` file.
+	- For Linux, we have found that to install the R package `devtools` you are often prompted to install additional software outside of R.  Linux typically tells you what additional packages you need to successfully install `devtools` in any error message you might get when installing this R package.
  
 ### Running the Makefile
 
