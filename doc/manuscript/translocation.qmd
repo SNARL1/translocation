@@ -111,7 +111,7 @@ To detect regions of the genome under selection, we used three complementary app
 First, we used a multivariate linear mixed model to evaluate associations between population type (i.e., naive versus recovering) and individual variants.
 For these single nucleotide polymorphisms (SNPs), we identified outlier variants using two Bonferroni-corrected significance levels: "liberal" = 0.05, "stringent" = 0.01.
 Second, we used a splined window approach to evaluate larger genomic regions showing differentiation between population types in *F~ST~* and nucleotide diversity ($\pi$) <!--# Allie comment: Feels like we need to signal here that we are calculating the difference in pi between naive and persistent. pi-diff.  -->.
-In this analysis, we identified outlier regions using a threshold for the W-statistic (4 standard deviations from the mean) and selected regions where outlier windows overalapped for *F~ST~* and $\pi$ <!--# This is a different definition than the one given in the Methods: "4 * standard deviation". --> <!--# Allie comment: Feels like we need to signal here that we are calculating the difference in pi between naive and persistent. pi - diff -->.
+In this analysis, we identified outlier regions using a threshold for the W-statistic (4 standard deviations from the mean) and selected regions where outlier windows overlapped for *F~ST~* and $\pi$ <!--# Allie comment: Feels like we need to signal here that we are calculating the difference in pi between naive and persistent. pi - diff -->.
 Third, we assessed whether putative genes or genomic regions that showed strong evidence of selection were associated with biological functions, molecular functions, or cellular processes (i.e., GO terms) consistent with possible resistance mechanisms.
 
 <!--# I suggest we mention the PCA in the paragraph above so it doesn't come as a surprise here. -->
@@ -130,7 +130,7 @@ Our second analysis, using a splined window approach, identified regions of the 
 We identified 58 outlier windows for *F~ST~* and 33 outlier windows for $\pi_{diff}$ (@fig-spline-manhattan A, B).
 Of these, 9 regions were outliers for both metrics and two of these shared regions also contained outlier SNPs.<!--# "windows" and "regions" are used interchangeably in this paragraph. To avoid confusion, use "windows" throughout? --> A total of 33 annotated genes were found in the 9 shared regions (SI Dataset 2 <!--# In the supplementary_table_outliers_typofix.xlsx file > the splined_window_shared_ouliers sheet contains descriptions of 10 shared regions, not 9--> <!--# Allie comment: One is a repeat because there is a 2>1 match for one of the overlaps (i.e., One Fst outlier window overlaps with 2 pi outlier windows).  -->) and no GO terms were overrepresented within this set of genes.
 The strongest signal for a reduction in $\pi$ in recovering populations (highest $\pi_{diff}$) <!--# Allie comment: For me this is enough of a reason to discuss this beyond the obvious relevance of the gene function.  -->, indicative of directional selection, occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
-This region contains \~500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1 <!--# Allie comment: This gene is even more interesting now that I've done a lit review. More in the discussion! -->).
+This region contains \~500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1).
 Additionally, a shared outlier region on Contig1 contained two complement factor genes (C6 and C7).
 Interestingly, this region had higher $\pi$ in the recovering populations, consistent with a pattern of balancing selection.
 Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) <!--# Allie comment: Again, this is a very good reason to discuss - there are both outlier windows and individuals SNPS here making it an important part outlier region to discuss BEYOND the cool MHC connection.  -->and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D).
@@ -142,11 +142,7 @@ Therefore, we conclude that this candidate region under selection is a part of t
 Together, our genomics results show that recovering populations have strong signatures of selection on multiple genes and regions of the genome.
 While the functions of all genes and regions showing signatures of selection were not clearly interpretable, regions of the genome associated with resistant phenotypes in other amphibian systems such as the MHC complex, showed strong evidence of selection in recovering MYL frog populations.
 
-<!--# Need summary of importance of genetic results, also need better integration of different selection results.  Mark W: I took a crack at this to test my naive understanding of the genetic results. Figured I could be a good test case of how a genetically naive reader would summarize the key results, to see if our genomic message is coming across clearly. -->
-
 <!--# Based on Fig. 2, there are numerous outlier windows. How were the specific windows mentioned in above and in Fig. 2 C, D chosen? Seems important to mention to avoid the perception that mentioned patterns were chosen haphazardly or cherry-picked based on unknown criteria. -->
-
-<!--# In reading through these results, I am not seeing a compelling theme that emerges from all of the different results, both within and between the SNP and splined window sections. The results show differences in various metrics between population types, but are these changes large or small? I lack the context to understand that. Similarly, is the magnitude of differences consistent with strong or weak selection? -->
 
 #### Frog translocations
 
@@ -332,17 +328,16 @@ Thus, there is some trend in our improved ability to select appropriate habitat 
 
 <!--# If we switch the order of sections in the Results, we might want to mirror that order here too: translocations > selection results & evolutionary rescue > viability modeling -->
 
-Disease-induced declines are a central conservation challenge for wildlife, and identifying strategies to recover affected species is a critical need.
-One potential strategy, and the one we use in the current study, leverages disease-induced genetic changes in host populations and evolutionary rescue to recover species at the landscape scale.
+Disease-induced declines are a central challenge for the conservation of global biodiversity, but strategies to recover affected species are generally lacking.
+One potential strategy, and the one we use in the current study, leverages evolutionary rescue to recover species at the landscape scale.
 Although previously proposed [@mendelson2019], to our knowledge this strategy has never been successfully implemented in wildlife disease systems [but see @joseph2018 for a small-scale example].
-Here, we provide strong evidence that natural selection for resistance and the associated evolutionary rescue has facilitated recovery of populations of the endangered MYL frog in the presence of a deadly fungal pathogen.
-The use of individuals from these resistant, rescued populations in a 15 year translocation effort plus associated population viability modeling demonstrate that populations that have experienced evolutionary rescue can be used to successfully establish and recover this species across the landscape.
-These results not only provide a rare example of species recovery following disease-induced declines due heritable changes in resistance, but provide the first demonstration of how evolutionary rescue can be used to successfully recover a species in the presence of disease.
+Specifically, we provide evidence that (i) MYL frogs have experienced strong selection following exposure to a recently-emerged lethal fungal disease (Bd), and (ii) individuals from these resistant populations can be used to reestablish viable populations despite ongoing Bd infection.
+These results provide a rare, and perhaps novel, example of how evolutionary rescue can be used to successfully recover a species in the presence of disease.
 
 We provide three lines of evidence that support evolutionary rescue as a primary mechanism of recovery in MYL frog systems.
 First, our genomic analyses comparing naive and recovering MYL frog populations found notable differences in allele frequencies between adjacent Bd-naive and recovering <!--# Check on using "persistent" vs "recovering" vs "recovered" --> <!--# Roland response: Use "recovering" throughout -->populations, consistent with strong selection.
 Importantly, some of the regions of the genome that showed signatures of selection are associated with known cellular and immunological mechanisms contributing to disease resistance in other species generally [@robledo2018; @robledo2020] and amphibians specifically [@rosenblum2008; @ellison2014] (for more information, see SI X).
-For example, we identified a \~940kb region on contig 8 that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions.
+For example, we identified a \~940kb region on contig 8 that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions<!--# Only Class I and II are mentioned in Results -->.
 These results corroborate numerous previous studies linking MHC genes to Bd survival [e.g., @savage2011; @bataille2015].
 Broadly, our genomic analyses imply that selection and rapid evolutionary change has contributed to survival in MYL frogs in the presence of Bd.
 <!--# For brevity in the discussion, I tried to a pull a few key bullets out of Allie's text. Allie and Bree: Edit and expand as you see fit. -->
@@ -350,7 +345,7 @@ Broadly, our genomic analyses imply that selection and rapid evolutionary change
 The second line of evidence that evolutionary rescue is a strong candidate mechanism for recovery is that repeated translocations and long-term monitoring of naturally recovered populations have demonstrated that resistant phenotypes are maintained beyond the natal environment in the presence of Bd (as reflected by the high year-one adult survival in 6 out of 12 translocated populations).
 Moreover, resistance has a quantifiable phenotype in this system -- resistant, persisting populations have Bd infection intensities below the level known to cause significant host mortality [@vredenburg2010, @knapp2016].
 Translocated populations maintain infection intensities below this threshold of infection intensity such that infection intensity is not a significant predictor of adult survival following translocations to new environments.
-Third, high adult survival in the presence of Bd persists into subsequent generations in non-natal environments, suggesting that resistance is heritable to some degree.
+Finally, high adult survival in the presence of Bd persists into subsequent generations in non-natal environments, suggesting that resistance is heritable to some degree.
 Although previous studies have documented signatures of selection in hosts following disease-induced declines [@epstein2016, @gignoux-wolfsohn2021], our study is unique in that these three lines of evidence provide a strong case that evolved resistance begets population recovery in both natal and non-natal habitats, consistent with evolutionary rescue.
 
 <!--# Comment from Allie that will be helpful in making the cases that what we are seeing is evidence of strong selection/evolutionary rescue -->
@@ -360,7 +355,7 @@ For the question about describing what we are seeing as evolutionary rescue - I 
 1\) STRENGTH OF SIGNAL: the gene regions we discuss specifically in our dataset are robust outliers.
 In the case of the MHC region we have multiple SNPs in this region that are statistically significantly associated AND a larger pattern of depressed pi in the recovering pops and large Fst.
 In the case of GVINP1 we have the only instance of two adjacent outlier spline windows for pi, and the largest difference in pi of any region we measured.
-Finally for RIN3 the allele frequency maps tell the most compelling story and reflect the fact that this is the most statistically significantly outlier SNP that has an annotation.
+Finally for RIN3 the allele frequency maps tell the most compelling story and reflect the fact that this is the most statistically significant outlier SNP that has an annotation.
 and
 
 2\) CORROBORATING STUDIES. For each gene mentioned above we can list many studies that have linked the genes to Bd/disease/wounds.
@@ -369,23 +364,6 @@ In fact, if you haven't taken a look at the Grogan paper it is really interestin
 Even more remarkable that this gene was also linked so strongly to gill amoebic disease in salmon (explaining an astounding 20% of the resistance phenotype).
 
 <!--# End of comment -->
-
-Multiple genes in our set of outliers are strong candidates for playing a role the genomic underpinnings of Bd-survival in MYL frogs.
-Remarkably, we identified a \~940kb region on contig 8 that contains 8 genes associated with either the MHC Class I or Class III regions.
-The order of these genes in the MYL frog genome is conserved from *Xenopus* [@ohta2006] and is consistent with MHC Class I/III linkage reported in the Komodo dragon [@reed2021].
-These results corroborate many studies linking MHC genes to Bd survival [e.g., @savage2011; @bataille2015].
-For example, the MHC Class III gene heat shock protein 70 (HSP70) within this outlier window is intriguing because an HSP70-binding protein was also identified as a candidate gene under selection in persisting *Atelopus varius* populations [@byrne2020], and HSP70 was highly expressed in Bd-infected vs. uninfected *Xenopus tropicalis* [@rosenblum2009].
-This MHC gene cluster lies on the same chromosome as the outlier SNP in RIN3, a gene associated with inflammation response that is highly expressed in amputated Xenopus tails [@fukazawa2009].
-These findings suggest that genetic variants in this region of the MHC, and in other immunologically relevant genes on the same chromosome, are likely important for frog resistance against Bd.
-
-Additionally, we identified a region on contig 19 that had much lower in the recovering group and consisted of one gene -- interferon-induced very large GTPase 1-like (GVINP1).
-Interferons boost immune system processes and previous studies have linked interferon related genes to persisting post-Bd [@byrne2020] or increased expression when exposed to Bd in the lab [@rosenblum2008; @ellison2014].
-Variants in the specific gene identified here, GVINP1, explained \~20% of the resistance to Amoebic Gill Disease in Atlantic Salmon, a finding confirmed via expression analysis [@robledo2018; @robledo2020].
-Furthermore, a key difference in susceptibility between populations of alpine tree frogs (*Litoria verreauxii alpina*) was the lower expression of IFN-induced very large GTPase in the more resistant, long-exposed population and upregulation of this same gene in more susceptible populations [@grogan2018].
-Our study therefore contributes to the growing body of evidence linking this gene to disease resistance in general, and specifically to Bd survival in amphibians.
-Finally, we found evidence of high FST and higher in recovering populations in the complement genes C6 and C7 <!--# It is clear why we talk about the other two regions (the ones highlighted in figure 2) and RIN3 - see comments above. But I guess the only reason this is interesting is because it is a complement region and it shows balancing rather than directional selection. If it feels like we can't justify discussing it we can cut it and just focus on the other two.  -->.
-This could indicate that balancing selection is acting in this region of the genome, favoring a diverse set of alleles in the recovering group which has been shown for C6 in humans [@soejima2005].
-Overall, key outlier genes in our dataset link directly to experimental and observational studies of immune responses to pathogens -- and often specifically to Bd responses in amphibians -- adding confidence to our conclusion that selection and rapid evolutionary change has contributed to survival in MYL frogs.
 
 Implications for recovery of Mountain yellow legged frogs
 
@@ -684,6 +662,25 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 <!--# Left panel color palette is 12-color color-blind friendly, but is not the most friendly color palette to look at.  We can discuss. Roland says: Maybe try a palette that you like better and mention that order of bars (left to right) is the same as in the legend (top to bottom). In addition, if you think it is necessary, for those colors that will be hard for eyeballs like mine to distinguish, we can either tweak the colors or add diagnonal lines (ggpattern::geom_bar_pattern). -->
 
 ## Supporting Information
+
+### Selection Results
+
+Multiple genes in our set of outliers are strong candidates for playing a role the genomic underpinnings of Bd-survival in MYL frogs.
+Remarkably, we identified a \~940kb region on contig 8 that contains 8 genes associated with either the MHC Class I or Class III regions.
+The order of these genes in the MYL frog genome is conserved from *Xenopus* [@ohta2006] and is consistent with MHC Class I/III linkage reported in the Komodo dragon [@reed2021].
+These results corroborate many studies linking MHC genes to Bd survival [e.g., @savage2011; @bataille2015].
+For example, the MHC Class III gene heat shock protein 70 (HSP70) within this outlier window is intriguing because an HSP70-binding protein was also identified as a candidate gene under selection in persisting *Atelopus varius* populations [@byrne2020], and HSP70 was highly expressed in Bd-infected vs. uninfected *Xenopus tropicalis* [@rosenblum2009].
+This MHC gene cluster lies on the same chromosome as the outlier SNP in RIN3, a gene associated with inflammation response that is highly expressed in amputated Xenopus tails [@fukazawa2009].
+These findings suggest that genetic variants in this region of the MHC, and in other immunologically relevant genes on the same chromosome, are likely important for frog resistance against Bd.
+
+Additionally, we identified a region on contig 19 that had much lower in the recovering group and consisted of one gene -- interferon-induced very large GTPase 1-like (GVINP1).
+Interferons boost immune system processes and previous studies have linked interferon related genes to persisting post-Bd [@byrne2020] or increased expression when exposed to Bd in the lab [@rosenblum2008; @ellison2014].
+Variants in the specific gene identified here, GVINP1, explained \~20% of the resistance to Amoebic Gill Disease in Atlantic Salmon, a finding confirmed via expression analysis [@robledo2018; @robledo2020].
+Furthermore, a key difference in susceptibility between populations of alpine tree frogs (*Litoria verreauxii alpina*) was the lower expression of IFN-induced very large GTPase in the more resistant, long-exposed population and upregulation of this same gene in more susceptible populations [@grogan2018].
+Our study therefore contributes to the growing body of evidence linking this gene to disease resistance in general, and specifically to Bd survival in amphibians.
+Finally, we found evidence of high FST and higher in recovering populations in the complement genes C6 and C7 <!--# It is clear why we talk about the other two regions (the ones highlighted in figure 2) and RIN3 - see comments above. But I guess the only reason this is interesting is because it is a complement region and it shows balancing rather than directional selection. If it feels like we can't justify discussing it we can cut it and just focus on the other two.  -->.
+This could indicate that balancing selection is acting in this region of the genome, favoring a diverse set of alleles in the recovering group which has been shown for C6 in humans [@soejima2005].
+Overall, key outlier genes in our dataset link directly to experimental and observational studies of immune responses to pathogens -- and often specifically to Bd responses in amphibians -- adding confidence to our conclusion that selection and rapid evolutionary change has contributed to survival in MYL frogs.
 
 ### Figures
 
