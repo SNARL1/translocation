@@ -190,7 +190,7 @@ alpha = rstan::extract(fit, "alpha")$alpha
 keep_lakes_new = c(keep_lakes)#, "average")
 plots = list()
 phi_omega = 2 # Inverse dispersion of recruitment probability
-omegas = c(0.15, 0.2, 0.25, 0.3, 0.35, 0.4)#c(0.05, 0.1, 0.15, 0.2, 0.25, 0.3)
+omegas = c(0.15, 0.2, 0.25, 0.3, 0.35, 0.4)
 extinction_at_fifty = list()
 
 # Specify whether we want to allow recruited adult survival probability to differ
@@ -219,93 +219,94 @@ for(omega in omegas){
 
 	    if(lake %in% c(keep_lakes_new)){
 
-	    cat("Working on", lake, "\n")
-	    
-	    extinction_array = array(NA, dim=c(sims, steps + 1))
-	    recruitment_array = array(NA, dim=c(sims, steps))
-	    omega_array = array(NA, dim=c(sims, steps))
-	    total_pop_array = array(NA, dim=c(sims, steps + 1))
-	    
-	    # Mu and phi parameters on beta distribution of adult survival
-	    if(lake != "average"){
+		    cat("Working on", lake, "\n")
+		    
+		    extinction_array = array(NA, dim=c(sims, steps + 1))
+		    recruitment_array = array(NA, dim=c(sims, steps))
+		    omega_array = array(NA, dim=c(sims, steps))
+		    total_pop_array = array(NA, dim=c(sims, steps + 1))
+		    
+		    # Mu and phi parameters on beta distribution of adult survival
+		    if(lake != "average"){
 
-	      muT =  median(1 / (1 + exp(-(beta0 + alpha[, l]))))
-	      lower_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.05))
-	      upper_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.95))
-	      
-	      if(run_type == "Recruit survival == Translocated survival"){
-	        muR = muT
-	      }
-	      else{
+		      muT =  median(1 / (1 + exp(-(beta0 + alpha[, l]))))
+		      lower_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.05))
+		      upper_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.95))
+		      
+		      if(run_type == "Recruit survival == Translocated survival"){
+		        muR = muT
+		      }
+		      else{
 
-	      	if(is.na(recruited_surv[lake_id == lake]$surv_prob_med) | lake %in% c(70641, 70556)){
+		      	if(is.na(recruited_surv[lake_id == lake]$surv_prob_med) | lake %in% c(70641, 70556)){
 
-	      		# Lakes don't really have recruited individuals
-	      		# So set to translocated survival
-	        	# muR = all_surv[lake_id == lake]$surv_med
-	        	muR = muT
-	       		lower_muR = muT
+		      		# Lakes don't really have recruited individuals
+		      		# So set to translocated survival
+		        	# muR = all_surv[lake_id == lake]$surv_med
+		        	muR = muT
+		       		lower_muR = muT
+		       		upper_muR = muT
+
+		      	} else{
+		      		muR = recruited_surv[lake_id == lake]$surv_prob_med
+		      		lower_muR = recruited_surv[lake_id == lake]$surv_prob_lower
+		      		upper_muR = recruited_surv[lake_id == lake]$surv_prob_upper
+		      	}
+		      }
+		      
+		    } else{
+		      muT =  median(1 / (1 + exp(-(beta0))))
+		      
+		      if(run_type == "Recruit survival == Translocated survival"){
+		        muR = muT
+	        	lower_muR = muT
 	       		upper_muR = muT
+		      }
+		      else{
+		        muR = mean(all_surv$surv_med)
+	        	lower_muR = muT
+	       		upper_muR = muT
+		      }
+		    }
+		    phi = 10000 #median(phi)
+		   	
+		   	if(run_type != "Recruit survival == Translocated survival"){ 
+		    	compare_muT_mR[[as.character(lake)]] = c(muR=muR, 
+		    																					 lower_muR=lower_muR,
+		    																					 upper_muR=upper_muR,
+		    																					 muT=muT, 
+		    																					 lower_muT=lower_muT, 
+		    																					 upper_muT=upper_muT)
+		    }
 
-	      	} else{
-	      		muR = recruited_surv[lake_id == lake]$surv_prob_med
-	      		lower_muR = recruited_surv[lake_id == lake]$surv_prob_lower
-	      		upper_muR = recruited_surv[lake_id == lake]$surv_prob_upper
-	      	}
-	      }
-	      
-	    } else{
-	      muT =  median(1 / (1 + exp(-(beta0))))
-	      
-	      if(run_type == "Recruit survival == Translocated survival"){
-	        muR = muT
-        	lower_muR = muT
-       		upper_muR = muT
-	      }
-	      else{
-	        muR = mean(all_surv$surv_med)
-        	lower_muR = muT
-       		upper_muR = muT
-	      }
-	    }
-	    phi = 10000 #median(phi)
-	   	
-	   	if(run_type != "Recruit survival == Translocated survival") 
-	    	compare_muT_mR[[as.character(lake)]] = c(muR=muR, 
-	    																					 lower_muR=lower_muR,
-	    																					 upper_muR=upper_muR,
-	    																					 muT=muT, 
-	    																					 lower_muT=lower_muT, 
-	    																					 upper_muT=upper_muT)
+		    # Set initial conditions
+				recruitment = fread(file.path("..", "data", "clean", "abundance_and_recruitment", paste0(lake, "_recruitment.csv")))
+				med_recruit = recruitment[, .(recruit=sum(med)), by=.(year)]
+				med_recruit[, index:=.(1:nrow(med_recruit))]
+				initial_values = c(0, 0, 0, 0, 0, 0, 40) #med_recruit$recruit[1]) # Initial introduction size
+				omega_traj = NA # No prespecified omega trajectory
 
-	    # Set initial conditions
-			recruitment = fread(file.path("..", "data", "clean", "abundance_and_recruitment", paste0(lake, "_recruitment.csv")))
-			med_recruit = recruitment[, .(recruit=sum(med)), by=.(year)]
-			med_recruit[, index:=.(1:nrow(med_recruit))]
-			initial_values = c(0, 0, 0, 0, 0, 0, 40) #med_recruit$recruit[1]) # Initial introduction size
-			omega_traj = NA # No prespecified omega trajectory
-
-	    # Run simulations
-	    for(k in 1:sims){
+		    # Run simulations
+		    for(k in 1:sims){
 
 
-	      sim_res = stochastic_simulation(steps, initial_values, muR, muT, phi, phi_omega, 
-	      																new_params=list(omega=omega, reproduction="nbd"),
-	      																omega_traj=omega_traj)
-	      results = sim_res$results
-	      num_recruited = sim_res$num_recruited
-	      extinction_array[k, ] = as.integer(apply(results, 2, function(x) all(x == 0)))
-	      recruitment_array[k, ] = num_recruited
-	      omega_array[k, ] = sim_res$omega_probs
-	      total_pop_array[k, ] = apply(results[6:7, ], 2, sum) # Just look at adults
-	    }
-	    
-	    extinction_curves[[lake]] = data.frame(ext_prob=colMeans(extinction_array), lake_id=lake, time=0:steps)
-	    pop_trajectories[[lake]] = total_pop_array
-	    recruitment_trajectories[[lake]] = recruitment_array
-	    omega_trajectories[[lake]] = omega_array
+		      sim_res = stochastic_simulation(steps, initial_values, muR, muT, phi, phi_omega, 
+		      																new_params=list(omega=omega, reproduction="nbd"),
+		      																omega_traj=omega_traj)
+		      results = sim_res$results
+		      num_recruited = sim_res$num_recruited
+		      extinction_array[k, ] = as.integer(apply(results, 2, function(x) all(x == 0)))
+		      recruitment_array[k, ] = num_recruited
+		      omega_array[k, ] = sim_res$omega_probs
+		      total_pop_array[k, ] = apply(results[6:7, ], 2, sum) # Just look at adults
+		    }
+		    
+		    extinction_curves[[lake]] = data.frame(ext_prob=colMeans(extinction_array), lake_id=lake, time=0:steps)
+		    pop_trajectories[[lake]] = total_pop_array
+		    recruitment_trajectories[[lake]] = recruitment_array
+		    omega_trajectories[[lake]] = omega_array
 
-	  } ## End lake loop
+		  } ## End lake loop
 	    
 	  }
 	  
@@ -351,7 +352,9 @@ pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=omega, y=e
 # matplot(t(pop_trajectories[["70550"]][1:100, ]), type="l")
 # matplot(t(recruitment_trajectories[["70550"]][1:10, ]), type="l")
 
-# Save comparison between translocated and recruited survival probabilities
+# Save comparison between translocated and survival probabilities from all individuals
+# Note that 
+
 compare_muT_mR_mat = do.call(rbind, compare_muT_mR)
 compare_muT_mR_dt = data.table(compare_muT_mR_mat)
 compare_muT_mR_dt$lake_id = row.names(compare_muT_mR_mat)
@@ -363,42 +366,6 @@ colnames(compare_muT_mR_dt) = c("yearly_surv_prob_recruit",
 																"yearly_surv_prob_translocated_upper", 
 																"lake_id")
 fwrite(compare_muT_mR_dt, file.path("..", "out", "compare_surv_probs.csv"))
-
-# Make a plot comparing translocated and recruited survival probabilities
-# for three lakes
-three_lakes = c(70550, 70413, 70449)
-compare_reduced = compare_muT_mR_dt[lake_id %in% three_lakes]
-
-med_pred = melt(compare_reduced[, .(lake_id, yearly_surv_prob_translocated, yearly_surv_prob_recruit)], 
-							  value.name="surv", id.vars="lake_id")
-med_pred[, variable:=unlist(lapply(strsplit(as.character(variable), "_"), function(x) x[4]))]
-
-lower_pred = melt(compare_reduced[, .(lake_id, yearly_surv_prob_translocated_lower, yearly_surv_prob_recruit_lower)],
-								  value.name="lower_surv", id.vars="lake_id")
-lower_pred[, variable:=unlist(lapply(strsplit(as.character(variable), "_"), function(x) x[4]))]
-
-upper_pred = melt(compare_reduced[, .(lake_id, yearly_surv_prob_translocated_upper, yearly_surv_prob_recruit_upper)],
-									value.name="upper_surv", id.vars="lake_id")
-upper_pred[, variable:=unlist(lapply(strsplit(as.character(variable), "_"), function(x) x[4]))]
-
-
-med_pred[, lower_surv:=lower_pred$lower_surv]
-med_pred[, upper_surv:=upper_pred$upper_surv]
-
-med_pred$variable_pretty = plyr::revalue(med_pred$variable, c(recruit="Naturally recruited", translocated="Translocated"))
-
-
-ggplot(med_pred) + 
-					geom_point(aes(x=lake_id, y=surv, color=variable_pretty), position=position_dodge(width=0.55)) +
-					geom_errorbar(aes(x=lake_id, 
-														ymin=lower_surv, 
-														ymax=upper_surv, color=variable_pretty), width=0.25, position=position_dodge(width=0.55)) +
-					scale_color_manual(values=c("gray", "black")) +
-					ylab("Yearly survival probability") + xlab("Lake ID") + 
-					theme_classic() + theme(legend.title=element_blank())
-
-ggsave(file.path("..", "out", "compare_surv_probs.jpg"), width=6, height=4)
-
 
 #############################################################
 ###########  Analysis 4: Model projections ##################
@@ -509,9 +476,9 @@ ptraj = ggplot() + geom_line(data=pred_traj, aes(x=year, y=abund, group=sim), al
 ##### Join all of the plots together ####
 #########################################
 
-myplot = (ptile + pext) + plot_annotation(tag_levels="A", tag_suffix=".")
+myplot = (ptile + pext) + plot_annotation(tag_levels="A", tag_suffix="")
 ggsave(file.path("..", "out", "pop_viability_figures_for_manuscript.jpg"), width=10, height=4)
 
-myplot = (p2 + ptraj) + plot_annotation(tag_levels="A", tag_suffix=".")
+myplot = (p2 + ptraj) + plot_annotation(tag_levels="A", tag_suffix="")
 ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=10, height=4)
 
