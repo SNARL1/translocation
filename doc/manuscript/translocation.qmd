@@ -275,11 +275,9 @@ robust_year_max <- surveys %>%
   summarize(max(max_2period))
 ```
 
-<!--# Bree comment: Here or elsewhere - it feels like we need a more specific bridge from the genomics section into the translocation section. I think we need to be explicit about how the populations we chose for the genomics section relate to the populations used in translocations. Even if they aren't matched in any way, we should reiterate something about how the experimental designs comport. For example, we could explain how the genomic analyses were conducted with multiple recovering populations so we know evidence for selection is strong in multiple areas of the genome in multiple recovering populations. Roland response: I added what I hope are bridging sentences between all three sections. -->
-
 Comparison of genomes of frogs from Bd-naive versus recovering populations (described above) indicated substantial differences in allele frequencies and genomic regions, consistent with strong selection following Bd exposure.
 In this section, we describe the outcome of frog reintroductions in which animals for reintroduction were collected from recovering populations, including two of the five recovering populations in the frog evolution study (@fig-allelefrequencies A: population 1 and 4).
-<!--# Check this --> Reintroductions of *R. sierrae* were conducted as part of an effort to reestablish populations of this endangered species.
+Reintroductions of *R. sierrae* were conducted as part of an effort to reestablish populations of this endangered species.
 These reintroductions were conducted in Yosemite National Park (California, USA) and involved the collection of adult frogs from large, Bd-positive donor populations that have recovered in recent years following Bd-caused declines [@knapp2016] and translocating them to nearby recipient sites [@joseph2018].
 We refer to these reintroductions as "translocations" [@seddon2014].
 During the period `r min(d1$year)`--`r max(d1$year)`, we conducted `r n_distinct(d1$site_id, d1$date)` translocations of frogs to `r n_distinct(d1$site_id)` recipient sites (`r transno_min`--`r transno_max` translocations per site; @fig-yosemap SI).
@@ -287,9 +285,8 @@ Each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs
 Estimates of frog survival during the one year following translocation indicate that survival was highly variable between recipient sites, but relatively constant within recipient sites (for the subset of sites that received multiple translocations; @fig-translocation-survival).
 As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in subsequent translocations to that site (@fig-transsurvival-postdens SI).
 This suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
-In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-viability-earlylate SI) <!--# Mention of viability is confusing because this issue isn't dealt with until the third section. Perhaps make the categorization based on frog survival? -->, which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
+In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-survival-earlylate SI), which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
 Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter SI), and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale) [@vredenburg2010; @joseph2018].
-<!--# Add median Bd load, proportion below 5.8 copies threshold? --> <!--# The Methods-Translocation section contains text that repeats similar results. Edit to reduce repetition. --> <!--# To allow comparison with other translocation studies, adding information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
 
 To identify site and frog-specific drivers of post-translocation survival, we developed linear and multilevel models in a Bayesian framework.
 Our specific interest was whether Bd load had a negative effect on adult survival, as would be expected if frogs were highly susceptible to Bd infection.
@@ -301,6 +298,10 @@ Collectively, these results show that Bd load is not a predictor of the survival
 <!--# Allie comment: Maybe tolerance is a better word here? Since they were infected. Or maybe we need to explicitly define what we mean with resistance vs tolerance. Bree comment: I noticed this also – in the Intro, you do say that you are lumping both resistance and tolerance into the phrase "resistance" but you are talking about multiple things (being able to avoid infection, being able to fight infection, being able to tolerate infection, etc). Maybe at some point we want to address specifically that the genomic changes we are observing could contribute to multiple facets of resistance / tolerance.  And that we are lumping those together in an "evolved resistance" bin. Roland comment: We reworded this sentence, but probably have not fully dealt with resistance/tolerance issue. --> In addition, the moderate Bd loads that characterized frogs following translocation (@fig-bdload-beforeafter SI) and relatively high survival of frogs in numerous translocated cohorts (@fig-translocation-survival) suggests that resistant frogs from recovering populations can maintain the benefits of resistance in non-natal habitats.
 Finally, in three locations where longer CMR time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
 Therefore, frog resistance in non-natal habitats is maintained across generations.
+
+In addition to survival......
+
+<!--# To allow comparison with other translocation studies, adding information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
 
 #### Population viability modeling
 
@@ -342,7 +343,7 @@ These results not only provide a rare example of species recovery following dise
 
 We provide three lines of evidence that support evolutionary rescue as a primary mechanism of recovery in MYL frog systems.
 First, our genomic analyses comparing naive and recovering MYL frog populations found notable differences in allele frequencies between adjacent Bd-naive and recovering <!--# Check on using "persistent" vs "recovering" vs "recovered" --> <!--# Roland response: Use "recovering" throughout -->populations, consistent with strong selection.
-Importantly, some of the regions of the genome that showed signatures of selection are associated with known cellular and immunological mechanisms contributing to disease resistance in other species generally [@robledo2018; @robledo2020] and amphibians specifically [@rosenblum2008a; @ellison2014] (for more information, see SI X).
+Importantly, some of the regions of the genome that showed signatures of selection are associated with known cellular and immunological mechanisms contributing to disease resistance in other species generally [@robledo2018; @robledo2020] and amphibians specifically [@rosenblum2008; @ellison2014] (for more information, see SI X).
 For example, we identified a \~940kb region on contig 8 that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions.
 These results corroborate numerous previous studies linking MHC genes to Bd survival [e.g., @savage2011; @bataille2015].
 Broadly, our genomic analyses imply that selection and rapid evolutionary change has contributed to survival in MYL frogs in the presence of Bd.
@@ -407,7 +408,7 @@ This MHC gene cluster lies on the same chromosome as the outlier SNP in RIN3, a 
 These findings suggest that genetic variants in this region of the MHC, and in other immunologically relevant genes on the same chromosome, are likely important for frog resistance against Bd.
 
 Additionally, we identified a region on contig 19 that had much lower in the recovering group and consisted of one gene -- interferon-induced very large GTPase 1-like (GVINP1).
-Interferons boost immune system processes and previous studies have linked interferon related genes to persisting post-Bd [@bryne2020] or increased expression when exposed to Bd in the lab [@rosenblum2008a; @ellison2014].
+Interferons boost immune system processes and previous studies have linked interferon related genes to persisting post-Bd [@byrne2020] or increased expression when exposed to Bd in the lab [@rosenblum2008; @ellison2014].
 Variants in the specific gene identified here, GVINP1, explained \~20% of the resistance to Amoebic Gill Disease in Atlantic Salmon, a finding confirmed via expression analysis [@robledo2018; @robledo2020].
 Furthermore, a key difference in susceptibility between populations of alpine tree frogs (*Litoria verreauxii alpina*) was the lower expression of IFN-induced very large GTPase in the more resistant, long-exposed population and upregulation of this same gene in more susceptible populations [@grogan2018].
 Our study therefore contributes to the growing body of evidence linking this gene to disease resistance in general, and specifically to Bd survival in amphibians.
@@ -691,9 +692,11 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ### Tables
 
+<!--# How to insert >= symbol in header and table cells> -->
+
 ```{r}
-#| label: tbl-viability-earlylate
-#| tbl-cap: "Proportion of populations translocated early versus late in the study period (< 2013 or >= 2013, respectively) for which the probability of extinction over 50 years was 1 or < 1 (i.e., viability = 0 or 1, respectively)."
+#| label: tbl-survival-earlylate
+#| tbl-cap: "Proportion of populations translocated early versus late in the study period (< 2013 or >= 2013, respectively) for which the probability of survival was < 0.5 or >= 0.5."
 #| echo: FALSE
 #| message: FALSE
 
@@ -702,16 +705,16 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
   group_by(site_id) %>% 
   filter(year == min(year)) %>% 
   mutate(site_id = as.character(site_id),
-         viability = if_else(site_id %in% c(70414, 70370, 70134, 70641, 70619, 70505), 0, 1),
+         survival = if_else(site_id %in% c(70414, 70370, 70134, 70641, 70619, 70505), "< 0.5", ">= 0.5"),
          period = if_else(year < 2013, "early", "late")) %>% 
   group_by(period) %>% 
-  count(period, viability) %>% 
+  count(period, survival) %>% 
   mutate(n_period = sum(n), 
          prop = (n / n_period)) %>% 
   mutate(across(prop, round, 3)) %>% 
-  arrange(viability, period)
+  arrange(period, survival)
   
-  knitr::kable(viability_table, "pipe", align = "lcccr", col.names = c("Period", "Viability category", "Number of translocations", "Total translocations", "Proportion of translocations")) 
+  knitr::kable(viability_table, format = "pipe", align = "lcccc", col.names = c("Period", "Survival probability", "Number of translocations", "Total translocations", "Proportion of translocations")) 
 ```
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
