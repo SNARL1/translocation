@@ -9,7 +9,7 @@ editor: visual
 
 ## Title: Reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease
 
-<!--# Title should be less than 135 characters -->
+<!--# Title should be less than 135 characters: Mark -->
 
 ### Authors:
 
@@ -335,18 +335,21 @@ Although previously proposed [@mendelson2019], to our knowledge this strategy ha
 Specifically, we provide evidence that (i) MYL frogs have experienced strong selection following exposure to a recently-emerged lethal fungal disease (Bd), and (ii) individuals from these resistant populations can be used to reestablish viable populations despite ongoing Bd infection.
 These results provide a rare, and perhaps novel, example of how evolutionary rescue can be used to successfully recover a species in the presence of disease.
 
-We provide three lines of evidence that support evolutionary rescue as a primary mechanism of recovery in MYL frog systems.
-First, our genomic analyses comparing naive and recovering MYL frog populations found notable differences in allele frequencies between adjacent Bd-naive and recovering <!--# Check on using "persistent" vs "recovering" vs "recovered" --> <!--# Roland response: Use "recovering" throughout -->populations, consistent with strong selection.
-Importantly, some of the regions of the genome that showed signatures of selection are associated with known cellular and immunological mechanisms contributing to disease resistance in other species generally [@robledo2018; @robledo2020] and amphibians specifically [@rosenblum2008; @ellison2014] (for more information, see SI X).
-For example, we identified a \~940kb region on contig 8 that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions<!--# Only Class I and II are mentioned in Results -->.
+While previous studies have documented signatures of selection in hosts following disease-induced declines [@epstein2016, @gignoux-wolfsohn2021], a strong causal chain from selection, to an increase in host fitness in the presence of the pathogen, to subsequent host recoveries remains lacking in most wildlife-disease systems.
+To robustly conclude that evolutionary rescue is the primary mechanism of host recovery, ideally evidence for each link in the causal chain should be provided.
+Here, we provide evidence for each of these links.
+First, our genomic analyses comparing naive and recovering MYL frog populations found notable differences in allele frequencies between adjacent Bd-naive and recovering populations, consistent with strong selection due to disease.
+Importantly, some of the regions of the genome that showed signatures of selection are associated with known cellular and immunological mechanisms contributing to disease resistance in other species generally [@robledo2018; @robledo2020] and amphibians specifically [@rosenblum2008; @ellison2014; @grogan2018] (for more information, see SI X).
+For example, we identified a \~940kb region on contig 8 that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions<!--# Only Class I and II are mentioned in Results. Mark: Check with Allie, the supporting information text says Class I and III -->.
 These results corroborate numerous previous studies linking MHC genes to Bd survival [e.g., @savage2011; @bataille2015].
 Broadly, our genomic analyses imply that selection and rapid evolutionary change has contributed to survival in MYL frogs in the presence of Bd.
-<!--# For brevity in the discussion, I tried to a pull a few key bullets out of Allie's text. Allie and Bree: Edit and expand as you see fit. -->
 
-The second line of evidence that evolutionary rescue is a strong candidate mechanism for recovery is that repeated translocations and long-term monitoring of naturally recovered populations have demonstrated that resistant phenotypes are maintained beyond the natal environment in the presence of Bd (as reflected by the high year-one adult survival in 6 out of 12 translocated populations).
-Moreover, resistance has a quantifiable phenotype in this system -- resistant, persisting populations have Bd infection intensities below the level known to cause significant host mortality [@vredenburg2010, @knapp2016].
-Translocated populations maintain infection intensities below this threshold of infection intensity such that infection intensity is not a significant predictor of adult survival following translocations to new environments.
-Finally, high adult survival in the presence of Bd persists into subsequent generations in non-natal environments, suggesting that resistance is heritable to some degree. Although previous studies have documented signatures of selection in hosts following disease-induced declines [@epstein2016, @gignoux-wolfsohn2021], our study is unique in that these three lines of evidence provide a strong case that evolved resistance begets population recovery in both natal and non-natal habitats, consistent with evolutionary rescue.
+Second, repeated translocations and long-term monitoring of naturally recovered populations demonstrate that fitness benefits of robust phenotypes are maintained beyond the natal environment in the presence of Bd.
+Specifically, robust phenotypes in recovered populations have reduced infection intensities, below the level known to cause significant host mortality [@vredenburg2010, @knapp2016].
+This phenotype persists following translocations to new environments --- translocated populations maintain infection intensities below this threshold and infection intensity is not a significant predictor of adult survival following translocation.
+Moreover, high adult survival in the presence of Bd persists into subsequent generations in non-natal environments, suggesting that robust phenotypes are heritable to some degree.
+Together, strong selection following disease-induced declines and heritable increases in fitness point to evolutionary rescue as an important driver of observed natural recoveries and host persistence in this system [@knapp2016].
+A key advance of our study is that we take these exciting results a step further, leveraging natural evolutionary rescue and translocations to promote MYL frog recovery at the landscape scale.
 
 <!--# Comment from Allie that will be helpful in making the cases that what we are seeing is evidence of strong selection/evolutionary rescue -->
 
