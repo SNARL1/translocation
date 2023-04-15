@@ -348,7 +348,7 @@ Second, repeated translocations and long-term monitoring of naturally recovered 
 Specifically, robust phenotypes in recovered populations have reduced infection intensities, below the level known to cause significant host mortality [@vredenburg2010, @knapp2016].
 This phenotype persists following translocations to new environments --- translocated populations maintain infection intensities below this threshold and infection intensity is not a significant predictor of adult survival following translocation.
 Moreover, high adult survival in the presence of Bd persists into subsequent generations in non-natal environments, suggesting that robust phenotypes are heritable to some degree.
-Together, strong selection following disease-induced declines and heritable increases in fitness point to evolutionary rescue as an important driver of observed natural recoveries and host persistence in this system [@knapp2016].
+Together, we show that strong selection following disease-induced declines and heritable increases in fitness point to evolutionary rescue as an important driver of observed natural recoveries and host persistence in this system [@knapp2016].
 A key advance of our study is that we take these exciting results a step further, leveraging natural evolutionary rescue and translocations to promote MYL frog recovery at the landscape scale.
 
 <!--# Comment from Allie that will be helpful in making the cases that what we are seeing is evidence of strong selection/evolutionary rescue -->
