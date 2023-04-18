@@ -76,10 +76,9 @@ clean:
 
 VIABILITY_OUTPUT1 = out/lambda_estimates.pdf
 VIABILITY_OUTPUT2 = out/compare_surv_probs.csv
-VIABILITY_OUTPUT3 = out/compare_surv_probs.jpg
-VIABILITY_OUTPUT4 = out/pop_viability_figures_for_manuscript.jpg
-VIABILITY_OUTPUT5 = out/pop_viability_figures_for_supp.jpg
-VIABILITY_OUTPUT = $(VIABILITY_OUTPUT1) $(VIABILITY_OUTPUT2) $(VIABILITY_OUTPUT3) $(VIABILITY_OUTPUT4) $(VIABILITY_OUTPUT5)
+VIABILITY_OUTPUT3 = out/pop_viability_figures_for_manuscript.jpg
+VIABILITY_OUTPUT4 = out/pop_viability_figures_for_supp.jpg
+VIABILITY_OUTPUT = $(VIABILITY_OUTPUT1) $(VIABILITY_OUTPUT2) $(VIABILITY_OUTPUT3) $(VIABILITY_OUTPUT4)
 VIABILITY_SCRIPT = code/extinction_and_growth_rate_analysis.R
 POP_FXNS = code/population_viability_functions.R
 
@@ -93,7 +92,8 @@ CMR_TRANS = $(wildcard data/raw/cmr-analysis/translocation/*_translocation.csv)
 # Survival script output
 SURV_OUTPUT1 = out/yearly_survival_estimates_all_individuals.csv
 SURV_OUTPUT2 = out/yearly_survival_estimates_only_recruited_individuals.csv
-SURV_OUTPUT = $(SURV_OUTPUT1) $(SURV_OUTPUT2)
+SURV_OUTPUT3 = out/compare_surv_probs.jpg
+SURV_OUTPUT = $(SURV_OUTPUT1) $(SURV_OUTPUT2) $(SURV_OUTPUT3)
 SURV_SCRIPT = code/extract_survival_estimates.R
 SURV_FXNS = code/survival_table_nontranslocated.R
 

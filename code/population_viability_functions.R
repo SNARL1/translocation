@@ -485,7 +485,7 @@ convert_to_death_rates = function(surv_probs, deltat){
 
 }
 
-survival_table <- function(model, thin=1) {
+survival_table <- function(model, thin=1, lower_upper=c(0.05, 0.95)) {
 
   any_translocations <- 'data.frame' %in% class(model$data$translocations)
 
@@ -535,9 +535,9 @@ survival_table <- function(model, thin=1) {
 
     # Upper lower 
     nontrans_surv = prob_dt[, .(surv_prob=as.numeric(mean_na(as.integer(surv)))), by=.(.draw, primary_period)][, 
-                            .(lower=quantile(surv_prob, 0.25, na.rm=T),
+                            .(lower=quantile(surv_prob, lower_upper[1], na.rm=T),
                               med=quantile(surv_prob, 0.5, na.rm=T),
-                              upper=quantile(surv_prob, 0.75, na.rm=T)), by=.(primary_period)] %>% 
+                              upper=quantile(surv_prob, lower_upper[2], na.rm=T)), by=.(primary_period)] %>% 
                     merge(diff_dates, by="primary_period")
 
     # nontrans_surv = prob_dt[, .(surv_prob=as.numeric(mean_na(as.integer(surv)))), by=.(primary_period)] %>% 
@@ -560,74 +560,5 @@ survival_table <- function(model, thin=1) {
   return(res)
 
 }
-
-#############################
-#### Simulation #############
-#############################
-
-
-# Parameter list
-
-# All survival is relative to adult survival. If adults don't survive well, nothing survives well.
-# TODO: Talk to Roland about this assumption
-# adult_survR = 0.75
-# adult_survT = 0.5
-# params = assign_parameters(adult_survR, adult_survT, new_params=list(omega=0.1))
-
-
-# T = build_transition_matrix(params)
-# F = build_fecundity_matrix(params)
-# P = T + F
-# max(abs(eigen(P)$values))
-
-
-# # Stochastic simulation over 50 years.  If we can frame this a multitype branching process
-# # we can save ourselves a lot of time during simulation.
-# sims = 1000 # number of replicates
-# steps = 50 # years
-# initial_values = c(0, 0, 0, 0, 0, 0, 50)
-# extinction_array = array(NA, dim=c(sims, steps + 1))
-# recruitment_array = array(NA, dim=c(sims, steps))
-# pop_size_array = array(NA, dim=c(sims, steps + 1))
-
-
-# # Run simulations
-# for(k in 1:sims){
-
-# 	sim_res = stochastic_simulation(steps, initial_values, adult_survR, adult_survT, 4.5, new_params=list(omega=0.1))
-# 	results = sim_res$results
-# 	num_recruited = sim_res$num_recruited
-# 	# print(num_recruited)
-# 	extinction_array[k, ] = as.integer(apply(results, 2, function(x) all(x == 0)))
-# 	recruitment_array[k, ] = num_recruited
-# 	adults = colSums(results[c(6, 7), ])
-# 	pop_size_array[k, ] = adults
-# }
-
-# # Look at extinction curve
-# extinction_curve = colMeans(extinction_array)
-# plot(1:(steps + 1), extinction_curve, type="l")
-
-# # Look at conditional probabilities...given one large recruitment event...probability
-# # of persitence?
-# large_recruit = apply(recruitment_array, 1, function(x) any(x >= 25))
-# extinction_array[large_recruit, ]
-
-# # Look at plot of recruitment through time
-# matplot(t(recruitment_array), type="l")
-# matplot(t(pop_size_array), type="l")
-
-
-# What are the distributions of survival and recruitment? 
-# We want to try to parameterize these as 
-# OK, now we need to figure out the patterns of recruitment and reproduction. 
-# How often are tadpoles and egg masses observed a
-
-
-# Thinking about a stochastic simulation, if frogs have some probability of reproducing, this will
-# be a zero-inflated Poisson distribution which will increase the variance relative to a
-# Poisson distribution.  Let's set up the simulation
-
-
 
 
