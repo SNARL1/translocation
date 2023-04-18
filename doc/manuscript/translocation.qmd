@@ -13,7 +13,7 @@ editor: visual
 
 ### Authors:
 
-Roland A. Knapp^1,2^\*, Mark Q. Wilber^3^, Allison Q. Byrne^4,5^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^4,5^, Rob L. Grasso^8^, Erica Bree Rosenblum^4,5^
+Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3,a^, Allison Q. Byrne^4,5,a^, Maxwell B. Joseph^6,7^, Thomas C. Smith^1,2^, Andrew P. Rothstein^4,5^, Rob L. Grasso^8^, Erica Bree Rosenblum^4,5^
 
 <!--# Exact author order to be determined -->
 
@@ -31,11 +31,13 @@ Roland A. Knapp^1,2^\*, Mark Q. Wilber^3^, Allison Q. Byrne^4,5^, Maxwell B. Jos
 
 ^6^Earth Lab, University of Colorado, Boulder, CO, 80303
 
-^7^NCX, San Francisco, CA, 94115
+^7^Planet, San Francisco, CA, 94107
 
 ^8^Resources Management and Science, Yosemite National Park, El Portal, CA, 95318
 
 \*Corresponding author: Sierra Nevada Aquatic Research Laboratory, 1016 Mount Morrison Road, Mammoth Lakes, CA 93546, phone: 760.647.0034, email: roland.knapp\@ucsb.edu
+
+^a^These authors contributed equally to this work.
 
 **Preprint Server:**
 
@@ -284,6 +286,8 @@ This suggests an important effect of site characteristics and/or (site \* frog) 
 In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-survival-earlylate SI), which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
 Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter SI), and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale) [@vredenburg2010; @joseph2018].
 
+<!--# To allow comparison with other translocation studies, add information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
+
 To identify site and frog-specific drivers of post-translocation survival, we developed linear and multilevel models in a Bayesian framework.
 Our specific interest was whether Bd load had a negative effect on adult survival, as would be expected if frogs were highly susceptible to Bd infection.
 The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens SI).
@@ -294,10 +298,6 @@ Collectively, these results show that Bd load is not a predictor of the survival
 <!--# Allie comment: Maybe tolerance is a better word here? Since they were infected. Or maybe we need to explicitly define what we mean with resistance vs tolerance. Bree comment: I noticed this also – in the Intro, you do say that you are lumping both resistance and tolerance into the phrase "resistance" but you are talking about multiple things (being able to avoid infection, being able to fight infection, being able to tolerate infection, etc). Maybe at some point we want to address specifically that the genomic changes we are observing could contribute to multiple facets of resistance / tolerance.  And that we are lumping those together in an "evolved resistance" bin. Roland comment: We reworded this sentence, but probably have not fully dealt with resistance/tolerance issue. --> In addition, the moderate Bd loads that characterized frogs following translocation (@fig-bdload-beforeafter SI) and relatively high survival of frogs in numerous translocated cohorts (@fig-translocation-survival) suggests that resistant frogs from recovering populations can maintain the benefits of resistance in non-natal habitats.
 Finally, in three locations where longer CMR time series allowed us to assess the survival of adults recruited to the population (i.e., progeny of translocated individuals), naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
 Therefore, frog resistance in non-natal habitats is maintained across generations.
-
-In addition to survival......
-
-<!--# To allow comparison with other translocation studies, adding information about the proportion of translocated populations at which evidence of successful reproduction was observed in the 1-2 years following translocation. -->
 
 #### Population viability modeling
 
