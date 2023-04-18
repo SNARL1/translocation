@@ -1,11 +1,11 @@
 ---
-title: "Predictors of frog survival following translocations - create dataset"
+title: "Create datasets: frog survival, presence/absence of life stages indicative of reproductive success"
 author: "Roland Knapp"
 date: "`r Sys.Date()`"
 output: html_notebook
 ---
 
-The code in this notebook creates a dataset for use in analyses to identify predictors of frog survival following translocation (using translocation_survival_analysis.Rmd).
+The code in this notebook creates two datasets: (1) dataset for use in analyses to identify predictors of frog survival following translocation (using translocation_survival_analysis.Rmd), and (2) metrics related to reproductive success.
 The code is written in distinct chunks to allow review of the output from one chunk before running the next.
 Users without credentials to access the database will not be able to create several of the raw data files, but can use the saved raw data files to run the remainder of the code.
 Frog translocation and survival data were generated using code in the [SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis) GitHub repository.
@@ -17,6 +17,8 @@ library(RPostgreSQL)
 library(tidyverse) 
 library(lubridate)
 ```
+
+# DATASET 1
 
 ## Create raw sites, frog characteristics, and frog captures data files
 
@@ -371,5 +373,161 @@ frog_translocation %>% write_csv(here::here("data", "clean", "frog_translocation
 - bd_load: Bd infection intensity, measured at donor site at time of capture and $\leq$ 24 hours before translocation (ITS1 copies * 80).
 - survival: Probability of surviving one year after translocation. 
 
+# DATASET 2
 
+### Retrieve database tables
+
+```{r}
+source("db_connect.R")
+
+visit <- dbReadTable(con,"visit") %>% 
+  filter(visit_status == "suitable")
+
+survey <- dbReadTable(con, "survey") %>% 
+  select(id, visit_id, survey_type, comment)
+
+visual_survey <- dbReadTable(con, "visual_survey")
+
+capture_survey <- dbReadTable(con, "capture_survey") %>% 
+  select(id, survey_id, pit_tag_ref, tag_new, species, capture_animal_state, length)
+
+relocate <- dbReadTable(con, "relocate")
+
+sites <- tibble(site_id = c(70134, 70688, 70370, 70114, 70175, 70279, 70413, 71570, 71968, 72008, 72093, 72264, 72390, 72442, 72694, 70414, 70449, 70034, 70505, 72092, 70550, 70556, 70619, 70628, 70641, 74976, 72973), siteid_alt = c(70134, 70134, 70370, 70413, 70413, 70413, 70413, 70413, 70413, 70413, 70413, 70413, 70413, 70413, 70413, 70414, 70449, 70449, 70505, 70505, 70550, 70556, 70619, 70628, 70641, 74976, 74976))
+
+source("db_disconnect.R")
+```
+
+### Summarize VES counts
+
+```{r}
+visit_ves <- visit %>% 
+  rename(visit_id = id) %>% 
+  rename(comment_visit = comment)
+
+survey_ves <- survey %>% 
+  rename(survey_id = id) %>% 
+  rename(comment_survey = comment) %>% 
+  select(survey_id, visit_id, survey_type, comment_survey)
+
+visual_survey_ves <- visual_survey %>% 
+  filter(species == "ramu" &
+         visual_life_stage %in% c("tadpole", "subadult") & 
+         visual_animal_state == "alive")
+
+relocate <- sites %>% 
+  select(siteid_alt) %>% 
+  distinct(siteid_alt) %>% 
+  inner_join(relocate, by = c("siteid_alt" = "release_siteid1")) %>% 
+  select(siteid_alt, release_date) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(release_date_min = min(release_date)) %>% 
+  mutate(release_year = year(release_date_min), .after = release_date_min) 
+
+frog_counts <- sites %>% 
+  inner_join(visit_ves, by = "site_id") %>% 
+  inner_join(survey_ves, by = "visit_id") %>% 
+  filter(survey_type == "visual") %>% 
+  left_join(visual_survey_ves, by = "survey_id") %>% 
+  select(siteid_alt, visit_date, visual_life_stage, location, count) %>% 
+  mutate(visit_year = year(visit_date), .after = visit_date) %>% 
+  group_by(siteid_alt, visit_date, visit_year, visual_life_stage) %>% 
+  summarize(count_total = sum(count)) %>% 
+  group_by(siteid_alt, visit_year, visual_life_stage) %>% 
+  summarize(count_max = max(count_total)) %>% 
+  ungroup() %>% 
+  complete(siteid_alt, visit_year, visual_life_stage, fill = list(count_max = 0)) %>% 
+  filter(!is.na(visual_life_stage)) %>% 
+  inner_join(relocate, by = "siteid_alt") %>% 
+  select(-release_date_min) %>% 
+  filter(visit_year > release_year) # Exclude surveys/counts made in the year of translocation (before presence of tadpoles is possible)
+
+rm(visit_ves, survey_ves, visual_survey_ves)
+
+frog_counts_table1 <- frog_counts %>% 
+  distinct(siteid_alt, visit_year) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(years_survey = n())
+
+frog_counts_table2 <- frog_counts %>% 
+  filter(visual_life_stage == "tadpole" &
+           count_max > 0) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(years_tads_present = n())
+
+frog_counts_table3 <- frog_counts %>% 
+  filter(visual_life_stage == "subadult" &
+           count_max > 0) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(years_subs_present = n())
+
+frog_counts_table4 <- frog_counts %>% 
+  group_by(siteid_alt, visit_year) %>% 
+  summarize(count_tadsub = sum(count_max)) %>% 
+  ungroup() %>% 
+  filter(count_tadsub > 0) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(years_tadsub_present = n())
+
+frog_counts_table <- frog_counts_table1 %>% 
+  left_join(frog_counts_table2, by = "siteid_alt") %>% 
+  left_join(frog_counts_table3, by = "siteid_alt") %>% 
+  left_join(frog_counts_table4, by = "siteid_alt") %>% 
+  replace_na(list(years_tads_present = 0, years_subs_present = 0, years_tadsub_present = 0)) %>% 
+  mutate(pyears_tadsub_present = years_tadsub_present / years_survey)
+```
+
+### Summarize CMR captures
+
+```{r}
+visit_cmr <- visit %>% 
+  rename(visit_id = id) %>% 
+  rename(comment_visit = comment)
+
+survey_cmr <- survey %>% 
+  rename(survey_id = id) %>% 
+  rename(comment_survey = comment) %>% 
+  select(survey_id, visit_id, survey_type, comment_survey)
+
+capture_survey_cmr <- capture_survey %>% 
+  filter(species == "ramu" &
+         length >= 40 & 
+         tag_new == TRUE &
+         capture_animal_state != "dead")
+
+frog_captures <- sites %>% 
+  inner_join(visit_cmr, by = "site_id") %>% 
+  inner_join(survey_cmr, by = "visit_id") %>% 
+  filter(survey_type == "cmr" |
+         survey_type == "visual") %>% # Include CMR and VES records to ensure inclusion of all survey dates. Survey without RAMU detections typically recorded as VES. 
+  left_join(capture_survey_cmr, by = "survey_id") %>% 
+  select(siteid_alt, visit_date, survey_type, pit_tag_ref, tag_new) %>% 
+  mutate(visit_year = year(visit_date), .after = visit_date) %>% 
+  distinct(siteid_alt, visit_year, pit_tag_ref) %>% 
+  group_by(siteid_alt, visit_year) %>% 
+  summarize(recruits = sum(!is.na(pit_tag_ref))) %>%  # !is.na() converts pit_tag_ref records to TRUE/FALSE. sum() treats TRUE as 1/FALSE as 0, so sum is count of not NA values
+  ungroup() %>% 
+  inner_join(relocate, by = "siteid_alt") %>% 
+  select(-release_date_min) %>% 
+  filter(visit_year > (release_year + 2)) # Exclude counts made in first 3 years after translocation (before recruitment is possible)
+
+# 70628 is not represented in data set because it has only been 2 years since the 2020 translocation, so no records met the final filtering condition. 
+
+rm(visit_cmr, survey_cmr, capture_survey_cmr)
+
+frog_captures_table1 <- frog_captures %>% 
+  distinct(siteid_alt, visit_year) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(years_survey = n())
+
+frog_captures_table2 <- frog_captures %>% 
+  filter(recruits > 0) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(years_recruits_present = n())
+
+frog_captures_table <- frog_captures_table1 %>% 
+  left_join(frog_captures_table2, by = "siteid_alt") %>% 
+  mutate(years_recruits_present = replace_na(years_recruits_present, 0),
+         pyears_recruits_present = years_recruits_present / years_survey)
+```
 
