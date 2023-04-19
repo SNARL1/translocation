@@ -415,7 +415,7 @@ visual_survey_ves <- visual_survey %>%
          visual_life_stage %in% c("tadpole", "subadult") & 
          visual_animal_state == "alive")
 
-relocate <- sites %>% 
+relocate_ves <- sites %>% 
   select(siteid_alt) %>% 
   distinct(siteid_alt) %>% 
   inner_join(relocate, by = c("siteid_alt" = "release_siteid1")) %>% 
@@ -436,9 +436,12 @@ frog_counts <- sites %>%
   group_by(siteid_alt, visit_year, visual_life_stage) %>% 
   summarize(count_max = max(count_total)) %>% 
   ungroup() %>% 
-  complete(siteid_alt, visit_year, visual_life_stage, fill = list(count_max = 0)) %>% 
+  complete(visual_life_stage, # cross all possible life_stage values with the unique pairs of (siteid_alt, visit_year) that exist in the data 
+           nesting(siteid_alt, visit_year),
+           fill = list(count_max = 0)) %>% 
+  select(siteid_alt, visit_year, visual_life_stage, count_max) %>% 
   filter(!is.na(visual_life_stage)) %>% 
-  inner_join(relocate, by = "siteid_alt") %>% 
+  inner_join(relocate_ves, by = "siteid_alt") %>% 
   select(-release_date_min) %>% 
   filter(visit_year > release_year) # Exclude surveys/counts made in the year of translocation (before presence of tadpoles is possible)
 
@@ -475,6 +478,10 @@ frog_counts_table <- frog_counts_table1 %>%
   left_join(frog_counts_table4, by = "siteid_alt") %>% 
   replace_na(list(years_tads_present = 0, years_subs_present = 0, years_tadsub_present = 0)) %>% 
   mutate(pyears_tadsub_present = years_tadsub_present / years_survey)
+
+write_csv(frog_counts_table, here::here("data", "clean", "frog_counts_table.csv"))
+
+rm(frog_counts_table1, frog_counts_table2, frog_counts_table3, frog_counts_table4)
 ```
 
 ### Summarize CMR captures
@@ -495,6 +502,15 @@ capture_survey_cmr <- capture_survey %>%
          tag_new == TRUE &
          capture_animal_state != "dead")
 
+relocate_cmr <- sites %>% 
+  select(siteid_alt) %>% 
+  distinct(siteid_alt) %>% 
+  inner_join(relocate, by = c("siteid_alt" = "release_siteid1")) %>% 
+  select(siteid_alt, release_date) %>% 
+  group_by(siteid_alt) %>% 
+  summarize(release_date_min = min(release_date)) %>% 
+  mutate(release_year = year(release_date_min), .after = release_date_min) 
+
 frog_captures <- sites %>% 
   inner_join(visit_cmr, by = "site_id") %>% 
   inner_join(survey_cmr, by = "visit_id") %>% 
@@ -507,13 +523,13 @@ frog_captures <- sites %>%
   group_by(siteid_alt, visit_year) %>% 
   summarize(recruits = sum(!is.na(pit_tag_ref))) %>%  # !is.na() converts pit_tag_ref records to TRUE/FALSE. sum() treats TRUE as 1/FALSE as 0, so sum is count of not NA values
   ungroup() %>% 
-  inner_join(relocate, by = "siteid_alt") %>% 
+  inner_join(relocate_cmr, by = "siteid_alt") %>% 
   select(-release_date_min) %>% 
   filter(visit_year > (release_year + 2)) # Exclude counts made in first 3 years after translocation (before recruitment is possible)
 
 # 70628 is not represented in data set because it has only been 2 years since the 2020 translocation, so no records met the final filtering condition. 
 
-rm(visit_cmr, survey_cmr, capture_survey_cmr)
+rm(visit_cmr, survey_cmr, capture_survey_cmr, relocate_cmr)
 
 frog_captures_table1 <- frog_captures %>% 
   distinct(siteid_alt, visit_year) %>% 
@@ -529,5 +545,9 @@ frog_captures_table <- frog_captures_table1 %>%
   left_join(frog_captures_table2, by = "siteid_alt") %>% 
   mutate(years_recruits_present = replace_na(years_recruits_present, 0),
          pyears_recruits_present = years_recruits_present / years_survey)
+
+write_csv(frog_captures_table, here::here("data", "clean", "frog_captures_table.csv"))
+
+rm(frog_captures_table1, frog_captures_table2)
 ```
 
