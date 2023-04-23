@@ -47,11 +47,24 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3,a^, Allison Q. Byrne^4,5,a^, Maxwell B
 
 ### Abstract
 
-<!--# No more than 250 words -->
+<!--# Limit = 250 words. -->
 
-### Significance Statement
+Infectious diseases are emerging at an unprecedented rate, with devastating consequences for global biodiversity.
+The recovery of impacted taxa is hindered by the ongoing presence of disease, and few broadly applicable conservation strategies exist to overcome this obstacle.
+Rapid evolution in response to disease may produce resistant/tolerant individuals capable of persisting despite the presence of disease ("evolutionary rescue"), and although untested, such hosts could be used to reestablish extirpated populations.
+We evaluated this scenario using the once-common mountain yellow-legged (MYL) frog, which is threatened with extinction by the emergence of a lethal fungal pathogen.
+Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually begin to recover.
+We show that MYL frogs have undergone substantial evolutionary change following disease outbreaks, and that these changes are associated with increased resistance/tolerance to Bd infection in naturally recovering populations.
+Large-scale reintroduction of frogs from these populations resulted in the establishment of reproducing populations at most recipient sites despite ongoing disease, and results from viability modeling suggests that established populations have a low probability of extinction over 50 years.
+Collectively, these results provide one of the first examples of how evolution and the reintroduction of resistant/tolerant individuals can allow the landscape-scale recovery of disease-impacted taxa.
+This example has potentially broad implications for the many taxa worldwide that are threatened with extinction by emerging diseases.
 
-<!--# Less than 120 words. Explain the significance of the research at a level understandable to an undergraduate-educated scientist outside their field of specialty.  -->
+### Significance
+
+<!--# Limit = 120 words. Explain the significance of the research at a level understandable to an undergraduate-educated scientist outside their field of specialty.  -->
+
+Diseases are becoming more common in wildlife and threaten many species with extinction.
+TO BE WRITTEN
 
 ### Introduction
 
@@ -66,6 +79,8 @@ Evolutionary changes following disease-induced declines are known from a diversi
 However, linking these selective responses to population recoveries - as necessary for evolutionary rescue - is difficult and remains rare.
 In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in recovering populations can, in theory, be used to reestablish populations that were extirpated following disease emergence [e.g., @mendelson2019].
 To date, the use of resistant/tolerant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
+
+<!--# Drop the following paragraph? -->
 
 There are four conditions that will often determine the feasibility of using individuals from populations that are recovering following disease-induced declines to reestablish extirpated populations.
 First, populations that survive following disease emergence evolve increased resistance/tolerance.
@@ -88,7 +103,7 @@ Furthermore, exploratory efforts to reintroduce frogs collected from recovering 
 
 In the current study, we combine results from genomic analyses, a 15-year landscape-scale frog reintroduction effort, and detailed population models to provide an unprecedented example of how evolution in response to disease allows the successful reestablishment of extirpated MYL frog populations.
 Specifically, we used exome capture methods to show that MYL frogs have undergone substantial evolutionary change associated with Bd exposure and that may provide a genetic basis for the observed increased resistance/tolerance to Bd infection observed in naturally recovering populations [@knapp2016].
-We then describe the reintroduction of these resistant frogs to 24 sites and the dynamics and drivers of population establishment using results from long-term capture-mark-recapture (CMR) surveys.
+We then describe the reintroduction of these resistant/tolerant frogs to 24 sites and the dynamics and drivers of population establishment using results from long-term capture-mark-recapture (CMR) surveys.
 These data are also used to parameterize a population model that extends our inferences of population establishment well beyond the multi-year extent of the CMR data.
 Collectively, these results provide one of the first examples of how evolution and the reintroduction of resistant/tolerant animals can allow the large-scale recovery of disease-impacted species.
 This example exhibits several of the key characteristics of evolutionary rescue, and has potentially broad implications for the many taxa worldwide that are threatened with extinction by emerging diseases.
@@ -121,11 +136,11 @@ A total of 33 annotated genes were found in the 9 shared regions (SI Dataset 2).
 The largest $\pi_{diff}$, indicative of directional selection, occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
 This region contains approximately 500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1).
 Additionally, a shared outlier region on Contig1 contained two complement factor genes (C6 and C7).
-Interestingly, this region had lower $\pi_{diff}$ in the recovering populations, consistent with balancing selection.
-Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D).
+Interestingly, this region had a low $\pi_{diff}$ value, consistent with balancing selection.
+Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D, @fig-synteny-plot SI).
 This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
 In *Xenopus*, five of these genes occur in the extended MHC Class I region (FLOT1, TUBB, MDC1, CCHCR1, TCF19) and three occur in the extended MHC Class III region (HSP70, LSM2, VARS) [@ohta2006].
-Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes (@fig-synteny-plot SI).
+Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes.
 
 #### Frog population recovery
 
@@ -303,7 +318,7 @@ This suggests an important effect of site characteristics and/or (site \* frog) 
 In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-survival-earlylate SI), which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
 Finally, Bd loads changed little between immediately prior to translocation versus during the one year after translocation (@fig-bdload-beforeafter SI), and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (5.8 ITS copies on a log~10~ scale) [@vredenburg2010; @joseph2018].
 
-Of the `r nrow(d2)` translocated populations, `r frog_counts_gt0_nrow` (`r frog_counts_gt0_nrow / nrow(d2)`) showed evidence of successful reproduction in subsequent years, as indicated by the presence of tadpoles and/or subadults.
+Of the `r nrow(d2)` translocated populations, `r frog_counts_gt0_nrow` (`r frog_counts_gt0_nrow / nrow(d2)`) showed evidence of successful reproduction in subsequent years, as indicated by the presence of tadpoles and/or juveniles.
 For these `r frog_counts_gt0_nrow` populations, one or both life stages were detected in nearly all survey-years following translocation (proportion of survey-years: median = `r frog_counts_gt0_median`, range = `r frog_counts_gt0_min`--`r frog_counts_gt0_max`).
 These same populations were also those in which recruitment of new adults (i.e., progeny of translocated individuals) was detected.
 As with early life stages, recruits were detected in the majority of post-translocation survey-years (proportion of survey-years: median = `r frog_captures_gt0_median`, range = `r frog_captures_gt0_min`--`r frog_captures_gt0_max`).
@@ -404,16 +419,18 @@ The results of this study provide a hopeful starting point for that endeavor, an
 
 #### Frog evolution in response to Bd
 
+<!--# To meet word count limits, we will likely need to move some of the following methods to the SI.  -->
+
 ##### Sampling and Sequencing
 
 We collected DNA samples via buccal swabbing [@broquet2007] from 53 *Rana muscosa*/*Rana sierrae* individuals: 24 from four Bd-naive populations, and 29 from five recovering populations.
-These populations were located in the southern Sierra Nevada, from northern Yosemite National Park to northern Sequoia National Park (@fig-selectionresults A).
+These populations were located in the southern Sierra Nevada, from northern Yosemite National Park to northern Sequoia National Park (@fig-allelefrequencies).
 Samples were collected from 5-6 frogs per population.
-To minimize potential confounding effects caused by variation in frog genotypes across latitude [e.g., @rothstein2020], we selected sampling sites such that both population types were represented across similar latitudinal ranges (@fig-selectionresults A).
+To minimize potential confounding effects caused by variation in frog genotypes across latitude [e.g., @rothstein2020], we selected sampling sites such that both population types were represented across similar latitudinal ranges.
 DNA was extracted following Qiagen DNEasy manufacturer's protocols.
 We sequenced the samples using an exome capture assay as described in Byrne et al. (in review).
 Briefly, genomic libraries were prepared and captured using a custom Nimblegen capture pool.
-Capture baits were designed based on the coding regions of the *Rana muscosa* transcriptome (GenBank accession GKCT00000000).
+Capture baits were designed based on the coding regions of the *R. muscosa* transcriptome (GenBank accession GKCT00000000).
 Captured libraries were then pooled and sequenced on a NovaSeq 6000 150PE Flow Cell S1 at the Vincent J. Coates Genomics Sequencing Lab at UC Berkeley.
 
 ##### Data Pre-processing and Cleaning
@@ -435,50 +452,50 @@ Our final dataset included 50 samples (23 from naive and 27 from recovering popu
 ##### Data Analysis
 
 To visualize the genomic relationship of our populations we created a PCA using the glPCA function in the adegenet R package [@jombart2008].
-Next, to detect regions of the genome under selection between naive and recovering populations, we used a multivariate linear mixed model to evaluate individual variants and a splined window analysis to evaluate larger genomic regions.
-<!--# Improve wording in this and subsequent paragraph to clarify that the two approaches were used to identify regions under selection.  For example, for us genomics dummies it would be useful to see something like: "We used two related approaches to identify regions under selection. The first approach A, did X, Y, and Z but had C limitations.  The second approach B, did X, Y, and Z and D limitations."--> GEMMA calculates and incorporates a relatedness matrix for input samples, allowing us to account for relatedness and population structure when calculating likelihood ratio statistics for our association test.
-For this analysis we used a stringent data filter to include only SNPs with \< 5% missing data (missing for no more than 2 individuals).
-GEMMA then calculated the likelihood ratio statistic <!--# What is the null with this test (or what are the two models being compared with the LRT)?  Probably obvious for genomics folks, but not totally clear to me.  I am guessing we are testing whether the `population` coefficient (naive vs. persistent) is significant for describing variability in a SNP? --> for the set of 148,307 high quality SNPs across 127 contigs.
-We then calculated two statistical thresholds for identifying outliers using a Bonferroni correction for a significance level of 0.05 (liberal set) and 0.01 (stringent set).
-<!--# Could we say something like: "Outliers indicated that a SNP was differently represented in naive vs. persistent populations" or whatever is the correct language." --> Results were visualized using a Manhattan plot and qqplot.
+Next, to detect regions of the genome under selection between naive and recovering populations, we used a multivariate linear mixed model to evaluate individual SNP variants and a splined window analysis to evaluate larger genomic regions.<!--# Improve wording in this and subsequent paragraph to clarify that the two approaches were used to identify regions under selection.  For example, for us genomics dummies it would be useful to see something like: "We used two related approaches to identify regions under selection. The first approach A, did X, Y, and Z but had C limitations.  The second approach B, did X, Y, and Z and D limitations."--> For the SNP analysis, we first used a stringent data filter to include only SNPs with \< 5% missing data (missing for no more than 2 individuals), and then calculated the likelihood ratio statistic<!--# What is the null with this test (or what are the two models being compared with the LRT)?  Probably obvious for genomics folks, but not totally clear to me.  I am guessing we are testing whether the `population` coefficient (naive vs. persistent) is significant for describing variability in a SNP? --> for the resulting set of 148,307 high quality SNPs across 127 contigs using GEMMA.
+GEMMA calculates and incorporates a relatedness matrix for input samples, allowing us to account for relatedness and population structure when calculating likelihood ratio statistics.
+We identified outlier SNPs using a Bonferroni- corrected significance level of 0.01.
+Outliers are SNPs showing different allele frequencies between naive versus recovering populations.
+We visualized the results using a Manhattan plot and qqplot.
+We developed a more liberal set of outlier SNPs using a Bonferroni- corrected significance level of 0.05 and used this set solely for the GO analysis (see below).
 
-To detect regions of the genome under selection <!--# Improve wording to indicate that this is the second analysis that we conducted to detect regions of the genome under selection.  Also, can we contrast this with the previous approach? What is this analysis doing that the other one didn't? -->, we conducted a splined window analysis for two statistics: *F~ST~* and differential nucleotide diversity ($\pi_{diff}$) between frogs from naive and recovering populations.
-First, we calculated per-site *F~ST~* between the naïve and recovering individuals for all bi-allelic SNPs in the 30 largest contigs (98% of all SNPs) using VCFtools [@danecek2011].
-Next, we calculated per-site $\pi$ separately for individuals from the naive and recovering populations individuals using VCFtools, then calculated $\pi_{diff}$ for each population ($\pi_{diff} = \pi_{naive} - \pi_{recovering}$).
-We concatenated the values for *F~ST~* and $\pi_{diff}$ in order of size-sorted chromosome number and adjusted the SNP position based on the relative position in the genome.
-
-We then used the package WINGEN R package [@bishop2023] <!--# Correct citation? No citation was provided in the original text from Allie so I guessed at what a suitable citation would be. --> to conduct a splined discrete window analysis for *F~ST~* and $\pi_{diff}$.
-This method calculates where non-overlapping window boundaries should occur by identifying inflection points in the fitted spline, therefore balancing false positive and false negative results that occur using other window-based methods [@beissinger2015] .
-This method also calculates a W-statistic allowing for outlier identification.
-We identified outliers as those with a W-statistic greater than 4 standard deviations above the mean for F~ST~ or above/below the mean for $\pi_{diff}$.
-Outlier regions were then identified as those that were outliers in both analyses, meaning that they showed 1) high differentiation between naive and recovering populations, and 2) differential patterns of nucleotide diversity in the same region.
-We then extracted gene transcripts mapped within each region and retrieved annotation for that region using blast.
-
-Using the liberal set of variant outliers, we performed a statistical overrepresentation test (Fisher's exact test) using Blast2GO [@conesa2005] .
-First, we retrieved the Blast hits and mapped GO terms for each gene in our targeted transcriptome.
-Next, we compared the 29 unique outlier genes from the liberal set of outlier variants to the complete set of genes in our target transcriptome to determine if any GO biological functions, molecular functions, or cellular processes were overrepresented.
-We then repeated this process for the set of 33 genes located in the overlapping *F~ST~* and $\pi_{diff}$ splined windows.
-For the stringent set of SNP outliers, we determined whether the variant was synonymous (protein sequence the same for each variant) or non-synonymous (protein sequence differs between variants), and where in the gene it was located.
+For each outlier SNP, we determined whether the variant was synonymous (protein sequence the same for each variant) or non-synonymous (protein sequence differs between variants), and where in the gene it was located.
 To do this, we first extracted the reference genome sequence surrounding the variant using bedtools "getfasta" [@quinlan2010].
 Next, we re-annotated each sequence using blast to get the predicted gene location based on the closest annotated reference [@altschul1997].
 We then translated each variant to amino acids and aligned this translation to that of the gene annotation to ensure proper frame of reference using Geneious [@kearse2012].
 After ensuring proper translation, we characterized variants as within or outside the coding sequence of the gene and as either synonymous or non-synonymous.
 
+In the splined window analysis, we identified outlier regions using *F~ST~* and differences in nucleotide diversity ($\pi_{diff}$) between naive and recovering populations.
+First, we calculated per-site *F~ST~* between the naive and recovering individuals for all bi-allelic SNPs in the 30 largest contigs (98% of all SNPs) using VCFtools [@danecek2011].
+Next, we calculated per-site $\pi$ separately for individuals from the naive and recovering populations using VCFtools, then calculated $\pi_{diff}$ for each population ($\pi_{diff} = \pi_{naive} - \pi_{recovering}$).
+We concatenated the values for *F~ST~* and $\pi_{diff}$ in order of size-sorted chromosome number and adjusted the SNP position based on the relative position in the genome.
+We then used the WINGEN R package [@bishop2023] to conduct a splined discrete window analysis for *F~ST~* and $\pi_{diff}$.
+This method calculates where non-overlapping window boundaries should occur by identifying inflection points in the fitted spline, therefore balancing false positive and false negative results that occur using other window-based methods [@beissinger2015] .
+This method also calculates a W-statistic allowing for outlier identification.
+We identified outliers as those with a W-statistic greater than 4 standard deviations above the mean for F~ST~ or above/below the mean for $\pi_{diff}$.
+Outlier regions were then identified as those that were outliers in both analyses, meaning that they showed 1) high differentiation between naive and recovering populations, and 2) differential patterns of nucleotide diversity in the same region.
+Finally, we extracted gene transcripts mapped within each region and retrieved annotation for that region using blast.
+
+Using the liberal set of variant outliers, we performed a statistical overrepresentation test (Fisher's exact test) using Blast2GO [@conesa2005].
+First, we retrieved the Blast hits and mapped GO terms for each gene in our targeted transcriptome.
+Next, we compared the 29 unique outlier genes from the liberal set of outlier variants to the complete set of genes in our target transcriptome to determine if any GO biological functions, molecular functions, or cellular processes were overrepresented.
+We then repeated this process for the set of 33 genes located in the overlapping *F~ST~* and $\pi_{diff}$ splined windows.
+
 #### Frog population recovery
 
 ##### Field methods
 
-Translocations of *R. sierrae* were conducted in Yosemite National Park (California, USA) as part of an effort to reestablish populations of this endangered species (@fig-yosemap).
-We identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], as well as landscape genetic information [@poorten2017].
-Results indicated that these populations contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles, and that frog abundances were recovering from previous Bd-caused declines [@knapp2016].
-As is typical for recovering MYL frog populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd infection intensity ("load", expressed as median log~10~(load) by site: `r round(bdload_min, 2)`--`r round(bdload_max, 2)`) was two or more orders of magnitude below the level at which frog mortality is expected (log~10~(load) $\approx$ 5.78 ITS copies per swab)[@vredenburg2010; @joseph2018].
+For the `r n_distinct(d1$site_id, d1$date)` translocations we conducted, we identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], as well as landscape genetic information [@poorten2017].
+The populations that we selected contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles.
+These relatively high abundances were the result of recent increases following previous Bd-caused declines [@knapp2016].
+As is typical for recovering MYL frog populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd load (median log~10~(load) = `r round(bdload_min, 2)`--`r round(bdload_max, 2)` ITS copies) was two or more orders of magnitude below the level at which frog mortality is expected (log~10~(load) $\approx$ 5.78 copies)[@vredenburg2010; @joseph2018].
 Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species [@knapp2005].
 
 We conducted `r transno_min`--`r transno_max` translocations per site (@fig-yosemap SI) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
 During each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
 Frogs were transported to the recipient site either on foot or via helicopter.
 Following release, translocated populations were visited approximately once per month during the summer active season (median number of visits per summer = `r round(surveys_yr_median)`; range = `r surveys_yr_min`--`r surveys_yr_max`) and assessed using diurnal CMR surveys and VES.
-CMR surveys allowed quantification of adult survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and subadult abundance.
+CMR surveys allowed quantification of adult survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and juvenile abundance.
 During 2006-2012, CMR surveys were conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs.
 Frogs were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
 During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (median number of secondary periods per primary period = `r round(robust_year_median)`; range = `r robust_year_min`--`r robust_year_max`), and frogs were processed as described above.
@@ -488,7 +505,7 @@ Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods.
 For details of survey and swab analysis methods, see @joseph2018.
 
 During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
-VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and subadults.
+VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and juveniles.
 These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance [@knapp2000].
 
 ##### Estimation of frog survival and abundance
@@ -529,14 +546,13 @@ To assess the magnitude of changes in Bd load on frogs following translocation, 
 Before-translocation loads were quantified using skin swabs collected from all to-be-translocated frogs at the donor site on the day before or the day of the translocation.
 After-translocation Bd loads were based on all swabs collected from translocated frogs at the recipient site in the year of and the year following translocation.
 Individual frogs and their associated Bd loads were included in the dataset only if frogs were captured at the recipient site at least once during the year 0-1 period.
-
-To quantify changes in Bd load, we used an analysis workflow similar to that described above.
+We used an analysis workflow similar to that described above.
 Briefly, the response variable was before-translocation load and the predictor variable was after-translocation load.
 We compared models with and without group-level effects, and group-level effects included pit_tag_id, pit_tag_id nested within site_id, or pit_tag_id nested within translocation_id.
 All models used a negative binomial family.
 Priors, chains, iterations, and checks were as described above.
 Code to create the dataset and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
-<!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect. That is the model that is most analogous to a paired t-test. -->
+<!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect? That is the model that is most analogous to a paired t-test. -->
 
 #### Population viability modeling
 
@@ -591,7 +607,7 @@ Thus, ignoring Bd infection dynamics and instead assuming all host vital rates a
 ###### Incorporating yearly variability in vital rates
 
 We extracted yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the CMR model used to estimate population-level parameters of translocated populations (see "Estimation of adult survival and population size" above).
-Although we observed yearly variability in adult survival *within* a population, the magnitude of this variability was small compared to *among* population variability ([@fig-translocation-survival]).
+Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among population variability ([@fig-translocation-survival]).
 Thus, we did not include yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
 Therefore, we allowed for yearly variability in the probability of successful recruitment $\omega$ (additional details provided in "Estimating model parameters" below).
@@ -624,17 +640,25 @@ Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we i
 The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
 
-### Acknowledgments and funding sources
+### Acknowledgments
+
+We thank the following for important contributions to this study: E.
+Hegeman and A.
+Lindauer--project and data management, field and laboratory work; A.
+Barbella and K.
+Rose--laboratory work; numerous summer technicians--field work; staff at Sequoia-Kings Canyon and Yosemite National Parks, Inyo and Sierra National Forests, California Department of Fish and Wildlife, U.S. Fish and Wildlife Service, University of California-Santa Barbara Institutional Animal Care and Use Committee, and Sierra Nevada Aquatic Research Laboratory--research permits, logistical support, and/or field assistance.
+This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.); and National Science Foundation Grants EF-0723563 (to C. Briggs), DEB-1557190 (to C. Briggs), and DBI-2120084 (to C. Richards-Zawacki).
 
 ### Figures
 
+\
 <!--# Bree comment: At some point it might be good to talk about what figures go in main text and which stay in supplement (or if we might make some multi-panel figures so that we can fit more in the main text). One thing I'm struck by in the figures is that each of the three main sections (genetics, translocations, PVA) are each so information rich but also somewhat disconnected. Not sure if we want to create some kind of synthetic or hybrid conceptual/data figure that pulls the main point of each analysis out and puts it in visual/conceptual relationship with the others. The results are so cool and we don't want readers to gloss over the details or have to work too hard to put it all back together again. -->
 
-![For each of the naive and recovering MYL frog populations, pie charts showing allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California. ](figures/allele_maps.png){#fig-allelefrequencies width="450"}
+![For each of the naive and recovering MYL frog populations, pie charts showing allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California.](figures/allele_maps.png){#fig-allelefrequencies width="450"}
 
 \newpage
 
-![Results from the splined window analysis showing outlier windows for $\pi_{diff}$ (A) and *F~ST~* (B). Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and II regions. ](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
+![Results from the splined window analysis showing outlier windows for $\pi_{diff}$ (A) and *F~ST~* (B). Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and II regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
 
 \newpage
 
@@ -660,70 +684,50 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 #### Methods
 
+We compared frog genomes sampled in naive versus recovering populations.
 Bd-exposure histories of these populations are based on a decade or more of data from visual encounter surveys and Bd surveillance using skin swabbing [e.g., @knapp2016].
 Comparing populations with different infection histories allowed larger sample sizes and replication across the landscape.
 The alternative approach of comparing samples from the same populations before and after Bd exposure isn't feasible in this system because Bd arrived in most MYL frog populations decades ago and population persistence/recovery is rare and unpredictable.
 As a result, samples from recovering populations collected from before and after Bd exposure are not available and are unlikely to be available in the future.
 
-We identified outlier SNPs using two Bonferroni-corrected significance levels: "liberal" = 0.05, "stringent" = 0.01.
-In the main text we present results solely based on the stringent set.
-
 #### Results
 
-```{=html}
-<!--# Comment from Allie that will be helpful in making the case that what we are seeing is evidence of strong selection/evolutionary rescue:
+In the Results section of the main paper, we describe the stringent set of outlier SNPS (identified using a Bonferroni-corrected p-value of 0.01).
+The liberal set, identified using a Bonferroni-corrected p-value of 0.05, included 38 outliers (35 SNPs and 3 structural variants) from 30 distinct genes across 16 contigs.
 
-For the question about describing what we are seeing as evolutionary rescue - I feel comfortable and confident using that wording for two reasons:
-
-1) STRENGTH OF SIGNAL: the gene regions we discuss specifically in our dataset are robust outliers.
-In the case of the MHC region we have multiple SNPs in this region that are statistically significantly associated AND a larger pattern of depressed pi in the recovering pops and large Fst.
-In the case of GVINP1 we have the only instance of two adjacent outlier spline windows for pi, and the largest difference in pi of any region we measured.
-Finally for RIN3 the allele frequency maps tell the most compelling story and reflect the fact that this is the most statistically significant outlier SNP that has an annotation.
-and
-
-2) CORROBORATING STUDIES. For each gene mentioned above we can list many studies that have linked the genes to Bd/disease/wounds.
-In the case of GVINP1 for instance there are at least three Bd transcriptomic studies that have found this specific gene to be differentially expressed in amphibians (I currently only cite one in the paper but could add the other two: Grogan et al. 2018, Ellison et al. 2014a, Ellison et al. 2014b).
-In fact, if you haven't taken a look at the Grogan paper it is really interesting because it is similar in that they are describing evolution in natural settings and they talk a lot about the GVINP1 gene.
-Even more remarkable that this gene was also linked so strongly to gill amoebic disease in salmon (explaining an astounding 20% of the resistance phenotype).
--->
-```
-In the main manuscript, we describe the stringent set of variants.
-In addition, the liberal set of variants included 38 outliers (35 SNPs and 3 structural variants) from 30 distinct genes across 16 contigs.
-
-Multiple genes in our set of outliers are strong candidates for playing a role the genomic underpinnings of Bd-survival in MYL frogs.
-Remarkably, we identified a \~940kb region on contig 8 that contains 8 genes associated with either the MHC Class I or Class III regions.
+Multiple genes in our stringent set of outliers have known associations with amphibian Bd resistance/tolerance.
+Of particular interest is a \~940kb region on contig 8 that we identified as under selection, and that contains 8 genes associated with either the MHC Class I or Class III regions.
 The order of these genes in the MYL frog genome is conserved from *Xenopus* [@ohta2006] and is consistent with MHC Class I/III linkage reported in the Komodo dragon [@reed2021].
-These results corroborate many studies linking MHC genes to Bd survival [e.g., @savage2011; @bataille2015].
-For example, the MHC Class III gene heat shock protein 70 (HSP70) within this outlier window is intriguing because an HSP70-binding protein was also identified as a candidate gene under selection in persisting *Atelopus varius* populations [@byrne2020], and HSP70 was highly expressed in Bd-infected vs. uninfected *Xenopus tropicalis* [@rosenblum2009].
-This MHC gene cluster lies on the same chromosome as the outlier SNP in RIN3, a gene associated with inflammation response that is highly expressed in amputated Xenopus tails [@fukazawa2009].
-These findings suggest that genetic variants in this region of the MHC, and in other immunologically relevant genes on the same chromosome, are likely important for frog resistance against Bd.
+Numerous studies have linked MHC genes to frog resistance/tolerance against Bd infection [e.g., @savage2011; @bataille2015].
+In addition to the genes in this region that we describe in the Results section of the main paper, other genes also deserve mention.
+For example, we identified the MHC Class III gene, heat shock protein 70 (HSP70), as occurring in this region (@fig-synteny-plot).
+Similarly, @byrne2020 identified an HSP70-binding protein as a candidate gene under selection in *Atelopus varius* populations recovering after Bd-caused declines.
+HSP70 was also highly expressed in Bd-infected versus uninfected *Xenopus tropicalis* [@rosenblum2009].
+This MHC gene cluster lies on the same chromosome as the outlier SNP in RIN3 (@fig-spline-manhattan C), a gene associated with inflammation response that is highly expressed in amputated *Xenopus* tails [@fukazawa2009].
 
-Additionally, we identified a region on contig 19 that had much lower in the recovering group and consisted of one gene -- interferon-induced very large GTPase 1-like (GVINP1).
-Interferons boost immune system processes and previous studies have linked interferon related genes to persisting post-Bd [@byrne2020] or increased expression when exposed to Bd in the lab [@rosenblum2008; @ellison2014].
-Variants in the specific gene identified here, GVINP1, explained \~20% of the resistance to Amoebic Gill Disease in Atlantic Salmon, a finding confirmed via expression analysis [@robledo2018; @robledo2020].
-Furthermore, a key difference in susceptibility between populations of alpine tree frogs (*Litoria verreauxii alpina*) was the lower expression of IFN-induced very large GTPase in the more resistant, long-exposed population and upregulation of this same gene in more susceptible populations [@grogan2018].
-Our study therefore contributes to the growing body of evidence linking this gene to disease resistance in general, and specifically to Bd survival in amphibians.
-Finally, we found evidence of high FST and higher in recovering populations in the complement genes C6 and C7 <!--# It is clear why we talk about the other two regions (the ones highlighted in figure 2) and RIN3 - see comments above. But I guess the only reason this is interesting is because it is a complement region and it shows balancing rather than directional selection. If it feels like we can't justify discussing it we can cut it and just focus on the other two.  -->.
-This could indicate that balancing selection is acting in this region of the genome, favoring a diverse set of alleles in the recovering group which has been shown for C6 in humans [@soejima2005].
-Overall, key outlier genes in our dataset link directly to experimental and observational studies of immune responses to pathogens -- and often specifically to Bd responses in amphibians -- adding confidence to our conclusion that selection and rapid evolutionary change has contributed to survival in MYL frogs.
+Additionally, we identified a region on contig 19 that had the highest $\pi_{diff}$ of any outlier window, indicative of directional selection.
+This region contained the gene, interferon-induced very large GTPase 1-like (GVINP1).
+Interferons boost immune system processes and previous studies of frogs have identified interferon-related genes as associated with Bd resistance/tolerance [@byrne2020] or have shown increased expression of this class of genes when frogs were exposed to Bd in the lab [@rosenblum2009; @ellison2014].
+Variants in GVINP1 also explained approximately 20% of the resistance to amoebic gill disease in Atlantic salmon, a finding confirmed via expression analysis [@robledo2018; @robledo2020].
+Furthermore, in *Litoria verreauxii alpina*, the related gene<!--# Correct? Or is this refering to GVINP1? -->, IFN-induced very large GTPase, showed lower expression in frogs from less susceptible populations versus more susceptible populations [@grogan2018].
 
-Based on the SNP and splined-window analyses , no GO terms were significantly over-represented in the set of annotated genes associated with the outlier SNPs or regions.
+Finally, we identified a region characterized by high *F~ST~* and low $\pi_{diff}$ and that contained the complement genes C6 and C7.
+This could indicate that balancing selection is acting in this region of the genome to favor a diverse set of alleles, as is known for C6 in humans [@soejima2005].
 
 <!--# Mention that the patterns shown in the allele frequencies figure (panel A, B) may be confounded by frog relatedness and/or population structure despite the methods we used to account for these factors? -->
 
-### Translocations
-
-Brief description of recipient populations, perhaps in table format?
-Includes mostly individual relatively isolated lakes, but also some lake-pond-stream complexes and one stream-meadow-pond complex.
+<!--# Brief description of recipient populations, perhaps in table format? Includes mostly individual relatively isolated lakes, but also some lake-pond-stream complexes and one stream-meadow-pond complex. -->
 
 \newpage
 
 ### Figures
 
+\
+
 ![Results from the exome capture selection study. (A) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.\
 ](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
 
-![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny @veltri2016 using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot width="1500"}
+![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny @veltri2016 using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot width="600"}
 
 \newpage
 
@@ -741,11 +745,13 @@ Includes mostly individual relatively isolated lakes, but also some lake-pond-st
 
 ### Tables
 
-<!--# How to insert >= symbol in header and table cells> -->
+\
+
+<!--# How to insert >= symbol in header and table cells? Move second sentence of caption to footnote.-->
 
 ```{r}
 #| label: tbl-survival-earlylate
-#| tbl-cap: "Association between the proportion of populations translocated early versus late in the study period (< 2013 or >= 2013, respectively) and probability of survival (< 0.5 or >= 0.5)."
+#| tbl-cap: "Association between the proportion of populations translocated early versus late in the study period (< 2013 or >= 2013, respectively) and probability of survival (< 0.5 or >= 0.5). Based on the viability analysis, survival probabilities < 0.5 and >= 0.5 produced 50-year extinction probabilities of 1 and < 0.5, respectively."
 #| echo: FALSE
 #| message: FALSE
 
@@ -769,7 +775,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 \newpage
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:--------------------------|:------------------|:-------------------------|
+|:--------------------------------------------------------------------------|:---------------------|:-------------------------------------------------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
@@ -797,3 +803,5 @@ Dataset 2: spline_window_shared_outliers.csv <!--# The dataset contains descript
 \
 
 ### References
+
+\
