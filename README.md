@@ -6,8 +6,6 @@ Roland A. Knapp (roland.knapp(at)ucsb.edu) [![ORCiD](https://img.shields.io/badg
 
 Mark Q. Wilber (mqwilber(at)gmail.com) [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--8274--8025-green.svg)](https://orcid.org/0000-0002-8274-8025) 
 
-Thomas C. Smith (tcsmith(at)ucsb.edu [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0001--7908--438X-green.svg)](https://orcid.org/0000-0001-7908-438X)
-
 ## Overview of contents
 
 This repository is organized as a reproducible research compendium, and describes frog translocations to reestablish populations of the endangered [mountain yellow-legged frog](https://www.fws.gov/sites/default/files/documents/Mountain-Yellow-Legged-Frog-Conservation-Strategy.pdf). 
