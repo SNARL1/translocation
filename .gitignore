@@ -9,7 +9,6 @@ _extensions/
 .Ruserdata
 *.pdf
 *.log
-*.tex
 *.aux
 *.out
 *.docx

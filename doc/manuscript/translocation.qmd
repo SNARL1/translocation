@@ -1,7 +1,10 @@
 ---
 bibliography: translocation.bib
 csl: pnas.csl
-format: docx
+# format: docx
+format :
+  latex:
+    cite-method: natbib
 editor: visual
 ---
 
@@ -437,7 +440,7 @@ Captured libraries were then pooled and sequenced on a NovaSeq 6000 150PE Flow C
 
 Raw reads were filtered for adapters and contaminants using fastp [@chen2018] and aligned to the *Rana muscosa* genome [NCBI SRA: SRS6533475, reference = @hon2020] with repetitive elements masked using bwa ("mem" mode) [@li2013].
 Exact PCR Duplicates were marked using Picard.
-Variants were then called following GATK best practices (v.4.2.0.0, @van2020).
+Variants were then called following GATK best practices (v.4.2.0.0, [@van2020]).
 Briefly, raw variants were called for each sample using HaplotypeCaller and combined using CombineGVCFs.
 Next, genotypes were jointly called using GenotypeGVCFs.
 Variants were then hard filtered using gatk VariantFiltration using the following parameters to remove low-quality sites: QD \< 2.0, FS \> 40.0, SOR \> 3.0, MQ \< 50.0, MQRankSum \> 3.0, MQRankSum \< -3.0, ReadPosRankSum \> 3.0, ReadPosRankSum \< -3.0.
@@ -502,7 +505,7 @@ During 2013-2022, we generally used a robust design in which all habitats were s
 However, when the number of frogs detected on the first survey day was zero or near zero, we typically conducted only a single-day CMR survey.
 When using a robust design, within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed during the first capture, and during subsequent captures were only identified and released.
 Frog skin swabs were analyzed using standard Bd DNA extraction and qPCR methods.
-For details of survey and swab analysis methods, see @joseph2018.
+For details of survey and swab analysis methods, see [@joseph2018].
 
 During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
 VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and juveniles.
@@ -526,7 +529,7 @@ Code used to create CMR datasets and fit models for each translocated population
 To identify important predictors of frog survival following translocation, we developed linear and multilevel models in a Bayesian framework.
 We performed all analyses with the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022], and used default, weakly informative priors.
 Starting models included all relevant population-level effects and, when data contained possible hierarchical structure, we included group-level effects in the full model.
-Within each analysis, we evaluated model fit using visualizations of leave-one-out ("LOO") probability integral transformations [@gelman2013, @gabry2019], and compared fits of models with and without group-level effects, and with differing group-level effects using LOO cross-validation [@vehtari2016].
+Within each analysis, we evaluated model fit using visualizations of leave-one-out ("LOO") probability integral transformations [@gelman2013; @gabry2019], and compared fits of models with and without group-level effects, and with differing group-level effects using LOO cross-validation [@vehtari2016].
 Both approaches utilized the loo package [@vehtari2022].
 
 We conducted two analyses.
@@ -654,19 +657,19 @@ This project was supported by grants from the National Park Service (to R.A.K.),
 \
 <!--# Bree comment: At some point it might be good to talk about what figures go in main text and which stay in supplement (or if we might make some multi-panel figures so that we can fit more in the main text). One thing I'm struck by in the figures is that each of the three main sections (genetics, translocations, PVA) are each so information rich but also somewhat disconnected. Not sure if we want to create some kind of synthetic or hybrid conceptual/data figure that pulls the main point of each analysis out and puts it in visual/conceptual relationship with the others. The results are so cool and we don't want readers to gloss over the details or have to work too hard to put it all back together again. -->
 
-![For each of the naive and recovering MYL frog populations, pie charts showing allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California.](figures/allele_maps.png){#fig-allelefrequencies width="450"}
+![For each of the naive and recovering MYL frog populations, pie charts showing allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California.](figures/allele_maps.png){#fig-allelefrequencies}
 
 \newpage
 
-![Results from the splined window analysis showing outlier windows for $\pi_{diff}$ (A) and *F~ST~* (B). Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and II regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
+![Results from the splined window analysis showing outlier windows for $\pi_{diff}$ (A) and *F~ST~* (B). Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and II regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan}
 
 \newpage
 
-![Median 1-year survival for each cohort of translocated frogs at the 12 recipient sites. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 95% uncertainty intervals. When multiple translocations were conducted to a site, points and error bars are slightly offset to avoid overlap.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="300"}
+![Median 1-year survival for each cohort of translocated frogs at the 12 recipient sites. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 95% uncertainty intervals. When multiple translocations were conducted to a site, points and error bars are slightly offset to avoid overlap.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival}
 
 \newpage
 
-![Results showing conditional effects of the important predictors of 1-year frog survival. (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="450"}
+![Results showing conditional effects of the important predictors of 1-year frog survival. (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects}
 
 \newpage
 
@@ -701,7 +704,7 @@ The order of these genes in the MYL frog genome is conserved from *Xenopus* [@oh
 Numerous studies have linked MHC genes to frog resistance/tolerance against Bd infection [e.g., @savage2011; @bataille2015].
 In addition to the genes in this region that we describe in the Results section of the main paper, other genes also deserve mention.
 For example, we identified the MHC Class III gene, heat shock protein 70 (HSP70), as occurring in this region (@fig-synteny-plot).
-Similarly, @byrne2020 identified an HSP70-binding protein as a candidate gene under selection in *Atelopus varius* populations recovering after Bd-caused declines.
+Similarly, [@byrne2020] identified an HSP70-binding protein as a candidate gene under selection in *Atelopus varius* populations recovering after Bd-caused declines.
 HSP70 was also highly expressed in Bd-infected versus uninfected *Xenopus tropicalis* [@rosenblum2009].
 This MHC gene cluster lies on the same chromosome as the outlier SNP in RIN3 (@fig-spline-manhattan C), a gene associated with inflammation response that is highly expressed in amputated *Xenopus* tails [@fukazawa2009].
 
@@ -725,21 +728,21 @@ This could indicate that balancing selection is acting in this region of the gen
 \
 
 ![Results from the exome capture selection study. (A) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.\
-](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
+](figures/pca_qq_manhattan.png){#fig-selectionresults}
 
-![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny @veltri2016 using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot width="600"}
+![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
 
 \newpage
 
-![Map showing the locations of translocated and donor MYL frog populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). <!--# Make sure all points are inside YOSE polygon -->](figures/map_translocation_points.png){#fig-yosemap width="350"}
+![Map showing the locations of translocated and donor MYL frog populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). <!--# Make sure all points are inside YOSE polygon -->](figures/map_translocation_points.png){#fig-yosemap}
 
-![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. In the Bayesian framework in which the model was developed, a variable is considered an important predictor if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
+![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. In the Bayesian framework in which the model was developed, a variable is considered an important predictor if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens}
 
-![For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Box plot details are as in @fig-cond-effects.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="450"}
+![For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Box plot details are as in @fig-cond-effects.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter}
 
-![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
+![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens}
 
-![Comparison of the average yearly adult survival probabilities for adults translocated to each of three sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohort. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. The large error bars for 70550 reflect the large within and among individual variability in yearly survival probability at this site (as also reflected in one-year survival probabilities in [@fig-translocation-survival]). All estimates are derived from the mrmr package.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="450"}
+![Comparison of the average yearly adult survival probabilities for adults translocated to each of three sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohort. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. The large error bars for 70550 reflect the large within and among individual variability in yearly survival probability at this site (as also reflected in one-year survival probabilities in [@fig-translocation-survival]). All estimates are derived from the mrmr package.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs}
 
 \newpage
 
