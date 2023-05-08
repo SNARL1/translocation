@@ -730,8 +730,7 @@ This could indicate that balancing selection is acting in this region of the gen
 
 \
 
-![Results from the exome capture selection study. (A) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.\
-](figures/pca_qq_manhattan.png){#fig-selectionresults}
+![Results from the exome capture selection study. (A) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
 
 ![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
 
@@ -781,7 +780,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 \newpage
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:--------------------------------------------------------------------------|:---------------------|:-------------------------------------------------------------------|
+|:-----------------------------|:---------------|:--------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
