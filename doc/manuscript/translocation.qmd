@@ -348,15 +348,12 @@ We parameterized the model using CMR data from translocated populations and know
 Given observed yearly adult survival probabilities (from analysis of CMR data) and a baseline yearly recruitment probability $\omega$ of 0.3 (i.e., the probability that, following survival, juveniles successfully recruit to the adult class), our stage-structured model predicted that six of twelve translocated populations should experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd (@fig-viability A; median predicted $\lambda$ ranges from 1.15-1.36 for these six populations).
 These six populations all had observed yearly adult survival greater than 0.5.
 When we reduced the probability of successful recruitment $\omega$ to 0.1 (a highly conservative estimate), long-run growth rate of five of these six populations was still greater than 1 (@fig-viability A).
-In contrast, for the other six translocated populations, where yearly adult survival was substantially less than 0.5, our model predicted that it was unlikely that long-run growth rate in these populations was greater than 1, even when the probability of successful recruitment to the adult life stage was near 0.4 (@fig-viability A).
-A sensitivity analysis of long-run growth rate $\lambda$ to yearly adult survival probability of naturally recruited individuals $\sigma_{A_R}$, recruitment probability $\omega$, and female fecundity *F* showed that $\lambda$ was most sensitive to small changes in $\sigma_{A_R}$ (@fig-viability-supp A).
-Note that we assumed $\sigma_{A_R}$ was equivalent to the survival probability of translocated adults $\sigma_{A_T}$, except for three populations where we had \> 5 years of CMR data and recovering populations that together allowed us to estimate $\sigma_{A_R}$ and $\sigma_{A_T}$ separately (@fig-compare_surv_probs SI).
-<!--# Consider condensing the above paragraph and providing details in SI. Next paragraph topic sentence could also provide a more direct statement of key results, e.g., something like "Even when incorporating demographic and environmental stochasticity, populations with high adult survival are likely to persist over a 50 year time horizon." -->
+<!--# Consider condensing the above paragraph and providing details in SI. Next paragraph topic sentence could also provide a more direct statement of key results, e.g., something like "Even when incorporating demographic and environmental stochasticity, populations with high adult survival are likely to persist over a 50 year time horizon."  Mark here:  Addressed both of these comments. -->
 
-We then incorporated demographic stochasticity (i.e., probabilistic births and deaths of individuals in a population) and environmental variability in the probability of juvenile recruitment to the adult class $\omega$ (the transition that we expect to be the most subject to environmental stochasticity in the presence of Bd) into the model described above and used it to predict long-term population viability.
+Even when incorporating demographic stochasticity and environmental stochasticity in the probability of juvenile recruitment to the adult class $\omega$ (the transition that we expect to be the most subject to environmental variability in the presence of Bd), populations with high adult survival are likely to persist over a 50 year time horizon.
 Our model predicted that, following a single introduction of 40 adult individuals into a population and using the baseline value for $\omega$ of 0.3, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of 0 to 0.32; @fig-viability B).
 This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment (@fig-viability B).
-When we decreased $\omega$ from 0.3 to a conservative estimate of 0.15, 50 year extinction probability remained less than 0.5 for three populations and was 0.79 to 0.94 for three additional populations (@fig-viability B).
+When we decreased $\omega$ from 0.3 to a conservative estimate of 0.15, 50-year extinction probability remained less than 0.5 for three populations and was 0.79 to 0.94 for three additional populations (@fig-viability B).
 In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability-supp B; population 70550, surveyed for 16 years).
 
@@ -608,7 +605,7 @@ A_T \\
 \end{bmatrix}(t) 
 $$
 
-The parameters in this model are yearly survival probability $\sigma_{\cdot}$ (the subscript "$\cdot$" indicates a particular state variable), probability that a female frog reproduces in a given year $p_F$, number of eggs produced by a female frog in a year that successfully hatch $F$, probability of a first-year tadpole remaining as a tadpole $p_{L1}$, probability of a second-year tadpole remaining as a tadpole $p_{L2}$, and probability of a first-year juvenile remaining as a juvenile $p_{J1}$., and the probability of a juvenile successfully recruiting to an adult $\omega$.
+The parameters in this model are yearly survival probability $\sigma_{\cdot}$ (the subscript "$\cdot$" indicates a particular state variable), probability that a female frog reproduces in a given year $p_F$, number of eggs produced by a female frog in a year that successfully hatch $F$, probability of a first-year tadpole remaining as a tadpole $p_{L1}$, probability of a second-year tadpole remaining as a tadpole $p_{L2}$, and probability of a first-year juvenile remaining as a juvenile $p_{J1}$, and the probability of a juvenile successfully recruiting to an adult $\omega$.
 
 In this model we ignore density-dependent recruitment because we were interested in the growth of the population from an initial reintroduction and whether this growth was sufficient to prevent extinction over 50 years following the introduction.
 We also did not directly consider the dynamics of Bd in this model.
@@ -617,41 +614,11 @@ Thus, ignoring Bd infection dynamics and instead assuming all host vital rates a
 
 ##### Model analysis
 
-###### Incorporating yearly variability in vital rates
-
-We extracted yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the CMR model used to estimate population-level parameters of translocated populations (see "Estimation of adult survival and population size" above).
-Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among population variability ([@fig-translocation-survival]).
-Thus, we did not include yearly within-population variability in adult survival in this analysis.
-However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
-Therefore, we allowed for yearly variability in the probability of successful recruitment $\omega$ (additional details provided in "Estimating model parameters" below).
-
-###### Estimating model parameters
-
-The baseline parameter values for the model and how they were estimated are given in @tbl-param_values : SI.
-Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR model described previously in this study.
-For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs] : SI).
-For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
-
-###### Model analysis and simulation
-
-We performed four analyses on our model.
-First, we considered a deterministic version of our model with no yearly heterogeneity in probability of successful recruitment $\omega$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\omega$.
-We then fixed $\omega = 0.3$ and calculated the predicted growth rate of our 12 populations.
-
-Second, we performed a local elasticity analysis on $\lambda$ with respect to parameters $\omega$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations.
-
-Third, we defined a version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among-year variability in $\omega$.
-We used this model to simulate a one-time introduction of 40 translocated adult frogs.
-We ran this simulation 1000 times for each population and computed the probability of a population becoming extinct after 50 years given the observed parameter values and environmental stochasticity in $\omega$.
-We varied the mean recruitment probability $\omega$ from 0.15 and 0.4 and drew values of $\omega$ each year from a beta distribution with a dispersion parameter of $\phi = 2$ (when $\omega = 0.5$ and $\phi = 2$ the beta distribution is uniform between 0 and 1).
-
-Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery.
-We focused on population 70550 because this was our longest CMR time series for a translocated population and because this population shows evidence of substantial post-translocation increases in adult abundance associated with population establishment and recovery.
-We simulated our model for 16 years, repeating the simulation 50,000 times.
-For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or equivalently a beta distribution with mean 0.5 and $\phi = 2$).
-Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
-The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
-Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
+After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values] : SI), we performed four analyses (described in detail in the SI).
+First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to growth or decline in the long-run.
+Second, we compute the elasticity of $\lambda$ to model parameters, to quantify how much changes in adult survival, for example, affected the long-run growth rate.
+Third, we included demographic and environmental stochasticity into our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
+Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of MYL frogs following reintroductions.
 
 ### Acknowledgments
 
@@ -668,7 +635,7 @@ This project was supported by grants from the National Park Service (to R.A.K.),
 
 \newpage
 
-![Results from the splined window analysis showing outlier windows for the difference in nucleotide diversity $\pi_{diff}$ (A) and *F~ST~* (B). Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and II regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
+![Results from the splined window analysis showing outlier windows for the difference in nucleotide diversity $\pi_{diff}$ (A) and *F~ST~* (B). Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and II regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan}
 
 \newpage
 
@@ -738,13 +705,53 @@ Based on paired comparisons between samples analyzed using both types of standar
 To express all qPCR results as the number of ITS1 copies, starting quantities obtained using the zoospore standard (measured as "zoospore equivalents") were multiplied by 60.
 In addition, all qPCR quantities (regardless of standard) were multiplied by 80 to account for the fact that DNA extracts from swabs were diluted 80-fold during extraction and PCR [@vredenburg2010].
 
+### Population viability modeling
+
+#### Methods
+
+##### Incorporating yearly variability in vital rates
+
+We extracted yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the CMR model used to estimate population-level parameters of translocated populations (see "Estimation of adult survival and population size" above).
+Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among population variability ([@fig-translocation-survival]).
+Thus, we did not include yearly within-population variability in adult survival in this analysis.
+However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
+Therefore, we allowed for yearly variability in the probability of successful recruitment $\omega$ (additional details provided in "Estimating model parameters" below).
+
+##### Estimating model parameters
+
+The baseline parameter values for the model and how they were estimated are given in @tbl-param_values : SI.
+Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR model described previously in this study.
+For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs] : SI).
+For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
+
+##### Model analysis and simulation
+
+We performed four analyses on our model.
+First, we considered a deterministic version of our model with no yearly heterogeneity in probability of successful recruitment $\omega$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\omega$.
+We then fixed $\omega = 0.3$ and calculated the predicted growth rate of our 12 populations.
+
+Second, we performed a local elasticity analysis on $\lambda$ with respect to parameters $\omega$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations.
+
+Third, we defined a version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among-year variability in $\omega$.
+We used this model to simulate a one-time introduction of 40 translocated adult frogs.
+We ran this simulation 1000 times for each population and computed the probability of a population becoming extinct after 50 years given the observed parameter values and environmental stochasticity in $\omega$.
+We varied the mean recruitment probability $\omega$ from 0.15 and 0.4 and drew values of $\omega$ each year from a beta distribution with a dispersion parameter of $\phi = 2$ (when $\omega = 0.5$ and $\phi = 2$ the beta distribution is uniform between 0 and 1).
+
+Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery.
+We focused on population 70550 because this was our longest CMR time series for a translocated population and because this population shows evidence of substantial post-translocation increases in adult abundance associated with population establishment and recovery.
+We simulated our model for 16 years, repeating the simulation 50,000 times.
+For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or equivalently a beta distribution with mean 0.5 and $\phi = 2$).
+Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
+The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
+Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
+
 \newpage
 
 ### Figures
 
 \
 
-![Results from the exome capture selection study. (A) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
+![Results from the exome capture selection study. (A) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and indels as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults}
 
 ![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
 

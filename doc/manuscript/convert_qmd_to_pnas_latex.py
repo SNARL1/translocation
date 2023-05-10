@@ -165,6 +165,7 @@ supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
 			"Table~\\ref{tbl-survival-earlylate} SI": "Table S1",
 			"Table~\\ref{tbl-survival-earlylate}": "Table S1",
 			"Table~\\ref{tbl-param_values} : SI": "Table S2",
+			"Table~\\ref{tbl-param_values}\n: SI": "Table S2",
 			"Table~\\ref{tbl-param_values} SI": "Table S2"
 			}
 
