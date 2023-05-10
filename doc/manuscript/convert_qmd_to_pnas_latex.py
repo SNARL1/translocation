@@ -137,7 +137,7 @@ pnas_ms = pnas_ms.replace("\\acknow{}", "\\acknow{" + acknowledge + "}")
 suppmatkey = "\\hypertarget{supporting-information}{%\n\\subsection{Supporting Information}\\label{supporting-information}}"
 fig_start = latex_manuscript.find(figkey)
 fig_end = latex_manuscript.find(suppmatkey)
-figures = latex_manuscript[fig_start:fig_end].split(figkey)[1].strip("\n").strip("\\newpage").strip("hfill\\break")
+figures = latex_manuscript[fig_start:fig_end].split(figkey)[1].strip("\n")#.strip("\\newpage")#.strip("hfill\\break")
 pnas_ms = pnas_ms.replace("% Figures\n", "\\clearpage\n" + figures)
 
 pnas_ms = pnas_ms.replace("\\begin{figure", "\\begin{figure*")
@@ -152,6 +152,7 @@ supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
 			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S1B,C",
 			"Figure~\\ref{fig-synteny-plot} SI": "Figure S2",
 			"Figure~\\ref{fig-yosemap} SI": "Figure S3",
+			"Figure~\\ref{fig-yosemap}\nSI": "Figure S3",
 			"Figure~\\ref{fig-transsurvival-postdens} SI": "Figure S4",
 			"Figure~\\ref{fig-bdload-beforeafter} SI": "Figure S5",
 			"Figure~\\ref{fig-bdload-beforeafter}\n SI": "Figure S5",
@@ -231,6 +232,6 @@ with open("translocation_pnas_SI.tex", "w") as fout:
 	fout.writelines(pnas_supp)
 
 # Remove transcloation.tex
-subprocess.call(['rm', args[1]])
+# subprocess.call(['rm', args[1]])
 
 

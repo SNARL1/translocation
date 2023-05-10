@@ -12,8 +12,14 @@ _extensions/
 *.aux
 *.out
 *.docx
+*.fdb_latexmk
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
 Rplots.pdf
 code/Rplots.pdf
+.DS_Store
 
 code/translocation_survival_analysis.knit.md
 code/translocation_survival_analysis.nb.html
