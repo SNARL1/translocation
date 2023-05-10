@@ -4,7 +4,7 @@
 \templatetype{pnassupportinginfo}
 \usepackage{longtable}
 
-\title{Reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease}
+\title{Evolutionary rescue and reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease}
 \author{Roland A. Knapp, Mark Q. Wilber, Allison Q. Byrne, Maxwell B. Joseph, Thomas C. Smith, Andrew P. Rothstein, Robert L. Grasso, Erica Bree Rosenblum}
 \correspondingauthor{Corresponding Author name. Roland A. Knapp \\ E-mail: roland.knapp@ucsb.edu}
 
@@ -87,6 +87,117 @@ complement genes C6 and C7. This could indicate that balancing selection
 is acting in this region of the genome to favor a diverse set of
 alleles, as is known for C6 in humans \citep{soejima2005}.
 
+\hypertarget{frog-population-recovery-2}{%
+\section{Frog population
+recovery}\label{frog-population-recovery-2}}
+
+\hypertarget{methods-1}{%
+\subsection{Methods}\label{methods-1}}
+
+Swab extracts were analyzed singly instead of in triplicate
+\citep{kriger2006}. For analysis of swabs collected during 2005--2014,
+we used standards developed from known concentrations of zoospores
+\citep{boyle2004}, and after 2014, we used standards based on single
+ITS1 PCR amplicons \citep{longo2013}. Based on paired comparisons
+between samples analyzed using both types of standards, Bd in the study
+area has an average of 60 ITS1 copies per zoospore. To express all qPCR
+results as the number of ITS1 copies, starting quantities obtained using
+the zoospore standard (measured as ``zoospore equivalents'') were
+multiplied by 60. In addition, all qPCR quantities (regardless of
+standard) were multiplied by 80 to account for the fact that DNA
+extracts from swabs were diluted 80-fold during extraction and PCR
+\citep{vredenburg2010}.
+
+\hypertarget{population-viability-modeling-1}{%
+\section{Population viability
+modeling}\label{population-viability-modeling-1}}
+
+\hypertarget{methods-2}{%
+\subsection{Methods}\label{methods-2}}
+
+\hypertarget{incorporating-yearly-variability-in-vital-rates}{%
+\subparagraph{Incorporating yearly variability in vital
+rates}\label{incorporating-yearly-variability-in-vital-rates}}
+
+We extracted yearly survival probabilities for translocated adults
+\(\sigma_{A_T}\) and naturally recruited adults \(\sigma_{A_R}\) from
+the CMR model used to estimate population-level parameters of
+translocated populations (see ``Estimation of adult survival and
+population size'' above). Although we observed yearly variability in
+adult survival within a population, the magnitude of this variability
+was small compared to among population variability
+(Fig. 3). Thus, we did not include
+yearly within-population variability in adult survival in this analysis.
+However, within a population there was substantial yearly variability in
+the successful recruitment of adults, greater than what we would expect
+from Poisson variability around a mean value. Therefore, we allowed for
+yearly variability in the probability of successful recruitment
+\(\omega\) (additional details provided in ``Estimating model
+parameters'' below).
+
+\hypertarget{estimating-model-parameters}{%
+\subparagraph{Estimating model
+parameters}\label{estimating-model-parameters}}
+
+The baseline parameter values for the model and how they were estimated
+are given in Table~\ref{tbl-param_values} : SI. Parameters
+\(\sigma_{A_T}\) and \(\sigma_{A_R}\) were extracted directly from our
+CMR model described previously in this study. For populations where we
+had a sufficient number of PIT-tagged, naturally-recruited adults, we
+observed that \(\sigma_{A_T}\) and \(\sigma_{A_R}\) could be notably
+different, with \(\sigma_{A_R} > \sigma_{A_T}\)
+(Figure~\ref{fig-compare_surv_probs} : SI). For populations lacking
+sufficient numbers of naturally-recruited adults, we were unable to
+directly estimate \(\sigma_{A_R}\), and instead set
+\(\sigma_{A_R} = \sigma_{A_T}\).
+
+\hypertarget{model-analysis-and-simulation}{%
+\subparagraph{Model analysis and
+simulation}\label{model-analysis-and-simulation}}
+
+We performed four analyses on our model. First, we considered a
+deterministic version of our model with no yearly heterogeneity in
+probability of successful recruitment \(\omega\), and calculated the
+predicted long-run growth rate \(\lambda\) of a population for different
+values of \(\sigma_{A_R}\) and \(\omega\). We then fixed
+\(\omega = 0.3\) and calculated the predicted growth rate of our 12
+populations.
+
+Second, we performed a local elasticity analysis on \(\lambda\) with
+respect to parameters \(\omega\), \(\sigma_{A_R}\), and \(F\) to
+determine how small changes in these parameters could influence the
+long-run deterministic growth rate of populations.
+
+Third, we defined a version of the model with demographic and
+environmental stochasticity, where environmental stochasticity was
+represented by among-year variability in \(\omega\). We used this model
+to simulate a one-time introduction of 40 translocated adult frogs. We
+ran this simulation 1000 times for each population and computed the
+probability of a population becoming extinct after 50 years given the
+observed parameter values and environmental stochasticity in \(\omega\).
+We varied the mean recruitment probability \(\omega\) from 0.15 and 0.4
+and drew values of \(\omega\) each year from a beta distribution with a
+dispersion parameter of \(\phi = 2\) (when \(\omega = 0.5\) and
+\(\phi = 2\) the beta distribution is uniform between 0 and 1).
+
+Finally, we assessed whether our stochastic model could reproduce
+observed trajectories of population recovery. We focused on population
+70550 because this was our longest CMR time series for a translocated
+population and because this population shows evidence of substantial
+post-translocation increases in adult abundance associated with
+population establishment and recovery. We simulated our model for 16
+years, repeating the simulation 50,000 times. For each run and each
+year, we drew \(\omega\) from a uniform distribution between 0 and 1 (or
+equivalently a beta distribution with mean 0.5 and \(\phi = 2\)). Using
+Approximate Bayesian Computing and rejection sampling
+\citep{kosmala2016}, we identified the top 2\% of trajectories (i.e.,
+1000 trajectories) that minimized the sum of squared errors between the
+observed and predicted data. The \(\omega\) values associated with these
+``best'' trajectories represented an approximate posterior distribution
+\citep{beaumont2010}. Using these best fit trajectories, we assessed
+whether our model could qualitatively describe the patterns of recovery
+in the observed data for population 70550.
+
 \newpage
 
 \hfill\break
@@ -107,8 +218,7 @@ showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by
 genomic position and contigs are sorted by size. Red line shows p-value
 that identifies outliers. Outlier SNPs above this threshold are
 highlighted and labeled. Bold labels indicate at least one
-non-synonymous SNP is present in that gene.\\
-}
+non-synonymous SNP is present in that gene.}
 
 \end{figure}\clearpage
 
@@ -174,8 +284,12 @@ line).}
 
 \caption{\label{fig-bdload-beforeafter}For frogs translocated to each of
 the 12 recipient sites, Bd loads for the period immediately prior to
-translocation versus during the 1-year period after translocation. Box
-plot details are as in Fig. 4.}
+translocation versus during the 1-year period after translocation. Bd
+loads are expressed as the number of ITS1 copies per skin swab, as
+estimated by qPCR of the Bd ITS1 region. Loads indicative of severe
+disease are \textgreater{} 5.8 ITS copies (on a log\textsubscript{10}
+scale; see SI text for details). Box plot details are as in
+Fig. 4.}
 
 \end{figure}\clearpage
 
@@ -280,9 +394,9 @@ late & \textgreater= 0.5 & 5 & 7 & 0.714 \\
 
 \hypertarget{tbl-param_values}{}
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4545}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1333}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4121}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3750}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3611}}@{}}
 \caption{\label{tbl-param_values}Description and values of parameters
 used in the model. All survival probabilities are in the presence of the
 fungal pathogen Bd.}\tabularnewline
