@@ -1046,7 +1046,7 @@ d1_elevz %>%
   ggplot(aes(x = elevation, y = surv)) +  #   "ggplot(aes(x = (elev_z * 2*sd_elev) + mean_elev, y = surv)) +" gives identical result
           geom_line(aes(y = .epred, group = .draw), color = "blue", linewidth = 0.2, alpha = 1) +
         # geom_point(aes(y = .epred)) +
-          labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year frog survival")
+          labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year survival")
 
 # Plot with confidence bands
 alpha = 1 - 0.95
@@ -1061,7 +1061,7 @@ p_elev <- d1_elevz %>%
   ggplot(aes(x = elevation)) + 
           geom_ribbon(aes(ymin = lower, ymax = upper), fill= "lightgray", alpha = 1) +
           geom_line(aes(y = median), color = "blue", linewidth = 1, alpha = 1) +
-          labs(x = "Elevation of recipient site (meters)", y = "P(1-year frog survival)") +
+          labs(x = "Elevation of recipient site (meters)", y = "P(1-year survival)") +
           annotate(geom = "text", x = 2500, y = 0.94, label = "B", size = 4) +
           theme_classic()
 
@@ -1090,7 +1090,7 @@ p_snowt1 <- d1_snowt1z %>%
   ggplot(aes(x = snow_t1)) +
           geom_ribbon(aes(ymin = lower, ymax = upper), fill = "lightgray", alpha = 1) +
           geom_line(aes(y = median), color = "blue", linewidth = 1, alpha = 1) +
-          labs(x = "Winter severity in year t+1\n(% of average snow depth)", y = "P(1-year frog survival)") +
+          labs(x = "Winter severity in year t+1\n(% of average snow depth)", y = "P(1-year survival)") +
           annotate(geom = "text", x = 157, y = 0.92, label = "A", size = 4) +
           theme_classic()
 
@@ -1112,7 +1112,7 @@ p_sex <- d1_malec %>%
   add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
   ggplot(aes(x = male, y = surv)) +
     geom_boxplot(aes(y = .epred, x = sex), fill = "lightgray") +
-    labs(x = "Sex", y = "P(1-year frog survival)") +
+    labs(x = "Sex", y = "P(1-year survival)") +
     annotate(geom = "text", x = 0.4, y = 0.94, hjust = -1, label = "D", size = 4) +
     theme_classic()
 
@@ -1134,7 +1134,7 @@ p_donor <- d1_donor %>%
   add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
   ggplot(aes(x = donor, y = surv)) +
     geom_boxplot(aes(y = .epred, x = donor), fill = "lightgray") +
-    labs(x = "Donor population", y = "P(1-year frog survival)") +
+    labs(x = "Donor population", y = "P(1-year survival)") +
     annotate(geom = "text", x = 3.3, y = 0.94, hjust = 0, label = "C", size = 4) +
     theme_classic()
 
@@ -1157,7 +1157,7 @@ d1_elevz_malec %>%
   add_epred_draws(m1d_reduce, ndraws = 100, re_formula = NA) %>% 
   ggplot(aes(x = elevation, y = surv, color = sex)) +
           geom_line(aes(y = .epred, group = paste(sex, .draw)), linewidth = 0.4, alpha = 0.5) +
-          labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year frog survival") +
+          labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year survival") +
           scale_color_manual(values = pal) + 
           theme_classic()
 
@@ -1172,7 +1172,7 @@ p_elevsex <- d1_elevz_malec %>%
   ggplot(aes(x = elevation, group = sex)) +
           geom_ribbon(aes(ymin = lower, ymax = upper, fill = sex), alpha = 0.2, linetype = 0) +
           geom_line(aes(y = median, color = sex), linewidth = 1, alpha = 1) +
-          labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year frog survival") +
+          labs(x = "Elevation of recipient site (meters)", y = "Probability of 1-year survival") +
           scale_color_manual(values = pal) + 
           scale_fill_manual(values = pal) +
           theme_classic()
