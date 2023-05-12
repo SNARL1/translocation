@@ -81,14 +81,19 @@ Such reintroductions could play an important role in biodiversity conservation a
 
 ### Introduction
 
-Human activities are intensifying threats to global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009]. To persist, affected taxa will often need to adapt to their altered environment or face decline and extinction. "Evolutionary rescue" describes rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth [@carlson2014].
+Human activities are intensifying threats to global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009].
+To persist, affected taxa will often need to adapt to their altered environment or face decline and extinction.
+"Evolutionary rescue" describes rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth [@carlson2014].
 In addition to preventing extinction of declining populations, in theory, this process can also result in the seeding of nearby empty habitats and allow population reestablishment and recovery.
 Therefore, understanding the mechanisms supporting population persistence, including evolutionary rescue, is critical for the conservation of the ever-growing number of threatened taxa.
 
-One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012]. Such diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and extinctions in a wide range of taxa [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
+One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012].
+Such diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and extinctions in a wide range of taxa [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
 Amid this global loss of biodiverity, some populations previously decimated by disease have subsequently recovered to varying degrees [@newell2013; @voyles2018; @knapp2016].
 Although we know relatively little about the underlying mechanisms [@brannelly2021; @russell2020], host evolution is one possibility [@carlson2014; @searle2020].
-This process is known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often results in increased host resistance and/or tolerance (see \[@medzhitov2012\] for definitions). However, linking these evolutionary responses to population recoveries - as necessary for evolutionary rescue - is difficult and few clear examples exist. In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence \[e.g., @mendelson2019; @brannelly2021\].
+This process is known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often results in increased host resistance and/or tolerance (see [@medzhitov2012] for definitions).
+However, linking these evolutionary responses to population recoveries - as necessary for evolutionary rescue - is difficult and few clear examples exist.
+In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence [e.g., @mendelson2019; @brannelly2021].
 To date, the use of resistant/tolerant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
 
 The mountain yellow-legged (MYL) frog, composed of the sister species *Rana muscosa* and *Rana sierrae* [@vredenburg2007], is emblematic of the unprecedented global declines of amphibians caused by the recently-emerged amphibian chytrid fungus [*Batrachochytrium dendrobatidis,* @scheele2019].
@@ -352,7 +357,7 @@ Our model predicted that, following a single introduction of 40 adult individual
 This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment (@fig-viability B).
 When we decreased $\omega$ from 0.3 to a conservative estimate of 0.15, 50-year extinction probability remained less than 0.5 for three populations and was 0.79 to 0.94 for three additional populations (@fig-viability B).
 In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
-To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability-supp B; population 70550, surveyed for 16 years).
+To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability C; population 70550, surveyed for 16 years).
 
 In summary, our model demonstrates that given observed yearly adult survival probabilities of translocated frogs, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
 This is likely a conservative estimate because there is evidence that naturally-recruited adults have higher survival probability than translocated adults (@fig-compare_surv_probs SI), but we considered these probabilities to be equal in all but three of our populations where we had sufficient data to distinguish these different probabilities.
@@ -645,11 +650,7 @@ This project was supported by grants from the National Park Service (to R.A.K.),
 
 \newpage
 
-![Predicted growth and persistence of translocated populations. Population viability analysis of translocated MYL frogs quantified the long-run growth rate and extinction probability of frog populations: (A) Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability \$\sigma\_{A_R}\$ and probability of recruitment $\omega$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (indicated by the dashed line). The red line shows where $\lambda = 1$. (B) Predicted 50-year extinction probabilities of the 12 translocated populations given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to (A). There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are hidden beneath the line for 70505.](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="450"}
-
-\newpage
-
-![<!--# Evidence sentence -->Sensitivity analysis and empirical validation of the stage-structured MYL frog model. (A) Elasticity of $\lambda$ with changes in 3 parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $\omega$ (yearly probability of successful recruitment from juveniles to adults), and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3. (B) 100 simulated trajectories (black lines) that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="450"}
+![Predicted and observed growth and persistence of translocated populations. Population viability analysis of translocated MYL frogs quantified the long-run growth rate and extinction probability of frog populations: (A) Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability of recruitment $\omega$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (indicated by the dashed line). The red line shows where $\lambda = 1$. (B) Predicted 50-year extinction probabilities of the 12 translocated populations given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to (A). There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are hidden beneath the line for 70505. (C) 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="450"}
 
 \newpage
 
@@ -728,7 +729,7 @@ We performed four analyses on our model.
 First, we considered a deterministic version of our model with no yearly heterogeneity in probability of successful recruitment $\omega$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\omega$.
 We then fixed $\omega = 0.3$ and calculated the predicted growth rate of our 12 populations.
 
-Second, we performed a local elasticity analysis on $\lambda$ with respect to parameters $\omega$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations.
+Second, we performed a local elasticity analysis on $\lambda$ with respect to parameters $\omega$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp).
 
 Third, we defined a version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among-year variability in $\omega$.
 We used this model to simulate a one-time introduction of 40 translocated adult frogs.
@@ -764,6 +765,8 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 ![For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
 
 ![Comparison of the average yearly adult survival probabilities for adults translocated to each of three sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohort. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. The large error bars for 70550 reflect the large within and among individual variability in yearly survival probability at this site (as also reflected in one-year survival probabilities in [@fig-translocation-survival]). All estimates are derived from the mrmr package.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="450"}
+
+![Sensitivity analysis of the stage-structured MYL frog model. Elasticity of $\lambda$ with changes in 3 parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $\omega$ (yearly probability of successful recruitment from juveniles to adults), and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="450"}
 
 \newpage
 

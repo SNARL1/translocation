@@ -24,6 +24,11 @@ with open(args[1], 'r') as fin:
     latex_manuscript = fin.readlines()
 latex_manuscript = "".join(latex_manuscript)
 
+# Remove all the references to width and height
+latex_manuscript = re.sub("includegraphics\[.*\]", 
+						  "includegraphics", 
+						  latex_manuscript)
+
 with open("PNAS-template-empty.tex") as fin:
 	pnas_template = fin.readlines()
 pnas_template = "".join(pnas_template)

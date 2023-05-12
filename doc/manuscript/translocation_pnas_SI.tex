@@ -62,9 +62,8 @@ in \emph{Atelopus varius} populations recovering after Bd-caused
 declines. HSP70 was also highly expressed in Bd-infected versus
 uninfected \emph{Xenopus tropicalis} \citep{rosenblum2009}. This MHC
 gene cluster lies on the same chromosome as the outlier SNP in RIN3
-(Fig. 2 C), a gene associated with
-inflammation response that is highly expressed in amputated
-\emph{Xenopus} tails \citep{fukazawa2009}.
+(Fig. 2 C, Fig. 1
+A).
 
 Additionally, we identified a region on contig 19 that had the highest
 \(\pi_{diff}\) of any outlier window, indicative of directional
@@ -166,7 +165,8 @@ populations.
 Second, we performed a local elasticity analysis on \(\lambda\) with
 respect to parameters \(\omega\), \(\sigma_{A_R}\), and \(F\) to
 determine how small changes in these parameters could influence the
-long-run deterministic growth rate of populations.
+long-run deterministic growth rate of populations
+(Figure~\ref{fig-viability-supp}).
 
 Third, we defined a version of the model with demographic and
 environmental stochasticity, where environmental stochasticity was
@@ -329,6 +329,23 @@ reflect the large within and among individual variability in yearly
 survival probability at this site (as also reflected in one-year
 survival probabilities in Fig. 3). All
 estimates are derived from the mrmr package.}
+
+\end{figure}\clearpage
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\textwidth]{figures/pop_viability_figures_for_supp.jpg}
+
+}
+
+\caption{\label{fig-viability-supp}Sensitivity analysis of the
+stage-structured MYL frog model. Elasticity of \(\lambda\) with changes
+in 3 parameters: \(\sigma_{A_R}\) (yearly survival probability of
+naturally recruited adults), \(\omega\) (yearly probability of
+successful recruitment from juveniles to adults), and \emph{F (}number
+of eggs produced by a female frog in a year that successfully hatch).
+Elasticity is calculated at the default parameter values for each
+population and \(\omega\) = 0.3.}
 
 \end{figure}\clearpage
 
