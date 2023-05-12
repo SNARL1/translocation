@@ -1,0 +1,12 @@
+contig_num,position,corrected_pvalue_lrt,,allele_freq_n,allele_freq_p,allele_freq_change,predicted_gene_loc,predicted_effect_AA,annotation,gene 
+7,7468903,0.000327652,,C:0.592593,C:1,0.407407,within CDS,N,PREDICTED: uncharacterized protein LOC108802036 [Source:Nanorana parkeri:XP_018429426],
+19,166637599,0.001328384,,A:1,A:0.130435,0.869565,within CDS,S,PREDICTED: ras and Rab interactor 3 [Source:Nanorana parkeri:XP_018413995],RIN3
+1,50320590,0.005554234,,G:1,G:0.521739,0.478261,within CDS,S,PREDICTED: microtubule-associated protein 1S [Source:Nanorana parkeri:XP_018429689],MAP1S
+1,50322303,0.005554234,,G:1,G:0.521739,0.478261,within CDS,S,PREDICTED: microtubule-associated protein 1S [Source:Nanorana parkeri:XP_018429689],MAP1S
+1,175568986,0.005554234,,A:1,A:0.521739,0.478261,within CDS,N,"PREDICTED: 5,6-dihydroxyindole-2-carboxylic acid oxidase [Source:Nanorana parkeri:XP_018411981]",TYRP1 
+1,175574519,0.005554234,,G:1,G:0.521739,0.478261,within CDS,S,"PREDICTED: 5,6-dihydroxyindole-2-carboxylic acid oxidase [Source:Nanorana parkeri:XP_018411981]",TYRP1 
+1,175579538,0.005554234,,G:1,G:0.521739,0.478261,within 5' UTR,N,"PREDICTED: 5,6-dihydroxyindole-2-carboxylic acid oxidase [Source:Nanorana parkeri:XP_018411981]",TYRP1 
+1,466129356,0.005554234,,G:1,G:0.521739,0.478261,within CDS,N,PREDICTED: serum response factor-binding protein 1 [Source:Nanorana parkeri:XP_018426586],SRFBP1
+1,466129372,0.005554234,,C:1,C:0.521739,0.478261,within CDS,N,PREDICTED: serum response factor-binding protein 1 [Source:Nanorana parkeri:XP_018426586],SRFBP1
+8,70004571,0.005554234,,G:1,G:0.521739,0.478261,within CDS,N,PREDICTED: transcription factor 19 [Source:Nanorana parkeri:XP_018416151],TCF19
+8,70406702,0.005554234,,G:1,G:0.521739,0.478261,within CDS,S,PREDICTED: valine--tRNA ligase [Source:Nanorana parkeri:XP_018416158],VARS1
