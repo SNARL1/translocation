@@ -55,64 +55,59 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3,a^, Allison Q. Byrne^4,5,a^, Maxwell B
 
 <!--# Limit = 250 words. -->
 
-Infectious diseases are emerging at an unprecedented rate, with devastating consequences for global biodiversity.
-The recovery of impacted taxa is hindered by the ongoing presence of disease, and few broadly applicable conservation strategies exist to overcome this obstacle.
-Rapid evolution in response to disease may produce resistant/tolerant individuals capable of persisting despite the presence of disease ("evolutionary rescue"), and although untested, such hosts could be used to reestablish extirpated populations.
-We evaluated this scenario using the once-common mountain yellow-legged (MYL) frog, which is threatened with extinction by the emergence of a lethal fungal pathogen.
+Escalating anthropogenic change is devastating global biodiversity.
+To avoid extinction, affected populations will often need to adapt to the altered environment.
+This process of rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth is termed "evolutionary rescue".
+In addition to allowing recovery of extant populations, individuals from rescued populations could also be used to reestablish extirpated populations.
+We evaluated this scenario using the once-common mountain yellow-legged (MYL) frog, which is threatened with extinction by the human-facilitated emergence of a lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd").
 Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually begin to recover.
 We show that MYL frogs have undergone substantial evolutionary change following disease outbreaks, and that these changes are associated with increased resistance/tolerance to Bd infection in naturally recovering populations.
-Large-scale reintroduction of frogs from these populations resulted in the establishment of reproducing populations at most recipient sites despite ongoing disease, and results from viability modeling suggests that established populations have a low probability of extinction over 50 years.
-Collectively, these results provide one of the first examples of how evolution and the reintroduction of resistant/tolerant individuals can allow the landscape-scale recovery of disease-impacted taxa.
-This example has potentially broad implications for the many taxa worldwide that are threatened with extinction by emerging diseases.
+Large-scale reintroduction of frogs from these populations resulted in the establishment of reproducing populations at most recipient sites despite ongoing disease.
+In addition, results from viability modeling suggest that established populations have a low probability of extinction over 50 years.
+Collectively, these results provide one of the first examples of how evolutionary rescue and the reintroduction of resistant/tolerant individuals can allow the landscape-scale recovery of disease-impacted species.
+This example has potentially broad implications for the many taxa worldwide that are threatened with extinction by anthropogenic stressors.
 
 ### Significance
 
 <!--# Limit = 120 words. Explain the significance of the research at a level understandable to an undergraduate-educated scientist outside their field of specialty.  -->
 
-Diseases are becoming more common in wildlife and threaten many species with extinction.
-TO BE WRITTEN
+Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
+One possibility is evolutionary modification that restores positive growth to declining populations ("evolutionary rescue").
+Individuals from these rescued populations could also be used to reestablish exinct populations.
+We evaluated both possibilities in a once-common frog species driven to the brink of extinction by a disease that has devastated global amphibian biodiversity and for which few options exist to reverse its impacts.
+We found that frogs have evolved increased resistance to infection, facilitating population recovery.
+In addition, introduction of frogs from these populations allowed reestablishment despite the ongoing presence of disease.
+Such reintroductions could play an important role in biodiversity conservation amidst unprecedented global change.
 
 ### Introduction
 
-Emerging infectious diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and even extinctions in mammals, birds, amphibians, echinoderms, and other taxa [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
-Importantly, some populations previously decimated by disease have subsequently recovered to varying degrees [@newell2013; @voyles2018; @knapp2016] and might provide critical insights for species conservation efforts.
-Unfortunately, given the rarity of wildlife recoveries in the presence of disease, we know little about the mechanisms driving population recovery [@brannelly2021; @russell2020] and how these mechanisms can be leveraged to re-establish host populations across large spatial scales [@mendelson2019].
-At a time when novel infectious diseases are emerging at an unprecedented rate [@daszak2000; @fisher2012], this knowledge gap has far-reaching consequences for global biodiversity.
+Human activities are intensifying threats to global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009]. To persist, affected taxa will often need to adapt to their altered environment or face decline and extinction. "Evolutionary rescue" describes rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth [@carlson2014].
+In addition to preventing extinction of declining populations, in theory, this process can also result in the seeding of nearby empty habitats and allow population reestablishment and recovery.
+Therefore, understanding the mechanisms supporting population persistence, including evolutionary rescue, is critical for the conservation of the ever-growing number of threatened taxa.
 
-Host evolution following disease-induced declines is one mechanism by which hosts can recover [@carlson2014; @searle2020].
-"Evolutionary rescue" describes rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth and prevents extinction [@carlson2014].
-Evolutionary changes following disease-induced declines are known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often result in increased host resistance and/or tolerance.
-However, linking these selective responses to population recoveries - as necessary for evolutionary rescue - is difficult and remains rare.
-In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in recovering populations can, in theory, be used to reestablish populations that were extirpated following disease emergence [e.g., @mendelson2019].
+One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012]. Such diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and extinctions in a wide range of taxa [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
+Amid this global loss of biodiverity, some populations previously decimated by disease have subsequently recovered to varying degrees [@newell2013; @voyles2018; @knapp2016].
+Although we know relatively little about the underlying mechanisms [@brannelly2021; @russell2020], host evolution is one possibility [@carlson2014; @searle2020].
+This process is known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often results in increased host resistance and/or tolerance (see \[@medzhitov2012\] for definitions). However, linking these evolutionary responses to population recoveries - as necessary for evolutionary rescue - is difficult and few clear examples exist. In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence \[e.g., @mendelson2019; @brannelly2021\].
 To date, the use of resistant/tolerant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
 
-<!--# Drop the following paragraph? -->
-
-There are four conditions that will often determine the feasibility of using individuals from populations that are recovering following disease-induced declines to reestablish extirpated populations.
-First, populations that survive following disease emergence evolve increased resistance/tolerance.
-Second, increased resistance/tolerance contributes to higher individual fitness in the presence of disease and allows positive population growth.
-Third, the fitness benefits gained through selection are maintained beyond the natal environment and across generations, allowing for the establishment of reintroduced populations.
-And fourth, reintroduced populations show long-term growth and persistence.
-To date, few of these conditions are documented, and reintroducing hosts from recovering populations is largely untested [@scheele2021; @mendelson2019].
-
 The mountain yellow-legged (MYL) frog, composed of the sister species *Rana muscosa* and *Rana sierrae* [@vredenburg2007], is emblematic of the unprecedented global declines of amphibians caused by the recently-emerged amphibian chytrid fungus [*Batrachochytrium dendrobatidis,* @scheele2019].
-Once the most common amphibian in the high elevation portion of the California's Sierra Nevada mountains [USA, @grinnell1924], this frog has disappeared from more than 90% of its historical range during the past century [@vredenburg2007].
+Once the most common amphibian in the high elevation portion of California's Sierra Nevada mountains [USA, @grinnell1924], this frog has disappeared from more than 90% of its historical range during the past century [@vredenburg2007].
 Due to the severity of its decline and the increasing probability of extinction, both species are now listed as "endangered" under the U.S.
 Endangered Species Act.
 In the Sierra Nevada, this decline was initiated by the introduction of non-native trout into the extensive historically-fishless region [@bradford1989; @knapp2000], and the arrival of *B. dendrobatidis* (Bd) in the 1960s and its subsequent spread [@vredenburg2019] caused additional widespread population extirpations [@vredenburg2010; @rachowicz2006].
 These Bd-caused declines are fundamentally different from the fish-caused declines because removal of fish populations is feasible and results in the rapid recovery of frogs [@knapp2007; @vredenburg2004].
 In contrast, Bd appears to persist in habitats even in the absence of amphibian hosts [@walker2007], and therefore represents a long-term alteration of invaded ecosystems that amphibians will need to overcome to reestablish populations.
 
-Despite the catastrophic impact of Bd on MYL frogs in which most Bd-naive populations are extirpated following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
+Despite the catastrophic impact of Bd on MYL frogs, wherein most Bd-naive populations are extirpated following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
 Frogs in these recovering populations show reduced susceptibility to Bd infection, consistent with selection for more resistant/tolerant genotypes [@knapp2016].
 Furthermore, exploratory efforts to reintroduce frogs collected from recovering populations to sites from which frogs were previously extirpated indicate that population establishment is possible despite ongoing Bd infection [@joseph2018].
 
 In the current study, we combine results from genomic analyses, a 15-year landscape-scale frog reintroduction effort, and detailed population models to provide an unprecedented example of how evolution in response to disease allows the successful reestablishment of extirpated MYL frog populations.
 Specifically, we used exome capture methods to show that MYL frogs have undergone substantial evolutionary change associated with Bd exposure and that may provide a genetic basis for the observed increased resistance/tolerance to Bd infection observed in naturally recovering populations [@knapp2016].
 We then describe the reintroduction of these resistant/tolerant frogs to 24 sites and the dynamics and drivers of population establishment using results from long-term capture-mark-recapture (CMR) surveys.
-These data are also used to parameterize a population model that extends our inferences of population establishment well beyond the multi-year extent of the CMR data.
-Collectively, these results provide one of the first examples of how evolution and the reintroduction of resistant/tolerant animals can allow the large-scale recovery of disease-impacted species.
-This example exhibits several of the key characteristics of evolutionary rescue, and has potentially broad implications for the many taxa worldwide that are threatened with extinction by emerging diseases.
+These data are also used to parameterize a population model that extends our inferences of population establishment well beyond the temporal extent of the CMR data.
+Collectively, these results provide one of the first examples of how evolutionary rescue and the reintroduction of resistant/tolerant animals can allow the large-scale recovery of disease-impacted species.
 
 ### Results
 
