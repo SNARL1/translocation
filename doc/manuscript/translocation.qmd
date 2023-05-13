@@ -55,9 +55,9 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3,a^, Allison Q. Byrne^4,5,a^, Maxwell B
 
 Escalating anthropogenic change is devastating global biodiversity.
 To avoid extinction, affected populations will often need to adapt to the altered environment.
-This process of rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth is termed "evolutionary rescue".
+The process of rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth is termed "evolutionary rescue".
 In addition to allowing recovery of extant populations, individuals from rescued populations could also be used to reestablish extirpated populations.
-We evaluated this scenario using the once-common mountain yellow-legged (MYL) frog, which is threatened with extinction by the human-facilitated emergence of a lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd").
+We evaluated this scenario in the once-common mountain yellow-legged (MYL) frog, which is threatened with extinction by the human-facilitated emergence of a lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd").
 Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually begin to recover.
 We show that MYL frogs have undergone substantial evolutionary change following disease outbreaks, and that these changes are associated with increased resistance/tolerance to Bd infection in naturally recovering populations.
 Large-scale reintroduction of frogs from these populations resulted in the establishment of reproducing populations at most recipient sites despite ongoing disease.
@@ -72,7 +72,7 @@ This example has potentially broad implications for the many taxa worldwide that
 Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
 One possibility is rapid evolution that restores positive growth to declining populations ("evolutionary rescue").
 Individuals from these rescued populations could also be used to reestablish exinct populations.
-We evaluated both possibilities in a once-common frog species driven to the brink of extinction by a disease that has devastated global amphibian biodiversity and for which few options exist to reverse its impacts.
+We evaluated both possibilities in a once-common frog species driven to the brink of extinction by a disease that has devastated global amphibian biodiversity and for which few options exist to reverse disease impacts.
 We found that frogs have evolved increased resistance to infection, facilitating population recovery.
 In addition, introduction of frogs from these populations allowed reestablishment despite the ongoing presence of disease.
 Such reintroductions could play an important role in biodiversity conservation in our rapidly changing world.
@@ -82,24 +82,24 @@ Such reintroductions could play an important role in biodiversity conservation i
 Human activities are intensifying threats to global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009].
 To persist, affected taxa will often need to adapt to their altered environment or face decline and extinction.
 "Evolutionary rescue" describes rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth [@carlson2014].
-In addition to preventing extinction of declining populations, in theory, this process can also result in the seeding of nearby empty habitats and allow population reestablishment and recovery.
-Therefore, understanding the mechanisms supporting population persistence, including evolutionary rescue, is critical for the conservation of the ever-growing number of threatened taxa.
+In addition to preventing extinction of declining populations, this process could also result in the seeding of nearby empty habitats and allow population reestablishment and recovery.
+Although this overall scenario is potentially of critical importance for the conservation of an ever-growing number of threatened taxa, descriptions of its operation in the wild are lacking.
 
 One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012].
 Such diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and extinctions in a wide range of taxa [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
-Amid this global loss of biodiverity, some populations decimated by disease have subsequently recovered to varying degrees [@newell2013; @voyles2018; @knapp2016].
-Although we know relatively little about the underlying mechanisms [@brannelly2021; @russell2020], host evolution is one possibility [@carlson2014; @searle2020].
+Amid this global loss of biodiverity, some populations decimated by disease have subsequently recovered to varying extents [@newell2013; @voyles2018; @knapp2016].
+Although we know relatively little about the mechanisms underlying recovery [@brannelly2021; @russell2020], host evolution is one possibility [@carlson2014; @searle2020].
 This process is known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often results in increased host resistance and/or tolerance (see [@medzhitov2012] for definitions).
-However, linking these evolutionary responses to population recoveries - as necessary for evolutionary rescue - is difficult and few clear examples exist.
-In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence [e.g., @mendelson2019; @brannelly2021].
+However, linking these evolutionary responses to population recoveries is difficult and few clear examples exist.
+In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence [@mendelson2019; @brannelly2021].
 To date, the use of resistant/tolerant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
 
 The mountain yellow-legged (MYL) frog, composed of the sister species *Rana muscosa* and *Rana sierrae* [@vredenburg2007], is emblematic of the unprecedented global declines of amphibians caused by the recently-emerged amphibian chytrid fungus [*Batrachochytrium dendrobatidis,* @scheele2019].
-Once the most common amphibian in the high elevation portion of California's Sierra Nevada mountains [USA, @grinnell1924], this frog has disappeared from more than 90% of its historical range during the past century [@vredenburg2007].
+Once the most common amphibian in the high elevation portion of California's Sierra Nevada mountains [USA, @grinnell1924], during the past century this frog has disappeared from more than 90% of its historical range [@vredenburg2007].
 Due to the severity of its decline and the increasing probability of extinction, both species are now listed as "endangered" under the U.S.
 Endangered Species Act.
 In the Sierra Nevada, this decline was initiated by the introduction of non-native trout into the extensive historically-fishless region [@bradford1989; @knapp2000] starting in the late 1800s.
-The arrival of *B. dendrobatidis* (Bd) in the 1960s and its subsequent spread [@vredenburg2019] caused additional widespread population extirpations [@vredenburg2010; @rachowicz2006].
+The arrival of *B. dendrobatidis* (Bd) in the 1960s and its subsequent spread [@vredenburg2019] caused additional large-scale population extirpations [@vredenburg2010; @rachowicz2006].
 These Bd-caused declines are fundamentally different from the fish-caused declines because removal of fish populations is feasible and results in the rapid recovery of frogs [@knapp2007; @vredenburg2004].
 In contrast, Bd appears to persist in habitats even in the absence of amphibian hosts [@walker2007], and therefore represents a long-term alteration of invaded ecosystems that amphibians will need to overcome to reestablish populations.
 
@@ -107,9 +107,9 @@ Despite the catastrophic impact of Bd on MYL frogs, wherein most Bd-naive popula
 Frogs in these recovering populations show reduced susceptibility to Bd infection, consistent with selection for more resistant/tolerant genotypes [@knapp2016].
 Furthermore, exploratory efforts to reintroduce frogs collected from recovering populations to sites from which frogs were previously extirpated indicate that population establishment is possible despite ongoing Bd infection [@joseph2018].
 
-In the current study, we combine results from genomic analyses, a 15-year landscape-scale frog reintroduction effort, and detailed population models to provide an unprecedented example of how evolution in response to disease allows the successful reestablishment of extirpated MYL frog populations.
-Specifically, we used exome capture methods to show that MYL frogs have undergone substantial evolutionary change associated with Bd exposure and that may provide a genetic basis for the observed increased resistance/tolerance to Bd infection observed in naturally recovering populations [@knapp2016].
-We then describe the reintroduction of these resistant/tolerant frogs to 24 sites and the dynamics and drivers of population establishment using results from long-term capture-mark-recapture (CMR) surveys.
+In the current study, we combine results from genomic analyses, a 15-year landscape-scale frog reintroduction effort, and a detailed population model to provide an unprecedented example of how evolution in response to disease allows the successful reestablishment of extirpated MYL frog populations.
+Specifically, we used exome capture methods to show that MYL frogs have undergone substantial evolutionary change associated with Bd exposure and that might provide a genetic basis for the increased resistance/tolerance to Bd infection observed in naturally recovering populations [@knapp2016].
+We then use the reintroduction of resistant/tolerant frogs to 24 sites and results from long-term capture-mark-recapture (CMR) surveys to describe the dynamics and drivers of population establishment.
 These data are also used to parameterize a population model that extends our inferences of population establishment well beyond the temporal extent of the CMR data.
 Collectively, these results provide one of the first examples of how evolutionary rescue and the reintroduction of resistant/tolerant animals can allow the large-scale recovery of disease-impacted species.
 
@@ -119,31 +119,30 @@ Collectively, these results provide one of the first examples of how evolutionar
 
 To determine whether MYL frog populations show an evolutionary response to Bd, we compared frog genomes between populations with contrasting histories of Bd exposure.
 Specifically, we compared frog genomes sampled in four populations that have not yet experienced a Bd-caused epizootic ("naive") [@zhou2015] versus in five populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering"; @fig-allelefrequencies) [@knapp2016; @vredenburg2010].
-These recovering populations persist in an enzootic state [@briggs2010], characterized by high Bd prevalence and, in adults, moderate Bd infection intensities ("load") that are typically well below the level expected to cause mortality [@vredenburg2010].
+These recovering populations exist in an enzootic state [@briggs2010], characterized by high Bd prevalence and, in adults, moderate Bd infection intensities ("load") that are typically well below the level expected to cause mortality [@vredenburg2010].
 
 We conducted a principal component analysis (PCA) of the genomic data to describe the relationships between sampled populations, and then used two complementary approaches to identify regions of the genome under selection.
-First, we used a multivariate linear mixed model to evaluate associations between population type (i.e., naive versus recovering) and specific variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (INDELS).
+First, we used a multivariate linear mixed model to evaluate associations between population type (i.e., naive versus recovering) and individual variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (INDELS).
 Second, we used a splined window analysis to identify larger genomic regions showing differences between population types in *F~ST~* and nucleotide diversity ($\pi_{diff}$ = $\pi_{naive}$ - $\pi_{recovering}$).
 
-Individual frogs clustered into 3 separate groups in principal component space (@fig-selectionresults A: SI), and clusters reflected the strong signature of isolation by distance that is characteristic of MYL frogs [@rothstein2020; @poorten2017].
-Importantly, each cluster contained at least one population from both the naive and recovering groups, allowing us to distinguish between (i) allelic associations of individuals sampled in naive versus recovering populations, and (ii) allelic associations resulting from population structure and genetic drift.
+Individual frogs clustered into 3 separate groups in principal component space (@fig-selectionresults A), and clusters reflected the strong signature of isolation by distance that is characteristic of MYL frogs [@rothstein2020; @poorten2017].
+Importantly, each cluster contained at least one population from both the naive and recovering groups, allowing us to distinguish allelic associations of individuals sampled in the 2 population types versus allelic associations resulting from population structure and genetic drift.
 
-Results from the SNP and splined window analyses show that recovering populations have signatures of strong selection on multiple regions of the genome.
-The SNP analysis identified 11 outlier SNPs from 7 distinct genes across 4 contigs (@fig-selectionresults B, C: SI, SI Dataset 1).
+Results from the individual variant and splined window analyses show that recovering populations have signatures of strong selection on multiple regions of the genome.
+The analysis of individual variants identified 11 "outlier" SNPs (i.e., showing significantly different allele frequencies between naive versus recovering populations) from 7 distinct genes across 4 contigs (@fig-selectionresults B, C; SI).
 One of the 7 identified genes did not have an associated annotation.
 Frequency differences between the naive and recovering populations ranged from 41% to 86%.
-Most of these SNPs showed frequency differences in only a subset of the sampled populations (@fig-allelefrequencies A, B, SI), but the outlier SNP in the RIN3 gene showed consistent differences in frequencies across all populations (@fig-allelefrequencies C).
+Most of these SNPs showed frequency differences in only a subset of the sampled populations (@fig-allelefrequencies A, B), but the SNP in the RIN3 gene showed consistent differences in frequencies across all populations (@fig-allelefrequencies C).
 This is suggestive of strong - and parallel - selection at this locus associated with exposure of frogs to Bd across multiple populations.
 
-The splined window analysis identified 58 outlier regions for *F~ST~* and 33 outlier regions for $\pi_{diff}$ (@fig-spline-manhattan A, B).
+The splined window analysis identified 33 outlier regions for $\pi_{diff}$ and 58 outlier regions for *F~ST~* (@fig-spline-manhattan A, B).
 Of these, 9 regions were outliers for both metrics and 2 of these shared regions also contained outlier SNPs.
-A total of 33 annotated genes were found in the 9 shared regions (SI Dataset 2).
+A total of 33 annotated genes were found in the 9 shared regions (SI).
 The largest $\pi_{diff}$, indicative of directional selection, occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
 This region contains approximately 500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1).
 Additionally, a shared outlier region on Contig1 contained two complement factor genes (C6 and C7).
-Interestingly, this region had a low $\pi_{diff}$ value, consistent with balancing selection.
-Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D, @fig-synteny-plot SI).
-This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
+Interestingly, this region had a low $\pi_{diff}$ value <!--# Negative value shown in 2A? -->, consistent with balancing selection.
+Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D, @fig-synteny-plot). This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
 In *Xenopus*, five of these genes occur in the extended major histocompatibility complex (MHC) Class I region (FLOT1, TUBB, MDC1, CCHCR1, TCF19) and three occur in the extended MHC Class III region (HSP70, LSM2, VARS) [@ohta2006].
 Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes.
 
@@ -462,11 +461,10 @@ Our final dataset included 50 samples (23 from naive and 27 from recovering popu
 ##### Data Analysis
 
 To visualize the genomic relationship of our populations we conducted a principal components analysis (PCA) using the glPCA function in the adegenet R package [@jombart2008].
-To detect regions of the genome under selection between naive and recovering populations, we used two approches: (1) a multivariate linear mixed model to evaluate individual variants (SNPs and INDELs), and (2) a splined window analysis to evaluate larger genomic regions.
+To detect regions of the genome under selection between naive and recovering populations, we used two approaches: (1) a multivariate linear mixed model to evaluate individual variants (SNPs and INDELs), and (2) a splined window analysis to evaluate larger genomic regions.
 For the variant analysis, we first used a stringent data filter to include only variants with \< 5% missing data (missing for no more than 2 individuals), and then calculated the likelihood ratio statistic for the resulting set of 148,307 high quality variants across 127 contigs using GEMMA.
 GEMMA calculates and incorporates a relatedness matrix for input samples, allowing us to account for relatedness and population structure when calculating likelihood ratio statistics.
-We identified "outlier" variants using a Bonferroni- corrected significance level of 0.01.
-Outliers are variants showing different allele frequencies between naive versus recovering populations.
+We identified variants showing different allele frequencies between naive versus recovering populations ("outliers") using a Bonferroni- corrected significance level of 0.01.
 We visualized the results using a Manhattan plot and qqplot.
 We developed a more liberal set of outlier variants using a Bonferroni- corrected significance level of 0.05 and used this set solely for the gene ontology (GO) analysis (see below and SI).
 
@@ -636,11 +634,11 @@ This project was supported by grants from the National Park Service (to R.A.K.),
 
 ### Figures
 
-![Evidence for selection in recovering MYL frog populations at the landscape scale. For each of the naive and recovering MYL frog populations, pie charts show allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California.](figures/allele_maps.png){#fig-allelefrequencies width="450"}
+![Evidence for selection in recovering MYL frog populations at the landscape scale. For each of the 9 naive and recovering MYL frog populations, pie charts show allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California.](figures/allele_maps.png){#fig-allelefrequencies width="450"}
 
 \newpage
 
-![Evidence for selection on genomic regions in recovering MYL frog populations. Results are from the splined window analysis and show outlier windows for the difference in (A) nucleotide diversity $\pi_{diff}$ and (B) *F~ST~*. Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and II regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
+![Evidence for selection on genomic regions in recovering MYL frog populations. Results are from the splined window analysis and show outlier windows for the difference in (A) nucleotide diversity $\pi_{diff}$ and (B) *F~ST~*. Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and III regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
 
 \newpage
 
@@ -735,9 +733,9 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ### Figures
 
-\
+![Evidence for selection of individual variants in recovering MYL frog populations. (A) PCA calculated from binary SNPs showing the genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and INDELS as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
 
-![Evidence for selection of individual variants in recovering MYL frogs. (A) PCA calculated from binary SNPs showing genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and INDELS as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults}
+<!--# Remove x = 0 and y = 0 lines in PC plot -->
 
 ![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
 
