@@ -45,7 +45,7 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3,a^, Allison Q. Byrne^4,5,a^, Maxwell B
 
 ^a^These authors contributed equally to this work.
 
-**Preprint Server:**
+**Preprint Server:** bioRxiv
 
 **Classification:** Biological Sciences - Ecology
 
@@ -67,7 +67,7 @@ This example has potentially broad implications for the many taxa worldwide that
 
 ### Significance
 
-<!--# Limit = 120 words. Explain the significance of the research at a level understandable to an undergraduate-educated scientist outside their field of specialty.  -->
+<!--# Limit = 120 words.   -->
 
 Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
 One possibility is rapid evolution that restores positive growth to declining populations ("evolutionary rescue").
@@ -120,29 +120,32 @@ Collectively, these results provide one of the first examples of how evolutionar
 To determine whether MYL frog populations show an evolutionary response to Bd, we compared frog genomes between populations with contrasting histories of Bd exposure.
 Specifically, we compared frog genomes sampled in four populations that have not yet experienced a Bd-caused epizootic ("naive") [@zhou2015] versus in five populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering"; @fig-allelefrequencies) [@knapp2016; @vredenburg2010].
 These recovering populations exist in an enzootic state [@briggs2010], characterized by high Bd prevalence and, in adults, moderate Bd infection intensities ("load") that are typically well below the level expected to cause mortality [@vredenburg2010].
+(See SI for additional details regarding the study design.)
 
 We conducted a principal component analysis (PCA) of the genomic data to describe the relationships between sampled populations, and then used two complementary approaches to identify regions of the genome under selection.
 First, we used a multivariate linear mixed model to evaluate associations between population type (i.e., naive versus recovering) and individual variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (INDELS).
 Second, we used a splined window analysis to identify larger genomic regions showing differences between population types in *F~ST~* and nucleotide diversity ($\pi_{diff}$ = $\pi_{naive}$ - $\pi_{recovering}$).
 
-Individual frogs clustered into 3 separate groups in principal component space (@fig-selectionresults A), and clusters reflected the strong signature of isolation by distance that is characteristic of MYL frogs [@rothstein2020; @poorten2017].
+Individual frogs clustered into 3 separate groups in principal component space (@fig-selectionresults A), and clusters reflected the species split (i.e., *R. muscosa* versus *R. sierrae*) and the strong signature of isolation by distance that is characteristic of MYL frogs [@rothstein2020; @poorten2017].
 Importantly, each cluster contained at least one population from both the naive and recovering groups, allowing us to distinguish allelic associations of individuals sampled in the 2 population types versus allelic associations resulting from population structure and genetic drift.
 
 Results from the individual variant and splined window analyses show that recovering populations have signatures of strong selection on multiple regions of the genome.
-The analysis of individual variants identified 11 "outlier" SNPs (i.e., showing significantly different allele frequencies between naive versus recovering populations) from 7 distinct genes across 4 contigs (@fig-selectionresults B, C; SI).
-One of the 7 identified genes did not have an associated annotation.
-Frequency differences between the naive and recovering populations ranged from 41% to 86%.
+The analysis of individual variants identified 11 "outlier" SNPs (i.e., showing significantly different allele frequencies between naive versus recovering populations) from 7 distinct genes across 4 contigs (@fig-selectionresults B, C).
+One of the 7 identified genes did not have an associated annotation (LOC108802036<!--# Allie - check for accuracy -->).
+For the outlier SNPs, frequency differences between the naive and recovering populations ranged from 41% to 86%.
 Most of these SNPs showed frequency differences in only a subset of the sampled populations (@fig-allelefrequencies A, B), but the SNP in the RIN3 gene showed consistent differences in frequencies across all populations (@fig-allelefrequencies C).
 This is suggestive of strong - and parallel - selection at this locus associated with exposure of frogs to Bd across multiple populations.
+(See SI for additional description of these results.)
 
 The splined window analysis identified 33 outlier regions for $\pi_{diff}$ and 58 outlier regions for *F~ST~* (@fig-spline-manhattan A, B).
-Of these, 9 regions were outliers for both metrics and 2 of these shared regions also contained outlier SNPs.
+Of these, 9 regions were outliers for both metrics ("shared regions") and 2 of these shared regions also contained one or more outlier SNPs (described above).
 A total of 33 annotated genes were found in the 9 shared regions (SI).
 The largest $\pi_{diff}$, indicative of directional selection, occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
 This region contains approximately 500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1).
 Additionally, a shared outlier region on Contig1 contained two complement factor genes (C6 and C7).
-Interestingly, this region had a low $\pi_{diff}$ value <!--# Negative value shown in 2A? -->, consistent with balancing selection.
-Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D, @fig-synteny-plot). This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
+Interestingly, this region had a large negative $\pi_{diff}$ value, consistent with balancing selection.
+Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D, @fig-synteny-plot).
+This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
 In *Xenopus*, five of these genes occur in the extended major histocompatibility complex (MHC) Class I region (FLOT1, TUBB, MDC1, CCHCR1, TCF19) and three occur in the extended MHC Class III region (HSP70, LSM2, VARS) [@ohta2006].
 Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes.
 
@@ -311,16 +314,16 @@ frog_captures_gt0_max <- d3 %>%
   summarize(max(pyears_recruits_present))
 ```
 
-To determine whether *R. sierrae* from recovering populations could be used to reestablish extirpated populations, we conducted `r n_distinct(d1$site_id, d1$date)` reintroductions in Yosemite National Park (`r min(d1$year)`--`r max(d1$year)`).
-Each of the reintroductions involved collection of adult frogs from 1 of `r n_distinct(d1$donor)` recovering, Bd-positive "donor" populations (@fig-yosemap SI) and translocating them to 1 of `r n_distinct(d1$site_id)` nearby recipient sites [@seddon2014].
+To determine whether frogs from recovering populations could be used to reestablish extirpated populations, we conducted `r n_distinct(d1$site_id, d1$date)` reintroductions in Yosemite National Park (`r min(d1$year)`--`r max(d1$year)`).
+Each of the reintroductions involved collection of adult frogs from 1 of `r n_distinct(d1$donor)` recovering, Bd-positive "donor" populations and translocating them to 1 of `r n_distinct(d1$site_id)` nearby recipient sites (@fig-yosemap) [@seddon2014].
 The donor populations included 2 of the 5 recovering populations in the frog evolution study described above (@fig-allelefrequencies A: population 1 and 4).
 Following translocation, adult survival and recruitment of new adults were estimated from CMR surveys and counts of tadpoles and juveniles were obtained from visual encounter surveys (VES).
 
 Estimates of frog survival during the 1 year following translocation indicate that survival was highly variable between recipient sites, but relatively constant within recipient sites (for the subset of sites that received multiple translocations; @fig-translocation-survival).
-As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in subsequent translocations to that site (@fig-transsurvival-postdens SI).
+As such, the average survival of frogs in the first translocation to a site was an important predictor of survival of frogs in subsequent translocations to that site (@fig-transsurvival-postdens).
 This suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
-In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-survival-earlylate SI), which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
-Finally, Bd loads were fairly consistent before versus after translocation and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (@fig-bdload-beforeafter SI, see SI text for additional details) [@joseph2018; @vredenburg2010].
+In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-survival-earlylate), which we suggest resulted primarily from our improved ability over time to choose recipient sites with higher habitat quality for *R. sierrae*.
+Finally, Bd loads were fairly consistent before versus after translocation and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (@fig-bdload-beforeafter, see SI text for additional details) [@joseph2018; @vredenburg2010].
 
 Of the `r nrow(d2)` translocated populations, `r frog_counts_gt0_nrow` (`r frog_counts_gt0_nrow / nrow(d2)`) showed evidence of successful reproduction in subsequent years, as indicated by the presence of tadpoles and/or juveniles.
 For these `r frog_counts_gt0_nrow` populations, one or both life stages were detected in nearly all survey-years following translocation (proportion of survey-years: median = `r frog_counts_gt0_median`, range = `r frog_counts_gt0_min`--`r frog_counts_gt0_max`).
@@ -329,12 +332,12 @@ As with early life stages, recruits were detected in the majority of post-transl
 In summary, survey results suggest that translocations resulted in the establishment of reproducing MYL frog populations at most recipient sites despite the ongoing presence of Bd.
 
 To determine whether Bd load had a negative effect on adult survival, as would be expected if frogs were highly susceptible to Bd infection, we developed linear and multilevel models.
-The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens SI).
+The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (bd_load; @fig-survival-postdens).
 Important predictors included winter severity in the year following translocation (snow_t1), site elevation (elevation), and donor population (donor_72996; @fig-cond-effects).
-Males had somewhat higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects, @fig-survival-postdens SI).
+Males had somewhat higher survival than females, but this effect was only marginally important (sex_male; @fig-cond-effects, @fig-survival-postdens).
 Collectively, these results are consistent with frogs in recovering populations having evolved sufficient resistance/tolerance to minimize the adverse effects of Bd infection.
-In addition, the moderate Bd loads that characterized frogs following translocation (@fig-bdload-beforeafter SI) and relatively high survival of frogs in numerous translocated cohorts (@fig-translocation-survival) suggests that frogs translocated from recovering populations can maintain the benefits of resistance/tolerance in non-natal habitats.
-Finally, in 3 locations where longer CMR time series allowed us to assess the survival of new adults recruited to the population, naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
+In addition, the moderate Bd loads that characterized frogs following translocation (@fig-bdload-beforeafter) and relatively high survival of frogs in numerous translocated cohorts (@fig-translocation-survival) suggests that frogs translocated from recovering populations can maintain the benefits of resistance/tolerance in non-natal habitats.
+Finally, in 3 locations where longer CMR time series allowed us to assess the survival of new adults recruited to the population, naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs).
 Therefore, frog resistance/tolerance in non-natal habitats is maintained across generations.
 
 #### Long-term population viability
@@ -343,39 +346,37 @@ Results from frog translocations indicated that adult survival was often relativ
 Although suggestive of population establishment, a decade or more of surveys may be necessary to confirm that populations are in fact self-sustaining [@joseph2018].
 To extend our inferences of population establishment beyond those possible from the 2-16 years of site-specific CMR data, we developed a population viability model.
 Specifically, to test whether the observed yearly adult survival probabilities in translocated populations were sufficient to promote long-term viability, we built a stage-structured matrix model that captured known frog demography and included demographic and environmental stochasticity.
-We parameterized the model using CMR data from translocated populations and known life history values in this system (@tbl-param_values SI).
+We parameterized the model using CMR data from translocated populations and known life history values in this system (@tbl-param_values).
 
 Given observed yearly adult survival probabilities (from analysis of CMR data) and a baseline yearly recruitment probability $\omega$ of 0.3 (i.e., the probability that, following survival, juveniles successfully recruit to the adult class), our stage-structured model predicted that six of twelve translocated populations should experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd (@fig-viability A; median predicted $\lambda$ ranges from 1.15-1.36 for these six populations).
 These six populations all had observed yearly adult survival greater than 0.5.
 When we reduced the probability of successful recruitment $\omega$ to 0.1 (a highly conservative estimate), long-run growth rate of five of these six populations was still greater than 1 (@fig-viability A).
-<!--# Consider condensing the above paragraph and providing details in SI. Next paragraph topic sentence could also provide a more direct statement of key results, e.g., something like "Even when incorporating demographic and environmental stochasticity, populations with high adult survival are likely to persist over a 50 year time horizon."  Mark here:  Addressed both of these comments. -->
 
-Even when incorporating demographic stochasticity and environmental stochasticity in the probability of juvenile recruitment to the adult class $\omega$ (the transition that we expect to be the most subject to environmental variability in the presence of Bd), populations with high adult survival are likely to persist over a 50 year time horizon.
-Our model predicted that, following a single introduction of 40 adult individuals into a population and using the baseline value for $\omega$ of 0.3, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of 0 to 0.32; @fig-viability B).
-This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment (@fig-viability B).
+Even when incorporating (i) demographic stochasticity and (ii) environmental stochasticity in the probability of juvenile recruitment to the adult class $\omega$ (the transition that we expect to be the most subject to environmental variability in the presence of Bd), populations with high adult survival are likely to persist over a 50 year time horizon.
+Our model predicted that, following a single introduction of 40 adult individuals into a population and using the baseline value for $\omega$ of 0.3, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of 0 to 0.32 (@fig-viability B).
+This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment.
 When we decreased $\omega$ from 0.3 to a conservative estimate of 0.15, 50-year extinction probability remained less than 0.5 for three populations and was 0.79 to 0.94 for three additional populations (@fig-viability B).
 In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability C; population 70550, surveyed for 16 years).
 
 In summary, our model demonstrates that given observed yearly adult survival probabilities of translocated frogs, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
-This is likely a conservative estimate because there is evidence that naturally-recruited adults have higher survival probability than translocated adults (@fig-compare_surv_probs SI), but we considered these probabilities to be equal in all but three of our populations where we had sufficient data to distinguish these different probabilities.
+This is likely a conservative estimate because there is evidence that naturally-recruited adults have higher survival probability than translocated adults (@fig-compare_surv_probs), but we considered these probabilities to be equal in all but three of our populations where we had sufficient data to distinguish these different probabilities.
 In addition, 5 of the 7 populations translocated after 2013 were predicted to have long-term viability, compared to only 1 of 5 populations translocated prior to 2013 (@tbl-survival-earlylate).
 Thus, there is some trend suggesting that our ability to select high quality habitats that promote long-term viability of translocated populations improved over time.
 
 ### Discussion
 
 Disease-induced population declines are decimating global biodiversity [@daszak2000], but strategies to recover affected species are generally lacking.
-Here, we used populations of resistant/tolerant individuals to reestablish extirpated populations, despite ongoing disease.
-Although previously proposed [@mendelson2019], this strategy has rarely been successfully implemented (see [@joseph2018] for a small-scale example).
+Here, we tested the possibility that populations of resistant/tolerant individuals could be used to reestablish extirpated populations.
+Although previously proposed [@mendelson2019; @scheele2021], this strategy has rarely been successfully implemented (see [@joseph2018] for a small-scale example).
 In particular, although numerous studies have documented signatures of selection in hosts following disease-induced declines [e.g., @epstein2016; @gignoux-wolfsohn2021], we are unaware of any that used individuals bearing the resulting adaptive alleles to reestablish extirpated populations.
-The results of our study provide evidence that (i) MYL frogs have experienced strong selection following exposure to a recently-emerged lethal fungal disease and that some of the genomic regions under selection are associated with genes related to disease resistance/tolerance, and (ii) reintroduction of individuals from these resistant/tolerant populations allows the successful reestablishment of viable frog populations despite ongoing Bd infection.
-<!--# Although these results are generally consistent with expectations under evolutionary rescue [@carlson2014]...  --> <!-- I am wondering whether it is worth digging a bit deeper into the "difficult and perhaps impossible" task alluded to above. e.g., what would it take to increase confidence that evolutionary rescue is at play, what alternative explanations are still credible given the available data -->
+The results of our study provide evidence that (1) MYL frogs have experienced strong selection following exposure to a recently-emerged lethal fungal disease and that some of the genomic regions under selection are associated with genes related to disease resistance/tolerance, and (2) reintroduction of individuals from these resistant/tolerant populations allows the successful reestablishment of viable frog populations despite ongoing disease.
 
 Previous field studies in MYL frogs show that frog-Bd dynamics and frog survival in the presence of Bd are fundamentally different between naive and recovering populations.
 Following the arrival and establishment of Bd in previously-naive populations, adult frogs develop high Bd loads that lead to mass die-offs [@vredenburg2010].
-In contrast, in recovering populations adult frogs typically have low-to-moderate and relatively constant Bd loads and mass die-offs are not observed [@briggs2010; @knapp2011, see also @fig-bdload-beforeafter - before translocation].
+In contrast, in recovering populations adult frogs typically have low-to-moderate and relatively constant Bd loads and mass die-offs are not observed [@briggs2010; @knapp2011, see also @fig-bdload-beforeafter].
 The differences in Bd load of frogs from naive and recovering populations are also observed in controlled laboratory studies [@knapp2016, Figure 4].
-The observed reduced susceptibility of frogs from recovering populations could in theory be due to several factors including natural selection for more resistant/tolerant genotypes and/or acquired immunity, but until now evidence to evaluate the role of evolution was lacking.
+The observed reduced susceptibility of frogs from recovering populations could in theory be due to several factors, including natural selection for more resistant/tolerant genotypes and/or acquired immunity, but until now evidence to evaluate the role of evolution was lacking.
 
 Results from our genomic analyses strongly suggest that natural selection for adaptive alleles and resulting increased resistance/tolerance is at least partially responsible for the reduced susceptibility of frogs in recovering populations.
 We identified specific alleles and genomic regions showing signatures of selection between adjacent Bd-naive and recovering MYL frog populations, consistent with strong selection following Bd exposure.
@@ -390,7 +391,6 @@ We also identified a region, characterized by high *F~ST~* and low $\pi_{diff}$,
 This could indicate that balancing selection is acting in this region of the genome to favor a diverse set of alleles, as is known for C6 in humans [@soejima2005].
 Finally, the RIN3 gene showed a consistent pattern of allele frequency differences across all nine of the frog populations sampled in this study, indicating consistent selection in populations distributed across a wide geographic area.
 This gene is associated with inflammation response and in *Xenopus* is highly expressed in wound stumps following amputation of tadpole tails [@fukazawa2009].
-In the SI, we provide additional details on these and other genes identified in our study as under selection.
 
 Reintroduction of resistant/tolerant MYL frogs was remarkably successful in reestablishing viable populations in the presence of Bd.
 Of the 12 translocated populations, approximately 80% showed evidence of both successful reproduction and recruitment of new adults.
@@ -403,9 +403,9 @@ In particular, translocated populations with \> 50% survival in the first year p
 In light of the generally low success rate of amphibian reintroduction efforts [@dodd2005], our success in reestablishing MYL frog populations via translocation of resistant/tolerant individuals is striking, and even more so given that this success occurred despite ongoing infection of frogs with Bd.
 
 Despite the resistance/tolerance of adult MYL frogs in recovering populations, individual and population-level impacts of Bd are still evident.
-In an earlier study of 2 of our 12 translocated populations, Bd infection and load had detectable effects on the survival of adults and may have influenced population establishment (sites referred to as "Alpine" and "Subalpine" in [@joseph2018] are identified as "70550" and "70505" in the current study).
+In an earlier study of 2 of our 12 translocated populations [@joseph2018], Bd infection and load had detectable effects on the survival of adults and may have influenced population establishment (sites referred to as "Alpine" and "Subalpine" in [@joseph2018] are identified as "70550" and "70505" in the current study).
 Applying similar analyses to all 12 of our translocated populations would likely provide a broader perspective of the ongoing effect of Bd.
-In addition to these important but relatively subtle effects on adults, MYL frogs immediately following metamorphosis ("metamorphs") are highly susceptible to Bd infection [@ellison2018] and experience high mortality.
+In addition to these important but relatively subtle effects of Bd on adults, MYL frogs immediately following metamorphosis ("metamorphs") are highly susceptible to Bd infection [@ellison2018] and experience high mortality.
 This high susceptibility of metamorphs is documented for numerous species of anurans, and may result from the poorly developed immune system characteristic of this early life stage [@humphries2022].
 In naturally recovering and translocated MYL frog populations, we suggest that the high mortality of metamorphs is an important limitation on subsequent recruitment of new adults.
 Therefore, although adult MYL frogs appear relatively resistant/tolerant, Bd infection continues to have important limiting effects on recovering populations [see also @hollanders2022].
@@ -416,23 +416,21 @@ Importantly, in addition to the natural recovery documented for MYL frogs [@knap
 As with MYL frogs, the feasibility and long-term success of such efforts will depend on the availability of robust donor populations containing individuals that have acquired via evolution the adaptive alleles necessary to allow frog survival and population growth in the presence of Bd.
 Despite the hopeful example of successful reestablishment of MYL frogs via evolutionary rescue and reintroductions, the challenge of recovering hundreds of Bd-impacted amphibian species worldwide is a daunting prospect.
 Although we now have a proven strategy to reestablish extirpated MYL frog populations, recovery across their large historical range will require substantial resources over many decades.
-The results of this study provide a hopeful starting point for that endeavor, and other future efforts worldwide.
+The results of this study provide a hopeful starting point for that endeavor and other future efforts worldwide.
 
 Evolutionary rescue may be increasingly critical for the survival of wildlife populations in a rapidly changing world.
 The importance of evolutionary rescue is known for a wide variety of taxa [e.g., @carlson2014; @mills2018; @oziolor2019], including in the specific context of disease-impacted systems [@searle2020].
 However, obtaining evidence in wild animal populations for all the causal links in this process (i.e., selection for adaptive alleles $\rightarrow$ increase in host fitness in the presence of the stressor $\rightarrow$ positive population growth and recovery) is difficult in most systems.
 Nonetheless, we provide a compelling example from the wild not only that evolutionary rescue can produce individuals that harbor adaptive alleles and allow population recovery, but importantly that these individuals can be used in translocations to reestablish extirpated populations.
-We expect that such "assisted evolutionary rescue" will be an essential tool in wildlife conservation in an era of accelerating global change.
+We expect that such evolutionary rescue-based translocations will be an essential tool in wildlife conservation in an era of accelerating global change.<!--# Dig deeper into the "difficult" task alluded to above? E.g., what would it take to increase confidence that evolutionary rescue is at play, what alternative explanations are still credible given the available data? -->
 
 ### Materials and Methods
 
 #### Frog evolution in response to Bd
 
-<!--# To meet word count limits, we will likely need to move some of the following methods to the SI.  -->
-
 ##### Sampling and Sequencing
 
-We collected DNA samples via buccal swabbing [@broquet2007] from 53 *Rana muscosa*/*Rana sierrae* individuals: 24 from four Bd-naive populations, and 29 from five recovering populations.
+We collected DNA samples via buccal swabbing [@broquet2007] from 53 *Rana muscosa*/*Rana sierrae* individuals: 24 from four naive populations, and 29 from five recovering populations.
 These populations were located in the southern Sierra Nevada, from northern Yosemite National Park to northern Sequoia National Park (@fig-allelefrequencies).
 Samples were collected from 5-6 frogs per population.
 To minimize potential confounding effects caused by variation in frog genotypes across latitude [e.g., @rothstein2020], we selected sampling sites such that both population types were represented across similar latitudinal ranges.
@@ -444,9 +442,9 @@ Captured libraries were then pooled and sequenced on a NovaSeq 6000 150PE Flow C
 
 ##### Data Pre-processing and Cleaning
 
-Raw reads were filtered for adapters and contaminants using fastp [@chen2018] and aligned to the *Rana muscosa* genome [NCBI SRA: SRS6533475, reference = @hon2020] with repetitive elements masked using bwa ("mem" mode) [@li2013].
-Exact PCR Duplicates were marked using Picard.
-Variants were then called following GATK best practices (v.4.2.0.0, [@van2020]).
+Raw reads were filtered for adapters and contaminants using fastp [@chen2018] and aligned to the *Rana muscosa* genome (NCBI SRA: SRS6533475 [@hon2020]), with repetitive elements masked using bwa ("mem" mode) [@li2013].
+Exact PCR duplicates were marked using Picard.
+Variants were then called following GATK best practices (v.4.2.0.0 [@van2020]).
 Briefly, raw variants were called for each sample using HaplotypeCaller and combined using CombineGVCFs.
 Next, genotypes were jointly called using GenotypeGVCFs.
 Variants were then hard filtered using gatk VariantFiltration using the following parameters to remove low-quality sites: QD \< 2.0, FS \> 40.0, SOR \> 3.0, MQ \< 50.0, MQRankSum \> 3.0, MQRankSum \< -3.0, ReadPosRankSum \> 3.0, ReadPosRankSum \< -3.0.
@@ -454,23 +452,23 @@ This initial filter resulted in 1,595,206 variant sites across 53 individuals.
 
 We then further filtered our dataset at the individual and variant level.
 First, we trimmed our variants to only include those with minor allele frequency \> 0.03, a maximum depth of 250 and minimum depth of 5, a minimum genotype quality of 20, and a maximum missing proportion of 0.5.
-This filter resulted in 427,038 sites, of which 353,172 were single nucleotide polymorphisms (SNPs) and 73,866 were insertions or deletions (INDELS).
+This filter resulted in 427,038 sites, of which 353,172 were SNPs and 73,866 were INDELS.
 Finally, we trimmed samples with an average depth across filtered sites \< 7x.
-Our final dataset included 50 samples (23 from naive and 27 from recovering populations) with an average depth of 16.7x (range = 7.4x -- 26.1x).
+Our final dataset included 50 samples, 23 from naive and 27 from recovering populations, with an average depth of 16.7x (range = 7.4x -- 26.1x).
 
 ##### Data Analysis
 
-To visualize the genomic relationship of our populations we conducted a principal components analysis (PCA) using the glPCA function in the adegenet R package [@jombart2008].
+To visualize the genomic relationship of our populations we conducted a PCA using the glPCA function in the adegenet R package [@jombart2008].
 To detect regions of the genome under selection between naive and recovering populations, we used two approaches: (1) a multivariate linear mixed model to evaluate individual variants (SNPs and INDELs), and (2) a splined window analysis to evaluate larger genomic regions.
-For the variant analysis, we first used a stringent data filter to include only variants with \< 5% missing data (missing for no more than 2 individuals), and then calculated the likelihood ratio statistic for the resulting set of 148,307 high quality variants across 127 contigs using GEMMA.
+For the variant analysis, we first used a stringent data filter to include only variants with \< 5% missing data (missing for no more than 2 individuals), and then calculated the likelihood ratio statistic for the resulting set of 148,307 high quality variants across 127 contigs using GEMMA [@zhou2014].
 GEMMA calculates and incorporates a relatedness matrix for input samples, allowing us to account for relatedness and population structure when calculating likelihood ratio statistics.
 We identified variants showing different allele frequencies between naive versus recovering populations ("outliers") using a Bonferroni- corrected significance level of 0.01.
 We visualized the results using a Manhattan plot and qqplot.
-We developed a more liberal set of outlier variants using a Bonferroni- corrected significance level of 0.05 and used this set solely for the gene ontology (GO) analysis (see below and SI).
+We developed a more liberal set of outlier variants using a Bonferroni- corrected significance level of 0.05 and used this set solely for the gene ontology (GO) analysis (see below and SI: dataset S1, S2).
 
-For each outlier variant, we determined whether the variant was synonymous (protein sequence the same for each variant) or non-synonymous (protein sequence differs between variants), and where in the gene it was located.
+In the analysis of individual variants, for each outlier variant we determined whether the variant was synonymous (protein sequence the same for each variant) or non-synonymous (protein sequence differs between variants), and where in the gene it was located.
 To do this, we first extracted the reference genome sequence surrounding the variant using the bedtools "getfasta" function [@quinlan2010].
-Next, we re-annotated each sequence using blast to get the predicted gene location based on the closest annotated reference [@altschul1997].
+Next, we re-annotated each sequence using BLAST to get the predicted gene location based on the closest annotated reference [@altschul1997].
 We then translated each variant to amino acids and aligned this translation to that of the gene annotation to ensure proper frame of reference using Geneious [@kearse2012].
 After ensuring proper translation, we characterized variants as within or outside the coding sequence of the gene and as either synonymous or non-synonymous.
 
@@ -478,35 +476,35 @@ In the splined window analysis, we identified outlier regions using *F~ST~* and 
 First, we calculated per-site *F~ST~* between the naive and recovering individuals for all bi-allelic SNPs in the 30 largest contigs (98% of all SNPs) using VCFtools [@danecek2011].
 Next, we calculated per-site nucleotide diversity $\pi$ separately for individuals from the naive and recovering populations using VCFtools, then calculated $\pi_{diff}$ for each population ($\pi_{diff} = \pi_{naive} - \pi_{recovering}$).
 We concatenated the values for *F~ST~* and $\pi_{diff}$ in order of size-sorted chromosome number and adjusted the SNP position based on the relative position in the genome.
-We then used the WINGEN R package [@bishop2023] to conduct a splined discrete window analysis for *F~ST~* and $\pi_{diff}$.
-This method calculates where non-overlapping window boundaries should occur by identifying inflection points in the fitted spline, therefore balancing false positive and false negative results that occur using other window-based methods [@beissinger2015] .
+We then used the GenWin R package [@beissinger2015] to conduct a splined discrete window analysis for *F~ST~* and $\pi_{diff}$.
+This method calculates where non-overlapping window boundaries should occur by identifying inflection points in the fitted spline, therefore balancing false positive and false negative results that occur using other window-based methods [@beissinger2015].
 This method also calculates a W-statistic allowing for outlier identification.
-We identified outliers as those with a W-statistic greater than 4 standard deviations above the mean for F~ST~ or above/below the mean for $\pi_{diff}$.
-Outlier regions were then identified as those that were outliers in both analyses, meaning that they showed 1) high differentiation between naive and recovering populations, and 2) differential patterns of nucleotide diversity in the same region.
-Finally, we extracted gene transcripts mapped within each region and retrieved annotation for that region using blast.
+We identified outliers as those with a W-statistic greater than 4 standard deviations above the mean for *F~ST~* or above/below the mean for $\pi_{diff}$.
+Shared outliers were then identified as those that were outliers in both analyses, meaning that they showed (1) high differentiation between naive and recovering populations, and (2) differential patterns of nucleotide diversity in the same region.
+Finally, we extracted gene transcripts mapped within each region and retrieved annotation for that region using BLAST (SI: datasets S3, S4).
 
 Using the liberal set of variant outliers, we performed a statistical overrepresentation test (Fisher's exact test) using Blast2GO [@conesa2005].
-First, we retrieved the Blast hits and mapped GO terms for each gene in our targeted transcriptome.
-Next, we compared the 29 unique outlier genes from the liberal set of outlier variants to the complete set of genes in our target transcriptome to determine if any GO biological functions, molecular functions, or cellular processes were overrepresented.
+First, we retrieved the BLAST hits and mapped GO terms for each gene in our targeted transcriptome.
+Next, we compared the 30 <!--# Allie - Check for accuracy --> unique outlier genes from the liberal set of outlier variants to the complete set of genes in our target transcriptome to determine if any GO biological functions, molecular functions, or cellular processes were overrepresented.
 We then repeated this process for the set of 33 genes located in the overlapping *F~ST~* and $\pi_{diff}$ splined windows.
-Code used for genomic analyses and to figures is available from the following GitHub repository: <https://github.com/allie128/mylf-selection>.
-<!--# Make sure link is live before manuscript submission. -->
+Code used for genomic analyses and to create figures is available from the following GitHub repository: <https://github.com/allie128/mylf-selection>.
+<!--# Make sure that code have been uploaded to this link before manuscript submission. -->
 
 #### Frog population recovery
 
 ##### Field methods
 
-For the `r n_distinct(d1$site_id, d1$date)` translocations we conducted, we identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], as well as landscape genetic information [@poorten2017].
+For the `r n_distinct(d1$site_id, d1$date)` translocations we conducted, we identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], and results from population genetic analyses [@poorten2017].
 The populations that we selected contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles.
 These relatively high abundances were the result of recent increases following previous Bd-caused declines [@knapp2016].
 As is typical for recovering MYL frog populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd load (median log~10~(load) = `r round(bdload_min, 2)`--`r round(bdload_max, 2)` ITS copies) was two or more orders of magnitude below the level at which frog mortality is expected (log~10~(load) $\approx$ 5.78 copies)[@vredenburg2010; @joseph2018].
 Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species [@knapp2005].
 
-We conducted `r transno_min`--`r transno_max` translocations per site (@fig-yosemap SI) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
-During each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
+We conducted `r transno_min`--`r transno_max` translocations per site (@fig-yosemap) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
+In preparation for each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
 Frogs were transported to the recipient site either on foot or via helicopter.
 Following release, translocated populations were visited approximately once per month during the summer active season (median number of visits per summer = `r round(surveys_yr_median)`; range = `r surveys_yr_min`--`r surveys_yr_max`) and assessed using diurnal CMR surveys and VES.
-CMR surveys allowed quantification of adult survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and juvenile abundance.
+CMR surveys allowed esimation of adult survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and juvenile abundance.
 During 2006-2012, CMR surveys were conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs.
 Frogs were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
 During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (median number of secondary periods per primary period = `r round(robust_year_median)`; range = `r robust_year_min`--`r robust_year_max`), and frogs were processed as described above.
@@ -537,14 +535,13 @@ Code used to create CMR datasets and fit models for each translocated population
 To identify important predictors of frog survival following translocation, we developed linear and multilevel models in a Bayesian framework.
 We performed all analyses with the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022], and used default, weakly informative priors.
 Starting models included all relevant population-level effects and, when data contained possible hierarchical structure, we included group-level effects in the full model.
-Within each analysis, we evaluated model fit using visualizations of leave-one-out ("LOO") probability integral transformations [@gelman2013; @gabry2019], and compared fits of models with and without group-level effects, and with differing group-level effects using LOO cross-validation [@vehtari2016].
-Both approaches utilized the loo package [@vehtari2022].
+We evaluated model fit using leave-one-out ("LOO") cross-validation [@gelman2013; @gabry2019; @vehtari2016], as implemented by the loo package [@vehtari2022].
 
 We conducted two analyses.
 In the first, we addressed the more general question of whether survival of frogs in the first translocation to a site predicted the survival of frogs in subsequent translocations.
 Group-level effects included site_id or translocation_id.
-The second analysis focused specifically on identifying predictors of post-translocation frog survival using a wide range of variables describing characteristics of frogs, sites, and translocations (predictor variables: Bd load (bd_load), winter severity in the year following translocation (snow_t1), site elevation (elevation), donor population (donor_72996), sex (sex_male), frog size (length), winter severity in the year of translocation (snow_t), day of year on which a translocation was conducted (day), and translocation order (order_first)).
-In both analyses we used 1-year survival as a single metric of survival that was available for all translocated populations regardless of how many years of post-translocation data were available (range = 3\--16).
+The second analysis focused specifically on identifying predictors of post-translocation frog survival using a wide range of variables describing characteristics of frogs, sites, and translocations (predictor variables: Bd load (bd_load), sex (sex_male), frog size (length), site elevation (elevation), winter severity in the year of translocation (snow_t), winter severity in the year following translocation (snow_t1), donor population (donor_72996), day of year on which a translocation was conducted (day), and translocation order (order_first)).
+In both analyses we used 1-year survival as a single metric of survival that was available for all translocated populations regardless of how many years of post-translocation data were available (range = 3--16).
 Group-level effects included site_id, translocation_id, or translocation_id nested within site_id.
 In both analyses, the response variable, probability of 1-year frog survival, was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
 For all models, we used default priors, four chains, and 5000 iterations each for warmup and post-warmup.
@@ -564,7 +561,7 @@ We compared models with and without group-level effects, and group-level effects
 All models used a negative binomial family.
 Priors, chains, iterations, and checks were as described above.
 Code to create the dataset and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
-<!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect? That is the model that is most analogous to a paired t-test. --> <!--# Add  -->
+<!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect? That is the model that is most analogous to a paired t-test. -->
 
 #### Population viability modeling
 
@@ -573,7 +570,7 @@ Code to create the dataset and fit models is available from the following GitHub
 To determine the implications of observed 1-year adult survival on the long-term viability of populations established via translocation, we developed a population model for MYL frogs.
 Our central question was: How does the magnitude and variation in observed adult survival probability across translocated populations affect the long-term persistence probability of populations?
 We developed a model that tracked seven state variables of a frog population: density of translocated adults ($A_T$), density of adults naturally recruited into the population ($A_R$), density of first-year tadpoles ($L_1$), density of second-year tadpoles ($L_2$), density of third-year tadpoles ($L_3$), density of first-year juveniles ($J_1$), and density of second-year juveniles ($J_2$).
-We divided adults into two classes $A_T$ and $A_R$ because there is evidence that the survival probability of translocated adults and naturally recruited adults differs ([@fig-compare_surv_probs] : SI).
+We divided adults into two classes $A_T$ and $A_R$ because there is evidence that the survival probability of translocated adults and naturally recruited adults differs ([@fig-compare_surv_probs]).
 
 We modeled the dynamics of these seven state variables using a discrete-time, stage-structured model where a time step is one year.
 The dynamics are given by
@@ -613,14 +610,16 @@ In this model we ignore density-dependent recruitment because we were interested
 We also did not directly consider the dynamics of Bd in this model.
 We made this decision because (i) translocated populations are infected with Bd at high prevalence [@joseph2018], and (ii) host density does not seem to play a significant role in multi-year Bd infection dynamics in this system [@wilber2022].
 Thus, ignoring Bd infection dynamics and instead assuming all host vital rates are in the presence of high Bd prevalence significantly simplifies the model without much loss of realism.
+(Additional details regarding incorporating yearly variability in vital rates and estimating model parameters are provided in the SI.)
 
 ##### Model analysis
 
-After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values] : SI), we performed four analyses (described in detail in the SI).
-First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to growth or decline in the long-run.
+After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values]), we performed four analyses (described in detail in the SI).
+First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to grow or decline in the long-run.
 Second, we compute the elasticity of $\lambda$ to model parameters, to quantify how much changes in adult survival, for example, affected the long-run growth rate.
-Third, we included demographic and environmental stochasticity into our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
+Third, we included demographic and environmental stochasticity in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of MYL frogs following reintroductions.
+(Additional details are provided in the SI.) <!--# Add link to Mark's GitHub repo? -->
 
 ### Acknowledgments
 
@@ -630,19 +629,19 @@ Lindauer--project and data management, field and laboratory work; A.
 Barbella and K.
 Rose--laboratory work; C.
 Kamoroff and numerous summer technicians--field work; staff at Sequoia-Kings Canyon and Yosemite National Parks, Inyo and Sierra National Forests, California Department of Fish and Wildlife, U.S. Fish and Wildlife Service, University of California-Santa Barbara Institutional Animal Care and Use Committee, and Sierra Nevada Aquatic Research Laboratory--research permits, logistical support, and/or field assistance.
-This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.); and National Science Foundation Grants EF-0723563 (to C. Briggs), DEB-1557190 (to C. Briggs), and DBI-2120084 (to C. Richards-Zawacki).
+This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.), and National Science Foundation (EF-0723563, to C. Briggs; DEB-1557190, to C. Briggs; and DBI-2120084, to C. Richards-Zawacki).
 
 ### Figures
 
-![Evidence for selection in recovering MYL frog populations at the landscape scale. For each of the 9 naive and recovering MYL frog populations, pie charts show allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California.](figures/allele_maps.png){#fig-allelefrequencies width="450"}
+![Evidence for selection on individual variants in recovering MYL frog populations at the landscape scale. For each of the 9 naive and recovering MYL frog populations, pie charts show allele frequencies for the 11 outlier SNPs from 7 distinct genes: (A) LOC108802036, (B) TCF19, VARS, MAP1S, TYRP1, and SRFBP1, and (C) RIN3. Charts are superimposed on a map of the Sierra Nevada study area, with Yosemite, Kings Canyon, and Sequoia National Parks (from north to south) shown in dark gray, and the range boundary for MYL frogs in this portion of the Sierra Nevada shown in light gray. The inset map locates the study area in California.](figures/allele_maps.png){#fig-allelefrequencies width="450"}
 
 \newpage
 
-![Evidence for selection on genomic regions in recovering MYL frog populations. Results are from the splined window analysis and show outlier windows for the difference in (A) nucleotide diversity $\pi_{diff}$ and (B) *F~ST~*. Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier windows for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier window that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and III regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
+![Evidence for selection on genomic regions in recovering MYL frog populations. Manhattan plot of the results from the splined window analysis showing outlier regions for the difference in (A) nucleotide diversity $\pi_{diff}$ and (B) *F~ST~*. In (A), outlier regions are shown above the upper red dashed line and below the lower red dashed line. In (B), outlier regions are shown above the single dashed red line. Outlier regions for either $\pi_{diff}$ or *F~ST~* are shown in blue and outlier regions for both $\pi_{diff}$ and *F~ST~* are shown in red. (C) Magnified Contig19 from (A) showing two adjacent outlier regions for $\pi_{diff}$ 12.9Mb upstream of the RIN3 outlier SNP (indicated with a dashed vertical blue line). (D) Magnified Contig8 from from (B) showing the *F~ST~* outlier region that includes the outlier SNPs TCF19 and VARS. This region of the genome contains 8 annotated genes known to occur in the extended MHC Class I and III regions.](figures/splinewindow_manhattan.png){#fig-spline-manhattan width="450"}
 
 \newpage
 
-![Evidence for frog survival at the recipient sites following translocation. Median 1-year survival for each cohort of translocated frogs at the 12 recipient sites. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. Error bars show the 95% uncertainty intervals. When multiple translocations were conducted to a site, points and error bars are slightly offset to avoid overlap.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="300"}
+![Evidence for frog survival at the recipient sites following translocation. Median 1-year survival for each cohort of translocated frogs at the 12 recipient sites. Error bars show the 95% uncertainty intervals. Sites are arranged along the x-axis using the average of the median 1-year survival per translocation at each site. Dot colors indicate the donor population from which frogs in each translocated cohort were collected. When multiple translocations were conducted to a site, points and error bars are slightly offset to avoid overlap.](figures/translocation_survival_bysiteid.png){#fig-translocation-survival width="300"}
 
 \newpage
 
@@ -650,7 +649,7 @@ This project was supported by grants from the National Park Service (to R.A.K.),
 
 \newpage
 
-![Predicted and observed growth and persistence of translocated populations. Population viability analysis of translocated MYL frogs quantified the long-run growth rate and extinction probability of frog populations: (A) Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability of recruitment $\omega$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (indicated by the dashed line). The red line shows where $\lambda = 1$. (B) Predicted 50-year extinction probabilities of the 12 translocated populations given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to (A). There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are hidden beneath the line for 70505. (C) 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="600"}
+![Population viability analysis of translocated MYL frogs quantified the long-run growth rate and extinction probability of frog populations: (A) Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and probability of recruitment $\omega$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when probability of recruitment into the adult class is $\omega = 0.3$ (indicated by the dashed line). The red line shows where $\lambda = 1$. (B) Predicted 50-year extinction probabilities of the 12 translocated populations, given demographic stochasticity, environmental variability in $\omega$, and different mean values of $\omega$. The dashed line shows where $\omega = 0.3$, for comparison to (A). There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are hidden beneath the line for 70505. (C) 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="600"}
 
 \newpage
 
@@ -673,11 +672,9 @@ The liberal set, identified using a Bonferroni-corrected p-value of 0.05, includ
 Our analysis found no significantly over-represented GO terms in this set of 30 genes, or in the set of 38 outlier regions identified with the splined window analysis.
 
 In the comparison of individual outlier variants between naive and recovering populations, we detected consistent allele frequency changes across all genetic clusters for 1 of 7 of the associated genes (RIN3; @fig-allelefrequencies).
-Nonetheless, for the other 6 genes we still found a statistically significant signal of selection in 2 of the 3 genetic clusters (containing populations 6, 7, 8, and 9; @fig-allelefrequencies, @fig-selectionresults A SI).
+However, for the other 6 genes we still found a statistically significant signal of selection in 2 of the 3 genetic clusters (containing populations 6--9; @fig-allelefrequencies, @fig-selectionresults A SI).
 Therefore, although some outlier variant associations have a more limited geographic extent than RIN3, they still describe parallel evolutionary changes following Bd exposure and are therefore interesting candidates for future studies.
 <!--# Allie, check text for accuracy -->
-
-<!--#  CUT? Multiple genes in our stringent set of outliers have known associations with amphibian Bd resistance/tolerance. Of particular interest is a ~940kb region on contig 8 that we identified as under selection, and that contains 8 genes associated with either the MHC Class I or Class III regions. The order of these genes in the MYL frog genome is conserved from Xenopus [@ohta2006] and is consistent with MHC Class I/III linkage reported in the Komodo dragon [@reed2021]. Numerous studies have linked MHC genes to frog resistance/tolerance against Bd infection [e.g., @savage2011; @bataille2015]. In addition to the genes in this region that we describe in the Results section of the main paper, other genes also deserve mention. For example, we identified the MHC Class III gene, heat shock protein 70 (HSP70), as occurring in this region (@fig-synteny-plot). Similarly, [@byrne2020] identified an HSP70-binding protein as a candidate gene under selection in Atelopus varius populations recovering after Bd-caused declines. HSP70 was also highly expressed in Bd-infected versus uninfected Xenopus tropicalis [@rosenblum2009]. This MHC gene cluster lies on the same chromosome as the outlier SNP in RIN3 (@fig-spline-manhattan C, @fig-allelefrequencies A). Additionally, we identified a region on contig 19 that had the highest $\pi_{diff}$ of any outlier window, indicative of directional selection. This region contained the gene, interferon-induced very large GTPase 1-like (GVINP1). Interferons boost immune system processes and previous studies of frogs have identified interferon-related genes as associated with Bd resistance/tolerance [@byrne2020] or have shown increased expression of this class of genes when frogs were exposed to Bd in the lab [@rosenblum2009; @ellison2014]. Variants in GVINP1 also explained approximately 20% of the resistance to amoebic gill disease in Atlantic salmon, a finding confirmed via expression analysis [@robledo2018; @robledo2020]. Furthermore, in Litoria verreauxii alpina, the related gene, IFN-induced very large GTPase, showed lower expression in frogs from less susceptible populations versus more susceptible populations [@grogan2018].Finally, we identified a region characterized by high FST and low $\pi_{diff}$ and that contained the complement genes C6 and C7. This could indicate that balancing selection is acting in this region of the genome to favor a diverse set of alleles, as is known for C6 in humans [@soejima2005].  -->
 
 ### Frog population recovery
 
@@ -733,23 +730,21 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ### Figures
 
-![Evidence for selection of individual variants in recovering MYL frog populations. (A) PCA calculated from binary SNPs showing the genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. (B) qqplot showing observed and expected p-values for 148,307 SNPs and INDELS as calculated in GEMMA. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate at least one non-synonymous SNP is present in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
+![Evidence for selection on individual variants in recovering MYL frog populations. (A) PCA calculated from binary SNPs showing the genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. Populations 1-7 are *R. sierrae* and populations 8 and 9 are *R. muscosa*. (B) qqplot showing observed and expected p-values for 148,307 SNPs and INDELS. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-value for each SNP. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate the presence of at least one non-synonymous SNP in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
 
-<!--# Remove x = 0 and y = 0 lines in PC plot -->
-
-![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
+![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical <!--# Elsewhere we refer only to "MHC Class I". Is "Classical" necessary here? --> and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in the TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
 
 \newpage
 
-![Map showing the locations of translocated and donor MYL frog populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). <!--# Make sure all points are inside YOSE polygon -->](figures/map_translocation_points.png){#fig-yosemap width="250"}
+![Map showing the locations of translocated and donor MYL frog populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation). ](figures/map_translocation_points.png){#fig-yosemap width="250"}
 
 ![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. In the Bayesian framework in which the model was developed, a variable is considered an important predictor if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
 
-![Evidence that frogs translocated from recovering populations can maintain the benefits of resistance/tolerance in non-natal habitats. For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Loads indicative of severe disease are \> 5.8 ITS copies (on a log~10~ scale; see SI text for details). Box plot details are as in @fig-cond-effects.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter}
+![Evidence that frogs translocated from recovering populations can maintain the benefits of resistance/tolerance in non-natal habitats. For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Loads indicative of severe disease are \> 5.8 ITS copies (on a log~10~ scale; see SI text for details). Box plot details are as in @fig-cond-effects.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="500"}
 
-![Evidence that Bd load in not an important predictor of post-translocation frog survival. For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="450"}
+![Evidence that Bd load is not an important predictor of post-translocation frog survival. For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="350"}
 
-![Evidence that frog resistance/tolerance in non-natal habitats is maintained across generations. Comparison of the average yearly adult survival probabilities for adults translocated to each of three sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohort. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. The large error bars for 70550 reflect the large within and among individual variability in yearly survival probability at this site (as also reflected in one-year survival probabilities in [@fig-translocation-survival]). All estimates are derived from the mrmr package.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="450"}
+![Evidence that frog resistance/tolerance in non-natal habitats is maintained across generations. Comparison of the average yearly adult survival probabilities for adults translocated to each of 3 sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. The large error bars for 70550 reflect the large within and among individual variability in yearly survival probability at this site (as also reflected in one-year survival probabilities in [@fig-translocation-survival]). All estimates are derived from the mrmr package.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="450"}
 
 ![Sensitivity analysis of the stage-structured MYL frog model. Elasticity of $\lambda$ with changes in 3 parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $\omega$ (yearly probability of successful recruitment from juveniles to adults), and *F (*number of eggs produced by a female frog in a year that successfully hatch). Elasticity is calculated at the default parameter values for each population and $\omega$ = 0.3.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="450"}
 
@@ -804,7 +799,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 
 : Description and values of parameters used in the model. All survival probabilities are in the presence of the fungal pathogen Bd. {#tbl-param_values}
 
-\
+\newpage
 
 ### Datasets
 
@@ -819,12 +814,11 @@ file: gemma_outliers_strict_freq.csv
 
 Dataset S3.
 Description of overlapping *F~ST~* and $\pi_{diff}$ outlier windows, as identified in the splined window analysis.
-file: spline_window_shared_outliers.csv <!--# The dataset contains descriptions of 10 shared regions, not the 9 regions mentioned in the Results. Do we need to explain that one region is a repeat because there is a 2>1 match for one of the overlaps (i.e., one Fst outlier window overlaps with 2 pi outlier windows)?  -->
+The outlier window on chromosome 19 (column name = chr_num_sorted) is included twice because one *F~ST~* outlier window overlapped with two $\pi_{diff}$ outlier windows.
+file: spline_window_shared_outliers.csv <!--# Allie - Check for accuracy  -->
 
 Dataset S4.
 Annotation information for all genes within each of the overlapping outlier windows in dataset S3.
 file: spline_window_gene_details
 
 ### References
-
-\
