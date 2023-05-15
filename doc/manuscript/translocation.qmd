@@ -143,9 +143,14 @@ A total of 33 annotated genes were found in the 9 shared regions (SI).
 The largest $\pi_{diff}$, indicative of directional selection, occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
 This region contains approximately 500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1).
 Additionally, a shared outlier region on Contig1 contained two complement factor genes (C6 and C7).
+<<<<<<< HEAD
 Interestingly, this region had a large negative $\pi_{diff}$ value, consistent with balancing selection.
 Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D, @fig-synteny-plot).
 This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
+=======
+Interestingly, this region had a low $\pi_{diff}$ value<!--# Negative value shown in 2A? -->, consistent with balancing selection.
+Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) and was within 360kb of another outlier SNP (VARS) (@fig-spline-manhattan D, @fig-synteny-plot). This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
+>>>>>>> 6c9a53ad9790c916250bd7ffe7c0def64698e8e9
 In *Xenopus*, five of these genes occur in the extended major histocompatibility complex (MHC) Class I region (FLOT1, TUBB, MDC1, CCHCR1, TCF19) and three occur in the extended MHC Class III region (HSP70, LSM2, VARS) [@ohta2006].
 Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes.
 
@@ -356,7 +361,7 @@ Even when incorporating (i) demographic stochasticity and (ii) environmental sto
 Our model predicted that, following a single introduction of 40 adult individuals into a population and using the baseline value for $\omega$ of 0.3, the six populations with the highest adult survival probabilities had 50-year extinction probabilities of 0 to 0.32 (@fig-viability B).
 This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in recruitment.
 When we decreased $\omega$ from 0.3 to a conservative estimate of 0.15, 50-year extinction probability remained less than 0.5 for three populations and was 0.79 to 0.94 for three additional populations (@fig-viability B).
-In contrast, for the six populations where $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
+In contrast, for the six populations where yearly adult survival probability $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be 1.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability C; population 70550, surveyed for 16 years).
 
 In summary, our model demonstrates that given observed yearly adult survival probabilities of translocated frogs, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
@@ -526,7 +531,7 @@ The possible observations of individuals include "detected" and "not detected".
 We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records).
 For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each).
 We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat).
-Code used to create CMR datasets and fit models for each translocated population is available from the following GitHub repository: [https://github.com/SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis.).
+Code used to create CMR datasets and fit models for each translocated population is available from the following GitHub repository: [https://github.com/SNARL1/cmr-analysis](https://github.com/SNARL1/cmr-analysis).
 
 <!--# Add text describing calculations of VES and CMR-recruitment counts. For the latter, only included surveys conducted >= 3 years following translocation to account for duration of early life stages. -->
 
@@ -546,7 +551,7 @@ Group-level effects included site_id, translocation_id, or translocation_id nest
 In both analyses, the response variable, probability of 1-year frog survival, was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
 For all models, we used default priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked convergence of the MCMC algorithm using trace plots and Rhat.
-Code to create the datasets and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
+Code to create the datasets and fit models is available from the following GitHub repository: [https://github.com/SNARL1/translocation](https://github.com/SNARL1/translocation).
 
 ##### Changes in Bd load following translocation
 
@@ -560,8 +565,13 @@ Briefly, the response variable was before-translocation load and the predictor v
 We compared models with and without group-level effects, and group-level effects included pit_tag_id, pit_tag_id nested within site_id, or pit_tag_id nested within translocation_id.
 All models used a negative binomial family.
 Priors, chains, iterations, and checks were as described above.
+<<<<<<< HEAD
 Code to create the dataset and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
 <!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect? That is the model that is most analogous to a paired t-test. -->
+=======
+Code to create the dataset and fit models is available from the following GitHub repository: [https://github.com/SNARL1/translocation](https://github.com/SNARL1/translocation).
+<!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect? That is the model that is most analogous to a paired t-test. --> <!--# Add  -->
+>>>>>>> 6c9a53ad9790c916250bd7ffe7c0def64698e8e9
 
 #### Population viability modeling
 
@@ -614,7 +624,11 @@ Thus, ignoring Bd infection dynamics and instead assuming all host vital rates a
 
 ##### Model analysis
 
+<<<<<<< HEAD
 After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values]), we performed four analyses (described in detail in the SI).
+=======
+After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values] : SI), we performed four analyses (described in detail in the SI).
+>>>>>>> 6c9a53ad9790c916250bd7ffe7c0def64698e8e9
 First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to grow or decline in the long-run.
 Second, we compute the elasticity of $\lambda$ to model parameters, to quantify how much changes in adult survival, for example, affected the long-run growth rate.
 Third, we included demographic and environmental stochasticity in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
@@ -629,7 +643,11 @@ Lindauer--project and data management, field and laboratory work; A.
 Barbella and K.
 Rose--laboratory work; C.
 Kamoroff and numerous summer technicians--field work; staff at Sequoia-Kings Canyon and Yosemite National Parks, Inyo and Sierra National Forests, California Department of Fish and Wildlife, U.S. Fish and Wildlife Service, University of California-Santa Barbara Institutional Animal Care and Use Committee, and Sierra Nevada Aquatic Research Laboratory--research permits, logistical support, and/or field assistance.
+<<<<<<< HEAD
 This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.), and National Science Foundation (EF-0723563, to C. Briggs; DEB-1557190, to C. Briggs; and DBI-2120084, to C. Richards-Zawacki).
+=======
+This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.); and National Science Foundation Grants EF-0723563 (to C. Briggs), DEB-1557190 (to C. Briggs), DEB-2133401 (to M.Q.W), and DBI-2120084 (to C. Richards-Zawacki).
+>>>>>>> 6c9a53ad9790c916250bd7ffe7c0def64698e8e9
 
 ### Figures
 
@@ -724,7 +742,7 @@ We simulated our model for 16 years, repeating the simulation 50,000 times.
 For each run and each year, we drew $\omega$ from a uniform distribution between 0 and 1 (or equivalently a beta distribution with mean 0.5 and $\phi = 2$).
 Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
 The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
-Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
+Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.  Code to replicate the analyses can be found at [https://github.com/SNARL1/translocation](https://github.com/SNARL1/translocation).
 
 \newpage
 

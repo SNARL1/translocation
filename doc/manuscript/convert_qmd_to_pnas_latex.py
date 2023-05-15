@@ -147,15 +147,17 @@ pnas_ms = pnas_ms.replace("% Figures\n", "\\clearpage\n" + figures)
 
 pnas_ms = pnas_ms.replace("\\begin{figure", "\\begin{figure*")
 pnas_ms = pnas_ms.replace("\\end{figure", "\\end{figure*")
-pnas_ms = pnas_ms.replace("\\includegraphics", "\\includegraphics[width=0.8\\textwidth]")
+pnas_ms = pnas_ms.replace("\\includegraphics", "\\includegraphics[width=\\textwidth]")
 
 
 # Clean up references to SI material
 
 supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
 			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S1B,C",
-			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S1B,C",
+			"Figure~\\ref{fig-selectionresults} B, C;\nSI": "Figure S1B,C",
+			"Figure~\\ref{fig-selectionresults} A": "Figure S1A",
 			"Figure~\\ref{fig-synteny-plot} SI": "Figure S2",
+			"Figure~\\ref{fig-synteny-plot}": "Figure S2",
 			"Figure~\\ref{fig-yosemap} SI": "Figure S3",
 			"Figure~\\ref{fig-yosemap}\nSI": "Figure S3",
 			"Figure~\\ref{fig-transsurvival-postdens} SI": "Figure S4",
@@ -208,7 +210,7 @@ fig_end = latex_manuscript.find(datakey)
 figures_supp = latex_manuscript[fig_start:fig_end].split(figkey2)[1].strip("\n")
 
 figures_supp = figures_supp.replace("\\end{figure}", "\\end{figure}\\clearpage")
-figures_supp = figures_supp.replace("\\includegraphics", "\\includegraphics[width=0.8\\textwidth]")
+figures_supp = figures_supp.replace("\\includegraphics", "\\includegraphics[width=0.85\\textwidth]")
 
 pnas_supp = pnas_supp.replace("% Figures", figures_supp)
 
@@ -238,6 +240,6 @@ with open("translocation_pnas_SI.tex", "w") as fout:
 	fout.writelines(pnas_supp)
 
 # Remove transcloation.tex
-# subprocess.call(['rm', args[1]])
+subprocess.call(['rm', args[1]])
 
 

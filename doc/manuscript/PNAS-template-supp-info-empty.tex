@@ -21,9 +21,17 @@
 %%% Add this line AFTER all your figures and tables
 \FloatBarrier
 
-\dataset{gemma\_outliers.csv}{Description needed}
+\dataset{gemma\_outliers\_all.csv}{Set of liberal SNP and INDEL outlier variants (Bonferroni corrected p-value $<$ 0.05), identified via GEMMA.}
 
-\dataset{spline\_window\_shared\_outliers.csv}{Description needed}
+\dataset{gemma\_outliers\_strict\_freq.csv}{Set of strict SNP and INDEL outlier variants (Bonferroni corrected p-value $<$ 0.01), identified via GEMMA.
+Additional information includes variant location within the gene (predicted\_gene\_loc) and whether the variant is synonymous or nonsynonymous (predicted\_effect\_AA).}
+
+\dataset{spline\_window\_shared\_outliers.csv}{Description of overlapping \emph{F\textsubscript{ST}} and
+\(\pi_{diff}\) outlier windows, as identified in the splined window
+analysis.}
+
+\dataset{spline\_window\_gene\_details.csv}{Annotation information for all genes within each of the
+overlapping outlier windows in dataset S3}
 
 \bibliography{translocation}
 

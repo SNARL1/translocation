@@ -40,51 +40,22 @@ unlikely to be available in the future.
 In the Results section of the main paper, we describe the stringent set
 of outlier SNPS (identified using a Bonferroni-corrected p-value of
 0.01). The liberal set, identified using a Bonferroni-corrected p-value
-of 0.05, included 38 outliers (35 SNPs and 3 structural variants) from
-30 distinct genes across 16 contigs.
+of 0.05, included 38 outliers (35 SNPs and 3 INDELS) from 30 distinct
+genes across 16 contigs. Our analysis found no significantly
+over-represented GO terms in this set of 30 genes, or in the set of 38
+outlier regions identified with the splined window analysis.
 
-Multiple genes in our stringent set of outliers have known associations
-with amphibian Bd resistance/tolerance. Of particular interest is a
-\textasciitilde940kb region on contig 8 that we identified as under
-selection, and that contains 8 genes associated with either the MHC
-Class I or Class III regions. The order of these genes in the MYL frog
-genome is conserved from \emph{Xenopus} \citep{ohta2006} and is
-consistent with MHC Class I/III linkage reported in the Komodo dragon
-\citep{reed2021}. Numerous studies have linked MHC genes to frog
-resistance/tolerance against Bd infection
-\citep[e.g.,][]{savage2011, bataille2015}. In addition to the genes in
-this region that we describe in the Results section of the main paper,
-other genes also deserve mention. For example, we identified the MHC
-Class III gene, heat shock protein 70 (HSP70), as occurring in this
-region (Figure~\ref{fig-synteny-plot}). Similarly, \citep{byrne2020}
-identified an HSP70-binding protein as a candidate gene under selection
-in \emph{Atelopus varius} populations recovering after Bd-caused
-declines. HSP70 was also highly expressed in Bd-infected versus
-uninfected \emph{Xenopus tropicalis} \citep{rosenblum2009}. This MHC
-gene cluster lies on the same chromosome as the outlier SNP in RIN3
-(Fig. 2 C, Fig. 1
-A).
-
-Additionally, we identified a region on contig 19 that had the highest
-\(\pi_{diff}\) of any outlier window, indicative of directional
-selection. This region contained the gene, interferon-induced very large
-GTPase 1-like (GVINP1). Interferons boost immune system processes and
-previous studies of frogs have identified interferon-related genes as
-associated with Bd resistance/tolerance \citep{byrne2020} or have shown
-increased expression of this class of genes when frogs were exposed to
-Bd in the lab \citep{rosenblum2009, ellison2014}. Variants in GVINP1
-also explained approximately 20\% of the resistance to amoebic gill
-disease in Atlantic salmon, a finding confirmed via expression analysis
-\citep{robledo2018, robledo2020}. Furthermore, in \emph{Litoria
-verreauxii alpina}, the related gene, IFN-induced very large GTPase,
-showed lower expression in frogs from less susceptible populations
-versus more susceptible populations \citep{grogan2018}.
-
-Finally, we identified a region characterized by high
-\emph{F\textsubscript{ST}} and low \(\pi_{diff}\) and that contained the
-complement genes C6 and C7. This could indicate that balancing selection
-is acting in this region of the genome to favor a diverse set of
-alleles, as is known for C6 in humans \citep{soejima2005}.
+In the comparison of individual outlier variants between naive and
+recovering populations, we detected consistent allele frequency changes
+across all genetic clusters for 1 of 7 of the associated genes (RIN3;
+Fig. 1). Nonetheless, for the other 6 genes
+we still found a statistically significant signal of selection in 2 of
+the 3 genetic clusters (containing populations 6, 7, 8, and 9;
+Fig. 1, Figure~\ref{fig-selectionresults} A
+SI). Therefore, although some outlier variant associations have a more
+limited geographic extent than RIN3, they still describe parallel
+evolutionary changes following Bd exposure and are therefore interesting
+candidates for future studies.
 
 \hypertarget{frog-population-recovery-2}{%
 \section{Frog population
@@ -196,23 +167,23 @@ observed and predicted data. The \(\omega\) values associated with these
 ``best'' trajectories represented an approximate posterior distribution
 \citep{beaumont2010}. Using these best fit trajectories, we assessed
 whether our model could qualitatively describe the patterns of recovery
-in the observed data for population 70550.
+in the observed data for population 70550. Code to replicate the
+analyses can be found at \url{https://github.com/SNARL1/translocation}.
 
 \newpage
 
-\hfill\break
-
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/pca_qq_manhattan.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/pca_qq_manhattan.png}
 
 }
 
-\caption{\label{fig-selectionresults}Results from the exome capture
-selection study. (A) PCA calculated from binary SNPs showing genomic
-relationship of samples. Numeric labels and colors match those in
+\caption{\label{fig-selectionresults}Evidence for selection of
+individual variants in recovering MYL frog populations. (A) PCA
+calculated from binary SNPs showing the genomic relationship of samples.
+Numeric labels and colors match those in
 Fig. 1 A. (B) qqplot showing observed and
-expected p-values for 148,307 SNPs and indels as calculated in GEMMA.
+expected p-values for 148,307 SNPs and INDELS as calculated in GEMMA.
 Dashed line shows p-value that identifies outliers. (C) Manhattan plot
 showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by
 genomic position and contigs are sorted by size. Red line shows p-value
@@ -224,7 +195,7 @@ non-synonymous SNP is present in that gene.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/synteny_figure.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/synteny_figure.png}
 
 }
 
@@ -243,7 +214,7 @@ sizes for each contig representation are labeled.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/map_translocation_points.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/map_translocation_points.png}
 
 }
 
@@ -260,7 +231,7 @@ lowest elevation, white = highest elevation). }
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/mcmc_areas_m2b.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/mcmc_areas_m2b.png}
 
 }
 
@@ -278,47 +249,52 @@ line).}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/bdload_beforeafter.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/bdload_beforeafter.png}
 
 }
 
-\caption{\label{fig-bdload-beforeafter}For frogs translocated to each of
-the 12 recipient sites, Bd loads for the period immediately prior to
-translocation versus during the 1-year period after translocation. Bd
-loads are expressed as the number of ITS1 copies per skin swab, as
-estimated by qPCR of the Bd ITS1 region. Loads indicative of severe
-disease are \textgreater{} 5.8 ITS copies (on a log\textsubscript{10}
-scale; see SI text for details). Box plot details are as in
-Fig. 4.}
+\caption{\label{fig-bdload-beforeafter}Evidence that frogs translocated
+from recovering populations can maintain the benefits of
+resistance/tolerance in non-natal habitats. For frogs translocated to
+each of the 12 recipient sites, Bd loads for the period immediately
+prior to translocation versus during the 1-year period after
+translocation. Bd loads are expressed as the number of ITS1 copies per
+skin swab, as estimated by qPCR of the Bd ITS1 region. Loads indicative
+of severe disease are \textgreater{} 5.8 ITS copies (on a
+log\textsubscript{10} scale; see SI text for details). Box plot details
+are as in Fig. 4.}
 
 \end{figure}\clearpage
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/mcmc_areas_m1d.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/mcmc_areas_m1d.png}
 
 }
 
-\caption{\label{fig-survival-postdens}For the best model identifying
-predictors of 1-year frog survival following translocation, estimated
-posterior density curves and shaded 95\% uncertainty intervals for the
-intercept and all predictor variables. In the Bayesian framework in
-which the model was developed, variables are considered important
-predictors if the associated uncertainty interval does not overlap zero
-(indicated by the dashed red line).}
+\caption{\label{fig-survival-postdens}Evidence that Bd load in not an
+important predictor of post-translocation frog survival. For the best
+model identifying predictors of 1-year frog survival following
+translocation, estimated posterior density curves and shaded 95\%
+uncertainty intervals for the intercept and all predictor variables. In
+the Bayesian framework in which the model was developed, variables are
+considered important predictors if the associated uncertainty interval
+does not overlap zero (indicated by the dashed red line).}
 
 \end{figure}\clearpage
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/compare_surv_probs.jpg}
+{\centering \includegraphics[width=0.85\textwidth]{figures/compare_surv_probs.jpg}
 
 }
 
-\caption{\label{fig-compare_surv_probs}Comparison of the average yearly
-adult survival probabilities for adults translocated to each of three
-sites versus adults that were naturally recruited at each site (as a
-result of reproduction by translocated frogs). In contrast to
+\caption{\label{fig-compare_surv_probs}Evidence that frog
+resistance/tolerance in non-natal habitats is maintained across
+generations. Comparison of the average yearly adult survival
+probabilities for adults translocated to each of three sites versus
+adults that were naturally recruited at each site (as a result of
+reproduction by translocated frogs). In contrast to
 Fig. 3, these are not survival
 probabilities from the first year following translocation, but instead
 represent averaged survival probabilities across multiple years and
@@ -334,7 +310,7 @@ estimates are derived from the mrmr package.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth]{figures/pop_viability_figures_for_supp.jpg}
+{\centering \includegraphics[width=0.85\textwidth]{figures/pop_viability_figures_for_supp.jpg}
 
 }
 
@@ -475,9 +451,17 @@ observations of captive frogs \\
 %%% Add this line AFTER all your figures and tables
 \FloatBarrier
 
-\dataset{gemma\_outliers.csv}{Description needed}
+\dataset{gemma\_outliers\_all.csv}{Set of liberal SNP and INDEL outlier variants (Bonferroni corrected p-value $<$ 0.05), identified via GEMMA.}
 
-\dataset{spline\_window\_shared\_outliers.csv}{Description needed}
+\dataset{gemma\_outliers\_strict\_freq.csv}{Set of strict SNP and INDEL outlier variants (Bonferroni corrected p-value $<$ 0.01), identified via GEMMA.
+Additional information includes variant location within the gene (predicted\_gene\_loc) and whether the variant is synonymous or nonsynonymous (predicted\_effect\_AA).}
+
+\dataset{spline\_window\_shared\_outliers.csv}{Description of overlapping \emph{F\textsubscript{ST}} and
+\(\pi_{diff}\) outlier windows, as identified in the splined window
+analysis.}
+
+\dataset{spline\_window\_gene\_details.csv}{Annotation information for all genes within each of the
+overlapping outlier windows in dataset S3}
 
 \bibliography{translocation}
 
