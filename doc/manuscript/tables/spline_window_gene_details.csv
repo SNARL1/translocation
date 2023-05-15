@@ -26,11 +26,11 @@ outlier_windo,chr,annot_start,annot_stop,annot_label,annot_desc,gene_code,notes
 7,21,124286348,124330287,annotation_ENSXP_018420666,PRKC apoptosis WT1 regulator protein,PAWR,
 7,21,124534337,124534627,annotation_ENSXP_018424610,membrane frizzled-related protein isoform X1,MFRP,
 7,21,124721883,124722177,annotation_ENSXETG00000033627,protein max isoform X1,MAX,
-7,21,125774406,126032750,annotation_ENSXP_018422673,protein phosphatase 6 regulatory subunit 3 (PPP6R3),PPP6R3,
+7,21,125774406,126032750,annotation_ENSXP_018422673,"protein phosphatase 6 regulatory subunit 3 (PPP6R3),",PPP6R3,
 8,25,41200254,41200389,annotation_ENSXP_018422186,UPF0489 protein C5orf22 homolog isoform X3,C6H5orf22,
 8,25,41744414,41744601,annotation_ENSXP_018426179,highly reducing polyketide synthase PKS6-like,PKS6,
 8,25,42220275,42221651,annotation_ENSXETG00000026932,B box and SPRY domain-containing protein-like,BSPRY,
 8,25,42383672,42391814,annotation_ENSXP_018429950,mitochondrial inner membrane protein MPV17 (MPV17),MPV17,
-9,25,42424234,42509271,annotation_ENSXP_018430425,carbamoyl-phosphate synthetase 2; aspartate transcarbamylase; dihydroorotase (CAD); transcript variant X2,CAD,
+9,25,42424234,42509271,annotation_ENSXP_018430425,"carbamoyl-phosphate synthetase 2, aspartate transcarbamylase, and dihydroorotase (CAD), transcript variant X2",CAD,
 9,25,42595414,42601180,annotation_ENSXP_018430473,all-trans retinoic acid induced differentiation factor (ATRAID),ATRAID,
 9,25,42608687,42631392,annotation_ENSXP_018430472,GPN-loop GTPase 1 (GPN1),GPN1,Liberal SNP outlier in this gene at 42620283
