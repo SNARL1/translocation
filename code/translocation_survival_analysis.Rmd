@@ -74,7 +74,7 @@ cohort_survival_plot <- cohort_survival %>%
   inner_join(cohort_survival, by = "site_id") %>% 
   inner_join(donors, by = "site_id") %>% 
   select(-plot_survival) %>%
-  ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, color = donor)) +  # reorder site_id by siteid_order)
+  ggplot(aes(x = reorder(site_id, siteid_order), y = median_survival, color = donor)) +  # reorder site_id by siteid_order
       geom_linerange(aes(ymin = lo_survival, ymax = hi_survival), color = "black", width = 0.5, position = position_dodge2(width=0.5)) +
       geom_point(aes(x = reorder(site_id, siteid_order), y = median_survival, color = donor), size = 3, position = position_dodge2(width=0.5)) + 
       scale_color_manual(values = palette1) + 
@@ -89,7 +89,7 @@ cohort_survival_plot
 ```
 
 -   Strong effect of site/translocation on frog survival.
--   Survival is highly variable across sites, but relatively invariant within a site.
+-   Survival is highly variable across sites, but relatively constant within a site.
 -   Indicates need to include site_id and/or translocation_id as group-level effect(s).
 
 #### Save plot
@@ -526,7 +526,7 @@ m1_flat <- stan_glm(
   cores = 4,
   seed = 84735)
 
-# Confirm our prior is flat
+# Confirm that prior is flat
 prior_summary(m1_flat)
 
 # Notice that the estimate of the intercept is unchanged between the two models
@@ -954,7 +954,6 @@ m1d_group_means <- d1 %>%
   arrange(psurv)  # to arrange plot values/labels by psurv
 
 predictions_m1d <- posterior_epred(m1d_reduce, newdata = m1d_group_means)
-# predictions_m1d <- posterior_predict(m1d_reduce, newdata = m1d_group_means) # original code that produced incorrect uncertainty estimates
 
 ppc_intervals(
   y = m1d_group_means$psurv,
@@ -1025,7 +1024,6 @@ d1 %>%
     -   Low survival at 70370 in both translocations is predicted relatively well by models with and without group-level effect. Low predicted survival can be attributed to high snow_t1 and donor = 72996 in both translocations (although high elevation of site should have positive effect).
 
 #### Plot posterior plausible relationships between each predictor and the probability of frog survival (conditional effects)
-
 
 -   All variables except the one of interest were set to mean values (continuous variables) and the reference level (categorical variables).
 
