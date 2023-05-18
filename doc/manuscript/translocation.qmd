@@ -517,6 +517,14 @@ During each site visit, we conducted VES either immediately before CMR surveys o
 VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and juveniles.
 These *R. sierrae* life stages have high detectability, and counts are highly repeatable and provide estimates of relative abundance [@knapp2000].
 
+##### Frog counts and reproductive success
+
+For each of the translocated populations, we used the presence of tadpoles and/or juveniles from VES and captures of new recruits (i.e, untagged adults) in CMR surveys to provide two measures of successful reproduction.
+To calculate the proportion of years in which tadpoles/juveniles were present at a site, we excluded surveys conducted in the year of the initial translocation to that site.
+This exclusion accounted for the fact that all translocations were conducted after the breeding period and reproduction would therefore not have occurred until the following year.
+Similarly, to calculcate the proportion of years in which new recruits were present at a site, we excluded surveys conducted during the 3 years following the initial translocation.
+This accounted for the multi-year tadpole and juvenile stages in MYL frogs ([@tbl-param_values]).
+
 ##### Estimation of frog survival and abundance
 
 We estimated survival of translocated frogs, recruitment of new frogs into the adult population, and adult population size using a Bayesian open-population Jolly-Seber mark-recapture model with known additions to the population (i.e., translocated cohorts), as implemented by the mrmr package [@joseph2019] and using R Statistical Software [v4.4.4, @rsoftware2022].
