@@ -11,7 +11,7 @@ This notebook contains exploratory analyses to aid in the design of the final an
 ```{r}
 library(tidyverse)
 library(lubridate)
-library (GGally)
+library(GGally)
 ```
 
 ## Read in frog translocation dataset

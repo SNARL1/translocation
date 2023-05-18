@@ -99,7 +99,7 @@ bd_add <- bind_rows(translocate_bd, capture_bd)
 ```{r}
 frogsbd <- frogs_all %>% 
   inner_join(bd_add, by = c("visit_date", "pit_tag_ref")) %>% 
-  mutate(period = if_else(survey_type == "cmr", "after", "before")) %>% # use 0/1 instead?
+  mutate(period = if_else(survey_type == "cmr", "after", "before")) %>% 
   relocate(period, .after = survey_type) %>% 
   arrange(site_id, visit_date)
 ```

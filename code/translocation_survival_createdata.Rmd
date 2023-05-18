@@ -52,7 +52,6 @@ translocation_sites <- translocation_sites %>%
 
 ```{r save-site-data}
 translocation_sites %>% write_csv(here::here("data", "raw", "translocation_sites.csv"))
-# translocation_sites <- read_csv(here::here("data", "raw", "translocation_sites.csv"))
 ```
 
 ### Create frog characteristics dataset
@@ -84,7 +83,6 @@ order by release_siteid1
 
 ```{r save-frog-characteristics-data}
 frog_characteristics %>% write_csv(here::here("data", "raw", "frog_characteristics.csv"))
-# frog_characteristics <- read_csv(here::here("data", "raw", "frog_characteristics.csv"))
 ```
 
 ### Create frog captures dataset for error checking step ("check-sex")
@@ -113,9 +111,7 @@ where site_id in (70134, 70688, 70370, 70114, 70175, 70279, 70413, 71570, 71968,
 
 ```{r save-frog-captures-data}
 frog_captures %>% write_csv(here::here("data", "raw", "frog_captures.csv"))
-# frog_captures <- read_csv(here::here("data", "raw", "frog_captures.csv"))
 ```
-
 
 ### Disconnect from database
 
@@ -143,7 +139,6 @@ rm(files)
 
 ```{r save-raw-translocated-frogs-data}
 frog_translocation %>% write_csv(here::here("data", "raw", "frog_translocation.csv"))
-# frog_translocation <- read_csv(here::here("data", "raw", "frog_translocation.csv"))
 ```
 
 ## Create frog survival dataset
@@ -167,7 +162,6 @@ rm(files)
 
 ```{r save-raw-frog-survival-data}
 frog_survival %>% write_csv(here::here("data", "raw", "frog_survival.csv"))
-# frog_survival <- read_csv(here::here("data", "raw", "frog_survival.csv"))
 ```
 
 ### Data checks #1
@@ -270,7 +264,7 @@ Therefore, it is a useful check to compare sex recorded at translocation to sex 
 Three mismatches were detected. 
 
 ```{r check-sex}
-frog_captures %>% distinct(pit_tag_ref, sex) %>% count(pit_tag_ref, sex) %>% filter(n > 1) # make sure that only one sex recorded per tag at recipient site
+frog_captures %>% distinct(pit_tag_ref, sex) %>% count(pit_tag_ref, sex) %>% filter(n > 1) # ensure only one sex per tag at recipient site
 
 frog_captures %>% distinct(pit_tag_ref, sex) %>% 
   rename(sexcapture = sex) %>% 
@@ -352,7 +346,6 @@ frog_translocation <- frog_translocation %>%
 
 ```{r save_clean_translocation_data}
 frog_translocation %>% write_csv(here::here("data", "clean", "frog_translocation_final.csv"))
-# frog_translocation <- read_csv(here::here("data", "clean", "frog_translocation_final.csv"))
 ```
 
 ### Description of dataset columns
