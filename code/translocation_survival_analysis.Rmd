@@ -164,10 +164,10 @@ d2 <- d2 %>%
 d2 <- d2 %>% 
   filter(transno == 1) %>% 
   group_by(site_id) %>% 
-  mutate(survival_trans1 = mean(survival)) %>%    # use mean or median?
+  mutate(survival_trans1 = mean(survival)) %>%
   ungroup(site_id) %>% 
   distinct(site_id, survival_trans1) %>% 
-  mutate(across(c(survival_trans1), round, 3)) %>% 
+  mutate(survival_trans1 = round(survival_trans1, 3)) %>% 
   inner_join(d2, by = c("site_id")) %>% 
   filter(transno != 1) %>% 
   relocate(translocation_id, .after = site_id) %>% 
