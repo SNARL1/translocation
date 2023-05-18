@@ -153,8 +153,6 @@ mcmc_areas(m1a, area_method = "equal height", prob = 0.90) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Model with standardized predictors, no group-level effects",
           "Posterior distributions with medians & 90% uncertainty intervals")
-
-# mean(bayes_R2(m1a))   # bayes_R2 not available for negative binomials models in stanreg. 
 ```
 
 ### Model with 1 grouping variable: pit_tag_ref
@@ -216,8 +214,6 @@ mcmc_areas(m1b, area_method = "equal height", prob = 0.90, pars = b1) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Model with pit_tag_ref as grouping variable",
           "Posterior distributions with medians & 90% uncertainty intervals")
-
-# mean(bayes_R2(m1b))
 ```
 
 ### Model with 2 grouping variables: pit_tag_ref nested within translocation_id
@@ -273,8 +269,6 @@ mcmc_areas(m1c, area_method = "equal height", prob = 0.90, pars = b1) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Model with pit_tag_ref and translocation_id as grouping variables",
           "Posterior distributions with medians & 90% uncertainty intervals")
-
-# mean(bayes_R2(m1c))
 ```
 
 ### Model with 2 grouping variables: pit_tag_ref nested within site_id1
@@ -330,8 +324,6 @@ mcmc_areas(m1d, area_method = "equal height", prob = 0.90, pars = b1) +
   geom_vline(xintercept = 0, color = "red", linetype = "dashed", lwd = 0.5) +  
   ggtitle("Model with pit_tag_ref and site_id1 as grouping variables",
           "Posterior distributions with medians & 90% uncertainty intervals")
-
-# mean(bayes_R2(m1d))
 ```
 
 ### Compare 4 models with different grouping structures
