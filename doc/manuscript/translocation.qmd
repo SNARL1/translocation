@@ -17,7 +17,7 @@ editor_options:
 
 ### Authors:
 
-Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B. Joseph^f,g^, Thomas C. Smith^a,b^, Andrew P. Rothstein^d,e^, Rob L. Grasso^h^, Erica Bree Rosenblum^d,e^
+Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B. Joseph^f,g^, Thomas C. Smith^a,b^, Andrew P. Rothstein^d,e,h^, Robert L. Grasso^i^, Erica Bree Rosenblum^d,e^
 
 ### Affiliations:
 
@@ -35,13 +35,13 @@ Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B
 
 ^g^Current affiliation: Planet, San Francisco, CA, 94107
 
-^h^Resources Management and Science, Yosemite National Park, El Portal, CA, 95318
+^h^Current affiliation: Ginkgo Bioworks, Boston, MA, 02210
+
+^i^Resources Management and Science, Yosemite National Park, El Portal, CA, 95318
 
 \*Corresponding author: Sierra Nevada Aquatic Research Laboratory, 1016 Mount Morrison Road, Mammoth Lakes, CA 93546, phone: 760.647.0034, email: roland.knapp\@ucsb.edu
 
 ^1^These authors contributed equally to this work.
-
-<!--#  Preprint Server: bioRxiv  -->
 
 **Classification:** Biological Sciences - Ecology
 
@@ -404,8 +404,9 @@ In light of the generally low success rate of amphibian reintroduction efforts [
 Despite the resistance/tolerance of adult MYL frogs in recovering populations, individual and population-level impacts of Bd are still evident.
 In an earlier study of 2 of our 12 translocated populations [@joseph2018], Bd infection and load had detectable effects on the survival of adults and may have influenced population establishment (sites referred to as "Alpine" and "Subalpine" in [@joseph2018] are identified as "70550" and "70505" in the current study).
 Applying similar analyses to all 12 of our translocated populations would likely provide a broader perspective of the ongoing effect of Bd.
-In addition to these important but relatively subtle effects of Bd on adults, MYL frogs immediately following metamorphosis ("metamorphs") are highly susceptible to Bd infection [@ellison2018] and experience high mortality.
-This high susceptibility of metamorphs is documented for numerous species of anurans, and may result from the poorly developed immune system characteristic of this early life stage [@humphries2022].
+In addition to these important but relatively subtle effects of Bd on adults, the impacts on younger life stages are more apparent.
+MYL frogs immediately following metamorphosis ("metamorphs") are highly susceptible to Bd infection [@ellison2018] and as a result experience high mortality.
+This high susceptibility of metamorphs is documented for numerous species of anurans, and may result from the poorly developed immune system characteristic of this life stage [@humphries2022].
 In naturally recovering and translocated MYL frog populations, we suggest that the high mortality of metamorphs is an important limitation on subsequent recruitment of new adults.
 Therefore, although adult MYL frogs appear relatively resistant/tolerant, Bd infection continues to have important limiting effects on recovering populations [see also @hollanders2022].
 
@@ -514,7 +515,7 @@ For details of survey and swab analysis methods, see [@joseph2018].
 
 During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
 VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and juveniles.
-These *R. sierrae* life stages have high detectablility, and counts are highly repeatable and provide estimates of relative abundance [@knapp2000].
+These *R. sierrae* life stages have high detectability, and counts are highly repeatable and provide estimates of relative abundance [@knapp2000].
 
 ##### Estimation of frog survival and abundance
 
@@ -698,7 +699,8 @@ Therefore, we allowed for yearly variability in the probability of successful re
 
 ##### Estimating model parameters
 
-The baseline parameter values for the model and how they were estimated are given in @tbl-param_values. Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR model described previously in this study.
+The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
+Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR model described previously in this study.
 For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs]).
 For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
 
