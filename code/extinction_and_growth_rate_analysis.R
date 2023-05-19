@@ -350,7 +350,7 @@ pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=omega, y=e
 							scale_color_manual(values=cdat$col) +
 							theme_classic() + xlab("Probability of recruitment (\u03c9)") + ylab("Extinction prob. in 50 years") +
 							guides(color=guide_legend(title=bquote("Lake, \u03c3"~.[AR]), title.position="top", ncol=3)) + 
-							theme(legend.position="bottom", legend.text=element_text(size=6), legend.title=element_text(size=8))
+							theme(legend.position="bottom", legend.text=element_text(size=7), legend.title=element_text(size=8))
 
 # Examine simulations
 # matplot(t(pop_trajectories[["70550"]][1:100, ]), type="l")

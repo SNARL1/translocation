@@ -236,7 +236,7 @@ FUNCTION {format.names}
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
-      namesleft #4 >
+      namesleft #40 >
       { ", et~al." *
         #0 'namesleft :=
       }

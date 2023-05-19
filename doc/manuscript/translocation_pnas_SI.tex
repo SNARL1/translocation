@@ -48,11 +48,11 @@ outlier regions identified with the splined window analysis.
 In the comparison of individual outlier variants between naive and
 recovering populations, we detected consistent allele frequency changes
 across all genetic clusters for 1 of 7 of the associated genes (RIN3;
-Fig. 1). Nonetheless, for the other 6 genes
-we still found a statistically significant signal of selection in 2 of
-the 3 genetic clusters (containing populations 6, 7, 8, and 9;
-Fig. 1, Figure~\ref{fig-selectionresults} A
-SI). Therefore, although some outlier variant associations have a more
+Fig. 1). However, for the other 6 genes we
+still found a statistically significant signal of selection in 2 of the
+3 genetic clusters (containing populations 6--9;
+Fig. 1, Figure~\ref{fig-selectionresults}
+A). Therefore, although some outlier variant associations have a more
 limited geographic extent than RIN3, they still describe parallel
 evolutionary changes following Bd exposure and are therefore interesting
 candidates for future studies.
@@ -110,13 +110,13 @@ parameters'' below).
 parameters}\label{estimating-model-parameters}}
 
 The baseline parameter values for the model and how they were estimated
-are given in Table~\ref{tbl-param_values} : SI. Parameters
-\(\sigma_{A_T}\) and \(\sigma_{A_R}\) were extracted directly from our
-CMR model described previously in this study. For populations where we
-had a sufficient number of PIT-tagged, naturally-recruited adults, we
-observed that \(\sigma_{A_T}\) and \(\sigma_{A_R}\) could be notably
-different, with \(\sigma_{A_R} > \sigma_{A_T}\)
-(Figure~\ref{fig-compare_surv_probs} : SI). For populations lacking
+are given in Table~\ref{tbl-param_values}. Parameters \(\sigma_{A_T}\)
+and \(\sigma_{A_R}\) were extracted directly from our CMR model
+described previously in this study. For populations where we had a
+sufficient number of PIT-tagged, naturally-recruited adults, we observed
+that \(\sigma_{A_T}\) and \(\sigma_{A_R}\) could be notably different,
+with \(\sigma_{A_R} > \sigma_{A_T}\)
+(Figure~\ref{fig-compare_surv_probs}). For populations lacking
 sufficient numbers of naturally-recruited adults, we were unable to
 directly estimate \(\sigma_{A_R}\), and instead set
 \(\sigma_{A_R} = \sigma_{A_T}\).
@@ -178,18 +178,19 @@ analyses can be found at \url{https://github.com/SNARL1/translocation}.
 
 }
 
-\caption{\label{fig-selectionresults}Evidence for selection of
+\caption{\label{fig-selectionresults}Evidence for selection on
 individual variants in recovering MYL frog populations. (A) PCA
 calculated from binary SNPs showing the genomic relationship of samples.
 Numeric labels and colors match those in
-Fig. 1 A. (B) qqplot showing observed and
-expected p-values for 148,307 SNPs and INDELS as calculated in GEMMA.
+Fig. 1 A. Populations 1-7 are \emph{R.
+sierrae} and populations 8 and 9 are \emph{R. muscosa}. (B) qqplot
+showing observed and expected p-values for 148,307 SNPs and INDELS.
 Dashed line shows p-value that identifies outliers. (C) Manhattan plot
-showing p-values for each SNP as calculated by GEMMA. SNPs are sorted by
-genomic position and contigs are sorted by size. Red line shows p-value
-that identifies outliers. Outlier SNPs above this threshold are
-highlighted and labeled. Bold labels indicate at least one
-non-synonymous SNP is present in that gene.}
+showing p-value for each SNP. SNPs are sorted by genomic position and
+contigs are sorted by size. Red line shows p-value that identifies
+outliers. Outlier SNPs above this threshold are highlighted and labeled.
+Bold labels indicate the presence of at least one non-synonymous SNP in
+that gene.}
 
 \end{figure}\clearpage
 
@@ -205,7 +206,7 @@ outlier region containing MHC Class I Classical and MHC Class III gene
 regions. The plot was created with SimpleSynteny \citep{veltri2016}
 using \emph{Xenopus tropicalis} Chromosome 8 (NC\_030684.2, genbank
 accession GCA\_000004195.4) and \emph{Rana mucosa} Contig19. Asterices
-indicate the location of SNP outliers in TCF19 and VARS1 genes. Gap
+indicate the location of SNP outliers in the TCF19 and VARS1 genes. Gap
 sizes for each contig representation are labeled.}
 
 \end{figure}\clearpage
@@ -214,7 +215,7 @@ sizes for each contig representation are labeled.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/map_translocation_points.png}
+{\centering \includegraphics[width=0.60\textwidth]{figures/map_translocation_points.png}
 
 }
 
@@ -225,13 +226,13 @@ used for each translocation site. To obscure the exact locations of
 populations, random noise was added to all point coordinates. Inset map
 shows the location of Yosemite within California. In both maps,
 elevation is indicated by the colored hillshade layer (dark green =
-lowest elevation, white = highest elevation). }
+lowest elevation, white = highest elevation).}
 
 \end{figure}\clearpage
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/mcmc_areas_m2b.png}
+{\centering \includegraphics[width=0.60\textwidth]{figures/mcmc_areas_m2b.png}
 
 }
 
@@ -249,7 +250,7 @@ line).}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/bdload_beforeafter.png}
+{\centering \includegraphics[width=0.60\textwidth]{figures/bdload_beforeafter.png}
 
 }
 
@@ -261,18 +262,18 @@ prior to translocation versus during the 1-year period after
 translocation. Bd loads are expressed as the number of ITS1 copies per
 skin swab, as estimated by qPCR of the Bd ITS1 region. Loads indicative
 of severe disease are \textgreater{} 5.8 ITS copies (on a
-log\textsubscript{10} scale; see SI text for details). Box plot details
-are as in Fig. 4.}
+log\textsubscript{10} scale; see SI Appendix text for details). Box plot
+details are as in Fig. 4.}
 
 \end{figure}\clearpage
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/mcmc_areas_m1d.png}
+{\centering \includegraphics[width=0.60\textwidth]{figures/mcmc_areas_m1d.png}
 
 }
 
-\caption{\label{fig-survival-postdens}Evidence that Bd load in not an
+\caption{\label{fig-survival-postdens}Evidence that Bd load is not an
 important predictor of post-translocation frog survival. For the best
 model identifying predictors of 1-year frog survival following
 translocation, estimated posterior density curves and shaded 95\%
@@ -285,20 +286,20 @@ does not overlap zero (indicated by the dashed red line).}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/compare_surv_probs.jpg}
+{\centering \includegraphics[width=0.60\textwidth]{figures/compare_surv_probs.jpg}
 
 }
 
 \caption{\label{fig-compare_surv_probs}Evidence that frog
 resistance/tolerance in non-natal habitats is maintained across
 generations. Comparison of the average yearly adult survival
-probabilities for adults translocated to each of three sites versus
-adults that were naturally recruited at each site (as a result of
-reproduction by translocated frogs). In contrast to
+probabilities for adults translocated to each of 3 sites versus adults
+that were naturally recruited at each site (as a result of reproduction
+by translocated frogs). In contrast to
 Fig. 3, these are not survival
 probabilities from the first year following translocation, but instead
 represent averaged survival probabilities across multiple years and
-cohort. Points are median estimates and error bars give the 95\%
+cohorts. Points are median estimates and error bars give the 95\%
 uncertainty intervals around the estimates, accounting for yearly
 variation in survival probabilities. The large error bars for 70550
 reflect the large within and among individual variability in yearly
@@ -310,7 +311,7 @@ estimates are derived from the mrmr package.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/pop_viability_figures_for_supp.jpg}
+{\centering \includegraphics[width=0.60\textwidth]{figures/pop_viability_figures_for_supp.jpg}
 
 }
 
@@ -343,10 +344,10 @@ population and \(\omega\) = 0.3.}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2804}}@{}}
 \caption{\label{tbl-survival-earlylate}Association between the
 proportion of populations translocated early versus late in the study
-period (\textless{} 2013 or \textgreater= 2013, respectively) and
-probability of survival (\textless{} 0.5 or \textgreater= 0.5). Based on
+period (\textless{} 2013 or $\geq$ 2013, respectively) and
+probability of survival (\textless{} 0.5 or $\geq$ 0.5). Based on
 the viability analysis, survival probabilities \textless{} 0.5 and
-\textgreater= 0.5 produced 50-year extinction probabilities of 1 and
+$\geq$ 0.5 produced 50-year extinction probabilities of 1 and
 \textless{} 0.5, respectively.}\tabularnewline
 \toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -377,9 +378,9 @@ Proportion of translocations
 \midrule()
 \endhead
 early & \textless{} 0.5 & 4 & 5 & 0.800 \\
-early & \textgreater= 0.5 & 1 & 5 & 0.200 \\
+early & $\geq$ 0.5 & 1 & 5 & 0.200 \\
 late & \textless{} 0.5 & 2 & 7 & 0.286 \\
-late & \textgreater= 0.5 & 5 & 7 & 0.714 \\
+late & $\geq$ 0.5 & 5 & 7 & 0.714 \\
 \bottomrule()
 \end{longtable}
 
@@ -445,7 +446,7 @@ observations of captive frogs \\
 \bottomrule()
 \end{longtable}
 
-\hfill\break
+\newpage
 
 
 %%% Add this line AFTER all your figures and tables

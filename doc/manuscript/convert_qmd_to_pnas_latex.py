@@ -149,29 +149,41 @@ pnas_ms = pnas_ms.replace("\\begin{figure", "\\begin{figure*")
 pnas_ms = pnas_ms.replace("\\end{figure", "\\end{figure*")
 pnas_ms = pnas_ms.replace("\\includegraphics", "\\includegraphics[width=\\textwidth]")
 
+# Set specific figure sizes 
+
+pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/translocation_survival_bysiteid.png}",
+						  "\\includegraphics[width=0.5\\textwidth]{figures/translocation_survival_bysiteid.png}")
 
 # Clean up references to SI material
 
 supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
+			"Figure~\\ref{fig-selectionresults} A": "Figure S1A",
 			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S1B,C",
+			"Figure~\\ref{fig-selectionresults} B, C": "Figure S1B,C",
+			"Figure~\\ref{fig-selectionresults} B,\nC": "Figure S1B,C",
 			"Figure~\\ref{fig-selectionresults} B, C;\nSI": "Figure S1B,C",
 			"Figure~\\ref{fig-selectionresults} A": "Figure S1A",
 			"Figure~\\ref{fig-synteny-plot} SI": "Figure S2",
 			"Figure~\\ref{fig-synteny-plot}": "Figure S2",
 			"Figure~\\ref{fig-yosemap} SI": "Figure S3",
 			"Figure~\\ref{fig-yosemap}\nSI": "Figure S3",
+			"Figure~\\ref{fig-yosemap}": "Figure S3",
 			"Figure~\\ref{fig-transsurvival-postdens} SI": "Figure S4",
+			"Figure~\\ref{fig-transsurvival-postdens}": "Figure S4",
 			"Figure~\\ref{fig-bdload-beforeafter} SI": "Figure S5",
 			"Figure~\\ref{fig-bdload-beforeafter}\n SI": "Figure S5",
 			"Figure~\\ref{fig-bdload-beforeafter}\nSI": "Figure S5",
 			"Figure~\\ref{fig-bdload-beforeafter}": "Figure S5",
 			"Figure~\\ref{fig-survival-postdens} SI": "Figure S6",
+			"Figure~\\ref{fig-survival-postdens}": "Figure S6",
 			"Figure~\\ref{fig-compare_surv_probs} : SI": "Figure S7",
 			"Figure~\\ref{fig-compare_surv_probs} SI": "Figure S7",
+			"Figure~\\ref{fig-compare_surv_probs}": "Figure S7",
 			"Table~\\ref{tbl-survival-earlylate} : SI": "Table S1",
 			"Table~\\ref{tbl-survival-earlylate} SI": "Table S1",
 			"Table~\\ref{tbl-survival-earlylate}": "Table S1",
 			"Table~\\ref{tbl-param_values} : SI": "Table S2",
+			"Table~\\ref{tbl-param_values}": "Table S2",
 			"Table~\\ref{tbl-param_values}\n: SI": "Table S2",
 			"Table~\\ref{tbl-param_values} SI": "Table S2"
 			}
@@ -212,6 +224,30 @@ figures_supp = latex_manuscript[fig_start:fig_end].split(figkey2)[1].strip("\n")
 figures_supp = figures_supp.replace("\\end{figure}", "\\end{figure}\\clearpage")
 figures_supp = figures_supp.replace("\\includegraphics", "\\includegraphics[width=0.85\\textwidth]")
 
+# Set specific figure sizes in supp
+
+figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/map_translocation_points.png}", 
+							  "\\includegraphics[width=0.60\\textwidth]{figures/map_translocation_points.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/mcmc_areas_m2b.png}", 
+							  "\\includegraphics[width=0.60\\textwidth]{figures/mcmc_areas_m2b.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/bdload_beforeafter.png}", 
+							  "\\includegraphics[width=0.60\\textwidth]{figures/bdload_beforeafter.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/mcmc_areas_m1d.png}", 
+							  "\\includegraphics[width=0.60\\textwidth]{figures/mcmc_areas_m1d.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/compare_surv_probs.jpg}", 
+							  "\\includegraphics[width=0.60\\textwidth]{figures/compare_surv_probs.jpg}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/pop_viability_figures_for_supp.jpg}", 
+							  "\\includegraphics[width=0.60\\textwidth]{figures/pop_viability_figures_for_supp.jpg}")
+
+figures_supp = figures_supp.replace("\\textgreater=", "$\\geq$")
+
+# Set specific figure sizes in supp
+
 pnas_supp = pnas_supp.replace("% Figures", figures_supp)
 
 # Account for main text reference in SI
@@ -238,6 +274,11 @@ pnas_supp = pnas_supp.replace("\\title{}", "\\title{" + title + "}")
 
 with open("translocation_pnas_SI.tex", "w") as fout:
 	fout.writelines(pnas_supp)
+
+# Convert For BioRix
+bioarxiv_ms = pnas_ms.replace("pnasresearcharticle", "pnasmathematics")
+with open("translocation_bioarxiv.tex", "w") as fout:
+	fout.writelines(bioarxiv_ms)
 
 # Remove transcloation.tex
 subprocess.call(['rm', args[1]])
