@@ -92,7 +92,7 @@ p1 = ggplot(data=lake_growth_rates_dt) + geom_point(aes(x=lake_id, y=med, color=
 		   						    scale_color_manual(values=colors) +
 		   						    geom_hline(aes(yintercept=1), linetype="dashed") +
 		   						    theme_classic() + ylab("Long-run growth rate, lambda") +
-		   						    xlab("Lake ID")
+		   						    xlab("Site ID")
 
 ggsave(file.path("..", "out", "lambda_estimates.pdf"), width=8, height=5)
 
@@ -349,7 +349,7 @@ pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=omega, y=e
 							geom_point(aes(color=lake_id_surv)) + 
 							scale_color_manual(values=cdat$col) +
 							theme_classic() + xlab("Probability of recruitment (\u03c9)") + ylab("Extinction prob. in 50 years") +
-							guides(color=guide_legend(title=bquote("Lake, \u03c3"~.[AR]), title.position="top", ncol=3)) + 
+							guides(color=guide_legend(title=bquote("Site, \u03c3"~.[AR]), title.position="top", ncol=3)) + 
 							theme(legend.position="bottom", legend.text=element_text(size=7), legend.title=element_text(size=8))
 
 # Examine simulations
@@ -483,8 +483,8 @@ ptraj = ggplot() + geom_line(data=pred_traj, aes(x=year, y=abund, group=sim, col
 #########################################
 
 myplot = (ptile + pext + ptraj) + plot_annotation(tag_levels="A", tag_suffix="")
-ggsave(file.path("..", "out", "pop_viability_figures_for_manuscript.jpg"), width=11, height=5)
+ggsave(file.path("..", "out", "pop_viability_figures_for_manuscript.jpg"), width=11, height=5, dpi=300)
 
 myplot = (p2) + plot_annotation(tag_levels="A", tag_suffix="")
-ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=5, height=4)
+ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=5, height=4, dpi=300)
 

@@ -127,7 +127,7 @@ methods = methods.replace("Incorporating yearly variability in vital rates", "\\
 methods = methods.replace("Estimating model parameters", "\\subsubsection*{Estimating model parameters}")
 methods = methods.replace("Model analysis and simulation", "\\subsubsection*{Model analysis and simulation}")
 
-pnas_ms = pnas_ms.replace("\\matmethods{}", "\n\n\\matmethods{\n" + methods + "}\n")
+pnas_ms = pnas_ms.replace("\\matmethods{}", "\n\n\\matmethods{\n" + methods + "\n\n}\n")
 
 ## Acknowledgements ##
 
@@ -161,10 +161,10 @@ pnas_ms = pnas_ms.replace("The dynamics are given by", "The dynamics are given b
 
 supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
 			"Figure~\\ref{fig-selectionresults} A": "Figure S1A",
-			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S1B,C",
-			"Figure~\\ref{fig-selectionresults} B, C": "Figure S1B,C",
-			"Figure~\\ref{fig-selectionresults} B,\nC": "Figure S1B,C",
-			"Figure~\\ref{fig-selectionresults} B, C;\nSI": "Figure S1B,C",
+			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S1B, C",
+			"Figure~\\ref{fig-selectionresults} B, C": "Figure S1B, C",
+			"Figure~\\ref{fig-selectionresults} B,\nC": "Figure S1B, C",
+			"Figure~\\ref{fig-selectionresults} B, C;\nSI": "Figure S1B, C",
 			"Figure~\\ref{fig-selectionresults} A": "Figure S1A",
 			"Figure~\\ref{fig-synteny-plot} SI": "Figure S2",
 			"Figure~\\ref{fig-synteny-plot}": "Figure S2",
@@ -194,13 +194,24 @@ supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
 for key, value in supp_map.items():
 	pnas_ms = pnas_ms.replace(key, value)
 
+# Adjust figure buffering
+letters = ["A", "B", "C", "D"]
+
+for letter in letters:
+	pnas_ms = re.sub("} " + letter, 
+					  "}" + letter, 
+					 pnas_ms)
+
+# Replace odd citations
+pnas_ms = re.sub("citet", "citep", pnas_ms)
+
 # Save result
 with open("translocation_pnas.tex", "w") as fout:
 	fout.writelines(pnas_ms)
 
 #### Build the Supporting Information #####
 
-# Load in supportin template
+# Load in supporting template
 with open("PNAS-template-supp-info-empty.tex", 'r') as fin:
 	pnas_supp = fin.readlines()
 pnas_supp = "".join(pnas_supp)
@@ -265,6 +276,8 @@ main_map = {
 for key, value in main_map.items():
 	pnas_supp = pnas_supp.replace(key, value)
 
+pnas_supp = re.sub("Fig. 1 A", "Fig. 1A", pnas_supp)
+
 
 # Remove verbatim
 verb_start = latex_manuscript.find("\\begin{verbatim}")
@@ -285,5 +298,6 @@ with open("translocation_bioarxiv.tex", "w") as fout:
 
 # Remove transcloation.tex
 subprocess.call(['rm', args[1]])
+subprocess.call(['cp', 'translocation_pnas_SI.tex', 'translocation_bioarxiv_SI.tex'])
 
 
