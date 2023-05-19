@@ -51,16 +51,16 @@ Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B
 
 <!--# Limit = 250 words. -->
 
-Escalating anthropogenic change is devastating global biodiversity.
-To avoid extinction, affected populations will often need to adapt to the altered environment.
-The process of rapid evolutionary change that increases the frequency of adaptive alleles and thereby restores positive population growth is termed "evolutionary rescue".
-In addition to allowing recovery of extant populations, individuals from rescued populations could also be used to reestablish extirpated populations.
-We evaluated this scenario in the once-common mountain yellow-legged (MYL) frog, which is threatened with extinction by the human-facilitated emergence of a lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd").
+Vast alteration of the biosphere by humans is causing a sixth mass extinction.
+Adaptation to modified environments often is the only means for species to persist, but the extent to which such "evolutionary rescue" can prevent or reverse biodiversity loss is largely unknown.
+Using results from genomic analyses, a 15-year reintroduction effort, and population modeling, we provide a compelling example of evolution reversing the declines of an imperiled amphibian and allowing the reestablishment of extirpated populations.
+The once-common mountain yellow-legged (MYL) frog is threatened with extinction by the human-facilitated emergence of a lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd").
 Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually begin to recover.
-We show that MYL frogs have undergone substantial evolutionary change following disease outbreaks, and that these changes are associated with increased resistance/tolerance to Bd infection in naturally recovering populations.
-Large-scale reintroduction of frogs from these populations resulted in the establishment of reproducing populations at most recipient sites despite ongoing disease.
+Using an exome capture approach, we show that MYL frogs have undergone substantial evolutionary change following disease outbreaks.
+Moreover, in naturally recovering populations observed changes in immune function loci are associated with increased resistance/tolerance to Bd infection.
+Large-scale reintroduction of frogs from rescued populations resulted in the establishment of reproducing populations despite ongoing disease.
 In addition, results from viability modeling suggest that established populations have a low probability of extinction over 50 years.
-Collectively, these results provide one of the first examples of how evolutionary rescue and the reintroduction of resistant/tolerant individuals can allow the landscape-scale recovery of disease-impacted species.
+Collectively, these results provide a rare example of how evolutionary rescue and the reintroduction of resistant/tolerant individuals can allow the landscape-scale recovery of disease-impacted species.
 This example has potentially broad implications for the many taxa worldwide that are threatened with extinction by anthropogenic stressors.
 
 ### Significance
@@ -81,7 +81,7 @@ Human activities are intensifying threats to global biodiversity [@ceballos2015]
 To persist, affected taxa will often need to adapt to their altered environment or face decline and possible extinction.
 The process whereby rapid evolutionary change increases the frequency of adaptive alleles and restores positive population growth is known as "evolutionary rescue" [@carlson2014].
 In addition to preventing extinction of declining populations, individuals from rescued populations could also disperse, or be reintroduced, to empty habitats and promote larger-scale recovery.
-Although this overall scenario is potentially of critical importance for the conservation of an ever-growing number of threatened taxa, descriptions of its occurrence and effectiveness in the wild are lacking.
+Although this overall scenario is potentially of critical importance for the conservation of an ever-growing number of imperiled taxa, descriptions of its occurrence and effectiveness in the wild are lacking.
 
 One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012].
 Such diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and extinctions in a wide range of taxa, including echinoderms, mammals, birds, and amphibians [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
@@ -422,7 +422,7 @@ Evolutionary rescue may be increasingly critical for the survival of wildlife po
 The importance of evolutionary rescue is known for a wide variety of taxa [e.g., @carlson2014; @mills2018; @oziolor2019], including in the specific context of disease-impacted systems [@searle2020].
 However, obtaining evidence in wild animal populations for all the causal links in this process (i.e., selection for adaptive alleles $\rightarrow$ increase in host fitness in the presence of the stressor $\rightarrow$ positive population growth and recovery) is difficult in most systems.
 Nonetheless, we provide a compelling example from the wild not only that evolutionary rescue can produce individuals that harbor adaptive alleles and allow population recovery, but importantly that these individuals can be used in translocations to reestablish extirpated populations.
-We expect that such evolutionary rescue-based translocations will be an essential tool in wildlife conservation in an era of accelerating global change.<!--# Dig deeper into the "difficult" task alluded to above? E.g., what would it take to increase confidence that evolutionary rescue is at play, what alternative explanations are still credible given the available data? -->
+We expect that such evolutionary rescue-based translocations will be an essential tool in wildlife conservation in an era of accelerating global change.
 
 ### Materials and Methods
 
@@ -534,9 +534,6 @@ The possible observations of individuals include "detected" and "not detected".
 We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records).
 For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each).
 We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat).
-Code used to create CMR datasets and fit models for each translocated population is available from the following GitHub repository: <https://github.com/SNARL1/cmr-analysis>.
-
-<!--# Add text describing calculations of VES and CMR-recruitment counts. For the latter, only included surveys conducted >= 3 years following translocation to account for duration of early life stages. -->
 
 ##### Predictors of post-translocation frog survival
 
@@ -554,7 +551,6 @@ Group-level effects included site_id, translocation_id, or translocation_id nest
 In both analyses, the response variable, probability of 1-year frog survival, was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
 For all models, we used default priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked convergence of the MCMC algorithm using trace plots and Rhat.
-Code to create the datasets and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
 
 ##### Changes in Bd load following translocation
 
@@ -568,8 +564,8 @@ Briefly, the response variable was before-translocation load and the predictor v
 We compared models with and without group-level effects, and group-level effects included pit_tag_id, pit_tag_id nested within site_id, or pit_tag_id nested within translocation_id.
 All models used a negative binomial family.
 Priors, chains, iterations, and checks were as described above.
-Code to create the dataset and fit models is available from the following GitHub repository: <https://github.com/SNARL1/translocation>.
-<!--# Does it make more sense to only analyze the model with pit_tag_id as the group-level effect? That is the model that is most analogous to a paired t-test. -->
+
+Code to replicate all of the analyses described above is available from the following GitHub repositories: <https://github.com/SNARL1/translocation>; <https://github.com/SNARL1/cmr-analysis>.
 
 #### Population viability modeling
 
@@ -618,7 +614,7 @@ In this model we ignore density-dependent recruitment because we were interested
 We also did not directly consider the dynamics of Bd in this model.
 We made this decision because (i) translocated populations are infected with Bd at high prevalence [@joseph2018], and (ii) host density does not seem to play a significant role in multi-year Bd infection dynamics in this system [@wilber2022].
 Thus, ignoring Bd infection dynamics and instead assuming all host vital rates are in the presence of high Bd prevalence significantly simplifies the model without much loss of realism.
-(Additional details regarding incorporating yearly variability in vital rates and estimating model parameters are provided in the SI Appendix.)
+Additional details are provided in the SI Appendix.
 
 ##### Model analysis
 
@@ -627,7 +623,8 @@ First, we compute the long-run growth rate $\lambda$ for each of our 12 transloc
 Second, we compute the elasticity of $\lambda$ to model parameters, to quantify how much changes in adult survival, for example, affected the long-run growth rate.
 Third, we included demographic and environmental stochasticity in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of MYL frogs following reintroductions.
-<!--# Add link to Mark's GitHub repo? -->
+Additional details are provided in the SI Appendix.
+Code to replicate the analyses can be found at <https://github.com/SNARL1/translocation>.
 
 ### Acknowledgments
 
@@ -732,7 +729,6 @@ For each run and each year, we drew $\omega$ from a uniform distribution between
 Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
 The $\omega$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
-Code to replicate the analyses can be found at <https://github.com/SNARL1/translocation>.
 
 \newpage
 
