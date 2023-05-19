@@ -119,6 +119,7 @@ methods = latex_manuscript[methods_start:methods_end].split(matmethkey1)[1].stri
 # Update equation to span two columns
 methods = methods.replace("\\[\n\\begin{bmatrix}", "\\begin{figure}\\[\n\\begin{bmatrix}")
 methods = methods.replace("\\end{bmatrix}(t) \n\\]", "\\end{bmatrix}(t)\\numberthis \\label{eqn:matrix} \n\\]\\end{figure}")
+methods = methods.replace("The\ndynamics are given by", "The\ndynamics are given by equation \\ref{eqn:matrix}.")
 
 methods = methods.replace("\\paragraph{", "\\section*{")
 methods = methods.replace("\\subparagraph{", "\\subsection*{")
@@ -154,6 +155,8 @@ pnas_ms = pnas_ms.replace("\\includegraphics", "\\includegraphics[width=\\textwi
 pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/translocation_survival_bysiteid.png}",
 						  "\\includegraphics[width=0.5\\textwidth]{figures/translocation_survival_bysiteid.png}")
 
+
+pnas_ms = pnas_ms.replace("The dynamics are given by", "The dynamics are given by ")
 # Clean up references to SI material
 
 supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
@@ -233,7 +236,7 @@ figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{fi
 							  "\\includegraphics[width=0.60\\textwidth]{figures/mcmc_areas_m2b.png}")
 
 figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/bdload_beforeafter.png}", 
-							  "\\includegraphics[width=0.60\\textwidth]{figures/bdload_beforeafter.png}")
+							  "\\includegraphics[width=0.7\\textwidth]{figures/bdload_beforeafter.png}")
 
 figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/mcmc_areas_m1d.png}", 
 							  "\\includegraphics[width=0.60\\textwidth]{figures/mcmc_areas_m1d.png}")

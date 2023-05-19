@@ -55,32 +55,32 @@ in biodiversity conservation in our rapidly changing world.}
 \keywords{} 
 
 \begin{abstract}
-Escalating anthropogenic change is devastating global biodiversity. To
-avoid extinction, affected populations will often need to adapt to the
-altered environment. The process of rapid evolutionary change that
-increases the frequency of adaptive alleles and thereby restores
-positive population growth is termed ``evolutionary rescue''. In
-addition to allowing recovery of extant populations, individuals from
-rescued populations could also be used to reestablish extirpated
-populations. We evaluated this scenario in the once-common mountain
-yellow-legged (MYL) frog, which is threatened with extinction by the
+Vast alteration of the biosphere by humans is causing a sixth mass
+extinction. Adaptation to modified environments often is the only means
+for species to persist, but the extent to which such ``evolutionary
+rescue'' can prevent or reverse biodiversity loss is largely unknown.
+Using results from genomic analyses, a 15-year reintroduction effort,
+and population modeling, we provide a compelling example of evolution
+reversing the declines of an imperiled amphibian and allowing the
+reestablishment of extirpated populations. The once-common mountain
+yellow-legged (MYL) frog is threatened with extinction by the
 human-facilitated emergence of a lethal fungal pathogen
 (\emph{Batrachochytrium dendrobatidis}; ``Bd''). Although most MYL frog
 populations are extirpated following disease outbreaks, some persist and
-eventually begin to recover. We show that MYL frogs have undergone
-substantial evolutionary change following disease outbreaks, and that
-these changes are associated with increased resistance/tolerance to Bd
-infection in naturally recovering populations. Large-scale
-reintroduction of frogs from these populations resulted in the
-establishment of reproducing populations at most recipient sites despite
-ongoing disease. In addition, results from viability modeling suggest
-that established populations have a low probability of extinction over
-50 years. Collectively, these results provide one of the first examples
-of how evolutionary rescue and the reintroduction of resistant/tolerant
-individuals can allow the landscape-scale recovery of disease-impacted
-species. This example has potentially broad implications for the many
-taxa worldwide that are threatened with extinction by anthropogenic
-stressors.
+eventually begin to recover. Using an exome capture approach, we show
+that MYL frogs have undergone substantial evolutionary change following
+disease outbreaks. Moreover, in naturally recovering populations
+observed changes in immune function loci are associated with increased
+resistance/tolerance to Bd infection. Large-scale reintroduction of
+frogs from rescued populations resulted in the establishment of
+reproducing populations despite ongoing disease. In addition, results
+from viability modeling suggest that established populations have a low
+probability of extinction over 50 years. Collectively, these results
+provide a rare example of how evolutionary rescue and the reintroduction
+of resistant/tolerant individuals can allow the landscape-scale recovery
+of disease-impacted species. This example has potentially broad
+implications for the many taxa worldwide that are threatened with
+extinction by anthropogenic stressors.
 \end{abstract}
 
 \dates{This manuscript was compiled on \today}
@@ -103,7 +103,7 @@ population growth is known as ``evolutionary rescue''
 populations, individuals from rescued populations could also disperse,
 or be reintroduced, to empty habitats and promote larger-scale recovery.
 Although this overall scenario is potentially of critical importance for
-the conservation of an ever-growing number of threatened taxa,
+the conservation of an ever-growing number of imperiled taxa,
 descriptions of its occurrence and effectiveness in the wild are
 lacking.
 
@@ -817,9 +817,7 @@ mistakes in the individual PIT tag records). For all models, we used
 mrmr defaults for priors, number of chains (4), and warmup and
 post-warmup iterations (2000 for each). We evaluated convergence of the
 Markov chain Monte Carlo (MCMC) algorithm using trace plots and
-Gelman-Rubin statistics (Rhat). Code used to create CMR datasets and fit
-models for each translocated population is available from the following
-GitHub repository: \url{https://github.com/SNARL1/cmr-analysis}.
+Gelman-Rubin statistics (Rhat).
 
 \hypertarget{predictors-of-post-translocation-frog-survival}{%
 \subsection*{Predictors of post-translocation frog
@@ -859,9 +857,6 @@ was rounded to integer values to produce a binomial outcome, and all
 models used a bernoulli family. For all models, we used default priors,
 four chains, and 5000 iterations each for warmup and post-warmup. We
 checked convergence of the MCMC algorithm using trace plots and Rhat.
-Code to create the datasets and fit models is available from the
-following GitHub repository:
-\url{https://github.com/SNARL1/translocation}.
 
 \hypertarget{changes-in-bd-load-following-translocation}{%
 \subsection*{Changes in Bd load following
@@ -885,9 +880,11 @@ without group-level effects, and group-level effects included
 pit\_tag\_id, pit\_tag\_id nested within site\_id, or pit\_tag\_id
 nested within translocation\_id. All models used a negative binomial
 family. Priors, chains, iterations, and checks were as described above.
-Code to create the dataset and fit models is available from the
-following GitHub repository:
-\url{https://github.com/SNARL1/translocation}.
+
+Code to replicate all of the analyses described above is available from
+the following GitHub repositories:
+\url{https://github.com/SNARL1/translocation};
+\url{https://github.com/SNARL1/cmr-analysis}.
 
 \hypertarget{population-viability-modeling}{%
 \section*{Population viability
@@ -914,7 +911,7 @@ differs (Figure S7).
 
 We modeled the dynamics of these seven state variables using a
 discrete-time, stage-structured model where a time step is one year. The
-dynamics are given by
+dynamics are given by equation \ref{eqn:matrix}.
 
 \begin{figure*}\[
 \begin{bmatrix}
@@ -966,9 +963,7 @@ to play a significant role in multi-year Bd infection dynamics in this
 system \citep{wilber2022}. Thus, ignoring Bd infection dynamics and
 instead assuming all host vital rates are in the presence of high Bd
 prevalence significantly simplifies the model without much loss of
-realism. (Additional details regarding incorporating yearly variability
-in vital rates and estimating model parameters are provided in the SI
-Appendix.)
+realism. Additional details are provided in the SI Appendix.
 
 \hypertarget{model-analysis}{%
 \subsection*{Model analysis}\label{model-analysis}}
@@ -987,7 +982,9 @@ viability (i.e., 1 - extinction probability) of populations given an
 introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to
 confirm that our model could reasonably reproduce the observed recovery
-trajectories of MYL frogs following reintroductions.}
+trajectories of MYL frogs following reintroductions. Additional details
+are provided in the SI Appendix. Code to replicate the analyses can be
+found at \url{https://github.com/SNARL1/translocation}.}
 
 
 \showmatmethods{} % Display the Materials and Methods section
