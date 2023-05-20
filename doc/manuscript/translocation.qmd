@@ -116,7 +116,7 @@ Collectively, these results provide one of the first examples of how evolutionar
 #### Frog evolution in response to Bd
 
 To determine whether MYL frog populations show an evolutionary response to Bd, we compared frog genomes between populations with contrasting histories of Bd exposure.
-Specifically, we compared frog genomes sampled in four populations that have not yet experienced a Bd-caused epizootic ("naive") [@zhou2015] versus in five populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering"; @fig-allelefrequencies) [@knapp2016; @vredenburg2010].
+Specifically, we compared frog genomes sampled in 4 populations that have not yet experienced a Bd-caused epizootic ("naive") [@zhou2015] versus in 5 populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering"; @fig-allelefrequencies) [@knapp2016; @vredenburg2010].
 These recovering populations exist in an enzootic state [@briggs2010], characterized by high Bd prevalence and, in adults, moderate Bd infection intensity ("load") that is typically well below the level expected to cause mortality [@vredenburg2010].
 (See SI Appendix for additional details regarding the study design.)
 
@@ -322,7 +322,6 @@ As such, the average survival of frogs in the first translocation to a site was 
 This suggests an important effect of site characteristics and/or (site \* frog) interactions on frog survival.
 In addition, 1-year survival was higher for frogs translocated later in the study period than earlier (@tbl-survival-earlylate), which we suggest resulted primarily from our improved ability to choose recipient sites with higher habitat quality for *R. sierrae*.
 Finally, Bd loads were fairly consistent before versus after translocation and loads were nearly always well below the level indicative of severe chytridiomycosis and associated frog mortality (@fig-bdload-beforeafter) [@joseph2018; @vredenburg2010].
-Additional details on methods used to estimate Bd loads are provided in the SI Appendix.
 
 Of the `r nrow(d2)` translocated populations, `r frog_counts_gt0_nrow` (`r frog_counts_gt0_nrow / nrow(d2)`) showed evidence of successful reproduction in subsequent years, as indicated by the presence of tadpoles and/or juveniles.
 For these `r frog_counts_gt0_nrow` populations, one or both life stages were detected in nearly all survey-years following translocation (proportion of survey-years: median = `r frog_counts_gt0_median`, range = `r frog_counts_gt0_min`--`r frog_counts_gt0_max`).
