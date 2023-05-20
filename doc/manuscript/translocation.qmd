@@ -11,8 +11,6 @@ editor_options:
     wrap: sentence
 ---
 
-<!--# render to pdf using `quarto render doc/manuscript/translocation.qmd --to pdf` -->
-
 ## Title: Evolutionary rescue and reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease
 
 ### Authors:
@@ -49,8 +47,6 @@ Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B
 
 ### Abstract
 
-<!--# Limit = 250 words. -->
-
 Vast alteration of the biosphere by humans is causing a sixth mass extinction.
 Adaptation to modified environments often is the only means for species to persist, but the extent to which such "evolutionary rescue" can prevent or reverse biodiversity loss is largely unknown.
 Using results from genomic analyses, a 15-year reintroduction effort, and population modeling, we provide a compelling example of evolution reversing the declines of an imperiled amphibian and allowing the reestablishment of extirpated populations.
@@ -64,8 +60,6 @@ Collectively, these results provide a rare example of how evolutionary rescue an
 This example has potentially broad implications for the many taxa worldwide that are threatened with extinction by anthropogenic stressors.
 
 ### Significance
-
-<!--# Limit = 120 words.   -->
 
 Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
 One possibility is rapid evolution that restores positive growth to declining populations ("evolutionary rescue").
@@ -377,7 +371,7 @@ The differences in Bd load of frogs from naive and recovering populations are al
 The observed reduced susceptibility of frogs from recovering populations could in theory be due to several factors, including natural selection for more resistant/tolerant genotypes and/or acquired immunity, but until now evidence to evaluate the role of evolution was lacking.
 
 Results from our genomic analyses strongly suggest that natural selection for adaptive alleles and resulting increased resistance/tolerance is at least partially responsible for the reduced susceptibility of frogs in recovering populations.
-We identified specific alleles and genomic regions showing signatures of selection between adjacent Bd-naive and recovering MYL frog populations, consistent with strong selection following Bd exposure.
+We identified specific alleles and genomic regions showing signatures of selection between adjacent naive and recovering MYL frog populations, consistent with strong selection following Bd exposure.
 Importantly, some regions under selection are associated with cellular and immunological mechanisms known to contribute to disease resistance, including in amphibians [@zamudio2020].
 For example, the MHC plays an important role in immunity.
 In our study, we identified a region that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions.
@@ -753,10 +747,6 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 \newpage
 
 ### Tables
-
-\
-
-<!--# How to insert >= symbol in header and table cells? Move second sentence of caption to footnote.-->
 
 ```{r}
 #| label: tbl-survival-earlylate
