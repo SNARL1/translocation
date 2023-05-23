@@ -9,33 +9,32 @@ Mark Q. Wilber (mqwilber(at)gmail.com) [![ORCiD](https://img.shields.io/badge/OR
 ## Overview of contents
 
 This repository is organized as a reproducible research compendium, and describes frog translocations to reestablish populations of the endangered [mountain yellow-legged frog](https://www.fws.gov/sites/default/files/documents/Mountain-Yellow-Legged-Frog-Conservation-Strategy.pdf). 
-It contains data on frog survival following translocations conducted during the period 2006-2020, code to identify predictors of survival using [R](https://www.r-project.org/), a notebook to document project progress to date, and a manuscript (in preparation). 
+It contains data on frog survival following translocations conducted during the period 2006-2020, [R](https://www.r-project.org/) code to identify predictors of survival and estimate population viability, a notebook to document translocation-related analyses, and a manuscript (submitted). 
 Throughout this repository, frog populations are referenced only by 5-digit unique site identifiers.
 No site names or x-y coordinates are provided to protect these sensitive populations to the maximum extent possible.
 
 This repository contains the following directories and files:
 
-- `code/` directory: `Rmd` files that contain code to create and analyze the project datasets. 
-- `data/` directory: Raw data and cleaned data.
+- `code/` directory: `Rmd` and `qmd` files to create and analyze the project datasets, and create figures. 
+- `data/` directory: Raw and cleaned data, and map data/layers.
 - `doc/` directory: Manuscript and notebook files.
-- `out/` directory: Output files.
+- `out/` directory: Output files, including html code notebooks rendered from `Rmd` files, and files related to the viability analyses.
 
 ## Notebooks
 
-Notebooks are available in the [doc/](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/notebooks_code/](https://github.com/SNARL1/translocation/tree/main/out/notebooks_code#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/` notebook describes issues of interest related to dataset creation and analysis. The `out/notebooks_code/` notebooks are rendered from the `Rmd` files in the `code/` directory, and describe dataset creation/data analysis steps for each population. 
+Notebooks are available in the [doc/notebook](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/notebooks_code/](https://github.com/SNARL1/translocation/tree/main/out/notebooks_code#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/notebook/` notebook describes dataset creation and analysis. The `out/notebooks_code/` code notebooks are rendered from the `Rmd` files in the `code/` directory. 
 
 ## Reproducing this analysis
 
-
-### Preliminary instructions
+### Instructions
 
 1. Install the package manager anaconda or miniconda (https://docs.continuum.io/anaconda/install/).
 2. Build the conda environment specified in the environmental.yml to install most of the R packages needed to run the analysis.  This can be done on the command line using the command
 	- `conda env create -f environment.yml`.  
-	- See [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file).
+	- See [link](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for details about conda enviroments.
 3. Activate the environment in the terminal
 	- `conda activate r_env_translocation`
-4. NOTE: You don't have to use the conda environment and can use your native R build. Just ensure you have the packages installed that are listed in the `environment.yml` file.
+4. NOTE: You don't have to use the conda environment and can instead use your native R build. Just ensure you have the packages installed that are listed in the `environment.yml` file.
 	- For Linux, we have found that to install the R package `devtools` you are often prompted to install additional software outside of R.  Linux typically tells you what additional packages you need to successfully install `devtools` in any error message you might get when installing this R package.
  
 ### Running the Makefile
