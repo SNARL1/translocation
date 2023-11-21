@@ -1,10 +1,11 @@
 ---
 bibliography: translocation.bib
 csl: pnas.csl
+format: pdf
 # format: docx
-format :
-  latex:
-    cite-method: natbib
+# format :
+#  latex:
+#    cite-method: natbib
 editor: visual
 editor_options:
   markdown:
@@ -738,7 +739,7 @@ Therefore, although some outlier variant associations have a more limited geogra
 
 \newpage
 
-![Map showing the locations of translocated and donor MYL frog populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).](figures/map_translocation_points.png){#fig-yosemap width="250"}
+![Map showing the locations of translocated and donor MYL frog populations in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site, and numbers inside the donor symbols refer to sites identified in @fig-allelefrequencies. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).](figures/map_translocation_points.png){#fig-yosemap width="400"}
 
 ![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. In the Bayesian framework in which the model was developed, a variable is considered an important predictor if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
 

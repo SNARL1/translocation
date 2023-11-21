@@ -160,12 +160,19 @@ hillshade_yose_crop <- st_transform(hillshade_yose_crop, 26911)
 ### Create study area map
 
 ```{r}
+translocation_points <- translocation_points %>% 
+  mutate(
+    label = case_when(
+      site_id == 70567 ~ 4, 
+      site_id == 72996 ~ 1
+    ))
+
 translocation_points_map <- tm_shape(hillshade_yose_crop) + 
   tm_rgb(r = 1, g = 2, b = 3) +
   tm_shape(yose_boundary) + 
   tm_borders(col = "black", lwd = 2) +
   tm_shape(translocation_points) + 
-  tm_symbols(size = 0.9, 
+  tm_symbols(size = 3, 
              shape = "donor_id",
              col = "type", 
              legend.shape.show = FALSE, 
@@ -175,6 +182,7 @@ translocation_points_map <- tm_shape(hillshade_yose_crop) +
             legend.bg.color = "white",
             legend.title.size = 1.5,
             legend.text.size = 1.2) +
+  tm_text(text = "label") +
   tm_compass(type = "4star",
              position = c(0.80, 0.11),
              size = 5) +
