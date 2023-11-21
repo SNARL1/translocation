@@ -3,8 +3,12 @@ bibliography: translocation.bib
 csl: pnas.csl
 # format: docx
 format :
-  latex:
+  # latex:
+  pdf:
     cite-method: natbib
+    include-in-header:
+      text: |
+        \usepackage{blkarray}
 editor: visual
 editor_options:
   markdown:
@@ -674,13 +678,59 @@ Therefore, although some outlier variant associations have a more limited geogra
 
 ### Frog population recovery
 
-#### Methods
+#### Swab Methods
 
 Swab extracts were analyzed using standard Bd DNA extraction and qPCR methods [@boyle2004], and extracts were analyzed singly instead of in triplicate [@kriger2006].
 For analysis of swabs collected during 2005--2014, we used standards developed from known concentrations of zoospores [@boyle2004], and after 2014, we used standards based on single ITS1 PCR amplicons [@longo2013].
 Based on paired comparisons between samples analyzed using both types of standards, Bd in the study area has an average of 60 ITS1 copies per zoospore.
 To express all qPCR results as the number of ITS1 copies, starting quantities obtained using the zoospore standard (measured as "zoospore equivalents") were multiplied by 60.
 In addition, all qPCR quantities (regardless of standard) were multiplied by 80 to account for the fact that DNA extracts from swabs were diluted 80-fold during extraction and PCR [@vredenburg2010].
+
+#### Mark-recapture model structure
+
+We estimated survival and recruitment for each site using open population mark recapture models based on @joseph2018.
+For each individual $i=1, ..., M$ on each survey $j=1, ..., n_j$: $o_{i, j} = 1$ if the individual was not detected, and $o_{i, j}=2$ if the individual was detected. 
+Capture histories of $M$ individuals are modeled, though only $N_s$ individuals were captured.
+This parameter expanded data augmentation allows us to capture the possibility that undetected individuals may have recruited into the adult population [@royle2012parameter]. 
+Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$. 
+
+We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$. 
+The four states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults. 
+Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$. 
+Each primary period $t$ occurs within one year, but within a year there are multiple primary periods.
+We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$. 
+Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
+We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die). 
+This assumption is justified by the short time intervals between surveys within primary periods.
+
+Live individuals are detected with probability $p_j$, which is modeled as:
+
+$$p_j = \text{logit}^{-1}(X_j^{(p)} \beta^{(p)}),$$
+
+where $X_j^{(p)}$ is a known row vector and $\beta^{(p)}$ an unknown parameter vector. 
+Not recruited and dead individuals are never captured. 
+We bundle these assumptions about the observation probabilities for survey $j$ into an emission matrix $\Omega_j$:
+
+$$
+\Omega_j =
+\begin{blockarray}{ccc}
+  \text{Not detected} & \text{Detected} \\
+\begin{block}{(cc)c}
+  1 & 0 & \text{Not recruited} \\
+  1 - p_j & p_j & \text{Alive} \\
+  1 & 0 & \text{Dead} \\
+\end{block}
+\end{blockarray}
+$$
+
+TODO: 
+
+- State model description
+- State transition matrix for natural recruits
+- State transition matrix for introduced individuals
+- Parameter model description
+- Priors
+- Specification of the joint distribution (possible diagram of the DAG)
 
 ### Population viability modeling
 
@@ -774,7 +824,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 \newpage
 
 | **Parameter**                                                             | **Value**            | **Source**                                                         |
-|:--------------------------------------------------------------------------|:---------------------|:-------------------------------------------------------------------|
+|:-----------------------------|:---------------|:--------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge |
