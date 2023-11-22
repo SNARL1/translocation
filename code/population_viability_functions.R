@@ -25,12 +25,12 @@ assign_parameters = function(adult_survR, adult_survT, new_params=list()){
 			  sigma_L2=0.7, 
 			  sigma_L3=0.7, 
 			  sigma_J1=0.25, 
-			  sigma_J2=0.5, 
+			  sigma_J2=0.5,
 			  sigma_AR=adult_survR,
 			  sigma_AT=adult_survT,
 			  p_L1=1, p_L2=0.25, p_J1=0.25,
 			  p_F=0.5, F=100, 
-			  omega=0.3,
+			  omega=1,
 			  reproduction="poisson")
 
 	# Set any new parameters
@@ -57,7 +57,7 @@ build_transition_matrix = function(p){
 	L1 = c(0, p$sigma_L1*p$p_L1, 0, p$sigma_L1*(1 - p$p_L1), 0, 0, 0)
 	L2 = c(0, 0, p$sigma_L2*p$p_L2, p$sigma_L2*(1 - p$p_L2), 0, 0, 0)
 	L3 = c(0, 0, 0, p$sigma_L3, 0, 0, 0)
-	J1 = c(0, 0, 0, 0, p$sigma_J1*p$p_J1, p$sigma_J1*(1 - p$p_J1)*p$omega, 0)
+	J1 = c(0, 0, 0, 0, p$sigma_J1*p$p_J1*p$omega, p$sigma_J1*(1 - p$p_J1)*p$omega, 0)
 	J2 = c(0, 0, 0, 0, 0, p$sigma_J2*p$omega, 0)
 	AR = c(0, 0, 0, 0, 0, p$sigma_AR, 0)
 	AT = c(0, 0, 0, 0, 0, 0, p$sigma_AT)
@@ -166,7 +166,6 @@ stochastic_step = function(state_vars, p){
 
 	# How many are reproducing?
 	n = length(state_vars)
-
 
 	# Account for overflow
 	if(state_vars[(n - 1)] < 10000){
@@ -314,7 +313,7 @@ build_projection_matrix = function(params){
 
 # We also need the derivatives with respect to parameters
 get_sensitivity = function(params){
-	# Calculates sensitivites of lambda to sigma_AR, omega, F
+	# Calculates sensitivites of lambda to sigma_AR, omega, F, sigma_J1, sigma_J2
 	#
 	# Parameters
 	# ----------
@@ -323,8 +322,8 @@ get_sensitivity = function(params){
 	# Returns
 	# -------
 	# : list
-	#	sens: length 3 array with sensitivities of lambda to sigmaAR, omega, and F
-	# 	elas: Length 3 array with elasticities of lambda to sigmaAR, omega, and F	
+	#	sens: length 5 array with sensitivities of lambda to sigmaAR, omega, F, sigma_J1, sigma_J2
+	# 	elas: Length 5 array with elasticities of lambda to sigmaAR, omega, F, sigma_J1, sigma_J2	
 
 	A = build_projection_matrix(params)
 
@@ -342,14 +341,16 @@ get_sensitivity = function(params){
 	# Parameters: [sigma_AR, omega, F]. From Caswell 2019, 3.42
 	part1 = kronecker(t(w), t(v)) / (t(v) %*% w)[1]
 	
-	# Derivatives with respect to sigma_AR, omega, F*pF
+	# Derivatives with respect to sigma_AR, omega, F*pF, sigma_J1, sigma_J2
 	dAdsar = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$F*params$p_F, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
-	dAdomega = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$sigma_J1*(1 - params$p_J1), 0, 0, 0, 0, 0, 0, params$sigma_J2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	#dAdomega = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_J1*params$sigma_J1, params$sigma_J1*(1 - params$p_J1), 0, 0, 0, 0, 0, 0, params$sigma_J2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	dAdF = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AR, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AT, 0, 0, 0, 0, 0, 0) 
-	dmatA = t(rbind(dAdsar, dAdomega, dAdF))
+	dAdsj1 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$omega*params$p_J1, params$omega*(1 - params$p_J1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	dAdsj2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$omega, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	dmatA = t(rbind(dAdsar, dAdF, dAdsj1, dAdsj2))
 
 	# From Caswell 2019
-	D_sens_params = diag(c(params$sigma_AR, params$omega, params$F))
+	D_sens_params = diag(c(params$sigma_AR, params$F, params$sigma_J1, params$sigma_J2))
 	sens = part1 %*% dmatA
 	elas = (sens %*% D_sens_params) / lam
 
