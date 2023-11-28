@@ -389,11 +389,9 @@ source("db_disconnect.R")
 write_csv(exome_points, here::here("data", "maps", "exome_points.csv"))
 ```
 
-## Dataset for map of Yosemite translocation & donor sites
+### Dataset for map of Yosemite translocation & donor sites
 
 Users without the necessary credentials to access the database can access the final dataset at data/maps/translocation_points.csv.
-
-### Retrieve data & create points layer
 
 ```{r}
 donor_sites <- read_csv(here::here("data", "clean", "frog_translocation_final.csv")) %>% 
