@@ -789,12 +789,11 @@ All of the code to specify and fit the model in Stan is available in the open so
 
 The joint distribution of the resulting model can be written as follows: 
 
-$$
 \begin{multline*}
 [\alpha^{(\lambda)}, \sigma^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \sigma^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)} \mid \pmb Y] \propto \prod_{i=1}^M [Y_i \mid \alpha^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)}] \times \\
 \prod_{t=1}^T [\epsilon_t^{(\lambda)} \mid \sigma^{(\lambda)}] [\epsilon_t^{(\phi])} \mid \sigma^{(\phi)}] [\sigma^{(\lambda)}] [\sigma^{(\phi)}] [\alpha^{(\lambda)}] [\beta^{(\phi)}] [\beta^{(p)}],
 \end{multline*}
-$$
+
 
 where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture history of individual $i$.
 
