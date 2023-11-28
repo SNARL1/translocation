@@ -678,7 +678,7 @@ Therefore, although some outlier variant associations have a more limited geogra
 
 ### Frog population recovery
 
-#### Swab Methods
+#### Laboratory Methods
 
 Swab extracts were analyzed using standard Bd DNA extraction and qPCR methods [@boyle2004], and extracts were analyzed singly instead of in triplicate [@kriger2006].
 For analysis of swabs collected during 2005--2014, we used standards developed from known concentrations of zoospores [@boyle2004], and after 2014, we used standards based on single ITS1 PCR amplicons [@longo2013].
@@ -784,8 +784,8 @@ for time $t=1, ..., T$.
 
 The detection model coefficient vector also received a standard normal prior $\beta^{(p)} \sim N(0, 1)$.
 
-We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm (@zucchini2009hidden, @joseph2018). 
-All of the code to specify and fit the model in Stan is available in the open source mrmr package (@joseph2019).
+We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009hidden, @joseph2018]. 
+All of the code to specify and fit the model in Stan is available in the open source mrmr package [@joseph2019].
 
 The joint distribution of the resulting model can be written as follows: 
 
