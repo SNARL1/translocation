@@ -30,7 +30,6 @@ assign_parameters = function(adult_survR, adult_survT, new_params=list()){
 			  sigma_AT=adult_survT,
 			  p_L1=1, p_L2=0.25, p_J1=0.25,
 			  p_F=0.5, F=100, 
-			  omega=1,
 			  reproduction="poisson")
 
 	# Set any new parameters
@@ -57,8 +56,8 @@ build_transition_matrix = function(p){
 	L1 = c(0, p$sigma_L1*p$p_L1, 0, p$sigma_L1*(1 - p$p_L1), 0, 0, 0)
 	L2 = c(0, 0, p$sigma_L2*p$p_L2, p$sigma_L2*(1 - p$p_L2), 0, 0, 0)
 	L3 = c(0, 0, 0, p$sigma_L3, 0, 0, 0)
-	J1 = c(0, 0, 0, 0, p$sigma_J1*p$p_J1*p$omega, p$sigma_J1*(1 - p$p_J1)*p$omega, 0)
-	J2 = c(0, 0, 0, 0, 0, p$sigma_J2*p$omega, 0)
+	J1 = c(0, 0, 0, 0, p$sigma_J1*p$p_J1, p$sigma_J1*(1 - p$p_J1), 0)
+	J2 = c(0, 0, 0, 0, 0, p$sigma_J2, 0)
 	AR = c(0, 0, 0, 0, 0, p$sigma_AR, 0)
 	AT = c(0, 0, 0, 0, 0, 0, p$sigma_AT)
 
@@ -218,8 +217,8 @@ build_fecundity_matrix = function(p){
 
 }
 
-stochastic_simulation = function(steps, initial_values, muR, muT, phi, phi_omega, 
-								 new_params=list(), omega_traj=NA){
+stochastic_simulation = function(steps, initial_values, muR, muT, phi, phi_sigma_J1, 
+								 new_params=list(), sigma_J1_traj=NA){
 	# Stochastic simulation of projection matrix
 	#
 	# Parameters
@@ -234,13 +233,13 @@ stochastic_simulation = function(steps, initial_values, muR, muT, phi, phi_omega
 	#		Average recruited adult survival probability
 	# muT : float
 	#		Average translocated adult survival probability
-	# mu_omega : float
+	# mu_sigma_J1 : float
 	# 	Mean successful recruitment probability
-	# phi_omega : float
+	# phi_sigma_J1 : float
 	#		Dispersion of successful recruitment probability
 	# new_params : list
 	#		Any new parameter values to assign to params
-	# omega_traj: array or NA
+	# sigma_J1_traj: array or NA
 	# 	If array, you can specifiy a fixed trajectory.
 	#
 	# Returns
@@ -248,12 +247,12 @@ stochastic_simulation = function(steps, initial_values, muR, muT, phi, phi_omega
 	# : list
 	#	results: projected state variables
 	#	num_recruited: number adults recruited in a time step
-	#	omega_probs: Probability of recruitment in a time step
+	#	sigma_J1_probs: Probability of recruitment in a time step
 
 	results = array(NA, dim=c(length(initial_values), steps + 1))
 	results[, 1] = initial_values
 	num_recruited = array(NA, dim=steps)
-	omega_probs = array(NA, dim=steps)
+	sigma_J1_probs = array(NA, dim=steps)
 	# adult_surv_values = array(NA, dim=steps)
 
 	aR = muR*phi
@@ -273,13 +272,13 @@ stochastic_simulation = function(steps, initial_values, muR, muT, phi, phi_omega
 		# adult_surv_values[t - 1] = adult_surv
 		params = assign_parameters(adult_survR, adult_survT, new_params=new_params)
 
-		# Update recruitment probability. 
-		if(all(is.na(omega_traj))) {
-			a_omega = params$omega * phi_omega
-			b_omega = phi_omega - a_omega
-			params$omega = rbeta(1, a_omega, b_omega)
+		# Update year 1 juvenile survival stochastically 
+		if(all(is.na(sigma_J1_traj))) {
+			a_sigma_J1 = params$sigma_J1 * phi_sigma_J1
+			b_sigma_J1 = phi_sigma_J1 - a_sigma_J1
+			params$sigma_J1 = rbeta(1, a_sigma_J1, b_sigma_J1)
 		} else{
-			params$omega = omega_traj[t - 1]
+			params$sigma_J1 = sigma_J1_traj[t - 1]
 		}
 
 		# Stochastically update population
@@ -287,10 +286,10 @@ stochastic_simulation = function(steps, initial_values, muR, muT, phi, phi_omega
 		results[, t] = stoch_step$new_states
 
 		num_recruited[t - 1] = stoch_step$num_recruited
-		omega_probs[t - 1] = params$omega
+		sigma_J1_probs[t - 1] = params$sigma_J1
 	}
 
-	return(list(results=results, num_recruited=num_recruited, omega_probs=omega_probs))
+	return(list(results=results, num_recruited=num_recruited, sigma_J1_probs=sigma_J1_probs))
 }
 
 build_projection_matrix = function(params){
@@ -313,7 +312,7 @@ build_projection_matrix = function(params){
 
 # We also need the derivatives with respect to parameters
 get_sensitivity = function(params){
-	# Calculates sensitivites of lambda to sigma_AR, omega, F, sigma_J1, sigma_J2
+	# Calculates sensitivites of lambda to sigma_AR, F, sigma_J1, sigma_J2
 	#
 	# Parameters
 	# ----------
@@ -343,10 +342,9 @@ get_sensitivity = function(params){
 	
 	# Derivatives with respect to sigma_AR, omega, F*pF, sigma_J1, sigma_J2
 	dAdsar = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$F*params$p_F, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
-	#dAdomega = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_J1*params$sigma_J1, params$sigma_J1*(1 - params$p_J1), 0, 0, 0, 0, 0, 0, params$sigma_J2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	dAdF = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AR, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AT, 0, 0, 0, 0, 0, 0) 
-	dAdsj1 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$omega*params$p_J1, params$omega*(1 - params$p_J1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-	dAdsj2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$omega, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	dAdsj1 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_J1, (1 - params$p_J1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	dAdsj2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	dmatA = t(rbind(dAdsar, dAdF, dAdsj1, dAdsj2))
 
 	# From Caswell 2019
