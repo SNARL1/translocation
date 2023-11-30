@@ -334,7 +334,7 @@ cdat = cdat[order(surv_med)]
 extinction_at_fifty_dt$lake_id_surv = factor(extinction_at_fifty_dt$lake_id_surv, levels=cdat$lake_id_surv)
 
 pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=sigma_J1, y=ext_prob)) + 
-							#geom_vline(aes(xintercept=1 - 0.5), linetype="dashed") +
+							geom_vline(aes(xintercept=0.1), linetype="dashed") +
 							geom_line(aes(color=lake_id_surv)) + 
 							geom_point(aes(color=lake_id_surv)) + 
 							scale_color_manual(values=cdat$col) +
