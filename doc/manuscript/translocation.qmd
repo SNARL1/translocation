@@ -691,17 +691,17 @@ In addition, all qPCR quantities (regardless of standard) were multiplied by 80 
 We estimated survival and recruitment for each site using open population mark recapture models based on @joseph2018.
 For each individual $i=1, ..., M$ on each survey $j=1, ..., n_j$: $o_{i, j} = 1$ if the individual was not detected, and $o_{i, j}=2$ if the individual was detected. 
 Capture histories of $M$ individuals are modeled, though only $N_s$ individuals were captured.
-This parameter expanded data augmentation allows us to capture the possibility that undetected individuals may have recruited into the adult population [@royle2012parameter]. 
+This parameter expanded data augmentation allows us to capture the possibility that undetected individuals may have recruited into the adult population [@royle2012]. 
 Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$. 
 
 We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$. 
 The four states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults. 
 Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$. 
-Each primary period $t$ occurs within one year, but within a year there are multiple primary periods.
+Each primary period $t$ occurs within one year, but within a year there can be multiple primary periods.
 We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$. 
 Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
 We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die). 
-This assumption is justified by the short time intervals between surveys within primary periods.
+This assumption is justified by the short time intervals between surveys within primary periods, in cases where primary periods contain multiple secondary periods.
 
 Live individuals are detected with probability $p_j$, which is modeled as:
 
@@ -784,7 +784,7 @@ for time $t=1, ..., T$.
 
 The detection model coefficient vector also received a standard normal prior $\beta^{(p)} \sim N(0, 1)$.
 
-We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009hidden, @joseph2018]. 
+We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009, @joseph2018]. 
 All of the code to specify and fit the model in Stan is available in the open source mrmr package [@joseph2019].
 
 The joint distribution of the resulting model can be written as follows: 
@@ -803,7 +803,7 @@ where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture histor
 
 ##### Incorporating yearly variability in vital rates
 
-We extracted yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the CMR model used to estimate population-level parameters of translocated populations (see "Materials and Methods - Estimation of frog survival and abundance" in main paper).
+We computed yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the posterior distribution of individual state trajectories derived from mark-recapture models.
 Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among-population variability ([@fig-translocation-survival]).
 Thus, we did not include yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
