@@ -2,6 +2,7 @@ library(data.table)
 source("population_viability_functions.R")
 library(ggplot2)
 library(patchwork)
+library(parallel)
 
 #### Data loading and preliminary analysis ######
 
@@ -74,7 +75,7 @@ for(l in 1:nrow(all_surv)){
 		if(nm == "med")
 			med_surv_vals[l] = muR
 
-		params = assign_parameters(muR, muT)
+		params = assign_parameters(muR, muT, new_params=list(sigma_J1=0.09))
 		tlam = get_lambda(params)
 		lambdas_mlu[j] = tlam
 	}
@@ -102,35 +103,35 @@ ggsave(file.path("..", "out", "lambda_estimates.pdf"), width=8, height=5)
 
 
 muR_range = seq(0.01, 0.9, len=50)
-omega_range = seq(0.01, .4, len=50)
-lambdas = array(NA, dim=c(length(muR_range), length(omega_range)))
+juv_surv_range = seq(0.01, .25, len=50) # Range for year 1 juvenile survival
+lambdas = array(NA, dim=c(length(muR_range), length(juv_surv_range)))
 
 for(i in 1:length(muR_range)){
-	for(j in 1:length(omega_range)){
+	for(j in 1:length(juv_surv_range)){
 
 		muR = muR_range[i]
-		omega = omega_range[j]
-		params = assign_parameters(muR, muR, new_params=list(omega=omega))
+		juv_surv = juv_surv_range[j]
+		params = assign_parameters(muR, muR, new_params=list(sigma_J1=juv_surv))
 		lambdas[i, j] = get_lambda(params)
 
 	}
 }
 
-dat = expand.grid(muR=muR_range, omega=omega_range)
+dat = expand.grid(muR=muR_range, juv_surv=juv_surv_range)
 dat$lambda = as.vector(lambdas)
-ptile = ggplot(dat) + geom_tile(aes(x=muR, y=omega, fill=lambda)) + 
-							geom_hline(aes(yintercept=0.3), linetype="dashed") +
-							geom_contour(aes(x=muR, y=omega, z=lambda), breaks=c(1), color="red", size=1) +
+ptile = ggplot(dat) + geom_tile(aes(x=muR, y=juv_surv, fill=lambda)) + 
+							geom_hline(aes(yintercept=0.08), linetype="dashed") +
+							geom_contour(aes(x=muR, y=juv_surv, z=lambda), breaks=c(1), color="red", linewidth=1) +
 							geom_point(data=lake_growth_rates_dt, aes(x=surv_med, 
-																												y=rep(0.3, length(surv_med)), 
+																												y=rep(0.08, length(surv_med)), 
 																													color=lake_id), size=2) +
 		   				scale_color_manual(values=colors) +
 							# scale_fill_gradient("\u03bb", low = "white", high = "black") +
 							scale_fill_gradient2(midpoint=1) + #guide=guide_legend(title.position="bottom")) +
 							theme_classic() + xlab(bquote("Adult survival probability (\u03c3"~.[AR]~")")) +
-							ylab("Prob. of recruitment (\u03c9)") + 
+							ylab(bquote("Juvenile (Y1) survival probability (\u03c3"~.[J1]~")")) + 
 							annotate("text", x=0.25, y=0.05, label="Population declines", size=3) +
-							annotate("text", x=0.7, y=0.35, label="Population grows", size=3) +
+							annotate("text", x=0.7, y=0.2, label="Population grows", size=3) +
 							guides(color="none", fill=guide_colorbar(title="\u03bb")) + theme(legend.position="bottom", 
 																					 legend.text=element_text(size=7), 
 																					 legend.title=element_text(size=7))
@@ -167,9 +168,8 @@ for(l in 1:nrow(all_surv)){
 	lake_elas[[paste0(lake)]] = sens_elas$elas
 }
 
-# TODO: CHECK, omega and F are the same for elasticity...does that make sense?
 lake_elas_dt = data.table(do.call(rbind, lake_elas))
-colnames(lake_elas_dt) = c("\U03C3_AR", "\U03C9", "F") #c("sigma_AR", "omega", "F")
+colnames(lake_elas_dt) = c("\U03C3_AR", "F", "\U03C3_J1", "\U03C3_J2") #c("sigma_AR", "F", "sigma_J1", "sigma_J2")
 lake_elas_dt$lake = names(lake_elas)
 
 lake_elas_dt_melt = melt(lake_elas_dt, id.vars="lake")
@@ -191,144 +191,134 @@ steps = 50 # years
 beta0 = rstan::extract(fit, "beta0")$beta0
 alpha = rstan::extract(fit, "alpha")$alpha
 keep_lakes_new = c(keep_lakes)#, "average")
-plots = list()
-phi_omega = 2 # Inverse dispersion of recruitment probability
-omegas = c(0.15, 0.2, 0.25, 0.3, 0.35, 0.4)
+phi_sigma_J1 = 2 # Inverse dispersion of juvenile dispersion and recruitment probability
+sigma_J1s = seq(0, 0.25, by=0.025) 
 extinction_at_fifty = list()
 
 # Specify whether we want to allow recruited adult survival probability to differ
 # from translocated adult survival probability
-run_types = c("Recruit survival != Translocated survival")
+run_type = "Recruit survival != Translocated survival"
 
-# c("Recruit survival == Translocated survival", 
-# 							"Recruit survival != Translocated survival")
+extinction_curve_for_sigma_J1 = function(sigma_J1){
 
-for(omega in omegas){
-
-	cat("Working on omega =", omega, "\n")
+	cat("Working on sigma_J1 =", sigma_J1, "\n")
 
 	compare_muT_mR = list()
+  extinction_curves = list()
+  pop_trajectories = list()
+  recruitment_trajectories = list()
+  sigma_J1_trajectories = list()
+  
+  for(l in 1:length(keep_lakes_new)){
+    
+    lake = keep_lakes_new[l]
 
-	for(run_type in run_types){
-	  
-	  extinction_curves = list()
-	  pop_trajectories = list()
-	  recruitment_trajectories = list()
-	  omega_trajectories = list()
-	  
-	  for(l in 1:length(keep_lakes_new)){
+    if(lake %in% c(keep_lakes_new)){
+
+	    cat("Working on", lake, "\n")
 	    
-	    lake = keep_lakes_new[l]
-
-	    if(lake %in% c(keep_lakes_new)){
-
-		    cat("Working on", lake, "\n")
-		    
-		    extinction_array = array(NA, dim=c(sims, steps + 1))
-		    recruitment_array = array(NA, dim=c(sims, steps))
-		    omega_array = array(NA, dim=c(sims, steps))
-		    total_pop_array = array(NA, dim=c(sims, steps + 1))
-		    
-		    # Mu and phi parameters on beta distribution of adult survival
-		    if(lake != "average"){
-
-		      muT =  median(1 / (1 + exp(-(beta0 + alpha[, l]))))
-		      lower_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.05))
-		      upper_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.95))
-		      
-		      if(run_type == "Recruit survival == Translocated survival"){
-		        muR = muT
-		      }
-		      else{
-
-		      	if(is.na(recruited_surv[lake_id == lake]$surv_prob_med) | lake %in% c(70641, 70556)){
-
-		      		# Lakes don't really have recruited individuals
-		      		# So set to translocated survival
-		        	# muR = all_surv[lake_id == lake]$surv_med
-		        	muR = muT
-		       		lower_muR = muT
-		       		upper_muR = muT
-
-		      	} else{
-		      		muR = recruited_surv[lake_id == lake]$surv_prob_med
-		      		lower_muR = recruited_surv[lake_id == lake]$surv_prob_lower
-		      		upper_muR = recruited_surv[lake_id == lake]$surv_prob_upper
-		      	}
-		      }
-		      
-		    } else{
-		      muT =  median(1 / (1 + exp(-(beta0))))
-		      
-		      if(run_type == "Recruit survival == Translocated survival"){
-		        muR = muT
-	        	lower_muR = muT
-	       		upper_muR = muT
-		      }
-		      else{
-		        muR = mean(all_surv$surv_med)
-	        	lower_muR = muT
-	       		upper_muR = muT
-		      }
-		    }
-		    phi = 10000 #median(phi)
-		   	
-		   	if(run_type != "Recruit survival == Translocated survival"){ 
-		    	compare_muT_mR[[as.character(lake)]] = c(muR=muR, 
-		    																					 lower_muR=lower_muR,
-		    																					 upper_muR=upper_muR,
-		    																					 muT=muT, 
-		    																					 lower_muT=lower_muT, 
-		    																					 upper_muT=upper_muT)
-		    }
-
-		    # Set initial conditions
-				recruitment = fread(file.path("..", "data", "clean", "abundance_and_recruitment", paste0(lake, "_recruitment.csv")))
-				med_recruit = recruitment[, .(recruit=sum(med)), by=.(year)]
-				med_recruit[, index:=.(1:nrow(med_recruit))]
-				initial_values = c(0, 0, 0, 0, 0, 0, 40) #med_recruit$recruit[1]) # Initial introduction size
-				omega_traj = NA # No prespecified omega trajectory
-
-		    # Run simulations
-		    for(k in 1:sims){
-
-
-		      sim_res = stochastic_simulation(steps, initial_values, muR, muT, phi, phi_omega, 
-		      																new_params=list(omega=omega, reproduction="nbd"),
-		      																omega_traj=omega_traj)
-		      results = sim_res$results
-		      num_recruited = sim_res$num_recruited
-		      extinction_array[k, ] = as.integer(apply(results, 2, function(x) all(x == 0)))
-		      recruitment_array[k, ] = num_recruited
-		      omega_array[k, ] = sim_res$omega_probs
-		      total_pop_array[k, ] = apply(results[6:7, ], 2, sum) # Just look at adults
-		    }
-		    
-		    extinction_curves[[lake]] = data.frame(ext_prob=colMeans(extinction_array), lake_id=lake, time=0:steps)
-		    pop_trajectories[[lake]] = total_pop_array
-		    recruitment_trajectories[[lake]] = recruitment_array
-		    omega_trajectories[[lake]] = omega_array
-
-		  } ## End lake loop
+	    extinction_array = array(NA, dim=c(sims, steps + 1))
+	    recruitment_array = array(NA, dim=c(sims, steps))
+	    sigma_J1_array = array(NA, dim=c(sims, steps))
+	    total_pop_array = array(NA, dim=c(sims, steps + 1))
 	    
-	  }
-	  
-	  extinction_curves_dt = as.data.table(do.call(rbind, extinction_curves))
-	  tplot = ggplot(extinction_curves_dt) + geom_line(aes(x=time, y=ext_prob, color=lake_id)) + theme_bw() + 
-			   						    scale_color_manual(values=c('#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02')) +
-	  		 								xlab("Years") + ylab("Extinction probability") + ggtitle(run_type) +
-	  		 								theme(plot.title = element_text(size = 6)) + ylim(c(-0.01, 1.01))
-	  
-	  plots[[run_type]] = tplot
+	    # Mu and phi parameters on beta distribution of adult survival
+	    if(lake != "average"){
 
-	  extdt = extinction_curves_dt[time == 50]
-	  extdt[, omega:=omega]
-	  extinction_at_fifty[[which(omegas == omega)]] = extdt
+	      muT =  median(1 / (1 + exp(-(beta0 + alpha[, l]))))
+	      lower_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.05))
+	      upper_muT = quantile(1 / (1 + exp(-(beta0 + alpha[, l]))), c(0.95))
+	      
+	      if(run_type == "Recruit survival == Translocated survival"){
+	        muR = muT
+	      }
+	      else {
+
+	      	if(is.na(recruited_surv[lake_id == lake]$surv_prob_med) | lake %in% c(70641, 70556)){
+
+	      		# Lakes don't really have recruited individuals
+	      		# So set to translocated survival
+	        	# muR = all_surv[lake_id == lake]$surv_med
+	        	muR = muT
+	       		lower_muR = muT
+	       		upper_muR = muT
+
+	      	} else{
+	      		muR = recruited_surv[lake_id == lake]$surv_prob_med
+	      		lower_muR = recruited_surv[lake_id == lake]$surv_prob_lower
+	      		upper_muR = recruited_surv[lake_id == lake]$surv_prob_upper
+	      	}
+	      }
+	      
+	    } else{
+	      muT =  median(1 / (1 + exp(-(beta0))))
+	      
+	      if(run_type == "Recruit survival == Translocated survival"){
+	        muR = muT
+        	lower_muR = muT
+       		upper_muR = muT
+	      }
+	      else{
+	        muR = mean(all_surv$surv_med)
+        	lower_muR = muT
+       		upper_muR = muT
+	      }
+	    }
+	    phi = 10000 # Set to a large value so there is limited year to year variation in adult survival
+	   	
+	   	if(run_type != "Recruit survival == Translocated survival"){ 
+	    	compare_muT_mR[[as.character(lake)]] = c(muR=muR, 
+	    																					 lower_muR=lower_muR,
+	    																					 upper_muR=upper_muR,
+	    																					 muT=muT, 
+	    																					 lower_muT=lower_muT, 
+	    																					 upper_muT=upper_muT)
+	    }
+
+	    # Set initial conditions
+			recruitment = fread(file.path("..", "data", "clean", "abundance_and_recruitment", paste0(lake, "_recruitment.csv")))
+			med_recruit = recruitment[, .(recruit=sum(med)), by=.(year)]
+			med_recruit[, index:=.(1:nrow(med_recruit))]
+			initial_values = c(0, 0, 0, 0, 0, 0, 40) #med_recruit$recruit[1]) # Initial introduction size
+			sigma_J1_traj = NA # No prespecified sigma_J1 trajectory
+
+	    # Run simulations
+	    for(k in 1:sims){
+
+	      sim_res = stochastic_simulation(steps, initial_values, muR, muT, phi, phi_sigma_J1, 
+	      																new_params=list(sigma_J1=sigma_J1, reproduction="nbd"),
+	      																sigma_J1_traj=sigma_J1_traj)
+	      results = sim_res$results
+	      num_recruited = sim_res$num_recruited
+	      extinction_array[k, ] = as.integer(apply(results, 2, function(x) all(x == 0)))
+	      recruitment_array[k, ] = num_recruited
+	      sigma_J1_array[k, ] = sim_res$sigma_J1_probs
+	      total_pop_array[k, ] = apply(results[6:7, ], 2, sum) # Just look at adults
+	    }
+	    
+	    extinction_curves[[lake]] = data.frame(ext_prob=colMeans(extinction_array), lake_id=lake, time=0:steps)
+	    pop_trajectories[[lake]] = total_pop_array
+	    recruitment_trajectories[[lake]] = recruitment_array
+	    sigma_J1_trajectories[[lake]] = sigma_J1_array
+
+	  } ## End lake loop
+    
+  }
+  
+  extinction_curves_dt = as.data.table(do.call(rbind, extinction_curves))
+
+  extdt = extinction_curves_dt[time == 50]
+  extdt[, sigma_J1:=sigma_J1]
+  return(list(extinction=extdt, compare=compare_muT_mR))
 	  
-	}
 
-}
+} # End function
 
+
+# Parallelize calculation of extinction curves
+parallel_res = mclapply(sigma_J1s, function(x) extinction_curve_for_sigma_J1(x), mc.cores=8)
+extinction_at_fifty = lapply(parallel_res, function(x) x[['extinction']])
+compare_muT_mR = lapply(parallel_res, function(x) x[['compare']])[[1]]
 
 extinction_at_fifty_dt = do.call(rbind, extinction_at_fifty) %>% 
 												 merge(lake_growth_rates_dt[, .(lake_id, surv_med)], key="lake_id")
@@ -343,21 +333,17 @@ cdat[, col:=colors]
 cdat = cdat[order(surv_med)]
 extinction_at_fifty_dt$lake_id_surv = factor(extinction_at_fifty_dt$lake_id_surv, levels=cdat$lake_id_surv)
 
-pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=omega, y=ext_prob)) + 
-							geom_vline(aes(xintercept=0.3), linetype="dashed") +
+pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=sigma_J1, y=ext_prob)) + 
+							geom_vline(aes(xintercept=0.1), linetype="dashed") +
 							geom_line(aes(color=lake_id_surv)) + 
 							geom_point(aes(color=lake_id_surv)) + 
 							scale_color_manual(values=cdat$col) +
-							theme_classic() + xlab("Probability of recruitment (\u03c9)") + ylab("Extinction prob. in 50 years") +
+							theme_classic() + xlab(bquote("Mean year 1 juvenile survival, \u03c3"~.[J1])) + ylab("Extinction prob. in 50 years") +
 							guides(color=guide_legend(title=bquote("Site, \u03c3"~.[AR]), title.position="top", ncol=3)) + 
 							theme(legend.position="bottom", legend.text=element_text(size=7), legend.title=element_text(size=8))
 
-# Examine simulations
-# matplot(t(pop_trajectories[["70550"]][1:100, ]), type="l")
-# matplot(t(recruitment_trajectories[["70550"]][1:10, ]), type="l")
 
 # Save comparison between translocated and survival probabilities from all individuals
-# Note that 
 
 compare_muT_mR_mat = do.call(rbind, compare_muT_mR)
 compare_muT_mR_dt = data.table(compare_muT_mR_mat)
@@ -384,13 +370,13 @@ beta0 = rstan::extract(fit, "beta0")$beta0
 alpha = rstan::extract(fit, "alpha")$alpha
 keep_lakes_new = c(keep_lakes)#, "average")
 plots = list()
-phi_omega = 2 # Inverse dispersion of recruitment probability
-omega = 0.5
+phi_sigma_J1 = 2 # Inverse dispersion of recruitment probability
+sigma_J1 = 0.5
 
 extinction_curves = list()
 pop_trajectories = list()
 recruitment_trajectories = list()
-omega_trajectories = list()
+sigma_J1_trajectories = list()
 
 for(l in 1:length(keep_lakes_new)){
   
@@ -402,7 +388,7 @@ for(l in 1:length(keep_lakes_new)){
 	  
 	  extinction_array = array(NA, dim=c(sims, steps + 1))
 	  recruitment_array = array(NA, dim=c(sims, steps))
-	  omega_array = array(NA, dim=c(sims, steps))
+	  sigma_J1_array = array(NA, dim=c(sims, steps))
 	  total_pop_array = array(NA, dim=c(sims, steps + 1))
 	  
 	  muT =  median(1 / (1 + exp(-(beta0 + alpha[, l]))))
@@ -414,26 +400,27 @@ for(l in 1:length(keep_lakes_new)){
 		med_recruit = recruitment[, .(recruit=sum(med)), by=.(year)]
 		med_recruit[, index:=.(1:nrow(med_recruit))]
 		initial_values = c(0, 0, 0, 0, 0, 0, med_recruit$recruit[1]) # Initial introduction size
-		omega_traj = NA # No prespecified omega trajectory
+		sigma_J1_traj = NA # No prespecified sigma_J1 trajectory
 
 	  # Run simulations
 	  for(k in 1:sims){
 
-	    sim_res = stochastic_simulation(steps, initial_values, muR, muT, phi, phi_omega, 
-	    																new_params=list(omega=omega, reproduction="nbd"),
-	    																omega_traj=omega_traj)
+	    sim_res = stochastic_simulation(steps, initial_values, muR, muT, phi, phi_sigma_J1, 
+	    																new_params=list(reproduction="nbd"),
+	    																sigma_J1_traj=sigma_J1_traj)
 	    results = sim_res$results
 	    num_recruited = sim_res$num_recruited
 	    extinction_array[k, ] = as.integer(apply(results, 2, function(x) all(x == 0)))
 	    recruitment_array[k, ] = num_recruited
-	    omega_array[k, ] = sim_res$omega_probs
+	    sigma_J1_array[k, ] = sim_res$sigma_J1_probs
 	    total_pop_array[k, ] = apply(results[6:7, ], 2, sum) # Just look at adults
 	  }
 	  
 	  extinction_curves[[lake]] = data.frame(ext_prob=colMeans(extinction_array), lake_id=lake, time=0:steps)
 	  pop_trajectories[[lake]] = total_pop_array
 	  recruitment_trajectories[[lake]] = recruitment_array
-	  omega_trajectories[[lake]] = omega_array
+	  sigma_J1_trajectories[[lake]] = sigma_J1_array
+
 
 	} ## End lake loop
   
@@ -456,10 +443,11 @@ pred_ss = apply(pop_trajectories[['70550']][1:sims, 1:16], 1, function(x) sum((o
 pred_ss_dt = data.table(ss=pred_ss, index=1:length(pred_ss))[order(ss)]
 ind = which.min(pred_ss)
 
-# Plot posterior distribution 
-best_omegas = reshape2::melt(omega_trajectories[['70550']][pred_ss_dt$index[1:250], 1:16])
-ggplot(best_omegas) + geom_histogram(aes(x=value), bins=15) + facet_wrap(~Var2)
-colMeans(omega_trajectories[['70550']][pred_ss_dt$index[1:50], 1:16])
+# Plot posterior distribution for sigma_J1
+best_sigma_J1s = reshape2::melt(sigma_J1_trajectories[['70550']][pred_ss_dt$index[1:250], 1:16])
+ggplot(best_sigma_J1s) + geom_histogram(aes(x=value), bins=15) + facet_wrap(~Var2)
+colMeans(sigma_J1_trajectories[['70550']][pred_ss_dt$index[1:50], 1:16])
+
 
 # Plot and compare observed and predicted abundance
 pred_traj = data.table(reshape2::melt(pop_trajectories[['70550']][pred_ss_dt$index[1:100], 1:16]))
@@ -467,7 +455,7 @@ colnames(pred_traj) = c("sim", "time", "abund")
 map = data.table(year=2006:2021, time=1:16)
 pred_traj = merge(pred_traj, map, by="time")
 ptraj = ggplot() + geom_line(data=pred_traj, aes(x=year, y=abund, group=sim, color="Predicted"), alpha=0.25) +
-										geom_line(data=NULL, aes(x=2006:2021, y=obs, color="Observed, 70550"), size=1) + 
+										geom_line(data=NULL, aes(x=2006:2021, y=obs, color="Observed, 70550"), linewidth=1) + 
 										scale_color_manual(values=c(colors[7], "black")) +
 										theme_classic() + xlab("Time (year)") + ylab("Adult abundance") +
 										scale_x_continuous(breaks=seq(2006, 2021, 2)) + 
