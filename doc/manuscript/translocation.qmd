@@ -793,9 +793,7 @@ where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture histor
 
 #### Population viability modeling
 
-##### Methods
-
-###### Incorporating yearly variability in vital rates
+##### Incorporating yearly variability in vital rates
 
 We computed yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the posterior distribution of individual state trajectories derived from mark-recapture models.
 Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among-population variability ([@fig-translocation-survival]).
@@ -804,14 +802,14 @@ However, within a population there was substantial yearly variability in the suc
 Therefore, we allowed for yearly variability in the probability of year 1 juvenile survival and recruitment (additional details provided in "Estimating model parameters" below).
 We also could have included environmental stochasticity in year 2 juvenile survival and recruitment \$\\sigma\_{J_2}\$, but our elasticity analysis showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$
 
-###### Estimating model parameters
+##### Estimating model parameters
 
 The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
 Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see "Materials and Methods - Estimation of frog survival and abundance" in main paper).
 For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs]).
 For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
 
-###### Model analysis and simulation
+##### Model analysis and simulation
 
 We performed four analyses on our model.
 First, we considered a deterministic version of our model with no yearly heterogeneity in year 1 juvenile survival and recruitment probability $\sigma_{J_1}$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\sigma_{J_1}$.
