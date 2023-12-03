@@ -3,8 +3,12 @@ bibliography: translocation.bib
 csl: pnas.csl
 # format: docx
 format :
-  latex:
+  # latex:
+  pdf:
     cite-method: natbib
+    include-in-header:
+      text: |
+        \usepackage{blkarray}
 editor: visual
 editor_options:
   markdown:
@@ -674,13 +678,124 @@ Therefore, although some outlier variant associations have a more limited geogra
 
 ### Frog population recovery
 
-#### Methods
+#### Laboratory Methods
 
 Swab extracts were analyzed using standard Bd DNA extraction and qPCR methods [@boyle2004], and extracts were analyzed singly instead of in triplicate [@kriger2006].
 For analysis of swabs collected during 2005--2014, we used standards developed from known concentrations of zoospores [@boyle2004], and after 2014, we used standards based on single ITS1 PCR amplicons [@longo2013].
 Based on paired comparisons between samples analyzed using both types of standards, Bd in the study area has an average of 60 ITS1 copies per zoospore.
 To express all qPCR results as the number of ITS1 copies, starting quantities obtained using the zoospore standard (measured as "zoospore equivalents") were multiplied by 60.
 In addition, all qPCR quantities (regardless of standard) were multiplied by 80 to account for the fact that DNA extracts from swabs were diluted 80-fold during extraction and PCR [@vredenburg2010].
+
+#### Mark-recapture model structure
+
+We estimated survival and recruitment for each site using open population mark recapture models based on @joseph2018.
+For each individual $i=1, ..., M$ on each survey $j=1, ..., n_j$: $o_{i, j} = 1$ if the individual was not detected, and $o_{i, j}=2$ if the individual was detected. 
+Capture histories of $M$ individuals are modeled, though only $N_s$ individuals were captured.
+This parameter expanded data augmentation allows us to capture the possibility that undetected individuals may have recruited into the adult population [@royle2012parameter]. 
+Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$. 
+
+We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$. 
+The four states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults. 
+Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$. 
+Each primary period $t$ occurs within one year, but within a year there are multiple primary periods.
+We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$. 
+Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
+We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die). 
+This assumption is justified by the short time intervals between surveys within primary periods.
+
+Live individuals are detected with probability $p_j$, which is modeled as:
+
+$$p_j = \text{logit}^{-1}(X_j^{(p)} \beta^{(p)}),$$
+
+where $X_j^{(p)}$ is a known row vector and $\beta^{(p)}$ an unknown parameter vector. 
+Not recruited and dead individuals are never captured. 
+We bundle these assumptions about the observation probabilities for survey $j$ into an emission matrix $\Omega_j$:
+
+$$
+\Omega_j =
+\begin{blockarray}{ccc}
+  \text{Not detected} & \text{Detected} \\
+\begin{block}{(cc)c}
+  1 & 0 & \text{Not recruited} \\
+  1 - p_j & p_j & \text{Alive} \\
+  1 & 0 & \text{Dead} \\
+\end{block}
+\end{blockarray}
+$$
+
+The state transition matrix $\Psi_{t, i}$ contains the probabilities of individual $i$ transitioning from state $u_{i, t}$ (rows) to $u_{i, t+1}$ (columns) between primary period $t$ and $t+1$. 
+For unintroduced individuals which naturally recruit, this matrix is given by: 
+
+$$
+\Psi_{t, i} =
+\begin{blockarray}{cccc}
+  \text{Not recruited} & \text{Alive} & \text{Dead} \\
+\begin{block}{(ccc)c}
+  1 - \lambda_t & \lambda_t & 0 & \text{Not recruited} \\
+  0 & \phi_t & 1 - \phi_t & \text{Alive} \\
+  0 & 1 & 1 & \text{Dead} \\
+\end{block}
+\end{blockarray},
+$$
+where $\lambda_t$ is the probability of recruiting in time $t$ and $\phi_t$ is the probability of survival in time $t$.
+
+For introduced individuals which have deterministic recruitment (they recruit when introduced), the state transition matrix is given by: 
+
+$$
+\Psi_{t, i} =
+\begin{blockarray}{cccc}
+  \text{Not recruited} & \text{Alive} & \text{Dead} \\
+\begin{block}{(ccc)c}
+  1 - I_{t, i} & I_{t, i} & 0 & \text{Not recruited} \\
+  0 & \phi_t & 1 - \phi_t & \text{Alive} \\
+  0 & 1 & 1 & \text{Dead} \\
+\end{block}
+\end{blockarray},
+$$
+where $I_{t, i}$ is a known indicator function for whether individual $i$ was introduced in primary period $t$. 
+
+We allow recruitment probabilities to vary in time via random effects, such that: 
+
+$$\lambda_t = \text{logit}^{-1}(\alpha^{(\lambda)} + \epsilon^{(\lambda)}_t),$$
+
+where $\alpha^{(\lambda)}$ is an intercept parameter and $\epsilon^{(\lambda)}_t$ is an adjustment for time $t$. 
+
+Survival probabilities also vary in time, and as a function of known covariates:
+
+$$\phi_t = \text{logit}^{-1}(X^{(\phi)}_t \beta^{(\phi)} + \epsilon^{(\phi)}_t),$$
+
+where $X^{(\phi)}_t$ is a row vector of known covariates, $\beta^{(\phi)}$ is a column vector of unknown coefficients, and $\epsilon^{(\phi)}_t$ is an adjustment for time $t$. 
+
+To complete the specification of the Bayesian model, we need to specify priors for all unknown parameters. 
+The recruitment parameter priors were specified as follows:
+
+$$\alpha^{(\lambda)} \sim N(0,1),$$
+$$\sigma^{(\lambda)} \sim N_+(0,1),$$
+$$\epsilon^{(\lambda)}_t \sim N(0, \sigma^{(\lambda)}),$$
+for periods $t=1, ..., T$. 
+Here $N$ represents the normal distribution and $N_+$ the half normal distribution with positive support. 
+
+Survival parameter priors were specified similarly as: 
+
+$$\beta^{(\phi)} \sim N(0, 1),$$
+$$\sigma^{(\phi)} \sim N_+(0, 1),$$
+$$\epsilon^{(\phi)}_t \sim N(0, \sigma^{(\phi)}),$$
+for time $t=1, ..., T$.
+
+The detection model coefficient vector also received a standard normal prior $\beta^{(p)} \sim N(0, 1)$.
+
+We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009hidden, @joseph2018]. 
+All of the code to specify and fit the model in Stan is available in the open source mrmr package [@joseph2019].
+
+The joint distribution of the resulting model can be written as follows: 
+
+\begin{multline*}
+[\alpha^{(\lambda)}, \sigma^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \sigma^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)} \mid \pmb Y] \propto \prod_{i=1}^M [Y_i \mid \alpha^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)}] \times \\
+\prod_{t=1}^T [\epsilon_t^{(\lambda)} \mid \sigma^{(\lambda)}] [\epsilon_t^{(\phi])} \mid \sigma^{(\phi)}] [\sigma^{(\lambda)}] [\sigma^{(\phi)}] [\alpha^{(\lambda)}] [\beta^{(\phi)}] [\beta^{(p)}],
+\end{multline*}
+
+
+where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture history of individual $i$.
 
 ### Population viability modeling
 
