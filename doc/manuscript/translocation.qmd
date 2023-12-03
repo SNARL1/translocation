@@ -776,7 +776,7 @@ $$\beta^{(\phi)} \sim N(0, 1),$$ $$\sigma^{(\phi)} \sim N_+(0, 1),$$ $$\epsilon^
 
 The detection model coefficient vector also received a standard normal prior $\beta^{(p)} \sim N(0, 1)$.
 
-We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009hidden, @joseph2018].
+We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009, @joseph2018].
 All of the code to specify and fit the model in Stan is available in the open source mrmr package [@joseph2019].
 
 The joint distribution of the resulting model can be written as follows:
@@ -888,7 +888,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 \newpage
 
 | **Parameter**                                                             | **Value**            | **Source**                                                                        |
-|:--------------------------------------------------------------------------|:---------------------|:----------------------------------------------------------------------------------|
+|:--------------------------|:------------------|:-------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
