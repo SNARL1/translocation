@@ -791,11 +791,11 @@ The joint distribution of the resulting model can be written as follows:
 ```
 where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture history of individual $i$.
 
-### Population viability modeling
+#### Population viability modeling
 
-#### Methods
+##### Methods
 
-##### Incorporating yearly variability in vital rates
+###### Incorporating yearly variability in vital rates
 
 We computed yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the posterior distribution of individual state trajectories derived from mark-recapture models.
 Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among-population variability ([@fig-translocation-survival]).
@@ -804,20 +804,20 @@ However, within a population there was substantial yearly variability in the suc
 Therefore, we allowed for yearly variability in the probability of year 1 juvenile survival and recruitment (additional details provided in "Estimating model parameters" below).
 We also could have included environmental stochasticity in year 2 juvenile survival and recruitment \$\\sigma\_{J_2}\$, but our elasticity analysis showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$
 
-##### Estimating model parameters
+###### Estimating model parameters
 
 The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
 Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see "Materials and Methods - Estimation of frog survival and abundance" in main paper).
 For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs]).
 For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
 
-##### Model analysis and simulation
+###### Model analysis and simulation
 
 We performed four analyses on our model.
 First, we considered a deterministic version of our model with no yearly heterogeneity in year 1 juvenile survival and recruitment probability $\sigma_{J_1}$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\sigma_{J_1}$.
 We then fixed $\sigma_{J_1} = 0.09$ and calculated the predicted growth rate of our 12 populations.
 
-Second, we performed a local elasticity analysis on $\lambda$ with respect to parameters \$\\sigma\_{J_1}\$, $\sigma_{J_2}$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp).
+Second, we performed a local elasticity analysis on $\lambda$ with respect to parameters $\sigma_{J_1}$, $\sigma_{J_2}$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp).
 
 Third, we defined a version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among-year variability in $\sigma_{J_1}$.
 We used this model to simulate a one-time introduction of 40 translocated adult frogs.
@@ -837,6 +837,41 @@ For each run and each year, we drew $\sigma_{J_1}$ from a uniform distribution b
 Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
 The yearly $\sigma_{J_1}$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
+
+#### Among-site survival modeling
+
+We used Bayesian generalized linear mixed models to investigate predictors of survival among sites. 
+The response $y_i$ is binary, representing a point estimate of whether individual $i$ survived in the year following translocation. 
+We generated these point estimates by rounding the posterior median of 1-year post introduction survival for each individual, and modeled the data using a Bernoulli distribution: 
+
+$$y_i \sim \text{Bernoulli}(p_i),$$
+
+where $p_i$ is the probability of survival.
+
+We modeled variation in probabilities as follows: 
+
+$$\text{logit}(p_i) = \alpha + X_i \pmb \beta + \pmb \nu_{g[1:N]},$$
+
+where $\alpha$ is an intercept, $X_i$ is a length $K$ row vector of predictors, $\pmb \beta$ is a column vector of predictor effects, and $\pmb \nu$ a vector of group level random effects. 
+Here $g[i]$ refers to the group $g$ containing individual $i$, and we estimate an adjustment for each of the $G$ groups ($\nu_1, ..., \nu_G$).
+
+These models were fit using the `stan_glmer()` function in the rstanarm package, with default priors described below [@rstanarm2022].
+These priors are vague, but include data dependent scaling as follows to account for different input variable scales.
+However, as we standardized all predictor variables similarly to have equal variance (by centering and dividing by twice the sample standard deviation), the resulting priors are identical. 
+Specifically, we have: 
+
+$$\alpha \sim \text{Normal}(0, 2.5),$$
+and 
+
+$$\beta_k \sim \text{Normal}(0, 5),$$
+
+for $k=1, ..., K$ where $K$ is the number of predictor variables. 
+
+The default prior for group level adjustments $\nu_1, ..., \nu_G$ in rstanarm is a zero-mean Gaussian, where the covariance matrix is constructed from a correlation matrix with an LKJ prior, and a vector of variance parameters -- the decomposition of variance prior with unit regularization, concentration, shape, and scale parameters [@lewandowski2009]. 
+
+We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan, with four parallel chains, each run for 10,000 iterations, discarding the first half of each chain as warm-up draws [@rstanarm2022]. 
+We used Rhat statistics and trace plots to verify convergence. 
+We considered models with different subsets of fixed and random effects, and used approximate leave-one-out cross validation to identify the best model [@vehtari2016].
 
 \newpage
 
