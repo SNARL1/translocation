@@ -692,16 +692,16 @@ We estimated survival and recruitment for each site using open population mark r
 For each individual $i=1, ..., M$ on each survey $j=1, ..., n_j$: $o_{i, j} = 1$ if the individual was not detected, and $o_{i, j}=2$ if the individual was detected.
 Capture histories of $M$ individuals are modeled, though only $N_s$ individuals were captured.
 
-This parameter expanded data augmentation allows us to capture the possibility that undetected individuals may have recruited into the adult population [@royle2012]. 
-Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$. 
+This parameter expanded data augmentation allows us to capture the possibility that undetected individuals may have recruited into the adult population [@royle2012].
+Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$.
 
-We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$. 
-The four states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults. 
-Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$. 
+We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$.
+The four states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults.
+Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$.
 Each primary period $t$ occurs within one year, but within a year there can be multiple primary periods.
-We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$. 
+We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$.
 Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
-We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die). 
+We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die).
 This assumption is justified by the short time intervals between surveys within primary periods, in cases where primary periods contain multiple secondary periods.
 
 Live individuals are detected with probability $p_j$, which is modeled as:
@@ -777,7 +777,7 @@ $$\beta^{(\phi)} \sim N(0, 1),$$ $$\sigma^{(\phi)} \sim N_+(0, 1),$$ $$\epsilon^
 
 The detection model coefficient vector also received a standard normal prior $\beta^{(p)} \sim N(0, 1)$.
 
-We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009, @joseph2018]. 
+We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009, @joseph2018].
 
 All of the code to specify and fit the model in Stan is available in the open source mrmr package [@joseph2019].
 
@@ -790,6 +790,40 @@ The joint distribution of the resulting model can be written as follows:
 \end{multline*}
 ```
 where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture history of individual $i$.
+
+#### Among-site survival modeling
+
+We used Bayesian generalized linear mixed models to investigate predictors of survival among sites.
+The response $y_i$ is binary, representing a point estimate of whether individual $i$ survived in the year following translocation.
+We generated these point estimates by rounding the posterior median of 1-year post introduction survival for each individual, and modeled the data using a Bernoulli distribution:
+
+$$y_i \sim \text{Bernoulli}(p_i),$$
+
+where $p_i$ is the probability of survival.
+
+We modeled variation in probabilities as follows:
+
+$$\text{logit}(p_i) = \alpha + X_i \pmb \beta + \pmb \nu_{g[1:N]},$$
+
+where $\alpha$ is an intercept, $X_i$ is a length $K$ row vector of predictors, $\pmb \beta$ is a column vector of predictor effects, and $\pmb \nu$ a vector of group level random effects.
+Here $g[i]$ refers to the group $g$ containing individual $i$, and we estimate an adjustment for each of the $G$ groups ($\nu_1, ..., \nu_G$).
+
+These models were fit using the `stan_glmer()` function in the rstanarm package, with default priors described below [@rstanarm2022].
+These priors are vague, but include data dependent scaling as follows to account for different input variable scales.
+However, as we standardized all predictor variables similarly to have equal variance (by centering and dividing by twice the sample standard deviation), the resulting priors are identical.
+Specifically, we have:
+
+$$\alpha \sim \text{Normal}(0, 2.5),$$ and
+
+$$\beta_k \sim \text{Normal}(0, 5),$$
+
+for $k=1, ..., K$ where $K$ is the number of predictor variables.
+
+The default prior for group level adjustments $\nu_1, ..., \nu_G$ in rstanarm is a zero-mean Gaussian, where the covariance matrix is constructed from a correlation matrix with an LKJ prior, and a vector of variance parameters -- the decomposition of variance prior with unit regularization, concentration, shape, and scale parameters [@lewandowski2009].
+
+We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan, with four parallel chains, each run for 10,000 iterations, discarding the first half of each chain as warm-up draws [@rstanarm2022].
+We used Rhat statistics and trace plots to verify convergence.
+We considered models with different subsets of fixed and random effects, and used approximate leave-one-out cross validation to identify the best model [@vehtari2016].
 
 #### Population viability modeling
 
@@ -835,41 +869,6 @@ For each run and each year, we drew $\sigma_{J_1}$ from a uniform distribution b
 Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
 The yearly $\sigma_{J_1}$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
-
-#### Among-site survival modeling
-
-We used Bayesian generalized linear mixed models to investigate predictors of survival among sites. 
-The response $y_i$ is binary, representing a point estimate of whether individual $i$ survived in the year following translocation. 
-We generated these point estimates by rounding the posterior median of 1-year post introduction survival for each individual, and modeled the data using a Bernoulli distribution: 
-
-$$y_i \sim \text{Bernoulli}(p_i),$$
-
-where $p_i$ is the probability of survival.
-
-We modeled variation in probabilities as follows: 
-
-$$\text{logit}(p_i) = \alpha + X_i \pmb \beta + \pmb \nu_{g[1:N]},$$
-
-where $\alpha$ is an intercept, $X_i$ is a length $K$ row vector of predictors, $\pmb \beta$ is a column vector of predictor effects, and $\pmb \nu$ a vector of group level random effects. 
-Here $g[i]$ refers to the group $g$ containing individual $i$, and we estimate an adjustment for each of the $G$ groups ($\nu_1, ..., \nu_G$).
-
-These models were fit using the `stan_glmer()` function in the rstanarm package, with default priors described below [@rstanarm2022].
-These priors are vague, but include data dependent scaling as follows to account for different input variable scales.
-However, as we standardized all predictor variables similarly to have equal variance (by centering and dividing by twice the sample standard deviation), the resulting priors are identical. 
-Specifically, we have: 
-
-$$\alpha \sim \text{Normal}(0, 2.5),$$
-and 
-
-$$\beta_k \sim \text{Normal}(0, 5),$$
-
-for $k=1, ..., K$ where $K$ is the number of predictor variables. 
-
-The default prior for group level adjustments $\nu_1, ..., \nu_G$ in rstanarm is a zero-mean Gaussian, where the covariance matrix is constructed from a correlation matrix with an LKJ prior, and a vector of variance parameters -- the decomposition of variance prior with unit regularization, concentration, shape, and scale parameters [@lewandowski2009]. 
-
-We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan, with four parallel chains, each run for 10,000 iterations, discarding the first half of each chain as warm-up draws [@rstanarm2022]. 
-We used Rhat statistics and trace plots to verify convergence. 
-We considered models with different subsets of fixed and random effects, and used approximate leave-one-out cross validation to identify the best model [@vehtari2016].
 
 \newpage
 
@@ -923,7 +922,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 \newpage
 
 | **Parameter**                                                             | **Value**            | **Source**                                                                        |
-|:---------------------------|:------------------|:-------------------------|
+|:--------------------------|:------------------|:-------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
