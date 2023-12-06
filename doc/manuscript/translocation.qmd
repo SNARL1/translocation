@@ -2,23 +2,19 @@
 bibliography: translocation.bib
 csl: pnas.csl
 format: pdf
-# format: docx
-format :
-  # latex:
-  pdf:
+# format:
+#    latex:
 #    cite-method: natbib
-    include-in-header:
-      text: |
-        \usepackage{blkarray}
+include-in-header:
+  text: |
+    \usepackage{blkarray}
 editor: visual
 editor_options:
   markdown:
     wrap: sentence
 ---
 
-<!--# Drop "evolutionary rescue" from title? -->
-
-## Title: Evolutionary rescue and reintroduction of resistant frogs allows recovery in the presence of a lethal fungal disease
+## Title: Reintroduction of frogs with reduced susceptibility allows recovery in the presence of a lethal fungal disease
 
 ### Authors:
 
@@ -91,7 +87,6 @@ Such diseases pose a severe threat to wildlife populations [@daszak2000], and ha
 Amid this global loss of biodiversity, some populations decimated by disease have subsequently recovered to varying extents [@scheele2017; @voyles2018; @knapp2016].
 Although we know relatively little about the mechanisms underlying recovery [@brannelly2021; @russell2020], host evolution is one possibility [@carlson2014; @searle2020].
 This process is known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often results in increased host resistance and/or tolerance [see @medzhitov2012 for definitions].
-However, linking these evolutionary responses to population recoveries is difficult and few clear examples exist.
 In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence [@mendelson2019; @brannelly2021].
 To date, the use of resistant/tolerant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
 (In this paper, we do not distinguish between resistance and tolerance because although these terms have different meanings and consequences for host-pathogen dynamics, these distinctions have little significance for our primary focus, i.e., describing recovery of MYL frogs in the presence of Bd.) <!--# Feels clumsy to include this parenthetically, but I have not yet come up with a better alternative.  -->
@@ -943,7 +938,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
 \newpage
 
 | **Parameter**                                                             | **Value**            | **Source**                                                                        |
-|:--------------------------------------------------------------------------|:---------------------|:----------------------------------------------------------------------------------|
+|:--------------------------|:------------------|:-------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year 1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_2}$, Yearly survival probability of year 2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_3}$, Yearly survival probability of year 3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
