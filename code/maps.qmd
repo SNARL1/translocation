@@ -150,7 +150,7 @@ st_is_valid(yose_boundary) # confirm that polygon is valid
 
 ```{r}
 # For printing on screen: xmin = 244000, ymax = 4242500, xmax = 309000, ymin = 4142000
-bbox <- st_bbox(c(xmin = 245000, ymax = 4231000, xmax = 308000, ymin = 4151000), 
+bbox <- st_bbox(c(xmin = 245000, ymax = 4231000, xmax = 311000, ymin = 4151000), 
                 crs = st_crs(yose_boundary)) %>%  
   st_as_sfc()
 hillshade_yose_crop <- st_crop(hillshade_90m, bbox)
@@ -160,21 +160,31 @@ hillshade_yose_crop <- st_transform(hillshade_yose_crop, 26911)
 ### Create study area map
 
 ```{r}
+#translocation_points <- translocation_points %>% 
+# mutate(
+#    label = case_when(
+#      site_id == 70567 ~ 4, 
+#      site_id == 72996 ~ 1
+#    ))
+
 translocation_points_map <- tm_shape(hillshade_yose_crop) + 
   tm_rgb(r = 1, g = 2, b = 3) +
   tm_shape(yose_boundary) + 
-  tm_borders(col = "black", lwd = 2) +
+  tm_borders(col = "#737373", lwd = 2) +
   tm_shape(translocation_points) + 
-  tm_symbols(size = 0.9, 
+  tm_symbols(size = 4, 
              shape = "donor_id",
              col = "type", 
              legend.shape.show = FALSE, 
-             palette = c("#0000FF", "#C0FF3E"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
+             palette = c("#87CEFA", "#C0FF3E"), # tmap only recognizes basic color names (e.g., "blue" but not "lightblue") - use HEX instead
              title.col = "Population type") +
   tm_layout(legend.position = c("right", "top"),
             legend.bg.color = "white",
             legend.title.size = 1.5,
             legend.text.size = 1.2) +
+  tm_text(text = "site_id",
+          auto.placement = TRUE,
+          size = 1.1) +
   tm_compass(type = "4star",
              position = c(0.80, 0.11),
              size = 5) +

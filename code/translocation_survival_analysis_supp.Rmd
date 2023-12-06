@@ -45,21 +45,23 @@ d1 <- read_csv(here::here("data", "clean", "bd_beforeafter_translocation.csv"))
 ### Data exploration
 
 ```{r}
-d1 %>% 
-  mutate(period = factor(period, levels = c("before", "after"))) %>% 
-  ggplot(aes(x = period, y = log10(bd_load + 1))) +
-          geom_boxplot()
+smplsize <- d1 %>% 
+  count(site_id1, period)
 
 d1 %>% 
   mutate(period = factor(period, levels = c("before", "after"))) %>% 
+  filter(interval < 2) %>% 
   ggplot(aes(x = period, y = log10(bd_load + 1))) +
     geom_boxplot() + 
     labs(x = "Period (relative to translocation)", y = (expression(Bd~load~(log["10"]~copies+1)))) +
+    coord_cartesian(ylim = c(-0.5, NA)) +
     facet_grid(. ~ site_id1) +
     theme_bw() +
-    theme(axis.text.x = element_text(angle = 90, vjust = 0.5),
+    theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
           strip.text.x = element_text(size = 8),
-          panel.grid = element_blank())
+          panel.grid = element_blank()) +
+    geom_text(data = smplsize, aes(x = period, y = -0.4, label = n), size = 2.2, vjust = 1)
+
 ggsave(here::here("doc", "manuscript", "figures", "bdload_beforeafter.png"), width = 6, height = 3)
 ```
 
