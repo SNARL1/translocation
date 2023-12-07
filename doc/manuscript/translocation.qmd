@@ -3,8 +3,8 @@ bibliography: translocation.bib
 csl: pnas.csl
 format: pdf
 # format:
-#    latex:
-#    cite-method: natbib
+#   latex: 
+#      cite-method: natbib
 include-in-header:
   text: |
     \usepackage{blkarray}
@@ -14,7 +14,7 @@ editor_options:
     wrap: sentence
 ---
 
-## Title: Reintroduction of frogs with reduced susceptibility allows recovery in the presence of a lethal fungal disease
+## Title: Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease
 
 ### Authors:
 
@@ -66,6 +66,8 @@ This example has potentially broad implications for the many taxa worldwide that
 
 ### Significance
 
+<!--# Revise to reflect reduced emphasis on evolutionary rescue. -->
+
 Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
 One possibility is rapid evolution that restores positive growth to declining populations ("evolutionary rescue").
 Individuals from these rescued populations could also be used to reestablish extinct populations.
@@ -76,20 +78,20 @@ Such reintroductions could play an important role in biodiversity conservation i
 
 ### Introduction
 
-Human activities are intensifying threats to global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009].
-To persist, affected taxa will often need to adapt to their altered environment or face decline and possible extinction.
-The process whereby rapid evolutionary change increases the frequency of adaptive alleles and restores positive population growth is known as "evolutionary rescue" [@carlson2014].
-In addition to preventing extinction of declining populations, individuals from rescued populations could also disperse, or be reintroduced, to empty habitats and promote larger-scale recovery.
-Although this overall scenario is potentially of critical importance for the conservation of an ever-growing number of imperiled taxa, descriptions of its occurrence and effectiveness in the wild are lacking.
+<!--# Remove uncited references in .bib -->
 
+Human activities are increasingly impacting to global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009].
 One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012].
 Such diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and extinctions in a wide range of taxa, including echinoderms, mammals, birds, and amphibians [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
-Amid this global loss of biodiversity, some populations decimated by disease have subsequently recovered to varying extents [@scheele2017; @voyles2018; @knapp2016].
-Although we know relatively little about the mechanisms underlying recovery [@brannelly2021; @russell2020], host evolution is one possibility [@carlson2014; @searle2020].
-This process is known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often results in increased host resistance and/or tolerance [see @medzhitov2012 for definitions].
-In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence [@mendelson2019; @brannelly2021].
-To date, the use of resistant/tolerant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
-(In this paper, we do not distinguish between resistance and tolerance because although these terms have different meanings and consequences for host-pathogen dynamics, these distinctions have little significance for our primary focus, i.e., describing recovery of MYL frogs in the presence of Bd.) <!--# Feels clumsy to include this parenthetically, but I have not yet come up with a better alternative.  -->
+Amphibians are experiencing particularly devastating impacts of disease due to the recent emergence and global spread of the highly virulent amphibian chytrid fungus, *Batrachochytrium dendrobatidis* (Bd) [@luedtke2023; @scheele2019].
+By one estimate, hundreds of species have experienced Bd-caused declines, and numerous susceptible taxa are extinct in the wild [@scheele2019].
+
+Alarmingly, evidence of natural recovery in the many Bd-impacted amphibian populations is scarce [for notable exceptions, see @scheele2017; @voyles2018; @knapp2016], suggestive of generally low resilience to disease effects.
+Following pathogen arrival in a host population, the ability to either limit pathogen burden (resistance) or limit the harm caused by a particular burden (tolerance) are key mechanisms to reduce disease impacts [@råberg2009] and facilitate population persistence and recovery [@brannelly2021].
+Host immunity and evolution both play important roles in the development of resistance and tolerance, and utilizing these factors would seem a promising approach to developing effective strategies to mitigate disease impacts in the wild [@garner2016; @woodhams2011].
+However, several aspects of the amphibian-Bd system present difficult obstacles, including (1) the general inability of amphibians to mount an effective immune response against Bd infection [@rosenblum2012; @fites2013; @grogan2018a], and (2) the apparent rarity of evolution of more resistant/tolerant genotypes [but see @savage2016; @grogan2018b].
+These factors suggest that reintroduction of amphibians into sites to reestablish populations extirpated by Bd will often result not in population recovery, but instead in the rapid reinfection and mortality of the introduced animals and/or their progeny [@hammond2021; @knapp2022; @stockwell2008; @scheele2021].
+Indeed, in a review of the effectiveness of mitigation methods, including reintroductions, Garner et al. [-@garner2016] came to the gloomy (but accurate) conclusion that, "Despite decades of research into amphibian-chytrid host--pathogen biology, no effective method to reduce the impact of chytridiomycosis (i.e., the disease caused by Bd) has emerged and been tested broadly in the field." If true, the future of many amphibian species threatened by Bd appears bleak.
 
 The mountain yellow-legged (MYL) frog, composed of the sister species *Rana muscosa* and *Rana sierrae* [@vredenburg2007], is emblematic of the unprecedented global declines of amphibians caused by the recently-emerged amphibian chytrid fungus [*Batrachochytrium dendrobatidis,* @scheele2019].
 Once the most common amphibian in the high elevation portion of California's Sierra Nevada mountains [USA, @grinnell1924], during the past century this frog has disappeared from more than 90% of its historical range [@vredenburg2007].
@@ -100,23 +102,42 @@ The arrival of *B. dendrobatidis* (Bd) in the 1960s and its subsequent spread [@
 These Bd-caused declines are fundamentally different from the fish-caused declines because removal of fish populations is feasible and results in the rapid recovery of frogs [@knapp2007; @vredenburg2004].
 In contrast, Bd appears to persist in habitats even in the absence of amphibian hosts [@walker2007], and therefore represents a long-term alteration of invaded ecosystems that amphibians will need to overcome to reestablish populations.
 
-Despite the catastrophic impact of Bd on MYL frogs, wherein most Bd-naive populations are extirpated following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
-Frogs in these recovering populations show reduced susceptibility to Bd infection [@knapp2016], with infection intensities ("loads") of adults consistently in the low-to-moderate range regardless of frog size [@ellison2019], frog density [@joseph2018; @wilber2022], or time of year [@knapp2011].
-This reduced susceptibility is evident even under controlled laboratory conditions [@knapp2016], and is consistent with several non-mutually exclusive mechanisms.
-These include natural selection for more resistant/tolerant genotypes [@savage2016], acquired immunity [@grogan2018], and inherent between-populations differences in frog susceptibility that pre-date Bd exposure.
-Of these possibilities, evolution of resistance/tolerance would have the most general relevance for amphibian recovery from the effects of Bd, and as such additional investigation of this potential mechanism is critically needed.
-Exploratory efforts to reintroduce frogs collected from recovering populations to sites from which frogs were previously extirpated following Bd epizootics provide a rare, but preliminary, indication that population establishment is possible despite ongoing Bd infection [@joseph2018].
+<!--# Add cross-references to the new Figure 1 in this and the preceding paragraph. -->
 
-<!--# I've reworded the next paragraph to provide explicit objectives of each of the sections (plus summary of results). -->
+Despite the catastrophic impact of Bd on MYL frogs, wherein most Bd-naive populations are extirpated following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016].
+Frogs in these recovering populations show reduced susceptibility to Bd infection [@knapp2016], with infection intensity ("load") on adults consistently in the low-to-moderate range regardless of frog size [@ellison2019], frog density [@joseph2018; @wilber2022], or time of year [@knapp2011].
+This reduced susceptibility is evident even under controlled laboratory conditions [@knapp2016], indicative of host resistance against Bd infection (and not simply an effect of factors external to individual frogs, e.g., environmental conditions) <!--# Need to strengthen this point.-->.
+(We acknowledge that frogs from naive and recovering populations could also differ in their tolerance of Bd infection, but no data are currently available to evaluate this possibility. Therefore, we focus on resistance throughout this paper.) The observed resistance of MYL frogs could be the result of several non-mutually exclusive mechanisms, including natural selection for more resistant genotypes [@savage2016], acquired immunity [@grogan2018b], and/or inherent between-population differences in frog susceptibility that pre-date Bd exposure.
+The possibility that MYL frog resistance is the result of evolution, combined with the observed natural recovery of frogs is consistent with "evolutionary rescue", whereby rapid evolutionary change increases the frequency of adaptive alleles and restores positive population growth [@carlson2014].
+This intriguing possibility also suggets an opportunity to accelerate the current rate of recovery by utilizing resistant frogs from recovering populations in reintroductions to vacant habitats, actions that could potentially allow the reestablishment of extirpated frog populations despite the ongoing presence of Bd [@joseph2018].
 
 In the current study, we had three primary objectives.
-First, to determine whether the reintroduction of resistant/tolerant MYL frogs obtained from populations recovering from Bd-caused declines [@knapp2016] allows the successful reestablishment of extirpated MYL frog populations despite ongoing disease, we conducted a 15-year landscape-scale frog reintroduction effort.
-Second, to extend our inferences of population recovery well beyond the temporal extent of our multi-year survey data, we developed a model to estimate the probability of persistence for the reintroduced populations over a multi-decadal period.
-Third, we used exome capture methods to provide insights into the evolutionary response by MYL frogs to Bd infection, and thereby provide a mechanism by which frogs reintroduced into sites from which they were previously extirpated by Bd could recover (instead of being driving to extirpation again).
-Our results indicate the capacity of reintroduced populations to become established and eventually recover despite ongoing disease, that the recovering populations are likely to persist over a 50-year period, and that frogs have undergone substantial evolutionary change associated with Bd exposure, changes that might provide frogs with increased resistance/tolerance to disease.
+First, to determine whether the reintroduction of resistant MYL frogs obtained from populations recovering from Bd-caused declines [@knapp2016] allows the successful reestablishment of extirpated MYL frog populations despite ongoing disease, we conducted a 15-year landscape-scale frog reintroduction effort.
+Second, to extend our inferences of population recovery well beyond the temporal extent of our multi-year survey data from reintroduced populations, we developed a model to estimate the probability of persistence for the reintroduced populations over a multi-decadal period.
+Third, we investigated whether MYL frogs show evidence of an evolutionary response to Bd exposre, and whether these genomic changes are associated with resistance and could provide a plausible mechanism whereby frogs reintroduced into sites from which they were previously extirpated by Bd could recover (instead of being driving to extirpation again).
+To accomplish this objective, we used exome capture methods to identify genomic regions with consistent differences between frogs from naive versus recovering populations and determined whether any of these regions contain genes associated with resistance.
+Our results indicate (1) the capacity of reintroduced populations to become established and eventually recover despite ongoing disease, (2) that the recovering populations are likely to persist over a 50-year period, and (3) that frogs have undergone substantial evolutionary change associated with Bd exposure, changes that might provide frogs with increased resistance to disease.
+Collectively, these results provide a rare example of amphibian recovery in the presence of a highly virulent pathogen, and have important implications for the conservation and recovery of the myriad species of wildlife endangered by escalating impacts from emerging infectious diseases.
+
+```{=html}
+<!--# Unused text from previous version of Introduction
+
+Amid this global loss of biodiversity, some populations decimated by disease have subsequently recovered to varying extents [@scheele2017; @voyles2018; @knapp2016].
+Although we know relatively little about the mechanisms underlying recovery from disease-caused declines [@brannelly2021; @russell2020], evolution of increased host resistance and/or tolerance [see @medzhitov2012 for definitions] is one possibility [@carlson2014; @searle2020].
+To reverse the escalating impacts of Bd on global amphibian biodiversity, the development of effective methods to recover impacted species is of the greatest importance.
+
+To persist, affected taxa will often need to adapt to their altered environment or face decline and possible extinction.
+The process whereby rapid evolutionary change increases the frequency of adaptive alleles and restores positive population growth is known as "evolutionary rescue" [@carlson2014].
+In addition to preventing extinction of declining populations, individuals from rescued populations could also disperse, or be reintroduced, to empty habitats and promote larger-scale recovery.
+Although this overall scenario is potentially of critical importance for the conservation of an ever-growing number of imperiled taxa, descriptions of its occurrence and effectiveness in the wild are lacking.
+
+This process is known from a diversity of wildlife populations [@savage2016; @epstein2016; @gignoux-wolfsohn2021; @holland2022], and often results in increased host resistance and/or tolerance [see @medzhitov2012 for definitions].
+In addition to promoting recovery of disease-impacted populations, the resistant/tolerant individuals in such populations could potentially be used to reestablish populations that were extirpated following disease emergence [@mendelson2019; @brannelly2021].
+To date, the use of resistant/tolerant individuals for species recovery is rare [but see @joseph2018], and studies that evaluate its potential utility are critically needed.
+(In this paper, we do not distinguish between resistance and tolerance because although these terms have different meanings and consequences for host-pathogen dynamics, these distinctions have little significance for our primary focus, i.e., describing recovery of MYL frogs in the presence of Bd.) \--\>
 
 <!--# Previous final paragraph of Introduction (revised post-review to reflect reordered sections): In the current study, we combine results from a 15-year landscape-scale frog reintroduction effort, a detailed population model, and genomic analyses to provide an unprecedented example of how reintroduction of resistant/tolerant frogs obtained from recovering populations [@knapp2016] allows the successful reestablishment of extirpated MYL frog populations despite ongoing disease. Specifically, the reintroduction of resistant/tolerant frogs to 24 sites and results from long-term capture-mark-recapture (CMR) surveys indicate the capacity of reintroduced populations to become established and eventually recover. We used these data to parameterize a population model that extends our inferences well beyond the temporal extent of the CMR data, and shows that the recovering populations are likely to persist over a 50-year period. Finally, genomic results obtained using exome capture methods highlight evolutionary rescue as potentially key mechanism by which MYL frogs are able to recover in the presence of ongoing Bd infection. These results show that frogs have undergone substantial evolutionary change associated with Bd exposure, changes that might provide frogs with increased resistance/tolerance to disease. Collectively, these results provide one of the first examples of how evolutionary rescue might facilitate the successful reintroduction of resistant/tolerant animals and allow the large-scale recovery of disease-impacted species.-->
-
+```
 ### Results
 
 #### Frog population recovery
@@ -392,7 +413,7 @@ For example, the MHC plays an important role in immunity.
 In our study, we identified a region that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions.
 These results corroborate numerous previous studies linking MHC genes to amphibian resistance/tolerance against Bd [e.g., @savage2011; @bataille2015].
 Similarly, the region with the strongest indication of directional selection (as measured by $\pi_{diff}$) contains the interferon-related gene GVINP1.
-Several previous studies have found this gene to be differentially expressed during Bd infection [e.g., @grogan2018; @ellison2014] and in populations differing in Bd susceptibility [@grogan2018].
+Several previous studies have found this gene to be differentially expressed during Bd infection [e.g., @grogan2018b; @ellison2014] and in populations differing in Bd susceptibility [@grogan2018b].
 This gene is also strongly linked to disease in salmon, explaining a notable 20% of the resistance phenotype [@robledo2020; @robledo2018].
 We also identified a region, characterized by high *F~ST~* and low $\pi_{diff}$, that contained the complement genes C6 and C7.
 The complement system plays an important role in innate immunity [@rieraromo2016], and our results could indicate that balancing selection is acting in this region of the genome to favor a diverse set of alleles, as is known for C6 in humans [@soejima2005].
@@ -888,19 +909,21 @@ In the comparison of individual outlier variants between naive and recovering po
 However, for the other 6 genes we still found a statistically significant signal of selection in 2 of the 3 genetic clusters (containing populations 6--9; @fig-allelefrequencies, @fig-selectionresults A).
 Therefore, although some outlier variant associations have a more limited geographic extent than RIN3, they still describe parallel evolutionary changes following Bd exposure and are therefore interesting candidates for future studies.
 
+\newpage
+
 ### Figures
 
 ![Evidence for selection on individual variants in recovering MYL frog populations. (A) PCA calculated from binary SNPs showing the genomic relationship of samples. Numeric labels and colors match those in @fig-allelefrequencies A. Populations 1-7 are *R. sierrae* and populations 8 and 9 are *R. muscosa*. (B) qqplot showing observed and expected p-values for 148,307 SNPs and INDELS. Dashed line shows p-value that identifies outliers. (C) Manhattan plot showing p-value for each SNP. SNPs are sorted by genomic position and contigs are sorted by size. Red line shows p-value that identifies outliers. Outlier SNPs above this threshold are highlighted and labeled. Bold labels indicate the presence of at least one non-synonymous SNP in that gene.](figures/pca_qq_manhattan.png){#fig-selectionresults width="450"}
 
-![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana mucosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana mucosa* Contig19. Asterices indicate the location of SNP outliers in the TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
-
 \newpage
+
+![Synteny plot showing conserved gene order in *Xenopus tropicalis* and *Rana muscosa* for the outlier region containing MHC Class I Classical and MHC Class III gene regions. The plot was created with SimpleSynteny [@veltri2016] using *Xenopus tropicalis* Chromosome 8 (NC_030684.2, genbank accession GCA_000004195.4) and *Rana muscosa* Contig19. Asterices indicate the location of SNP outliers in the TCF19 and VARS1 genes. Gap sizes for each contig representation are labeled.](figures/synteny_figure.png){#fig-synteny-plot}
 
 ![Map showing the locations of translocated and donor MYL frog populations in Yosemite National Park (park boundary indicated by gray polygon). Symbol shapes indicate the donor population used for each translocation site, and 5-digit numbers identify each donor and translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).](figures/map_translocation_points.png){#fig-yosemap width="400"}
 
 ![For the best model describing the average 1-year survival of frogs in the first translocation to a site as a predictor of survival of frogs in all subsequent translocations to that site, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and single predictor variable. In the Bayesian framework in which the model was developed, a variable is considered an important predictor if the associated uncertainty interval does not overlap zero (indicated by the dashed red line).](figures/mcmc_areas_m2b.png){#fig-transsurvival-postdens width="450"}
 
-![Evidence that frogs translocated from recovering populations can maintain the benefits of resistance/tolerance in non-natal habitats <!--# Consider edits to this to respond to Reviewer 2 - Comment 4. In Discussion?-->. For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range. Loads indicative of severe disease are \> 5.8 ITS copies (on a log~10~ scale). Samples sizes are provided just above the x-axis.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="700"}
+![Evidence that frogs translocated from recovering populations can maintain the benefits of resistance/tolerance in non-natal habitats <!--# Consider edits to this to respond to Reviewer 2 - Comment 4. In Discussion?-->. For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range. Loads indicative of severe disease are \> 5.8 ITS copies (on a log~10~ scale). Samples sizes are provided immediately above the x-axis.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="500"}
 
 ![Evidence that Bd load is not an important predictor of post-translocation frog survival. For the best model identifying predictors of 1-year frog survival following translocation, estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line). Predictor variables shown on the y-axis are defined as follows: length = frog size, snow_t = winter severity in the year of translocation (measured on April 1), snow_t1 = winter severity in the year following translocation (measured on April 1), day = day of year on which a translocation was conducted, bd_load = Bd load, elevation = site elevation, order_first = within-site translocation order, sex_male = frog sex, donor_70567 and donor_72996 = donor population.](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="350"}
 
@@ -928,8 +951,7 @@ viability_table <- read_csv(here::here("data", "clean", "frog_translocation_fina
   group_by(period) %>% 
   count(period, survival) %>% 
   mutate(n_period = sum(n), 
-         prop = (n / n_period)) %>% 
-  mutate(across(prop, round, 3)) %>% 
+         prop = round(n / n_period, 3)) %>% 
   arrange(period, survival)
   
   knitr::kable(viability_table, format = "pipe", align = "lcccc", col.names = c("Period", "Survival probability", "Number of translocations", "Total translocations", "Proportion of translocations")) 
