@@ -400,6 +400,7 @@ Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) 
 This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
 In *Xenopus*, five of these genes occur in the extended major histocompatibility complex (MHC) Class I region (FLOT1, TUBB, MDC1, CCHCR1, TCF19) and three occur in the extended MHC Class III region (HSP70, LSM2, VARS) [@ohta2006].
 Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes.
+<!--# Need to describe and reference Figures 14 SI and 15 SI. -->
 
 ### Discussion
 
