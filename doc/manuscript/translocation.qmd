@@ -119,8 +119,8 @@ The possible evolution of MYL frog resistance and subsequent population recovery
 This intriguing possibility also suggests an opportunity to expand recovery beyond the spatial scale possible under natural recovery by utilizing resistant frogs from recovering populations in reintroductions to vacant habitats (@fig-recovery-model) [@joseph2018; @mendelson2019].
 
 In the current study, we had three primary objectives.
-First, to determine whether the reintroduction of resistant MYL frogs obtained from populations recovering from Bd-caused declines allows the successful reestablishment of extirpated populations despite ongoing disease, we conducted a 15-year landscape-scale frog reintroduction effort.
-Second, to extend our inferences of population recovery well beyond the temporal extent of our reintroduction study, we developed a model to estimate the probability of persistence for the reintroduced populations over a multi-decadal period.
+First, to determine whether the reintroduction of resistant MYL frogs obtained from populations recovering from Bd-caused declines allows the successful reestablishment of extirpated populations despite ongoing disease, we conducted a 15-year landscape-scale frog reintroduction effort (@fig-recovery-model).
+Second, to extend our inferences of population recovery well beyond the temporal extent of our reintroduction study, we developed a model to estimate the probability of persistence for the reintroduced populations over a multi-decadal period (@fig-recovery-model).
 Third, we investigated whether MYL frogs show evidence of an evolutionary response to Bd exposure, and whether these genomic changes are associated with resistance.
 To accomplish this objective, we used exome capture methods to identify genomic regions with consistent differences between frogs from naive versus recovering populations (@fig-recovery-model) and determined whether any of these regions contain genes associated with resistance.
 Our results indicate (1) the capacity of reintroduced populations to become established and eventually recover despite ongoing disease, (2) that the recovering populations are likely to persist over a 50-year period, and (3) that MYL frogs have undergone substantial evolutionary change following Bd exposure and that some of the genomic regions under selection contain genes related to disease resistance.
@@ -307,10 +307,11 @@ frog_captures_gt0_max <- d3 %>%
   summarize(max(pyears_recruits_present))
 ```
 
-To determine whether frogs from recovering populations can be used to reestablish extirpated populations, we conducted `r n_distinct(d1$site_id, d1$date)` reintroductions in Yosemite National Park (`r min(d1$year)`--`r max(d1$year)`).
+To determine whether MYL frogs from recovering populations can be used to reestablish extirpated populations, we conducted `r n_distinct(d1$site_id, d1$date)` reintroductions in Yosemite National Park (`r min(d1$year)`--`r max(d1$year)`).
 Each of the reintroductions involved collection of adult frogs from 1 of `r n_distinct(d1$donor)` recovering, Bd-positive "donor" populations and translocating them to 1 of `r n_distinct(d1$site_id)` nearby recipient sites (@fig-yosemap SI).
-The donor populations included 2 of the 5 recovering populations included in the frog evolution study described above (@fig-allelefrequencies A: population 1 and 4).
-Following translocation, adult survival and recruitment of new adults was estimated from capture-mark-recapture (CMR) surveys and counts of tadpoles and juveniles were obtained from visual encounter surveys (VES).
+The donor populations included 2 of the 5 recovering populations included in the frog evolution study summarized above (@fig-allelefrequencies A: population 1 and 4).
+Following translocation, we estimated adult survival and recruitment of new adults from capture-mark-recapture (CMR) surveys and obtained counts of tadpoles and juveniles from visual encounter surveys (VES).
+The number survey years per site was a consequence of when translocations were conducted, and ranged from 2--16 years.
 
 Of the `r nrow(d2)` translocated populations, `r frog_counts_gt0_nrow` (`r frog_counts_gt0_nrow / nrow(d2)`) showed evidence of successful reproduction in subsequent years, as indicated by the presence of tadpoles and/or juveniles.
 For these `r frog_counts_gt0_nrow` populations, one or both life stages were detected in nearly all survey-years following translocation (proportion of survey-years: median = `r frog_counts_gt0_median`, range = `r frog_counts_gt0_min`--`r frog_counts_gt0_max`).
@@ -318,26 +319,34 @@ These same populations were also those in which recruitment of new adults (i.e.,
 As with early life stages, recruits were detected in the majority of post-translocation survey-years (proportion of survey-years: median = `r frog_captures_gt0_median`, range = `r frog_captures_gt0_min`--`r frog_captures_gt0_max`).
 In summary, survey results indicate that translocations resulted in the establishment of reproducing MYL frog populations at most recipient sites despite the ongoing presence of Bd.
 
+Bd loads were fairly consistent before versus after translocation, and loads were nearly always well below the level indicative of severe chytridiomycosis (i.e., the disease caused by Bd) and associated frog mortality (@fig-bdload-beforeafter SI) [@joseph2018; @vredenburg2010].
+Although it is possible that the observed relatively small change in load is a consequence of individuals with high Bd loads dying and therefore being unavailable for sampling during the post-translocation period, the fact that there was little difference in pre- versus post-translocation Bd loads even in those populations that had very high frog survival (70556, 74976; @fig-translocation-survival, @fig-bdload-beforeafter SI) suggests a true lack of substantial change in Bd load.
+
 The ultimate measure of reintroduction success is the establishment of a self-sustaining population.
 Given that it can take years or even decades to determine the self-sustainability of a reintroduced population [for an example in MYL frogs, see @joseph2018], the use of proxies is essential for providing shorter-term insights into reintroduction success and the factors driving it.
 Results from our CMR surveys allowed us to accurately estimate frog survival, including over the entire CMR time series for each site and during only the 1-year period immediately following translocation.
-Estimates of 1-year frog survival (from the site-specific mrmr models; see **Materials and Methods - Frog population recovery - Field methods**) indicate that survival was highly variable between recipient sites, but relatively constant within recipient sites (for the subset of sites that received multiple translocations; @fig-translocation-survival).
-In addition, 1-year survival was higher for frogs translocated later in the study period than earlier.
-Five of the 7 populations translocated after 2013 had estimated survival $\ge$ 0.5, compared to only 1 of 5 populations translocated prior to 2013.
-We suggest this resulted primarily from our improved ability to choose recipient sites with higher habitat quality for *R. sierrae* (see **Materials and Methods - Frog population recovery - Field methods** for details).
-Finally, Bd loads were fairly consistent before versus after translocation, and loads were nearly always well below the level indicative of severe chytridiomycosis (i.e., the disease caused by Bd) and associated frog mortality (@fig-bdload-beforeafter SI) [@joseph2018; @vredenburg2010].
-Although it is possible that the observed relatively small change in load is a consequence of individuals with high Bd loads dying and therefore being unavailable for sampling during the post-translocation period, the fact that there was little difference in pre- versus post-translocation Bd loads even in those populations that had very high frog survival (70556, 74976; @fig-translocation-survival, @fig-bdload-beforeafter SI) suggests a true lack of substantial change in Bd load.
-Collectively, these results indicate that frogs show relatively high survival at the majority of recipient sites, site characteristics strongly affect survival, and Bd loads appear more strongly influenced by frog characteristics (e.g., resistance) than site characteristics.
+These estimates were made using site-specific models analyzed using the mrmr package (see **Materials and Methods - Frog population recovery - Field methods**).
+We use these estimates to describe general patterns of frog survival in all translocated cohorts, and in a cross-site meta-analysis of frog survival to identify important predictors of 1-year frog survival (e.g., Bd load).
 
-To determine whether Bd load had a negative effect on adult survival, as would be expected if frogs were highly susceptible to Bd infection, we developed a meta-analysis of the drivers of frog survival across all of our recipient sites.
-This analysis used linear and multilevel models, and included a diversity of frog, habitat, weather, and translocation characteristics as predictors and 1-year frog survival (@fig-translocation-survival) as the response variable.
+Estimates of 1-year frog survival indicate that survival was highly variable between recipient sites, but relatively constant within recipient sites (for the subset of sites that received multiple translocations; @fig-translocation-survival).
+These patterns indicate an important effect of site characteristics on frog survival.
+In addition, 1-year survival was higher for frogs translocated later in the study period than earlier: 5 of the 7 populations translocated after 2013 had estimated survival $\ge$ 0.5, compared to only 1 of 5 populations translocated prior to 2013.
+We suggest this resulted primarily from our improved ability to choose recipient sites with higher habitat quality for *R. sierrae* (see **Materials and Methods - Frog population recovery - Field methods** for details).
+This increased survival has direct implications for population viability (see **Results - Long-term population viability**).
+
+The goal of our meta-analysis was to identify important predictors of 1-year frog survival.
+We were particularly interested in whether Bd load had a negative effect on adult survival, as would be expected if frogs were highly susceptible to Bd infection.
+This analysis was conducted in a Bayesian framework and included a diversity of frog, site, weather, and translocation characteristics as predictors and 1-year frog survival (@fig-translocation-survival) as the response variable.
 The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (@fig-survival-postdens SI).
-Important predictors included winter severity in the year following translocation, site elevation, and donor population (@fig-cond-effects).
+Instead, important predictors included winter severity in the year following translocation, site elevation, and donor population (@fig-cond-effects).
 Males had somewhat higher survival than females, but this effect was small (@fig-cond-effects, @fig-survival-postdens SI).
-Together, these results are consistent with frogs in recovering populations having sufficient resistance to suppress Bd loads below harmful levels.
-In addition, the moderate and relatively unchanged Bd loads that characterized frogs following translocation (@fig-bdload-beforeafter SI) and relatively high survival of frogs in numerous translocated cohorts (@fig-translocation-survival) suggests that frogs translocated from recovering populations can maintain the benefits of resistance in non-natal habitats.
-Finally, in 3 locations where longer CMR time series allowed us to assess the survival of new adults recruited to the population, naturally recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
-This suggests that frog resistance in non-natal habitats is maintained across generations.
+The absence of Bd load as an important predictor of frog survival is consistent with frogs in recovering populations having sufficient resistance to suppress Bd loads below harmful levels.
+
+In summary, results from our frog translocation study indicate that translocations resulted in (1) relatively high 1-year survival of translocated adults, reproduction, and recruitment at the majority of recipient sites, (2) 1-year survival of adults is influenced by site characteristics, weather conditions, and donor population (but not Bd load), and (3) based on the relatively small changes in Bd load after translocation, loads appear more strongly influenced by frog characteristics (e.g., resistance) than site characteristics.
+Together, these results indicate that frogs translocated from recovering populations can maintain the benefits of resistance in non-natal habitats.
+In addition, in 3 locations where longer CMR time series allowed us to assess the survival of new adults recruited to the population, naturally-recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
+This suggests that frog resistance is also maintained across generations.
+All of the conditions described above are supportive of population establishment and long-term population growth.
 
 #### Long-term population viability
 
@@ -359,11 +368,12 @@ To test the validity of our model predictions, we demonstrated that our stochast
 
 In summary, our model demonstrates that given observed yearly adult survival probabilities of translocated frogs, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
 This is likely a conservative estimate because there is evidence that naturally-recruited adults have higher survival probability than translocated adults (@fig-compare_surv_probs), but we considered these probabilities to be equal in all but three of our populations where we had sufficient data to distinguish these different probabilities.
-In addition, 5 of the 7 populations translocated after 2013 were predicted to have long-term viability, compared to only 1 of 5 populations translocated prior to 2013.
-Thus, there is some trend suggesting that our ability to select high quality habitats that promote long-term viability of translocated populations improved over time.
-<!--# Given that we make a similar argument related to frog survival, the information in these last 2 sentences seems relatively obvious. Should we drop them? -->
 
 #### Frog evolution in response to Bd
+
+Results from the preceding sections indicate the critical role of frog resistance in post-translocation frog survival, population growth, and population viability.
+As such, identifying the mechanisms underlying this resistance would fill a key gap in our understanding of the factors that promote population resilience in the presence of disease.
+Although natural selection for more resistant frog genotypes, and evolutionary rescue, may be foundational to the ability of frogs to recover despite ongoing Bd infection, for MYL frogs, the role of disease-mediated selection in these processes remains unknown.
 
 To determine whether MYL frog populations show an evolutionary response to Bd, we compared frog genomes between populations with contrasting histories of Bd exposure.
 Specifically, we compared frog genomes sampled in 4 populations that have not yet experienced a Bd-caused epizootic ("naive") [@zhou2015] versus in 5 populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering"; @fig-allelefrequencies) [@knapp2016; @vredenburg2010].
@@ -400,7 +410,7 @@ Finally, one shared outlier region on Contig8 contained one outlier SNP (TCF19) 
 This region (854kb from the beginning of the outlier window to the VARS SNP) contained a total of 8 annotated genes.
 In *Xenopus*, five of these genes occur in the extended major histocompatibility complex (MHC) Class I region (FLOT1, TUBB, MDC1, CCHCR1, TCF19) and three occur in the extended MHC Class III region (HSP70, LSM2, VARS) [@ohta2006].
 Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes.
-<!--# Need to describe and reference Figures 14 SI and 15 SI. -->
+<!--# Need to describe and reference Figures 14 SI and 15 SI. --> <!--# Add a few summary sentences to conclude this section.  -->
 
 ### Discussion
 
@@ -525,6 +535,8 @@ Group-level effects included site_id, translocation_id, or translocation_id nest
 We performed all analyses with the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022].
 For all models, we used default, weakly informative priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked convergence of the MCMC algorithm using trace plots and Rhat, and evaluated model fit using leave-one-out ("LOO") cross-validation [@gelman2013; @gabry2019; @vehtari2016], as implemented by the loo package [@vehtari2022].
+
+<!--# Add brief description of methods used in comparison of survival by translocated vs. naturally recruited individuals. Primary focus should be on describing that data were derived from mrmr model results, and on how those data were extracted. -->
 
 ##### Changes in Bd load following translocation
 
