@@ -893,13 +893,8 @@ We also could have included environmental stochasticity in year 2 juvenile survi
 ##### Estimating model parameters
 
 The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
-<<<<<<< HEAD
-Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see **Materials and Methods - Estimation of frog survival and abundance** in main paper).
+Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see **Materials and Methods - Estimation of frog survival and abundance** and **Supporting Information - Frog population recovery - Estimation of frog survival and abundance** for details).
 For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ (@fig-compare_surv_probs SI).
-=======
-Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see "Materials and Methods - Estimation of frog survival and abundance" in main paper and Appendi).
-For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs]).
->>>>>>> 7e22ef76744db33458883b549de12f89f38a7b27
 For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
 
 To estimate the $\sigma_{A_R}$, we used the posterior distribution of predicted true states for naturally-recruited individuals (1=not recruited, 2=alive, 3=dead, as described in *Mark-recapture model structure*), then calculated the posterior probability of individuals surviving between consecutive primary periods, conditional on being alive in the first primary period (e.g., given a value of 2 (alive) in the first primary period, how often was the value still 2 (alive) in the next primary period compared to 3 (dead)?)
