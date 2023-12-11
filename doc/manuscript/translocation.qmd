@@ -309,7 +309,7 @@ frog_captures_gt0_max <- d3 %>%
 
 To determine whether MYL frogs from recovering populations can be used to reestablish extirpated populations, we conducted `r n_distinct(d1$site_id, d1$date)` reintroductions in Yosemite National Park (`r min(d1$year)`--`r max(d1$year)`).
 Each of the reintroductions involved collection of adult frogs from 1 of `r n_distinct(d1$donor)` recovering, Bd-positive "donor" populations and translocating them to 1 of `r n_distinct(d1$site_id)` nearby recipient sites (@fig-yosemap SI).
-The donor populations included 2 of the 5 recovering populations included in the frog evolution study summarized above (@fig-allelefrequencies A: population 1 and 4).
+The donor populations included 2 of the 5 recovering populations included in the frog evolution study summarized above (@fig-allelefrequencies A: population 1 and 4), and these donor populations contributed frogs for 20 of the `r n_distinct(d1$site_id, d1$date)` translocations.
 Following translocation, we estimated adult survival and recruitment of new adults from capture-mark-recapture (CMR) surveys and obtained counts of tadpoles and juveniles from visual encounter surveys (VES).
 The number survey years per site was a consequence of when translocations were conducted, and ranged from 2--16 years.
 
@@ -350,7 +350,7 @@ All of the conditions described above are supportive of population establishment
 
 #### Long-term population viability
 
-Results from frog translocations indicated that most populations showed evidence of successful reproduction and recruitment and that adult survival was often relatively high (described above).
+Results from the frog translocation study indicated that most populations showed evidence of successful reproduction and recruitment, and that adult survival was often relatively high (described above).
 Although suggestive of population establishment, a decade or more of surveys may be necessary to confirm that populations are in fact self-sustaining [@joseph2018].
 To extend our inferences of population establishment beyond those possible from the 3--16 years of site-specific CMR data, we developed a population viability model.
 Specifically, to test whether the observed yearly adult survival probabilities in translocated populations (provided in legend of @fig-viability B) were sufficient for long-term viability, we built a stage-structured matrix model that captured known frog demography and included demographic and environmental stochasticity.
@@ -382,7 +382,7 @@ Naive populations are characterized by large numbers of adults (i.e, typically 1
 In contrast, recovering populations exist in an enzootic state [@briggs2010], characterized by smaller numbers of adults (generally \< 100), high Bd prevalence [often \> 80%, @knapp2011], and, in adults, moderate Bd loads that are typically well below the level expected to cause mortality [@vredenburg2010].
 Naive and recovering populations can be identified unambiguously using these differences in Bd prevalence and load.
 Finally, there is no potential for frog dispersal between the nine study populations due to presence of introduced (predatory) fish and fish-induced habitat fragmentation.
-(See **Supporting Information** for additional details regarding the study design.)
+(See **Supporting Information** for additional details regarding the study design.) <!--# Make sure that it is clear that 2 of our 3 donor populations were included in the genomics study.  -->
 
 We conducted a principal component analysis (PCA) of the genomic data to describe the relationships between sampled populations, and then used two complementary approaches to identify regions of the genome under selection.
 First, we used a multivariate linear mixed model to evaluate associations between population type (i.e., naive versus recovering) and individual variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (INDELS).
@@ -414,66 +414,75 @@ Therefore, this region under selection is part of the extended MHC Class I and I
 
 ### Discussion
 
-Disease-induced population declines are decimating global biodiversity [@daszak2000], but strategies to recover affected species are generally lacking.
-Here, we tested the possibility that populations of resistant/tolerant individuals could be used to reestablish extirpated populations.
+<!--# I kept the order of paragraphs from the original submission (evolution first, followed by translocations). This provides a more direct path to the argument that the MYL frog-Bd system is a likely example of evolutionary rescue. Does this order work? -->
+
+Disease-induced population declines are decimating global biodiversity [@daszak2000], but broadly-applicable strategies to recover affected species are generally lacking [e.g., @garner2016].
+Here, we tested the possibility that populations of resistant individuals from naturally recovering populations can be used to reestablish extirpated populations of the endangered MYL frog in the presence of a highly virulent fungal pathogen (Bd).
 Although previously proposed [@mendelson2019; @scheele2021], this strategy has rarely been used in the wild [see @joseph2018 for a small-scale example].
-In particular, although numerous studies have documented signatures of selection in hosts following disease-induced declines [e.g., @epstein2016; @gignoux-wolfsohn2021], we are unaware of any that used individuals bearing the resulting adaptive alleles to reestablish extirpated populations.
-The results of our study provide evidence that (1) MYL frogs have experienced strong selection following exposure to a recently-emerged lethal fungal disease and that some of the genomic regions under selection contain genes related to disease resistance/tolerance, and (2) reintroduction of individuals from these resistant/tolerant populations allows the successful reestablishment of viable frog populations despite ongoing disease.
+Given the demonstrated resistance of adult frogs against Bd infection, and the importance of resistance for frog survival, population establishment, and long-term viability (this study), we also conducted a genomic study to determine whether MYL frogs show an evolutionary response to Bd exposure, and whether the resulting adaptive alleles are associated with increased frog resistance.
+The results of our study provide evidence that (1) MYL frogs have experienced strong selection following exposure to a recently-emerged lethal fungal disease and that some of the genomic regions under selection contain genes related to disease resistance, and (2) reintroduction of individuals from these resistant populations allows the successful reestablishment of viable frog populations.
+In light of the generally low success rate of amphibian reintroduction efforts [@dodd2005], our success in reestablishing MYL frog populations via translocation of resistant individuals is striking, and even more so given that this success occurred despite ongoing infection of frogs with Bd.
 
 Previous field studies in MYL frogs show that frog-Bd dynamics and frog survival in the presence of Bd are fundamentally different between naive and recovering populations.
 Following the arrival and establishment of Bd in previously-naive populations, adult frogs develop high Bd loads that lead to mass die-offs [@vredenburg2010].
 In contrast, in recovering populations adult frogs typically have low-to-moderate and relatively constant Bd loads and mass die-offs are not observed [@briggs2010; @knapp2011, see also @fig-bdload-beforeafter].
-The differences in Bd load of frogs from naive and recovering populations are also observed in controlled laboratory studies [see Figure 4 in @knapp2016].
-The observed reduced susceptibility of frogs from recovering populations could in theory be due to several factors, including natural selection for more resistant/tolerant genotypes and/or acquired immunity, but until now evidence to evaluate the role of evolution was lacking.
+The differences in Bd load of frogs from naive and recovering populations are also observed in controlled laboratory studies [see Figure 4 in @knapp2016], and clearly indicate that frogs from recovering populations exhibit resistance against Bd infection.
+This resistance could in theory be due to several factors, including natural selection for more resistant genotypes, acquired immunity, and/or inherent between-population differences that pre-date Bd exposure, but until now evidence to evaluate the role of evolution was lacking.
 
-Results from our genomic analyses strongly suggest that natural selection for adaptive alleles and resulting increased resistance/tolerance is at least partially responsible for the reduced susceptibility of frogs in recovering populations.
+Results from our genomic analyses strongly suggest that natural selection for adaptive alleles is at least partially responsible for the increased resistance of frogs in recovering populations.
 We identified specific alleles and genomic regions showing signatures of selection between adjacent naive and recovering MYL frog populations, consistent with strong selection following Bd exposure.
 Importantly, some regions under selection are associated with cellular and immunological mechanisms known to contribute to disease resistance, including in amphibians [@zamudio2020].
 For example, the MHC plays an important role in immunity.
 In our study, we identified a region that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions.
-These results corroborate numerous previous studies linking MHC genes to amphibian resistance/tolerance against Bd [e.g., @savage2011; @bataille2015].
+These results corroborate numerous previous studies linking MHC genes to amphibian resistance against Bd [e.g., @savage2011; @bataille2015].
 Similarly, the region with the strongest indication of directional selection (as measured by $\pi_{diff}$) contains the interferon-related gene GVINP1.
-Several previous studies have found this gene to be differentially expressed during Bd infection [e.g., @grogan2018b; @ellison2014] and in populations differing in Bd susceptibility [@grogan2018b].
+Several previous studies of amphibians have found this gene to be differentially expressed during Bd infection [e.g., @grogan2018b; @ellison2014] and in populations differing in Bd susceptibility [@grogan2018b].
 This gene is also strongly linked to disease in salmon, explaining a notable 20% of the resistance phenotype [@robledo2020; @robledo2018].
 We also identified a region, characterized by high *F~ST~* and low $\pi_{diff}$, that contained the complement genes C6 and C7.
 The complement system plays an important role in innate immunity [@rieraromo2016], and our results could indicate that balancing selection is acting in this region of the genome to favor a diverse set of alleles, as is known for C6 in humans [@soejima2005].
 Finally, based on the analysis of individual outlier variants, the RIN3 gene showed a consistent pattern of allele frequency differences across all nine of the frog populations sampled in this study, indicating consistent selection in populations distributed across a wide geographic area.
-This gene is associated with inflammation response and in *Xenopus* is highly expressed in wound stumps following amputation of tadpole tails [@fukazawa2009].
-Also in this analysis, the outlier variant with the lowest p-value (uncharacterized gene LOC108802036) is located adjacent to a type I interferon gene (Np-IFNi2) in another frog genome [@gan2018], and together with GVINP1 further suggests the importance of interferon-related genes in this system.
+This gene is associated with inflammation response and in *Xenopus* is highly expressed in wounds [@fukazawa2009].
+In addition, the outlier variant with the lowest p-value was the uncharacterized gene LOC108802036.
+In the genome of another frog species, this gene is located adjacent to a type I interferon gene (Np-IFNi2) [@gan2018], and together with GVINP1 further suggests the importance of interferon-related genes in this system.
 
-Reintroduction of resistant/tolerant MYL frogs was remarkably successful in reestablishing viable populations in the presence of Bd.
+Reintroduction of resistant MYL frogs was remarkably successful in reestablishing viable populations in the presence of Bd.
 Of the 12 translocated populations, approximately 80% showed evidence of both successful reproduction and recruitment of new adults.
-Bd loads measured before and after translocation were similar and generally remained well below the level at which frog mortality occurs.
-Annual survival for 12 of the 24 translocated cohorts exceeded 50%, and \> 70% of translocated cohorts had survival above this 50% level when the earliest translocations are excluded (i.e., translocations conducted when methods were still being refined; see **Materials and Methods - Frog population recovery - Field methods** for a brief description of these refinements).
-The fact that the relatively low Bd loads and correspondingly high frog survival in the presence of Bd was maintained between the natal/donor sites and the recipient sites indicates that these characteristics of naturally-recovering populations were not solely an effect of the natal/donor site or site \* frog interactions, but instead were due at least in part to resistance/tolerance inherent in the frogs <!--# Add to this to deal with Reviewer 2-Comment 4.-->.
-In addition, the relatively high survival of translocated frogs was maintained in their progeny, as expected if resistance/tolerance has a genetic basis.
+Year-1 survival for 12 of the 24 translocated cohorts exceeded 50%, and \> 70% of translocated cohorts had survival above this 50% level when the earliest translocations are excluded (i.e., translocations conducted when methods were still being refined; see **Materials and Methods - Frog population recovery - Field methods** for a brief description of these refinements).
+The fact that the relatively low Bd loads and correspondingly high frog survival was maintained when frogs were moved from donor populations to recipient sites indicates that these characteristics of naturally-recovering populations were not solely an effect of site characteristics, but were also strongly influenced by resistance inherent in the frogs.
+Although it could be argued that the relatively invariant Bd loads before versus after translocation are a consequence of similar pathogen pressure in the donor and translocated populations, this is at odds with the fact that in the first year after translocation frog densities are typically 1-2 orders of magnitude lower in the translocated versus donor populations and pathogen pressure should follow a similar pattern.
+In addition to the maintenance of Bd load and frog survival between natal and translocation sites, the relatively high survival of translocated frogs was maintained in their progeny, as expected if resistance has a genetic basis.
+
 Results from the population viability model were also encouraging.
 In particular, translocated populations with \> 50% survival in the first year post-translocation were predicted to have a low probability of extinction over 50 years (probability of extinction $<$ 0.5 when year 1 juvenile survival probability was greater than 0.10).
-In light of the generally low success rate of amphibian reintroduction efforts [@dodd2005], our success in reestablishing MYL frog populations via translocation of resistant/tolerant individuals is striking, and even more so given that this success occurred despite ongoing infection of frogs with Bd.
-<!--# Mention that 1-year survival can be used as an accurate proxy of long-term persistence.  -->
+The viability model highlighted the important role of frog survival in affecting long-term population viability, and allowed us to extend the temporal scale of our study beyond the 2-16 years covered by our post-translocation surveys.
+These long-term forecasts are important, given that reintroduced MYL frog populations may often take decades to achieve our ultimate goal of self-sustainability [@joseph2018].
+Making well-supported projections about the long-term outcome of reintroduction efforts from shorter-term information is critically important to the process of adaptive management of species reintroduction programs [@seddon2007], including the one we are carrying out for MYL frogs.
+Specifically, the combined results from our reintroduction study and viability modelling indicate that survival of frogs in the first year following translocation is an effective proxy of longer-term survival and population viability.
+In addition, given the repeatability of frog survival at a site, 1-year frog survival also serves as an effective proxy of site quality (i.e., the ability of a site to support high frog survival and a viable frog population over the long term).
+This proxy of site quality is important in the MYL frog system because accurately predicting the ability of a site to support a viable frog population *a priori* remains difficult, even after conducting 24 translocations over 16 years.
 
-Despite the resistance/tolerance of adult MYL frogs in recovering populations, individual and population-level impacts of Bd are still evident.
+Despite the demonstated resistance of adult MYL frogs against Bd infection, individual and population-level impacts of Bd are still evident.
 In an earlier study of 2 of our 12 translocated populations [@joseph2018], Bd infection and load had detectable effects on the survival of adults and may have influenced population establishment (sites referred to as "Alpine" and "Subalpine" in @joseph2018 are identified as "70550" and "70505" in the current study).
 Applying similar analyses to all 12 of our translocated populations would likely provide a broader perspective of the ongoing effect of Bd.
 In addition to these important but relatively subtle effects of Bd on adults, the impacts on younger life stages are more apparent.
-MYL frogs immediately following metamorphosis ("metamorphs") are highly susceptible to Bd infection [@ellison2019] and as a result experience high mortality.
+MYL frogs immediately following metamorphosis ("metamorphs") are highly susceptible to Bd infection [@ellison2019] and as a result experience high mortality [@rachowicz2006].
 This high susceptibility of metamorphs is documented in numerous species of anurans, and may result from the poorly developed immune system characteristic of this life stage [@humphries2022].
 In naturally recovering and translocated MYL frog populations, we suggest that the high mortality of metamorphs is an important limitation on subsequent recruitment of new adults.
-Therefore, although adult MYL frogs appear relatively resistant/tolerant, Bd infection continues to have important limiting effects on recovering populations [see also @hollanders2022].
+Therefore, although adult MYL frogs appear relatively resistant, Bd infection continues to have important limiting effects on recovering populations [see also @hollanders2022].
 
 The recent emergence of Bd worldwide has contributed to the decline of hundreds of amphibian species, some of which are now extinct in the wild [@scheele2019].
-This unprecedented impact on global amphibian biodiversity is compounded by the lack of any effective and broadly applicable strategies to reverse these impacts [@garner2016; @knapp2022].
+This extraordinary impact on global amphibian biodiversity is compounded by the lack of any effective and broadly applicable strategies to reverse these impacts [@garner2016; @knapp2022].
 Importantly, in addition to the natural recovery documented for MYL frogs [@knapp2016], other species are also showing evidence of post-epizootic recovery in the presence of Bd [@scheele2017; @voyles2018] and suggest the possibility of also using animals from these recovering populations to reestablish extirpated populations.
 As with MYL frogs, the feasibility and long-term success of such efforts will depend on the availability of robust donor populations containing individuals that have acquired via evolution the adaptive alleles necessary to allow frog survival and population growth in the presence of Bd.
-Despite the hopeful example of successful reestablishment of MYL frogs via evolutionary rescue and reintroductions, the challenge of recovering hundreds of Bd-impacted amphibian species worldwide is a daunting prospect.
+Despite the hopeful example of successful reestablishment of MYL frogs despite ongoing Bd infection, the challenge of recovering hundreds of Bd-impacted amphibian species globally is a daunting prospect.
 Although we now have a proven strategy to reestablish extirpated MYL frog populations, recovery across their large historical range will require substantial resources over many decades.
 The results of this study provide a hopeful starting point for that endeavor and other future efforts worldwide.
+<!--# It would be great to describe how reintroduction of the product of evolution - individuals with alleles that are adaptive in a novel environment - can allow recovery at a broader scale that natural recovery alone. Not sure we have space for this. -->
 
-Evolutionary rescue may be increasingly critical for the survival of wildlife populations in a rapidly changing world.
-The importance of evolutionary rescue is known for a wide variety of taxa [e.g., @carlson2014; @mills2018; @oziolor2019], including in the specific context of disease-impacted systems [@searle2020].
-However, obtaining evidence in wild animal populations for all the causal links in this process (i.e., selection for adaptive alleles $\rightarrow$ increase in host fitness in the presence of the stressor $\rightarrow$ positive population growth and recovery) is difficult in most systems.
-Nonetheless, we provide a compelling example from the wild not only that evolutionary rescue can produce individuals that harbor adaptive alleles and allow population recovery, but importantly that these individuals can be used in translocations to reestablish extirpated populations.
-We expect that such evolutionary rescue-based translocations will be an essential tool in wildlife conservation in an era of accelerating global change.
+In our rapidly changing world, evolution is likely to play in important role in facilitating the resilience of wildlife populations.
+Whether the documented disease resistance in MYL frogs and concurrent recovery of decimated populations provides an example of evolutionary rescue will likely always be uncertain.
+Regardless, we provide a compelling example from the wild that suggests that evolution can produce individuals that harbor adaptive alleles and allow population recovery in a novel environment, and show conclusively that individuals from these recovering populations can be used in translocations to reestablish extirpated populations and expand the scale of natural recovery (@fig-recovery-model).
+We expect that such translocations will be an essential tool in wildlife conservation in an era of accelerating global change.
 
 ### Materials and Methods
 
@@ -529,7 +538,7 @@ We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using 
 
 To identify important predictors of frog survival following translocation, we developed linear and multilevel models in a Bayesian framework.
 Included predictor variables described characteristics of frogs, sites, and translocations (predictor variables: Bd load, sex, frog size, site elevation, winter severity in the year of translocation, winter severity in the year following translocation, donor population, day of year on which a translocation was conducted, and translocation order).
-We used 1-year survival as a single metric of survival that was available for all translocated populations regardless of how many years of post-translocation data were available (range = 3--16).
+We used 1-year survival as a single metric of survival that was available for all translocated populations regardless of how many years of post-translocation data were available (range = 2--16).
 Survival was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
 Group-level effects included site_id, translocation_id, or translocation_id nested within site_id.
 We performed all analyses with the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022].
@@ -675,7 +684,7 @@ Using the liberal set of outlier variants, we performed a statistical overrepres
 First, we retrieved the BLAST hits and mapped GO terms for each gene in our targeted transcriptome.
 Next, we compared the 30 unique outlier genes from the liberal set of outlier variants to the complete set of genes in our target transcriptome to determine if any GO biological functions, molecular functions, or cellular processes were overrepresented.
 We then repeated this process for the set of 33 genes located in the overlapping *F~ST~* and $\pi_{diff}$ splined windows.
-To compare global patterns of genetic diversity between naive and persistent populations, we calculated individual heterozygosity for all 50 individuals using VCFtools (v.0.1.16,) [@danecek2011], displayed these values using a violin plot, and conducted a Wilcoxon rank-sum test for significant differences between groups.
+To compare global patterns of genetic diversity between naive and persistent populations, we calculated individual heterozygosity for all 50 individuals using VCFtools [@danecek2011], displayed these values using a violin plot, and conducted a Wilcoxon rank-sum test for significant differences between groups.
 Additionally, we calculated per-locality $\pi$ using 100kb sliding windows with VCFtools and compared these values using a boxplot and Wilcoxon rank-sum tests.
 Code used for genomic analyses and to create figures is available from the following GitHub repository: <https://github.com/allie128/mylf-selection>.
 
