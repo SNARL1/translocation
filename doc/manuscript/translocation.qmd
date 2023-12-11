@@ -891,9 +891,18 @@ We also could have included environmental stochasticity in year 2 juvenile survi
 ##### Estimating model parameters
 
 The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
-Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see "Materials and Methods - Estimation of frog survival and abundance" in main paper).
+Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see "Materials and Methods - Estimation of frog survival and abundance" in main paper and Appendi).
 For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ ([@fig-compare_surv_probs]).
 For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
+
+To estimate the $\sigma_{A_R}$, we used the posterior distribution of predicted true states for naturally-recruited individuals (1=not recruited, 2=alive, 3=dead, as described in *Mark-recapture model structure*), then calculated the posterior probability of individuals surviving between consecutive primary periods, conditional on being alive in the first primary period (e.g., given a value of 2 (alive) in the first primary period, how often was the value still 2 (alive) in the next primary period compared to 3 (dead)?)
+.
+This yielded posterior distributions for survival probabilities between primary periods.
+However, because the time interval between primary periods differed, the survival probabilities between different consecutive primary periods were not directly comparable.
+To address this, we converted the survival probabilities between each consecutive primary period to per day death rates, propagating the uncertainty from the posterior distributions.
+We then took a weighted average of these death rates, weighted by the time interval between primary periods, to get the average per day death rate over the entire CMR survey.
+We converted this per day death rate $d$ back to a yearly survival probability using $\exp(-d \times 365 \text{ days})$.
+We used the same procedure for $\sigma_{A_T}$ such that our estimates of average yearly survival probability were comparable between $\sigma_{A_R}$ and $\sigma_{A_T}$.
 
 ##### Model analysis and simulation
 
@@ -953,7 +962,7 @@ Therefore, although some outlier variant associations have a more limited geogra
 
 ![Evidence that Bd load is not an important predictor of post-translocation frog survival. Depicted distributions are the estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables in the best model. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line). Predictor variables shown on the y-axis are defined as follows: length = frog size, snow_t = winter severity in the year of translocation (measured on April 1), snow_t1 = winter severity in the year following translocation (measured on April 1), day = day of year on which a translocation was conducted, bd_load = Bd load, elevation = site elevation, order_first = within-site translocation order, sex_male = frog sex, donor_70567 and donor_72996 = donor population.](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="400"}
 
-![Comparison of average yearly adult survival probabilities for adults translocated to each of 3 sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="580"}
+![Comparison of average yearly adult survival probabilities for adults translocated to each of 3 sites versus adults that were naturally recruited at each site (as a result of reproduction by translocated frogs). In contrast to @fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package and the methods for calculation is described in Population viability modeling -- Estimating model parameters in the SI.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="580"}
 
 <!--# Move some of these methods to a new section in Results - Frog population recovery. Reviewer 3 - Comment 5. -->
 
