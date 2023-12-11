@@ -55,35 +55,29 @@ Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B
 
 ### Abstract
 
-<!--# Revise to reflect reordering of sections -->
-
-Vast alteration of the biosphere by humans is causing a sixth mass extinction.
-Adaptation to modified environments often is the only means for species to persist, but the extent to which such "evolutionary rescue" can prevent or reverse biodiversity loss is largely unknown.
-Using results from genomic analyses, a 15-year reintroduction effort, and population modeling, we provide a compelling example of evolution reversing the declines of an imperiled amphibian and allowing the reestablishment of extirpated populations.
-The once-common mountain yellow-legged (MYL) frog is threatened with extinction by the human-facilitated emergence of a lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd").
-Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually begin to recover.
-Using an exome capture approach, we show that MYL frogs have undergone substantial evolutionary change following disease outbreaks.
-Moreover, in naturally recovering populations observed changes in immune function loci are associated with increased resistance/tolerance to Bd infection.
-Large-scale reintroduction of frogs from rescued populations resulted in the establishment of reproducing populations despite ongoing disease.
-In addition, results from viability modeling suggest that established populations have a low probability of extinction over 50 years.
-Collectively, these results provide a rare example of how evolutionary rescue and the reintroduction of resistant/tolerant individuals can allow the landscape-scale recovery of disease-impacted species.
-This example has potentially broad implications for the many taxa worldwide that are threatened with extinction by anthropogenic stressors.
+Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in emerging infectious diseases.
+The emergence of the lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd") has devastated global amphibian biodiversity, with hundreds of species experiencing declines or extinctions.
+Given that there are no broadly applicable methods to reverse these impacts in the wild, the future of many amphibians appears grim.
+The once-common mountain yellow-legged (MYL) frog is emblematic of amphibians threatened by Bd.
+Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually recover.
+Frogs in these recovering populations have increased resistance against Bd infection, consistent with evolution of resistant genotypes and/or acquired immunity.
+We conducted a 15-year landscape-scale reintroduction study and show that frogs collected from recovering populations and reintroduced to vacant habitats can reestablish populations despite the presence of Bd.
+In addition, results from viability modeling suggest that many reintroduced populations have a low probability of extinction over 50 years.
+To better understand the role of evolution in frog resistance, we compared the genomes of MYL frogs from Bd-naive and recovering populations.
+We show that frogs have undergone substantial evolutionary change in response to Bd exposure and that changes in immune function loci are consistent with increased resistance.
+These results provide a rare example of how the reintroduction of resistant individuals can allow the landscape-scale recovery of disease-impacted species.
+This example has broad implications for the many taxa worldwide that are threatened with extinction by disease.
 
 ### Significance
 
-<!--# Revise to reflect reduced emphasis on evolutionary rescue. -->
-
 Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
-One possibility is rapid evolution that restores positive growth to declining populations ("evolutionary rescue").
-Individuals from these rescued populations could also be used to reestablish extinct populations.
-We evaluated both possibilities in a once-common frog species driven to the brink of extinction by a disease that has devastated global amphibian biodiversity and for which few options exist to reverse disease impacts.
-We found that frogs have evolved increased resistance to infection, facilitating population recovery.
-In addition, introduction of frogs from these populations allowed reestablishment despite the ongoing presence of disease.
-Such reintroductions could play an important role in biodiversity conservation in our rapidly changing world.
+Emerging infectious diseases can have particularly devastating impacts, and few options typically exist to reverse these effects.
+We used large-scale reintroductions of disease-resistant individuals in an effort to recover a once-common frog species driven to the brink of extinction by a disease that has recently devastated global amphibian biodiversity.
+Introduction of resistant frogs allowed reestablishment of populations in the presence of disease.
+In addition, resistance appears to have a genetic basis and to have evolved recently following exposure of frogs to Bd.
+The evolution of resistance and reintroductions of resistant individuals could play an important role in biodiversity conservation in our rapidly changing world.
 
 ### Introduction
-
-<!--# Remove uncited references in .bib -->
 
 Human activities are increasingly impacting global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009].
 One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012].
