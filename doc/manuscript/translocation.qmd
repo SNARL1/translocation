@@ -491,25 +491,24 @@ We expect that such translocations will be an essential tool in wildlife conserv
 ##### Field methods
 
 For the `r n_distinct(d1$site_id, d1$date)` translocations we conducted, we identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of visual encounter surveys (VES) and skin swab collections [@knapp2016], and results from population genetic analyses [@poorten2017].
-The populations that we selected contained several hundred *R. sierrae* adults and hundreds or thousands of tadpoles.
+The populations that we selected contained hundreds to thousands of both *R. sierrae* adults and tadpoles.
 These relatively high abundances were the result of recent increases following previous Bd-caused declines [@knapp2016].
 As is typical for recovering MYL frog populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd load (median log~10~(load) = `r round(bdload_min, 2)`--`r round(bdload_max, 2)` ITS copies) was two or more orders of magnitude below the level at which frog mortality is expected (log~10~(load) $\approx$ 5.78 copies)[@vredenburg2010; @joseph2018].
 Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species [@knapp2005].
 At the beginning of this study, we had a relatively limited understanding of these habitat quality characteristics.
-In subsequent years, we improved our site selection process by incorporating new information about important habitat features (in particular, overwinter habitats such as submerged boulders and overhanging banks).
+In subsequent years, we improved our site selection process by incorporating new information about important habitat features, in particular, overwinter habitats such as submerged boulders and overhanging banks.
 *R. sierrae* were absent from all recipient sites prior to the first translocation.
 
-We conducted `r transno_min`--`r transno_max` translocations per site (@fig-yosemap, @fig-translocation-survival) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
+We conducted `r transno_min`--`r transno_max` translocations per site (@fig-translocation-survival, @fig-yosemap) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
 In preparation for each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
 Frogs were transported to the recipient site either on foot or via helicopter.
-Following release, translocated populations were visited approximately once per month during the summer active season (summer active season is generally July-August but can start as early as May and end as late as September; range of survey dates = May-25 to Sep-29, range of translocation dates = Jun-28 to Sep-02; median number of visits per summer = `r round(surveys_yr_median)`, range = `r surveys_yr_min`--`r surveys_yr_max`) and assessed using diurnal CMR surveys and VES.
+Following release, we visited translocated populations approximately once per month during the summer active season and conducted diurnal CMR surveys and VES (summer active season is generally July-August but can start as early as May and end as late as September; range of survey dates = May-25 to Sep-29, range of translocation dates = Jun-28 to Sep-02; median number of visits per summer = `r round(surveys_yr_median)`, range = `r surveys_yr_min`--`r surveys_yr_max`).
 CMR surveys allowed estimation of adult survival, adult population size, and recruitment of new adults, and VES provided estimates of tadpole and juvenile abundance.
-During 2006-2012, CMR surveys were conducted on a single day (primary period) per site visit, during which all habitats were searched repeatedly for adult frogs.
+During 2006-2012, we conducted CMR surveys on a single day (primary period) per site visit, during which we search all habitats repeatedly for adult frogs.
 Frogs were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
 During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (median number of secondary periods per primary period = `r round(robust_year_median)`; range = `r robust_year_min`--`r robust_year_max`), and frogs were processed as described above.
 However, when the number of frogs detected on the first survey day was zero or near zero, we typically conducted only a single-day CMR survey.
 When using a robust design, within a primary period, frogs that were captured during more than one secondary period were measured, weighed, and swabbed during the first capture, and during subsequent captures were only identified and released.
-Across all translocation sites, the duration of CMR time series was `r min(surveyyrs$n)`--`r max(surveyyrs$n)` years (median = `r (median(surveyyrs$n))`).
 
 During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
 VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and juveniles.
@@ -532,7 +531,7 @@ The possible observations of individuals include "detected" and "not detected".
 We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records).
 We also assume that new recruits were a result of within-site reproduction and not immigration from adjacent populations because no *R. sierrae* populations were present within several kilometers of the translocation sites.
 For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each).
-We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat).
+We evaluated Markov chain Monte Carlo (MCMC) convergence using trace plots and Gelman-Rubin statistics (Rhat).
 
 ##### Predictors of post-translocation frog survival
 
