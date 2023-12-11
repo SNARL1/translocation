@@ -536,14 +536,14 @@ We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using 
 
 ##### Predictors of post-translocation frog survival
 
-To identify important predictors of frog survival following translocation, we developed linear and multilevel models in a Bayesian framework.
-Included predictor variables described characteristics of frogs, sites, and translocations (predictor variables: Bd load, sex, frog size, site elevation, winter severity in the year of translocation, winter severity in the year following translocation, donor population, day of year on which a translocation was conducted, and translocation order).
-We used 1-year survival as a single metric of survival that was available for all translocated populations regardless of how many years of post-translocation data were available (range = 2--16).
-Survival was rounded to integer values to produce a binomial outcome, and all models used a bernoulli family.
+To identify important predictors of frog survival following translocation, we used multilevel Bayesian models.
+We included predictor variables to describe characteristics of frogs, sites, and translocations (predictor variables: Bd load, sex, frog size, site elevation, winter severity in the year of translocation, winter severity in the year following translocation, donor population, day of year on which a translocation was conducted, and translocation order).
+We used 1-year post-translocation survival estimates from CMR models as the response, which was available for all translocated populations regardless of how many years of post-translocation data were available (range = 2--16).
+Survival was rounded to integer values to produce a binary outcome, and modeled with a Bernoulli distribution.
 Group-level effects included site_id, translocation_id, or translocation_id nested within site_id.
 We performed all analyses with the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022].
 For all models, we used default, weakly informative priors, four chains, and 5000 iterations each for warmup and post-warmup.
-We checked convergence of the MCMC algorithm using trace plots and Rhat, and evaluated model fit using leave-one-out ("LOO") cross-validation [@gelman2013; @gabry2019; @vehtari2016], as implemented by the loo package [@vehtari2022].
+We checked MCMC convergence using trace plots and Rhat, and evaluated model fit using leave-one-out ("LOO") cross-validation [@gelman2013; @gabry2019; @vehtari2016], as implemented by the loo package [@vehtari2022].
 
 <!--# Add brief description of methods used in comparison of survival by translocated vs. naturally recruited individuals. Primary focus should be on describing that data were derived from mrmr model results, and on how those data were extracted. -->
 
@@ -878,6 +878,9 @@ The default prior for group level adjustments $\nu_1, ..., \nu_G$ in rstanarm is
 We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan, with four parallel chains, each run for 10,000 iterations, discarding the first half of each chain as warm-up draws [@rstanarm2022].
 We used Rhat statistics and trace plots to verify convergence.
 We considered models with different subsets of fixed and random effects, and used approximate leave-one-out cross validation to identify the best model [@vehtari2016].
+
+Finally, while it would theoretically be possible to estimate survival covariate effects in a joint mark-recapture model that integrates capture histories across all sites, this was impractical due to computational requirements of the mark-recapture models (namely, run time and memory). 
+In modeling survival estimates from site-specific mark-recapture analyses, we are in effect conducting an among-site meta-analysis to better understand how site, cohort, and individual level characteristics explain variation in survival after translocation.
 
 #### Population viability modeling
 
