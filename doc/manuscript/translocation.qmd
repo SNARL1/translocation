@@ -531,7 +531,10 @@ The possible observations of individuals include "detected" and "not detected".
 We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records).
 We also assume that new recruits were a result of within-site reproduction and not immigration from adjacent populations because no *R. sierrae* populations were present within several kilometers of the translocation sites.
 For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each).
-We evaluated Markov chain Monte Carlo (MCMC) convergence using trace plots and Gelman-Rubin statistics (Rhat).
+We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat).
+<!--# I thought Max edited this sentence to get rid of "algorithm" but I must be mis-remembering. I checked his explain-meta-analysis branch at the above sentence is repeated there.  -->
+
+<!--# Mark: Add brief description here of methods used in comparison of survival by translocated vs. naturally recruited individuals. Primary focus should be on describing that fact that data were derived from mrmr model results, and on how those data were extracted. -->
 
 ##### Predictors of post-translocation frog survival
 
@@ -544,8 +547,6 @@ We performed all analyses with the rstanarm package [@rstanarm2022] and R Statis
 For all models, we used default, weakly informative priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked MCMC convergence using trace plots and Rhat, and evaluated model fit using leave-one-out ("LOO") cross-validation [@gelman2013; @gabry2019; @vehtari2016], as implemented by the loo package [@vehtari2022].
 
-<!--# Add brief description of methods used in comparison of survival by translocated vs. naturally recruited individuals. Primary focus should be on describing that data were derived from mrmr model results, and on how those data were extracted. -->
-
 ##### Changes in Bd load following translocation
 
 We analyzed skin swabs using standard Bd DNA extraction and qPCR methods [@boyle2004, see SI Appendix for details].
@@ -553,11 +554,6 @@ To assess the magnitude of changes in Bd load on frogs following translocation, 
 Before-translocation loads were quantified using skin swabs collected from all to-be-translocated frogs at the donor site on the day before or the day of the translocation.
 After-translocation Bd loads were based on all swabs collected from translocated frogs at the recipient site in the year of and the year following translocation.
 Individual frogs and their associated Bd loads were included in the dataset only if frogs were captured at the recipient site at least once during the first year after the translocation.
-We used an analysis workflow similar to that described above.
-Briefly, the response variable was before-translocation load and the predictor variable was after-translocation load.
-We compared models with and without group-level effects, and group-level effects included pit_tag_id, pit_tag_id nested within site_id, or pit_tag_id nested within translocation_id.
-All models used a negative binomial family.
-Priors, chains, iterations, and checks were as described above.
 
 Code to replicate all of the analyses described above is available from the following GitHub repositories: <https://github.com/SNARL1/translocation>; <https://github.com/SNARL1/cmr-analysis>.
 
