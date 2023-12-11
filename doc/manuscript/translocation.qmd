@@ -344,7 +344,7 @@ The absence of Bd load as an important predictor of frog survival is consistent 
 
 In summary, results from our frog translocation study indicate that translocations resulted in (1) relatively high 1-year survival of translocated adults, reproduction, and recruitment at the majority of recipient sites, (2) 1-year survival of adults is influenced by site characteristics, weather conditions, and donor population (but not Bd load), and (3) based on the relatively small changes in Bd load after translocation, loads appear more strongly influenced by frog characteristics (e.g., resistance) than site characteristics.
 Together, these results indicate that frogs translocated from recovering populations can maintain the benefits of resistance in non-natal habitats.
-In addition, in 3 locations where longer CMR time series allowed us to assess the survival of new adults recruited to the population, naturally-recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI; see **SI Population viability modeling - Estimating model parameters** for details).
+In addition, in 3 locations where longer CMR time series allowed us to assess the survival of new adults recruited to the population, naturally-recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI; see **Supporting Information - Population viability modeling - Estimating model parameters** for details).
 This suggests that frog resistance is also maintained across generations.
 All of the conditions described above are supportive of population establishment and long-term population growth.
 
