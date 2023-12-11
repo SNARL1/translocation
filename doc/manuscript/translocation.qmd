@@ -311,7 +311,7 @@ To determine whether MYL frogs from recovering populations can be used to reesta
 Each of the reintroductions involved collection of adult frogs from 1 of `r n_distinct(d1$donor)` recovering, Bd-positive "donor" populations and translocating them to 1 of `r n_distinct(d1$site_id)` nearby recipient sites (@fig-yosemap SI).
 The donor populations included 2 of the 5 recovering populations included in the frog evolution study summarized above (@fig-allelefrequencies A: population 1 and 4), and these donor populations contributed frogs for 20 of the `r n_distinct(d1$site_id, d1$date)` translocations.
 Following translocation, we estimated adult survival and recruitment of new adults from capture-mark-recapture (CMR) surveys and obtained counts of tadpoles and juveniles from visual encounter surveys (VES).
-The number survey years per site was a consequence of when translocations were conducted, and ranged from 2--16 years.
+Across all translocation sites, the duration of survey time series was `r min(surveyyrs$n)`--`r max(surveyyrs$n)` years (median = `r (median(surveyyrs$n))`).
 
 Of the `r nrow(d2)` translocated populations, `r frog_counts_gt0_nrow` (`r frog_counts_gt0_nrow / nrow(d2)`) showed evidence of successful reproduction in subsequent years, as indicated by the presence of tadpoles and/or juveniles.
 For these `r frog_counts_gt0_nrow` populations, one or both life stages were detected in nearly all survey-years following translocation (proportion of survey-years: median = `r frog_counts_gt0_median`, range = `r frog_counts_gt0_min`--`r frog_counts_gt0_max`).
@@ -879,7 +879,7 @@ We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan, with fo
 We used Rhat statistics and trace plots to verify convergence.
 We considered models with different subsets of fixed and random effects, and used approximate leave-one-out cross validation to identify the best model [@vehtari2016].
 
-Finally, while it would theoretically be possible to estimate survival covariate effects in a joint mark-recapture model that integrates capture histories across all sites, this was impractical due to computational requirements of the mark-recapture models (namely, run time and memory). 
+Finally, while it would theoretically be possible to estimate survival covariate effects in a joint mark-recapture model that integrates capture histories across all sites, this was impractical due to computational requirements of the mark-recapture models (namely, run time and memory).
 In modeling survival estimates from site-specific mark-recapture analyses, we are in effect conducting an among-site meta-analysis to better understand how site, cohort, and individual level characteristics explain variation in survival after translocation.
 
 #### Population viability modeling
