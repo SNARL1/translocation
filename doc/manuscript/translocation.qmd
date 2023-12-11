@@ -535,8 +535,6 @@ For all models, we used mrmr defaults for priors, number of chains (4), and warm
 We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat).
 <!--# I thought Max edited this sentence to get rid of "algorithm" but I must be mis-remembering. I checked his explain-meta-analysis branch and the above sentence is repeated there.  -->
 
-<!--# Mark: Add brief description here of methods used in comparison of survival by translocated vs. naturally recruited individuals. Primary focus should be on describing the fact that data were derived from mrmr model results, and on how those data were extracted. -->
-
 ##### Predictors of post-translocation frog survival
 
 To identify important predictors of frog survival following translocation, we used multilevel Bayesian models.
@@ -681,7 +679,7 @@ Using the liberal set of outlier variants, we performed a statistical overrepres
 First, we retrieved the BLAST hits and mapped GO terms for each gene in our targeted transcriptome.
 Next, we compared the 30 unique outlier genes from the liberal set of outlier variants to the complete set of genes in our target transcriptome to determine if any GO biological functions, molecular functions, or cellular processes were overrepresented.
 We then repeated this process for the set of 33 genes located in the overlapping *F~ST~* and $\pi_{diff}$ splined windows.
-To compare global patterns of genetic diversity between naive and persistent populations, we calculated individual heterozygosity for all 50 individuals <!--# At the beginning of this section, we state that 53 individuals were sampled. I assume the difference reflects the fact that some individuals were excluded by the filtering process? Clarify where 50 came from.  -->using VCFtools [@danecek2011], displayed these values using a violin plot, and conducted a Wilcoxon rank-sum test for significant differences between groups.
+To compare global patterns of genetic diversity between naive and persistent populations, we calculated individual heterozygosity for all 50 individuals <!--# At the beginning of this section, we state that 53 individuals were sampled. I assume the difference reflects the fact that some individuals were excluded by the filtering process? Clarify where 50 comes from.  -->using VCFtools [@danecek2011], displayed these values using a violin plot, and conducted a Wilcoxon rank-sum test for significant differences between groups.
 Additionally, we calculated per-locality $\pi$ using 100kb sliding windows with VCFtools and compared these values using a boxplot and Wilcoxon rank-sum tests.
 Code used for genomic analyses and to create figures is available from the following GitHub repository: <https://github.com/allie128/mylf-selection>.
 
