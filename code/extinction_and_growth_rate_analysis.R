@@ -133,8 +133,8 @@ ptile = ggplot(dat) + geom_tile(aes(x=muR, y=juv_surv, fill=lambda)) +
 							annotate("text", x=0.25, y=0.05, label="Population declines", size=3) +
 							annotate("text", x=0.7, y=0.2, label="Population grows", size=3) +
 							guides(color="none", fill=guide_colorbar(title="\u03bb")) + theme(legend.position="bottom", 
-																					 legend.text=element_text(size=7), 
-																					 legend.title=element_text(size=7))
+																					 legend.text=element_text(size=10), 
+																					 legend.title=element_text(size=10))
 
 
 #############################################################
@@ -340,7 +340,8 @@ pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=sigma_J1, 
 							scale_color_manual(values=cdat$col) +
 							theme_classic() + xlab(bquote("Mean year 1 juvenile survival, \u03c3"~.[J1])) + ylab("Extinction prob. in 50 years") +
 							guides(color=guide_legend(title=bquote("Site, \u03c3"~.[AR]), title.position="top", ncol=3)) + 
-							theme(legend.position="bottom", legend.text=element_text(size=7), legend.title=element_text(size=8))
+							theme(legend.position="bottom", legend.text=element_text(size=9.5), legend.title=element_text(size=10))
+
 
 
 # Save comparison between translocated and survival probabilities from all individuals
@@ -460,7 +461,7 @@ ptraj = ggplot() + geom_line(data=pred_traj, aes(x=year, y=abund, group=sim, col
 										theme_classic() + xlab("Time (year)") + ylab("Adult abundance") +
 										scale_x_continuous(breaks=seq(2006, 2021, 2)) + 
 										theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=0.5),
-											   legend.position="bottom", legend.text=element_text(size=8), legend.title=element_blank())
+											   legend.position="bottom", legend.text=element_text(size=10), legend.title=element_blank())
 
 # Plot and compare observed and predicted recruitment
 # matplot(t(recruitment_trajectories[['70550']][pred_ss_dt$index[1:100], 1:15]), type="l", ylab="Recruitment", xlab="Time (years)")
