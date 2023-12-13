@@ -558,7 +558,7 @@ Code to replicate all of the analyses described above is available from the foll
 To determine the implications of observed 1-year adult survival on the long-term viability of populations established via translocation, we developed a population model for MYL frogs.
 Our central question was: How does the magnitude and variation in observed adult survival probability across translocated populations affect the long-term persistence probability of populations?
 We developed a model that tracked seven state variables of a frog population: density of translocated adults ($A_T$), density of adults naturally recruited into the population ($A_R$), density of first-year tadpoles ($L_1$), density of second-year tadpoles ($L_2$), density of third-year tadpoles ($L_3$), density of first-year juveniles ($J_1$), and density of second-year juveniles ($J_2$).
-We divided adults into two classes $A_T$ and $A_R$ because there is evidence that the survival probability of translocated adults and naturally recruited adults differs ([@fig-compare_surv_probs]).
+We divided adults into two classes $A_T$ and $A_R$ because there is evidence that the survival probability of translocated adults and naturally recruited adults differs ([@fig-compare_surv_probs] SI).
 
 We modeled the dynamics of these seven state variables using a discrete-time, stage-structured model where a time step is one year.
 The dynamics are given by
