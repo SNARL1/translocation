@@ -18,7 +18,7 @@ This repository contains the following directories and files:
 - `code/` directory: `Rmd` and `qmd` files to create and analyze the project datasets, and create figures. 
 - `data/` directory: Raw and cleaned data, and map data/layers.
 - `doc/` directory: Manuscript and notebook files.
-- `out/` directory: Output files, including html code notebooks rendered from `Rmd` files, and files related to the viability analyses.
+- `out/` directory: Output files, including files related to the viability analyses.
 
 ## Notebooks
 
