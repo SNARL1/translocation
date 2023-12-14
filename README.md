@@ -22,7 +22,7 @@ This repository contains the following directories and files:
 
 ## Notebooks
 
-Notebooks are available in the [doc/notebook](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) and [out/notebooks_code/](https://github.com/SNARL1/translocation/tree/main/out/notebooks_code#readme) directories. Links are to README files that describe how to view notebooks directly from GitHub. The `doc/notebook/` notebook describes dataset creation and analysis. The `out/notebooks_code/` code notebooks are rendered from the `Rmd` files in the `code/` directory. 
+A notebook describing dataset creation and analysis is available in the [doc/notebook](https://github.com/SNARL1/translocation/tree/main/doc/notebook#readme) directory. Link is to a README file that describes how to view the notebook directly from GitHub.
 
 ## Reproducing this analysis
 
@@ -41,9 +41,9 @@ Notebooks are available in the [doc/notebook](https://github.com/SNARL1/transloc
 
 1. First, run `make install_packages` to ensure that you have the necessary packages installed in your R environment.
 2. To run all of the analyses, type `make all` in the command line.
-3. To run only the translocation analysis execute `make trans_analysis` in the command line.
-4. To run only the viability analysis execute `make viability_analysis` in the command line.
-5. To clean you directory of extraneous files execute `make clean` in the command line.
+3. To run only the translocation analysis, execute `make trans_analysis` in the command line.
+4. To run only the viability analysis, execute `make viability_analysis` in the command line.
+5. To clean your directory of extraneous files create during these runs, execute `make clean` in the command line.
 
 ## Contact
 
