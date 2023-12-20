@@ -6,10 +6,10 @@ bibliography: translocation.bib
 #  - multibib
 #validate-yaml: false
 csl: pnas.csl
-format: pdf
-# format:
-#   latex: 
-#      cite-method: natbib
+# format: pdf
+format:
+   latex: 
+      cite-method: natbib
 include-in-header:
   text: |
     \usepackage{blkarray}
@@ -88,7 +88,7 @@ These impacts to global biodiversity may be unprecedented, and highlight the imp
 
 Evidence of natural recovery in the many Bd-impacted amphibian populations is surprisingly rare [for notable exceptions, see @scheele2017; @voyles2018; @knapp2016], suggesting that disease-caused declines will be difficult to reverse.
 This apparent low resilience to disease effects may be due to the limited ability of many amphibians to develop Bd resistance and/or tolerance, which in turn, could also lessen the effectiveness of potential Bd mitigation strategies.
-Following pathogen arrival in a host population, resistance (ability to limit pathogen burden) and tolerance (ability to limit the harm caused by a particular burden) are key mechanisms to reduce disease impacts [@råberg2009] and facilitate population persistence and recovery [@brannelly2021].
+Following pathogen arrival in a host population, resistance (ability to limit pathogen burden) and tolerance (ability to limit the harm caused by a particular burden) are key mechanisms to reduce disease impacts [@raberg2009] and facilitate population persistence and recovery [@brannelly2021].
 Host immunity and evolution both play important roles in the development of resistance and tolerance, and utilizing these factors would seem a promising approach to developing effective strategies to mitigate disease impacts in the wild [@garner2016; @woodhams2011].
 However, several aspects of the amphibian-Bd system present difficult obstacles, including (i) the general inability of amphibians to mount an effective immune response against Bd infection [@rosenblum2012; @fites2013; @grogan2018a], and (ii) the apparent rarity of evolution of more resistant/tolerant genotypes [but see @savage2016; @grogan2018b].
 These factors suggest that reintroduction of amphibians into sites to reestablish populations extirpated by Bd will often result not in population recovery, but instead in the rapid reinfection and mortality of the introduced animals and/or their progeny [@hammond2021; @knapp2022; @stockwell2008; @scheele2021].
