@@ -1,12 +1,5 @@
 ---
-bibliography: translocation.bib
-#  main: translocation.bib
-#  supporting: supporting_info.bib
-#filters: 
-#  - multibib
-#validate-yaml: false
-csl: pnas.csl
-# format: pdf
+#format: pdf
 format:
    latex: 
       cite-method: natbib
@@ -17,6 +10,8 @@ editor: visual
 editor_options:
   markdown:
     wrap: sentence
+bibliography: translocation.bib
+csl: pnas.csl
 ---
 
 ## Title: Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease
@@ -115,8 +110,8 @@ This intriguing possibility also suggests an opportunity to expand recovery beyo
 In the current study, we had three primary objectives.
 First, to determine whether the reintroduction of resistant MYL frogs obtained from populations recovering from Bd-caused declines allows the successful reestablishment of extirpated populations despite ongoing disease, we conducted a 15-year landscape-scale frog reintroduction effort (@fig-recovery-model).
 Second, to extend our inferences of population recovery well beyond the temporal extent of our reintroduction study, we developed a model to estimate the probability of persistence for the reintroduced populations over a multi-decadal period (@fig-recovery-model).
-Third, we investigated whether MYL frogs show evidence of an evolutionary response to Bd exposure, and whether these genomic changes are associated with resistance.
-To accomplish this objective, we used exome capture methods to identify genomic regions with consistent differences between frogs from naive versus recovering populations (@fig-recovery-model) and determined whether any of these regions contain genes associated with resistance.
+Third, given the importance of resistance for frog survival, population establishment, and long-term viability (this study), we also conducted a genomic study to determine whether MYL frogs show an evolutionary response to Bd exposure, and whether these genomic changes are associated with resistance.
+To accomplish this objective, we used exome capture methods to identify genomic regions with consistent differences between frogs from naive versus recovering populations (@fig-recovery-model).
 
 ### Results
 
@@ -376,7 +371,7 @@ Naive and recovering populations can be identified unambiguously using these dif
 Finally, there is no potential for frog dispersal between the 9 study populations due to intervening distances and topography, as well as the presence of introduced (predatory) fish and fish-induced habitat fragmentation.
 (See **Supporting Information - Frog evolution in response to Bd - Methods** for additional details regarding the study design.)
 
-We conducted a principal component analysis (PCA) of the genomic data to describe the relationships between sampled populations, and then used two complementary approaches to identify regions of the genome that differed between naive and recovering populations (i.e., regions putatively under selection).
+We conducted a principal component analysis (PCA) of the genomic data to describe the relationships between sampled populations, and then used two complementary approaches to identify regions of the genome that differed between naive and recovering populations (i.e., regions under selection).
 First, we used a multivariate linear mixed model to evaluate associations between population type (i.e., naive versus recovering) and individual variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (INDELS), while accounting for population structure.
 Second, we used a splined window analysis to identify larger genomic regions showing differences between population types in *F~ST~* and nucleotide diversity ($\pi_{diff}$ = $\pi_{naive}$ - $\pi_{recovering}$).
 
@@ -389,7 +384,7 @@ One of the 7 identified genes (LOC108802036) does not have an associated annotat
 For the outlier SNPs, frequency differences between the naive and recovering populations ranged from 0.41 to 0.86.
 Most of these SNPs showed frequency differences in only a subset of the sampled populations (@fig-allelefrequencies A, B), but the SNP in the RIN3 gene showed consistent differences in frequencies across all populations (@fig-allelefrequencies C).
 This is suggestive of parallel selection at this locus across multiple populations.
-The other 6 outlier variants showed less consistent frequency differences across the study populations, but for these we still found a statistically significant signal of selection in 2 of the 3 genetic clusters (containing populations 5--9; @fig-allelefrequencies, @fig-selectionresults A SI).
+The other 6 outlier variants showed less consistent frequency differences across the study populations, but for these we still found a statistically significant signal of selection in 2 of the 3 genetic clusters (containing populations 5–9; @fig-allelefrequencies, @fig-selectionresults A SI).
 Therefore, although some outlier variant associations have a more limited geographic extent than RIN3, they still describe results that suggest parallel evolutionary changes following Bd exposure.
 
 The splined window analysis identified 33 outlier regions for $\pi_{diff}$ and 58 outlier regions for *F~ST~* (@fig-spline-manhattan A, B).
@@ -405,23 +400,22 @@ This region (854kb from the beginning of the outlier window to the VARS SNP) con
 In *Xenopus*, five of these genes occur in the extended major histocompatibility complex (MHC) Class I region (FLOT1, TUBB, MDC1, CCHCR1, TCF19) and three occur in the extended MHC Class III region (HSP70, LSM2, VARS) [@ohta2006].
 Therefore, this region under selection is part of the extended MHC Class I and III complex and shows synteny with other amphibian genomes.
 
-No gene ontology (GO) biological functions, molecular functions, or cellular processes were over-represented in either the outlier variants or the 33 genes located in the overlapping *F~ST~* and $\pi_{diff}$ splined windows.
-In addition, although the joint processes of Bd-caused population declines and selection in response to Bd exposure could affect genetic diversity of recovering populations, we found no consistent differences in individual-level heterozygosity or population-level $\pi$ between naive and recovering populations (see **Supporting Information-Frog evolution in response to Bd** for details).
+Although the joint processes of Bd-caused population declines and selection in response to Bd exposure could affect genetic diversity of recovering populations, we found no consistent differences in individual-level heterozygosity or population-level $\pi$ between naive and recovering populations (see **Supporting Information-Frog evolution in response to Bd** for details).
+Thus, despite localized selection in particular regions of the genome, we did not find evidence for reduced genetic diversity across the genome in recovering populations.
+In addition, no gene ontology (GO) biological functions, molecular functions, or cellular processes were over-represented in either the outlier variants or the 33 genes located in the overlapping *F~ST~* and $\pi_{diff}$ splined windows (see **Supporting Information-Frog evolution in response to Bd** for details).
 
 In summary, our genomic results indicate that the exomes of frogs from naive and recovering study populations show substantial differences, consistent with parallel evolutionary changes following Bd exposure.
-The regions putatively under selection contain several immunologically-relevant genes and gene families that are directly linked to disease resistance in other taxa.
+The regions under selection contain several immunologically-relevant genes and gene families that are directly linked to disease resistance in other taxa.
 
 ### Discussion
 
-<!--# In the Discussion, I retained the general order of paragraphs from the original submission (evolution first, followed by translocations). This aligns with the actual trajectory that we are proposing in Figure 1 (Bd epizootic - selection in response to Bd - frog recovery. Does this order work? -->
-
 Disease-induced population declines are decimating global biodiversity [@daszak2000], but broadly-applicable strategies to recover affected species are generally lacking [e.g., @garner2016].
-<!--# Here, we tested the possibility that populations of resistant individuals from naturally recovering populations can be used to reestablish extirpated populations of the endangered MYL frog in the presence of a highly virulent fungal pathogen (Bd).
-Although previously proposed [@mendelson2019; @scheele2021], this strategy has rarely been used in the wild [see @joseph2018 for a small-scale example].
-Given the demonstrated resistance of adult frogs against Bd infection, and the importance of resistance for frog survival, population establishment, and long-term viability (this study), we also conducted a genomic study to determine whether MYL frogs show an evolutionary response to Bd exposure, and whether the resulting adaptive alleles are associated with increased frog resistance.--> Our results indicate (i) the capacity of reintroduced populations to become established and eventually recover despite ongoing disease, (ii) that the recovering populations are likely to persist over a 50-year period, (iii) that there are substantial genomic differences between naive and recovering MYL frog populations, consistent with evolutionary change in frogs following Bd exposure, and (iv) that some of the genomic regions putatively under selection contain genes related to disease resistance.
-Collectively, these results (@fig-recovery-model) provide a rare example of amphibian recovery in the presence of a highly virulent pathogen, and have important implications for the conservation and recovery of amphibians and other taxa worldwide that are endangered by escalating impacts from emerging infectious diseases.
+Here, we tested the possibility that populations of resistant individuals from naturally recovering populations can be used to reestablish extirpated populations of the endangered MYL frog in the presence of a highly virulent fungal pathogen (Bd).
+Our results indicate (i) the capacity of reintroduced populations to become established and eventually recover despite ongoing disease, (ii) that the recovering populations are likely to persist over a 50-year period, (iii) that there are substantial genomic differences between naive and recovering MYL frog populations, consistent with evolutionary change in frogs following Bd exposure, and (iv) that some of the genomic regions under selection contain genes related to disease resistance.
+Collectively, these results (@fig-recovery-model) provide a rare example of amphibian recovery in the presence of Bd, and have important implications for the conservation and recovery of amphibians and other taxa worldwide that are endangered by escalating impacts from emerging infectious diseases.
 In light of the generally low success rate of amphibian reintroduction efforts [@dodd2005], our success in reestablishing MYL frog populations via translocation of resistant individuals is striking, and even more so given that this success occurred despite ongoing infection of frogs with Bd.
 
+In the following discussion, we follow the sequence of frog recovery described in @fig-recovery-model to structure our key points.
 Previous field studies in MYL frogs show that frog-Bd dynamics and frog survival in the presence of Bd are fundamentally different between naive and recovering populations.
 Following the arrival and establishment of Bd in previously-naive populations, adult frogs develop high Bd loads that lead to mass die-offs [@vredenburg2010].
 In contrast, in recovering populations adult frogs typically have low-to-moderate and relatively constant Bd loads and mass die-offs are not observed [@briggs2010; @knapp2011, see also @fig-bdload-beforeafter SI].
@@ -429,8 +423,12 @@ The differences in Bd load of frogs from naive and recovering populations are al
 This resistance could in theory be due to several factors, including natural selection for more resistant genotypes, acquired immunity, and/or inherent between-population differences that pre-date Bd exposure, but until now evidence to evaluate the role of evolution was lacking.
 
 Results from our genomic analyses suggest that natural selection for adaptive alleles is at least partially responsible for the increased resistance of frogs in recovering populations.
-We identified specific alleles and genomic regions showing signatures of selection between adjacent naive and recovering MYL frog populations, consistent with selection following Bd exposure.
-Importantly, some regions under selection are associated with cellular and immunological mechanisms known to contribute to disease resistance, including in amphibians [@zamudio2020].
+We identified multiple specific alleles and genomic regions showing signatures of selection between adjacent naive and recovering MYL frog populations, consistent with selection following Bd exposure.
+These analysis are based on samples collected from virtually all of the MYL frog populations remaining in a naive state, as well as adjacent recovering populations.
+This produced genetic clusters that contained at least one naive and one recovering population, allowing us to detect selection without the confounding effects of population structure.
+Finally, we did not find a reduction in overall genetic variation in the recovering populations, suggesting that despite localized selection in the genome, these populations retain adequate genetic diversity for long-term persistence.
+
+Importantly, some regions that we identified as under selection are associated with cellular and immunological mechanisms known to contribute to disease resistance, including in amphibians [@zamudio2020].
 For example, the MHC plays an important role in immunity.
 In our study, we identified a region that shows evidence of selection in recovering populations and contains eight genes associated with either the MHC Class I or Class III regions.
 These results corroborate numerous previous studies linking MHC genes to amphibian resistance against Bd [e.g., @savage2011; @bataille2015].
@@ -439,12 +437,11 @@ Several previous studies of amphibians have found this gene to be differentially
 This gene is also strongly linked to disease in salmon, explaining a notable 20% of the resistance phenotype [@robledo2020; @robledo2018].
 We also identified a region, characterized by high *F~ST~* and low $\pi_{diff}$, that contained the complement genes C6 and C7.
 The complement system plays an important role in innate immunity [@rieraromo2016], and our results could indicate that balancing selection is acting in this region of the genome to favor a diverse set of alleles, as is known for C6 in humans [@soejima2005].
-Finally, based on the analysis of individual outlier variants, the RIN3 gene showed a consistent pattern of allele frequency differences across all nine of the frog populations sampled in this study, indicating consistent selection in populations distributed across a wide geographic area.
+Based on the analysis of individual outlier variants, the RIN3 gene showed a consistent pattern of allele frequency differences across all nine of the frog populations sampled in this study, indicating consistent selection in populations distributed across a wide geographic area.
 This gene is associated with inflammation response and in *Xenopus* is highly expressed in wounds [@fukazawa2009].
-In addition, the outlier variant with the lowest p-value was the uncharacterized gene LOC108802036.
+Finally, the outlier variant with the lowest p-value was the uncharacterized gene LOC108802036.
 In the genome of another frog species, this gene is located adjacent to a type I interferon gene (Np-IFNi2) [@gan2018], and together with GVINP1 further suggests the importance of interferon-related genes in this system.
 Collectively, the genes associated with these genomic differences may confer at least some degree of resistance against Bd infection, an attribute that may be critically important to population reestablishment and recovery in the presence of Bd.
-<!--# Added this transition sentence. -->
 
 Reintroduction of resistant MYL frogs was remarkably successful in reestablishing viable populations in the presence of Bd.
 Of the 12 translocated populations, approximately 80% showed evidence of both successful reproduction and recruitment of new adults.
@@ -481,7 +478,7 @@ The results of this study provide a hopeful starting point for that endeavor and
 <!--# It would be great to describe how reintroduction of the product of evolution - individuals with alleles that are adaptive in a novel environment - can allow recovery at a broader scale that natural recovery alone. Not sure we have space for this. -->
 
 In our rapidly changing world, evolution is likely to play in important role in facilitating the resilience of wildlife populations.
-Whether the documented disease resistance in MYL frogs and concurrent recovery of decimated populations provides an example of evolutionary rescue will likely always be uncertain.
+Whether the documented disease resistance in MYL frogs and concurrent recovery of decimated populations provides an airtight example of evolutionary rescue will likely always be uncertain (given that can never have a perfect understanding of the past).
 Regardless, we provide an example from the wild that suggests that evolution can produce individuals that harbor adaptive alleles and allow population recovery in a novel (i.e., Bd-positive) environment, and show conclusively that individuals from these recovering populations can be used to reestablish extirpated populations and expand the scale of natural recovery (@fig-recovery-model).
 We expect that similar species recovery actions will be an essential tool in wildlife conservation in an era of accelerating global change.
 
@@ -653,7 +650,7 @@ Our final dataset included 50 samples, 23 from naive and 27 from recovering popu
 ##### Data analysis
 
 To visualize the genomic relationships of our populations, we conducted a PCA using the glPCA function in the adegenet R package [@jombart2008].
-To detect regions of the genome that differed between naive and recovering populations, i.e., regions putatively under selection, we used two approaches: (1) a multivariate linear mixed model to evaluate individual variants (SNPs and INDELs), and (2) a splined window analysis to evaluate larger genomic regions.
+To detect regions of the genome that differed between naive and recovering populations, i.e., regions under selection, we used two approaches: (1) a multivariate linear mixed model to evaluate individual variants (SNPs and INDELs), and (2) a splined window analysis to evaluate larger genomic regions.
 For the variant analysis, we first used a stringent data filter to include only variants with \< 5% missing data (missing for no more than 2 individuals), and then calculated the likelihood ratio statistic for the resulting set of 148,307 high quality variants across 127 contigs using GEMMA [@zhou2014].
 GEMMA calculates and incorporates a relatedness matrix for input samples, allowing us to account for relatedness and population structure when calculating likelihood ratio statistics.
 We identified variants showing different allele frequencies between naive versus recovering populations ("outliers") using a Bonferroni-corrected significance level of 0.01.
@@ -699,7 +696,7 @@ See combined references at end of document (temporary placeholder).
 
 ### Figures
 
-![For *R. sierrae*, a conceptual model depicting the Bd-caused decline and subsequent natural recovery (black text), facilitated recovery via reintroductions, and the linkages between these two pathways. Rectangles and hexagons represent outcomes and processes, respectively. Blue text indicates components that are included in the current study. The timeline shows the general sequence of the components, with the dotted portion indicating a projection into the future.](figures/conceptual_model.png){#fig-recovery-model}
+![For MYL frogs, a conceptual model depicting the Bd-caused decline and subsequent natural recovery (black text), facilitated recovery via reintroductions, and the linkages between these two pathways. Rectangles and hexagons represent outcomes and processes, respectively. Blue text indicates components that are included in the current study. The timeline shows the general sequence of the components, with the dotted portion indicating a projection into the future.](figures/conceptual_model.png){#fig-recovery-model}
 
 \newpage
 
