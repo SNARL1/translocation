@@ -6,10 +6,10 @@ bibliography: translocation.bib
 #  - multibib
 #validate-yaml: false
 csl: pnas.csl
-format: pdf
-# format:
-#   latex: 
-#      cite-method: natbib
+# format: pdf
+format:
+   latex: 
+      cite-method: natbib
 include-in-header:
   text: |
     \usepackage{blkarray}
@@ -88,7 +88,7 @@ These impacts to global biodiversity may be unprecedented, and highlight the imp
 
 Evidence of natural recovery in the many Bd-impacted amphibian populations is surprisingly rare [for notable exceptions, see @scheele2017; @voyles2018; @knapp2016], suggesting that disease-caused declines will be difficult to reverse.
 This apparent low resilience to disease effects may be due to the limited ability of many amphibians to develop Bd resistance and/or tolerance, which in turn, could also lessen the effectiveness of potential Bd mitigation strategies.
-Following pathogen arrival in a host population, resistance (ability to limit pathogen burden) and tolerance (ability to limit the harm caused by a particular burden) are key mechanisms to reduce disease impacts [@råberg2009] and facilitate population persistence and recovery [@brannelly2021].
+Following pathogen arrival in a host population, resistance (ability to limit pathogen burden) and tolerance (ability to limit the harm caused by a particular burden) are key mechanisms to reduce disease impacts [@raberg2009] and facilitate population persistence and recovery [@brannelly2021].
 Host immunity and evolution both play important roles in the development of resistance and tolerance, and utilizing these factors would seem a promising approach to developing effective strategies to mitigate disease impacts in the wild [@garner2016; @woodhams2011].
 However, several aspects of the amphibian-Bd system present difficult obstacles, including (i) the general inability of amphibians to mount an effective immune response against Bd infection [@rosenblum2012; @fites2013; @grogan2018a], and (ii) the apparent rarity of evolution of more resistant/tolerant genotypes [but see @savage2016; @grogan2018b].
 These factors suggest that reintroduction of amphibians into sites to reestablish populations extirpated by Bd will often result not in population recovery, but instead in the rapid reinfection and mortality of the introduced animals and/or their progeny [@hammond2021; @knapp2022; @stockwell2008; @scheele2021].
@@ -612,8 +612,9 @@ Additional details are provided in **Supporting Information - Population viabili
 
 After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values]), we performed four analyses.
 First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to grow or decline in the long-run.
-Second, we compute the elasticity of $\lambda$ to 4 key model parameters to quantify how much changes in these parameters affected the long-run growth rate (@fig-viability-supp)<!--# Added this to ensure that we cite this figure somewhere in the main text -->.
-Third, we included demographic and environmental stochasticity in $\sigma_{J_1}$ in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
+Second, we compute the elasticity of $\lambda$ to four key model parameters to quantify how much changes in these parameters affected the long-run growth rate (@fig-viability-supp SI).
+This also helped us determine where in the model environmental variation in juvenile survival and recruitment would have the largest effects on population dynamics.
+Third, we included demographic stochasticity and environmental stochasticity in $\sigma_{J_1}$ in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of MYL frogs following reintroductions.
 Additional details are provided in **Supporting Information - Population viability modeling**.
 Code to replicate the analyses can be found at <https://github.com/SNARL1/translocation>.
@@ -885,7 +886,7 @@ Although we observed yearly variability in adult survival within a population, t
 Thus, we did not include yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
 Therefore, we allowed for yearly variability in the probability of year 1 juvenile survival and recruitment (additional details provided in **Estimating model parameters** below).
-We also could have included environmental stochasticity in year 2 juvenile survival and recruitment $\sigma_{J_2}$, but our elasticity analysis (**Supporting Information-Population viability modeling-Model analysis and simulation**) showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$ (@fig-viability-supp)
+We also could have included environmental stochasticity in year 2 juvenile survival and recruitment $\sigma_{J_2}$, but our elasticity analysis (**Supporting Information-Population viability modeling-Model analysis and simulation**) showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$ (@fig-viability-supp SI).
 
 ##### Estimating model parameters
 

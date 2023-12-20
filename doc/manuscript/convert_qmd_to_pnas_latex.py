@@ -29,6 +29,9 @@ latex_manuscript = re.sub("includegraphics\[.*\]",
 						  "includegraphics", 
 						  latex_manuscript)
 
+# Drop the References place holder
+latex_manuscript = latex_manuscript.replace("\\hypertarget{references}{%\n\\subsubsection{References}\\label{references}}\n\nSee combined references at end of document (temporary placeholder).\n\n\\hfill\\break\n\n", "")
+
 with open("PNAS-template-empty.tex") as fin:
 	pnas_template = fin.readlines()
 pnas_template = "".join(pnas_template)
@@ -159,29 +162,30 @@ pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/transloc
 pnas_ms = pnas_ms.replace("The dynamics are given by", "The dynamics are given by ")
 # Clean up references to SI material
 
-supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S1A",
-			"Figure~\\ref{fig-selectionresults} A": "Figure S1A",
-			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S1B, C",
-			"Figure~\\ref{fig-selectionresults} B, C": "Figure S1B, C",
-			"Figure~\\ref{fig-selectionresults} B,\nC": "Figure S1B, C",
-			"Figure~\\ref{fig-selectionresults} B, C;\nSI": "Figure S1B, C",
-			"Figure~\\ref{fig-selectionresults} A": "Figure S1A",
-			"Figure~\\ref{fig-synteny-plot} SI": "Figure S2",
-			"Figure~\\ref{fig-synteny-plot}": "Figure S2",
-			"Figure~\\ref{fig-yosemap} SI": "Figure S3",
-			"Figure~\\ref{fig-yosemap}\nSI": "Figure S3",
-			"Figure~\\ref{fig-yosemap}": "Figure S3",
+supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S6A",
+			"Figure~\\ref{fig-selectionresults} A": "Figure S6A",
+			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S6B, C",
+			"Figure~\\ref{fig-selectionresults} B, C": "Figure S6B, C",
+			"Figure~\\ref{fig-selectionresults} B,\nC": "Figure S6B, C",
+			"Figure~\\ref{fig-selectionresults} B, C;\nSI": "Figure S6B, C",
+			"Figure~\\ref{fig-selectionresults} A": "Figure S6A",
+			"Figure~\\ref{fig-synteny-plot} SI": "Figure S7",
+			"Figure~\\ref{fig-synteny-plot}": "Figure S7",
+			"Figure~\\ref{fig-yosemap} SI": "Figure S1",
+			"Figure~\\ref{fig-yosemap}\nSI": "Figure S1",
+			"Figure~\\ref{fig-yosemap}": "Figure S1",
 			"Figure~\\ref{fig-transsurvival-postdens} SI": "Figure S4",
 			"Figure~\\ref{fig-transsurvival-postdens}": "Figure S4",
-			"Figure~\\ref{fig-bdload-beforeafter} SI": "Figure S5",
-			"Figure~\\ref{fig-bdload-beforeafter}\n SI": "Figure S5",
-			"Figure~\\ref{fig-bdload-beforeafter}\nSI": "Figure S5",
-			"Figure~\\ref{fig-bdload-beforeafter}": "Figure S5",
-			"Figure~\\ref{fig-survival-postdens} SI": "Figure S6",
-			"Figure~\\ref{fig-survival-postdens}": "Figure S6",
-			"Figure~\\ref{fig-compare_surv_probs} : SI": "Figure S7",
-			"Figure~\\ref{fig-compare_surv_probs} SI": "Figure S7",
-			"Figure~\\ref{fig-compare_surv_probs}": "Figure S7",
+			"Figure~\\ref{fig-bdload-beforeafter} SI": "Figure S2",
+			"Figure~\\ref{fig-bdload-beforeafter}\n SI": "Figure S2",
+			"Figure~\\ref{fig-bdload-beforeafter}\nSI": "Figure S2",
+			"Figure~\\ref{fig-bdload-beforeafter}": "Figure S2",
+			"Figure~\\ref{fig-survival-postdens} SI": "Figure S3",
+			"Figure~\\ref{fig-survival-postdens}": "Figure S3",
+			"Figure~\\ref{fig-compare_surv_probs} : SI": "Figure S4",
+			"Figure~\\ref{fig-compare_surv_probs} SI": "Figure S4",
+			"Figure~\\ref{fig-compare_surv_probs}": "Figure S4",
+			"Figure~\\ref{fig-viability-supp} SI": "Figure S5",
 			"Table~\\ref{tbl-survival-earlylate} : SI": "Table S1",
 			"Table~\\ref{tbl-survival-earlylate} SI": "Table S1",
 			"Table~\\ref{tbl-survival-earlylate}": "Table S1",
@@ -215,6 +219,7 @@ with open("translocation_pnas.tex", "w") as fout:
 with open("PNAS-template-supp-info-empty.tex", 'r') as fin:
 	pnas_supp = fin.readlines()
 pnas_supp = "".join(pnas_supp)
+
 
 ## Main text of SI ##
 
@@ -287,6 +292,14 @@ verb = latex_manuscript[verb_start:(verb_end + len("\\end{verbatim}"))]
 pnas_supp = pnas_supp.replace(verb, "")
 
 pnas_supp = pnas_supp.replace("\\title{}", "\\title{" + title + "}")
+
+# Replace odd citations
+pnas_supp = re.sub("citet", "citep", pnas_supp)
+
+# Drop SI tags
+pnas_supp = re.sub(" SI", "", pnas_supp)
+pnas_supp = re.sub("\nSI", "", pnas_supp)
+
 
 with open("translocation_pnas_SI.tex", "w") as fout:
 	fout.writelines(pnas_supp)
