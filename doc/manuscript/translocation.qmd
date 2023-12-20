@@ -538,7 +538,12 @@ We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using 
 
 ##### Predictors of post-translocation frog survival
 
-To identify important predictors of frog survival following translocation, we used multilevel Bayesian models [@gelman2013; @gabry2019]. Included predictor variables describe characteristics of sites, translocated cohorts, and individuals (Bd load, sex, frog size, site elevation, winter severity in the year of translocation, winter severity in the year following translocation, donor population, day of year on which a translocation was conducted, and translocation order). We used 1-year post-translocation survival estimates from CMR models as the response. Estimated survival was rounded to integer values to produce a binary outcome, and modeled with a Bernoulli distribution. Group-level (random) effects included site_id, translocation_id, or translocation_id nested within site_id. We performed all analyses with the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022].
+To identify important predictors of frog survival following translocation, we used multilevel Bayesian models [@gelman2013; @gabry2019].
+Included predictor variables describe characteristics of sites, translocated cohorts, and individuals (Bd load, sex, frog size, site elevation, winter severity in the year of translocation, winter severity in the year following translocation, donor population, day of year on which a translocation was conducted, and translocation order).
+We used 1-year post-translocation survival estimates from CMR models as the response.
+Estimated survival was rounded to integer values to produce a binary outcome, and modeled with a Bernoulli distribution.
+Group-level (random) effects included site_id, translocation_id, or translocation_id nested within site_id.
+We performed all analyses with the rstanarm package [@rstanarm2022] and R Statistical Software [v4.4.4, @rsoftware2022].
 For all models, we used default, weakly informative priors, four chains, and 5000 iterations each for warmup and post-warmup.
 We checked MCMC convergence using trace plots and Rhat, and evaluated model fit using leave-one-out cross-validation [@vehtari2016], as implemented by the loo package [@vehtari2022].
 (See **Supporting Information - Frog population recovery - Among-site survival modeling** for details.)
@@ -607,8 +612,9 @@ Additional details are provided in **Supporting Information - Population viabili
 
 After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values]), we performed four analyses.
 First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to grow or decline in the long-run.
-Second, we compute the elasticity of $\lambda$ to 4 key model parameters to quantify how much changes in these parameters affected the long-run growth rate (@fig-viability-supp)<!--# Added this to ensure that we cite this figure somewhere in the main text -->.
-Third, we included demographic and environmental stochasticity in $\sigma_{J_1}$ in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
+Second, we compute the elasticity of $\lambda$ to four key model parameters to quantify how much changes in these parameters affected the long-run growth rate (@fig-viability-supp SI).
+This also helped us determine where in the model environmental variation in juvenile survival and recruitment would have the largest effects on population dynamics.
+Third, we included demographic stochasticity and environmental stochasticity in $\sigma_{J_1}$ in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of MYL frogs following reintroductions.
 Additional details are provided in **Supporting Information - Population viability modeling**.
 Code to replicate the analyses can be found at <https://github.com/SNARL1/translocation>.
@@ -880,7 +886,7 @@ Although we observed yearly variability in adult survival within a population, t
 Thus, we did not include yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
 Therefore, we allowed for yearly variability in the probability of year 1 juvenile survival and recruitment (additional details provided in **Estimating model parameters** below).
-We also could have included environmental stochasticity in year 2 juvenile survival and recruitment $\sigma_{J_2}$, but our elasticity analysis showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$.
+We also could have included environmental stochasticity in year 2 juvenile survival and recruitment $\sigma_{J_2}$, but our elasticity analysis showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$ (@fig-viability-supp SI).
 
 ##### Estimating model parameters
 

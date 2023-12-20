@@ -120,10 +120,10 @@ for(i in 1:length(muR_range)){
 dat = expand.grid(muR=muR_range, juv_surv=juv_surv_range)
 dat$lambda = as.vector(lambdas)
 ptile = ggplot(dat) + geom_tile(aes(x=muR, y=juv_surv, fill=lambda)) + 
-							geom_hline(aes(yintercept=0.08), linetype="dashed") +
+							geom_hline(aes(yintercept=0.09), linetype="dashed") +
 							geom_contour(aes(x=muR, y=juv_surv, z=lambda), breaks=c(1), color="red", linewidth=1) +
 							geom_point(data=lake_growth_rates_dt, aes(x=surv_med, 
-																												y=rep(0.08, length(surv_med)), 
+																												y=rep(0.09, length(surv_med)), 
 																													color=lake_id), size=2) +
 		   				scale_color_manual(values=colors) +
 							# scale_fill_gradient("\u03bb", low = "white", high = "black") +
@@ -448,7 +448,6 @@ ind = which.min(pred_ss)
 best_sigma_J1s = reshape2::melt(sigma_J1_trajectories[['70550']][pred_ss_dt$index[1:250], 1:16])
 ggplot(best_sigma_J1s) + geom_histogram(aes(x=value), bins=15) + facet_wrap(~Var2)
 colMeans(sigma_J1_trajectories[['70550']][pred_ss_dt$index[1:50], 1:16])
-
 
 # Plot and compare observed and predicted abundance
 pred_traj = data.table(reshape2::melt(pop_trajectories[['70550']][pred_ss_dt$index[1:100], 1:16]))
