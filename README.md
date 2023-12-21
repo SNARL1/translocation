@@ -45,6 +45,22 @@ A notebook describing dataset creation and analysis is available in the [doc/not
 4. To run only the viability analysis, execute `make viability_analysis` in the command line.
 5. To clean your directory of extraneous files create during these runs, execute `make clean` in the command line.
 
+## Creating journal-formatted PDF documents
+
+1. Render `translocation.qmd` to latex format. 
+2. From the doc/manuscript/ subdirectory, run `python convert_qmd_to_pnas_latex.py` in Terminal. 
+3. To compile the journal-formatted PDFs, run the following code in Terminal:
+ `pdflatex translocation_pnas.tex`
+ `bibtex translocation_pnas`
+ `pdflatex translocation_pnas.tex`
+ `pdflatex translocation_pnas.tex`
+
+ `pdflatex translocation_pnas_SI.tex`
+ `bibtex translocation_pnas_SI`
+ `pdflatex translocation_pnas_SI.tex`
+ `pdflatex translocation_pnas_SI.tex`
+4.  If the files fail to compile due to missing latex packages, [install packages](https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages) and rerun the code. In Linux/Ubuntu, packages can be installed using `tlmgr install <package_name>`. 
+ 
 ## Contact
 
 Roland Knapp, Research Biologist, University of California Sierra Nevada Aquatic Research Laboratory, Mammoth Lakes, CA 93546 USA; rolandknapp(at)ucsb.edu, <https://mountainlakesresearch.com/roland-knapp/>
