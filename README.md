@@ -48,17 +48,10 @@ A notebook describing dataset creation and analysis is available in the [doc/not
 ## Creating journal-formatted PDF documents
 
 1. Render `translocation.qmd` to latex format. 
-2. From the doc/manuscript/ subdirectory, run `python convert_qmd_to_pnas_latex.py` in Terminal. 
-3. To compile the journal-formatted PDFs, run the following code in Terminal:
- `pdflatex translocation_pnas.tex`
- `bibtex translocation_pnas`
- `pdflatex translocation_pnas.tex`
- `pdflatex translocation_pnas.tex`
-
- `pdflatex translocation_pnas_SI.tex`
- `bibtex translocation_pnas_SI`
- `pdflatex translocation_pnas_SI.tex`
- `pdflatex translocation_pnas_SI.tex`
+2. From the doc/manuscript/ subdirectory, run `python convert_qmd_to_pnas_latex.py` in the command line. 
+3. To compile the journal-formatted PDFs, run the following in the command line:
+	- `pdflatex translocation_pnas.tex`, `bibtex translocation_pnas`, `pdflatex translocation_pnas.tex`, `pdflatex translocation_pnas.tex`
+	- `pdflatex translocation_pnas_SI.tex`, `bibtex translocation_pnas_SI`, `pdflatex translocation_pnas_SI.tex`, `pdflatex translocation_pnas_SI.tex`
 4.  If the files fail to compile due to missing latex packages, [install packages](https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages) and rerun the code. In Linux/Ubuntu, packages can be installed using `tlmgr install <package_name>`. 
  
 ## Contact
