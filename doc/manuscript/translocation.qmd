@@ -66,10 +66,10 @@ This example has broad implications for the many taxa worldwide that are threate
 ### Significance
 
 Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
-Emerging infectious diseases can have particularly devastating impacts, and few options typically exist to reverse these effects.
-We used large-scale reintroductions of disease-resistant individuals in an effort to recover a once-common frog species driven to the brink of extinction by a disease that has recently devastated global amphibian biodiversity.
-Introduction of resistant frogs allowed reestablishment of populations in the presence of disease.
-In addition, resistance appears to have a genetic basis and is consistent with evolution following exposure of frogs to Bd.
+Emerging infectious diseases can have particularly devastating impacts, and few options exist to reverse these effects.
+We used large-scale reintroductions of disease-resistant individuals in an effort to recover a once-common frog species driven to near-extinction by a disease that has decimated amphibian biodiversity.
+Introduction of resistant frogs allowed reestablishment of viable populations in the presence of disease.
+In addition, resistance may be at least partially the result of natural selection at specific immune function genes, which show evidence for selection in recovering populations.
 The evolution of resistance and reintroductions of resistant individuals could play an important role in biodiversity conservation in our rapidly changing world.
 
 ### Introduction
@@ -389,7 +389,7 @@ Therefore, although some outlier variant associations have a more limited geogra
 
 The splined window analysis identified 33 outlier regions for $\pi_{diff}$ and 58 outlier regions for *F~ST~* (@fig-spline-manhattan A, B).
 Of these, 9 regions were outliers for both metrics ("shared regions") and 2 of these shared regions also contained one or more of the outlier SNPs described above.
-A total of 33 annotated genes <!--# Is this correct, i.e., that we identified 33 outlier regions, and in the subset of 9 regions we found 33 annotated genes? I just want to make sure there isn't a typo in here. Seems a weird coincidence to have 33 of both.) And the file spline_window_shared_outliers.csv lists 35 genes. -->were found in the 9 shared regions (Datasets S3, S4).
+A total of 35 annotated genes were found in the 9 shared regions (Datasets S3, S4).
 Given this large number of genes, here we focus on those with the strongest signal of selection and/or immune-related functions.
 The largest $\pi_{diff}$, indicative of directional selection, occurred in a 163kb region on Contig19, 12.9Mb upstream of the RIN3 outlier SNP (@fig-spline-manhattan C).
 This region contains approximately 500 SNPs and one annotated gene called "interferon-induced very large GTPase 1-like" (GVINP1).
@@ -952,14 +952,13 @@ We repeated this process for the set of 33 genes located in the *F~ST~* and $\pi
 
 #### Genetic diversity
 
-To characterize general patterns of genetic diversity between naive and persistent populations, we calculated individual heterozygosity using VCFtools [@danecek2011], and compared average heterozygosity using a Wilcoxon rank-sum test<!--# This analysis is problematic because it doesn't account for the lack of independence between points (i.e., individuals grouped within populations). In addition, there is a pattern of R. muscosa populations in both groups (7, 8, 9) having low Fst, so species identity is another grouping that contributes to a lack of independence. Given that we don't have a large enough sample size to run an analysis that properly accounts for this lack of independence, I'd argue for dropping this analysis and providing only a visual description of the differences. -->.
-Additionally, we used VCFtools to calculate per-population $\pi$ in 100kb sliding windows along the genome, and in each of the 10 <!--# In the main manuscript, we state that 9 windows were identified. Why the difference? -->outlier windows identified in the splined window analysis.
-We compared per-population average $\pi$ values using Wilcoxon rank-sum tests.
-<!--# Allie, did I describe this correctly? --> <!--# The displayed per-population pi values show tiny differences between naive and persistent populations. Is the significance shown by the Wilcoxon test due to large sample sizes? Given that the interest here is in describing any meaningful differences between naive and persistent populations, it doesn't accomplish much to highlight tiny differences that almost certainly have no biological relevance. In addition, all of the lack of independence issues that I highlighted above are probably relevant here too. Would it be better to describe the results qualitatively? E.g., Differences between sites were small and did not show any consistent patterns between naive and recovering populations. -->
+To characterize general patterns of genetic diversity between naive and recovering populations, we conducted three analyses.
+First, we calculated heterozygosity for each sampled frog using VCFtools [@danecek2011].
+Second, to characterize genome-wide patterns of diversity, we used VCFtools to calculate nucleotide diversity ($\pi$) in 100kb sliding windows along the genome for each population.
+Third, we calculated average $\pi$ per population within each of the 9 outlier windows identified in the splined window analysis.
 
-Average (i) individual-level heterozygosity and (ii) population-level nucleotide diversity ($\pi$) were similar between naive and recovering populations (@fig-violinplot-heterozy SI; @fig-boxplot-pi SI).
-The analysis of $\pi$ across the 10 <!--# 9? -->outlier windows indicates that within each of the windows there is considerable variation in $\pi$ between populations and between population clusters (@fig-barchart-pi-by-windowsite SI).
-<!--# Allie, please check that my text accurately describes the results. -->
+Average individual-level heterozygosity and genome-wide population-level $\pi$ were similar between the naive and recovering groups (@fig-violinplot-heterozy SI; @fig-boxplot-genomewide-pi-by-pop SI).
+Within each of the 9 outlier windows, average $\pi$ shows considerable variation between populations (@fig-boxplot-pi-by-windowpop SI) and no obvious patterns between the naive and recovering groups.
 
 \newpage
 
@@ -995,15 +994,15 @@ The analysis of $\pi$ across the 10 <!--# 9? -->outlier windows indicates that w
 
 \newpage
 
-![Violin plots showing individual heterozygosity for the Bd-naive and recovering populations included in the frog evolution study. Individual data points are represented by their corresponding site number (from @fig-allelefrequencies). A Wilcoxon signed-rank test showed no significant difference between the two groups.](figures/het_by_status_violin_plot.png){#fig-violinplot-heterozy width="500"}
+![Violin plots showing individual heterozygosity for the Bd-naive and recovering populations included in the frog evolution study. Individual data points are represented by their corresponding site number (from @fig-allelefrequencies). ](figures/violin_plot_heterozy_by_group.png){#fig-violinplot-heterozy width="500"}
 
 \newpage
 
-![For each study population in the frog evolution study (from @fig-allelefrequencies), boxplots showing nucleotide diversity ($\pi$) within 100kb sliding windows along the genome. The y-axis has been log~10~-transformed for display purposes. Sites are color-coded as "Bd-naive" or "recovering", and vertical dashed lines show the genetic breaks between frog populations as described in @fig-selectionresults A SI). Within the genetic clusters, mean $\pi$ is significantly different between sites (p \<0.001 Wilcoxon rank-sum test).<!--# Change x-axis label to "Population" and x-axis tick labels to population #s only. -->](figures/boxplot_pi_by_site.png){#fig-boxplot-pi width="500"}
+![For each study population in the frog evolution study (from @fig-allelefrequencies), boxplots showing nucleotide diversity ($\pi$) within 100kb sliding windows along the genome. The y-axis has been log~10~-transformed for display purposes. Sites are color-coded as "Bd-naive" or "recovering", and vertical dashed lines show the genetic breaks between frog populations as described in @fig-selectionresults A SI). Within the genetic clusters, mean $\pi$ is significantly different between sites (p \<0.001 Wilcoxon rank-sum test).](figures/boxplot_genomewide_pi_by_pop.png){#fig-boxplot-genomewide-pi-by-pop width="550"}
 
 \newpage
 
-![For each study population in the frog evolution study, average $\pi$ values by population calculated for each of the 10 outlier windows <!--# I thought it was 9? -->identified in the splined window analysis (A-J). Sites are color-coded as "Bd-naive" or "recovering", and vertical dashed lines show the genetic breaks between frog populations as described in @fig-selectionresults A SI. Gene annotations for the outlier regions are as follows: (A) C6, C7, (B) DDX10, ZBTB24, (C) SULTR-like, TRAF3IP2, VGLL3, EXOC1, (D) FLOT1, TUBB2B, TUBB, MDC1, CCHCR1, TCF19*, TRIM29, HSP70, LSM2, VARS,* (E) GCC2, CFAP251, PEG10, (F) ERO1A, GVINP1, (G) ERO1A, GVINP1, (H) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (I) C6H5ORF22, PKS6, BSPRY, MPV17, and (J) CAD, ATRAID, GPN1. Note that windows F and G are in the same gene region. \* by gene names indicate that an outlier SNP is also present in this gene <!--# No asterices are associated with any of the gene names listed above -->. (K) Average $\pi$ values of naive and recovering groups for each of the outlier windows shown in A-J. <!--# These are mean values so they should be displayed using boxplots. Not providing that context can be misleading. Given the variation between populations for each window, I don't think (K) is useful even if boxplots were used. I think plots A-J tell the story and K doesn't add anything. --> <!--# Put plot identifiers A-K inside the upper-right corner of each plot. Cleaner and less ambiguous than having identifiers between plots. Alternatively, the identifier for plot K could be placed inside the upper-left corner of that plot.-->](figures/perwindow_persite_pi.png){#fig-barchart-pi-by-windowsite width="650"}
+![For each of the 9 outlier windows identified by the overlapping splined windows for FST and \$\\pi\$, boxplots showing average \$\\pi\$ for naive and recovering populations. The corresponding gene annotations for each window are as follows: (1) C6, C7, (2) DDX10, ZBTB24, (3) SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1, TCF19, HSP70, LSM2, VARS1, (5) GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1, (7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6, BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.](figures/boxplot_pi_by_windowpop.png){#fig-boxplot-pi-by-windowpop width="500"}
 
 \newpage
 
