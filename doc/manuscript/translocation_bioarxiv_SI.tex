@@ -23,35 +23,32 @@ recovery}\label{frog-population-recovery-2}}
 \subsection{Laboratory Methods}\label{laboratory-methods}}
 
 Swab extracts were analyzed using standard Bd DNA extraction and qPCR
-methods \citep{boyle2004}, and extracts were analyzed singly instead of
-in triplicate \citep{kriger2006}. For analysis of swabs collected during
-2005--2014, we used standards developed from known concentrations of
-zoospores \citep{boyle2004}, and after 2014, we used standards based on
-single ITS1 PCR amplicons \citep{longo2013}. Based on paired comparisons
-between samples analyzed using both types of standards, Bd in the study
-area has an average of 60 ITS1 copies per zoospore. To express all qPCR
-results as the number of ITS1 copies, starting quantities obtained using
-the zoospore standard (measured as ``zoospore equivalents'') were
-multiplied by 60. In addition, all qPCR quantities (regardless of
-standard) were multiplied by 80 to account for the fact that DNA
-extracts from swabs were diluted 80-fold during extraction and PCR
-\citep{vredenburg2010}.
+methods (74), and extracts were analyzed singly instead of in triplicate
+(87). For analysis of swabs collected during 2005--2014, we used
+standards developed from known concentrations of zoospores (74), and
+after 2014, we used standards based on single ITS1 PCR amplicons (88).
+Based on paired comparisons between samples analyzed using both types of
+standards, Bd in the study area has an average of 60 ITS1 copies per
+zoospore. To express all qPCR results as the number of ITS1 copies,
+starting quantities obtained using the zoospore standard (measured as
+``zoospore equivalents'') were multiplied by 60. In addition, all qPCR
+quantities (regardless of standard) were multiplied by 80 to account for
+the fact that DNA extracts from swabs were diluted 80-fold during
+extraction and PCR (33).
 
 \hypertarget{cmr-model-structure}{%
 \subsection{CMR model structure}\label{cmr-model-structure}}
 
 We estimated survival and recruitment for each site using open
-population CMR models based on \citep{joseph2018}. For each individual
-\(i=1, ..., M\) on each survey \(j=1, ..., n_j\): \(o_{i, j} = 1\) if
-the individual was not detected, and \(o_{i, j}=2\) if the individual
-was detected. Capture histories of \(M\) individuals are modeled, though
-only \(N_s\) individuals were captured.
-
-This parameter expanded data augmentation allows us to capture the
-possibility that undetected individuals may have recruited into the
-adult population \citep{royle2012}. Here, \(M\) was chosen to be three
-times the number of observed individuals (\(3N_s\)) to be considerably
-greater than our prior guess of \(N_s\).
+population CMR models based on (41). For each individual \(i=1, ..., M\)
+on each survey \(j=1, ..., n_j\): \(o_{i, j} = 1\) if the individual was
+not detected, and \(o_{i, j}=2\) if the individual was detected. Capture
+histories of \(M\) individuals are modeled, although only \(N_s\)
+individuals were captured. This parameter expanded data augmentation
+allows us to capture the possibility that undetected individuals may
+have recruited into the adult population (89). Here, \(M\) was chosen to
+be three times the number of observed individuals (\(3N_s\)) to be
+considerably greater than our prior guess of \(N_s\).
 
 We denote the true state of individual \(i\) as \(u_{i, t}\) for primary
 period \(t = 1,..., n_t\). The four states that we consider are:
@@ -112,8 +109,8 @@ by:
 \] where \(\lambda_t\) is the probability of recruiting in time \(t\)
 and \(\phi_t\) is the probability of survival in time \(t\).
 
-For introduced individuals which have deterministic recruitment (they
-recruit when introduced), the state transition matrix is given by:
+For introduced individuals, which have deterministic recruitment (i.e.,
+they recruit when introduced), the state transition matrix is given by:
 
 \[
 \Psi_{t, i} =
@@ -166,10 +163,10 @@ prior \(\beta^{(p)} \sim N(0, 1)\).
 
 We computed the likelihood of each individual capture history using the
 forward algorithm, and we estimated the latent states using the
-forward-backward algorithm \citep{zucchini2009, joseph2018}.
+forward-backward algorithm (41, 90).
 
 All of the code to specify and fit the model in Stan is available in the
-open source mrmr package \citep{joseph2019}.
+open source mrmr package (67).
 
 The joint distribution of the resulting model can be written as follows:
 
@@ -185,12 +182,22 @@ capture history of individual \(i\).
 \subsection{Among-site survival
 modeling}\label{among-site-survival-modeling}}
 
+The objective of this analysis is to describe the influence of site,
+cohort, and individual level characteristics on post-translocation frog
+survival. By modeling survival estimates obtained from site-specific
+mrmr CMR analyses, we are in effect conducting an among-site
+meta-analysis. Although it would theoretically be possible to estimate
+survival covariate effects in a joint CMR model that integrates capture
+histories across all sites, this was impractical due to computational
+requirements of the CMR models (namely, run time and memory).
+
 We used Bayesian generalized linear mixed models to investigate
 predictors of survival among sites. The response \(y_i\) is binary,
 representing a point estimate of whether individual \(i\) survived in
 the year following translocation. We generated these point estimates by
 rounding the posterior median of 1-year post-introduction survival for
-each individual, and modeled the data using a Bernoulli distribution:
+each individual (from site-specific mrmr CMR models) and modeled the
+data using a Bernoulli distribution:
 
 \[y_i \sim \text{Bernoulli}(p_i),\]
 
@@ -207,12 +214,12 @@ refers to the group \(g\) containing individual \(i\), and we estimate
 an adjustment for each of the \(G\) groups (\(\nu_1, ..., \nu_G\)).
 
 These models were fit using the \texttt{stan\_glmer()} function in the
-rstanarm package, with default priors described below
-\citep{rstanarm2022}. These priors are vague, but include data dependent
-scaling as follows to account for different input variable scales.
-However, as we standardized all predictor variables similarly to have
-equal variance (by centering and dividing by twice the sample standard
-deviation), the resulting priors are identical. Specifically, we have:
+rstanarm package, with default priors described below (71). These priors
+are vague, but include data-dependent scaling as follows to account for
+different input variable scales. However, because we standardized all
+predictor variables similarly to have equal variance (by centering and
+dividing by twice the sample standard deviation), the resulting priors
+are identical. Specifically, we have:
 
 \[\alpha \sim \text{Normal}(0, 2.5),\] and
 
@@ -224,25 +231,14 @@ The default prior for group level adjustments \(\nu_1, ..., \nu_G\) in
 rstanarm is a zero-mean Gaussian, where the covariance matrix is
 constructed from a correlation matrix with an LKJ prior, and a vector of
 variance parameters -- the decomposition of variance prior with unit
-regularization, concentration, shape, and scale parameters
-\citep{lewandowski2009}.
+regularization, concentration, shape, and scale parameters (91).
 
 We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan,
 with four parallel chains, each run for 10,000 iterations, discarding
-the first half of each chain as warm-up draws \citep{rstanarm2022}. We
-used Rhat statistics and trace plots to verify convergence. We
-considered models with different subsets of fixed and random effects,
-and used approximate leave-one-out cross validation to identify the best
-model \citep{vehtari2016}.
-
-Finally, while it would theoretically be possible to estimate survival
-covariate effects in a joint CMR model that integrates capture histories
-across all sites, this was impractical due to computational requirements
-of the CMR models (namely, run time and memory). In modeling survival
-estimates from site-specific CMR analyses, we are in effect conducting
-an among-site meta-analysis to better understand how site, cohort, and
-individual level characteristics explain variation in survival after
-translocation.
+the first half of each chain as warm-up draws (71). We used Rhat
+statistics and trace plots to verify convergence. We considered models
+with different subsets of fixed and random effects, and used approximate
+leave-one-out cross validation to identify the best model (72).
 
 \hypertarget{population-viability-modeling-1}{%
 \subsection{Population viability
@@ -255,9 +251,9 @@ rates}\label{incorporating-yearly-variability-in-vital-rates}}
 We computed yearly survival probabilities for translocated adults
 \(\sigma_{A_T}\) and naturally recruited adults \(\sigma_{A_R}\) from
 the posterior distribution of individual state trajectories derived from
-CMR models. Although we observed yearly variability in adult survival
-within a population, the magnitude of this variability was small
-compared to among-population variability
+mrmr CMR models. Although we observed yearly variability in adult
+survival within a population, the magnitude of this variability was
+small compared to among-population variability
 (Fig. 3). Thus, we did not include
 yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in
@@ -267,9 +263,10 @@ yearly variability in the probability of year 1 juvenile survival and
 recruitment (additional details provided in \textbf{Estimating model
 parameters} below). We also could have included environmental
 stochasticity in year 2 juvenile survival and recruitment
-\(\sigma_{J_2}\), but our elasticity analysis showed that this parameter
-had little effect on host growth rate relative to \(\sigma_{J_1}\)
-(Figure~\ref{fig-viability-supp}).
+\(\sigma_{J_2}\), but our elasticity analysis (\textbf{Supporting
+Information-Population viability modeling-Model analysis and
+simulation}) showed that this parameter had little effect on host growth
+rate relative to \(\sigma_{J_1}\) (Figure~\ref{fig-viability-supp}).
 
 \hypertarget{estimating-model-parameters}{%
 \subparagraph{Estimating model
@@ -290,16 +287,17 @@ instead set \(\sigma_{A_R} = \sigma_{A_T}\).
 
 To estimate the \(\sigma_{A_R}\), we used the posterior distribution of
 predicted true states for naturally-recruited individuals (1=not
-recruited, 2=alive, 3=dead, as described in \emph{CMR model structure}),
-then calculated the posterior probability of individuals surviving
-between consecutive primary periods, conditional on being alive in the
-first primary period (e.g., given a value of 2 (alive) in the first
-primary period, how often was the value still 2 (alive) in the next
-primary period compared to 3 (dead)?) . This yielded posterior
-distributions for survival probabilities between primary periods.
-However, because the time interval between primary periods differed, the
-survival probabilities between different consecutive primary periods
-were not directly comparable. To address this, we converted the survival
+recruited, 2=alive, 3=dead, as described in \textbf{Supporting
+Information-Frog population recovery-CMR model structure}), then
+calculated the posterior probability of individuals surviving between
+consecutive primary periods, conditional on being alive in the first
+primary period (e.g., given a value of 2 (alive) in the first primary
+period, how often was the value still 2 (alive) in the next primary
+period compared to 3 (dead)?) . This yielded posterior distributions for
+survival probabilities between primary periods. However, because the
+time interval between primary periods differed, the survival
+probabilities between different consecutive primary periods were not
+directly comparable. To address this, we converted the survival
 probabilities between each consecutive primary period to per day death
 rates, propagating the uncertainty from the posterior distributions. We
 then took a weighted average of these death rates, weighted by the time
@@ -365,78 +363,74 @@ population establishment and recovery. We simulated our model for 16
 years, repeating the simulation 50,000 times. For each run and each
 year, we drew \(\sigma_{J_1}\) from a uniform distribution between 0 and
 1 (or equivalently a beta distribution with mean 0.5 and \(\phi = 2\)).
-Using Approximate Bayesian Computing and rejection sampling
-\citep{kosmala2016}, we identified the top 2\% of trajectories (i.e.,
-1000 trajectories) that minimized the sum of squared errors between the
-observed and predicted data. The yearly \(\sigma_{J_1}\) values
-associated with these ``best'' trajectories represented an approximate
-posterior distribution \citep{beaumont2010}. Using these best fit
-trajectories, we assessed whether our model could qualitatively describe
-the patterns of recovery in the observed data for population 70550.
+Using Approximate Bayesian Computing and rejection sampling (92), we
+identified the top 2\% of trajectories (i.e., 1000 trajectories) that
+minimized the sum of squared errors between the observed and predicted
+data. The yearly \(\sigma_{J_1}\) values associated with these ``best''
+trajectories represented an approximate posterior distribution (93).
+Using these best fit trajectories, we assessed whether our model could
+qualitatively describe the patterns of recovery in the observed data for
+population 70550.
 
 \hypertarget{frog-evolution-in-response-to-bd-2}{%
 \section{Frog evolution in response to
 Bd}\label{frog-evolution-in-response-to-bd-2}}
 
-\hypertarget{methods}{%
-\subsection{Methods}\label{methods}}
-
 \hypertarget{study-design}{%
-\subparagraph{Study design}\label{study-design}}
+\subsection{Study design}\label{study-design}}
 
-We compared frog genomes sampled in naive versus recovering populations.
-Comparing populations with different infection histories allowed larger
-sample sizes and replication across the landscape. The alternative
-approach of comparing samples from the same populations before and after
-Bd exposure isn't feasible in this system because Bd arrived in most MYL
-frog populations decades ago and population persistence/recovery is rare
-and unpredictable. As a result, samples from recovering populations
-collected from before and after Bd exposure are not available and are
-unlikely to be available in the future.
+To gain insights into the role of evolution in the development of
+resistance by MYL frogs, we compared frog genomes sampled in naive
+versus recovering populations. Comparing populations with different
+infection histories allowed larger sample sizes and replication across
+the landscape. The alternative approach of comparing samples from the
+same populations before and after Bd exposure isn't feasible in this
+system because Bd arrived in most MYL frog populations decades ago and
+population persistence/recovery is rare and unpredictable. As a result,
+samples from recovering populations collected from before and after Bd
+exposure are not available and are unlikely to be available in the
+future.
+
+Our study design, in which we compared frog genomes in naive and
+recovering populations, required sampling populations across the range
+of MYL frogs in the southern Sierra Nevada. This is due to the fact that
+very few MYL frog populations remain in the naive state, and those that
+do are scattered across a wide latitudinal range, from Yosemite National
+Park in the north to southern Kings Canyon National Park in south. To
+minimize potential confounding effects caused by known variation in frog
+genotypes across latitude (49), we selected sampling sites such that
+both population types were represented across similar latitudinal ranges
+(Fig. 1).
 
 \hypertarget{go-analysis}{%
-\subparagraph{GO analysis}\label{go-analysis}}
+\subsection{GO analysis}\label{go-analysis}}
 
-In the Results section of the main paper, we describe the stringent set
-of outlier SNPs (identified using a Bonferroni-corrected p-value of
-0.01). The liberal set, identified using a Bonferroni-corrected p-value
-of 0.05, included 38 outliers (35 SNPs and 3 INDELS) from 30 distinct
-genes across 16 contigs. Using this liberal set of outlier variants, we
-performed a statistical overrepresentation test (Fisher's exact test)
-using Blast2GO \citep{conesa2005}. First, we retrieved the BLAST hits
-and mapped GO terms for each gene in our targeted transcriptome. Next,
-we compared the 30 unique outlier genes from the liberal set of 38
-outlier variants to the complete set of genes in our target
-transcriptome to determine if any GO biological functions, molecular
-functions, or cellular processes were overrepresented. We then repeated
-this process for the set of 33 genes located in the
-\emph{F\textsubscript{ST}} and \(\pi_{diff}\) splined windows.
+In \textbf{Results-Frog evolution in response to Bd}, we describe the
+stringent set of outlier variants (identified using a
+Bonferroni-corrected p-value of 0.01). A liberal set of outlier
+variants, identified using a Bonferroni-corrected p-value of 0.05,
+included 38 outliers (35 SNPs and 3 INDELS) from 30 distinct genes
+across 16 contigs. We used this liberal set to determine if any GO
+biological functions, molecular functions, or cellular processes were
+overrepresented. To do this, we retrieved the BLAST hits and mapped GO
+terms for each gene in our targeted transcriptome. We then conducted a
+statistical overrepresentation test (Fisher's exact test) using Blast2GO
+(94) to compare the 30 unique outlier genes to the complete set of genes
+in our target transcriptome. We repeated this process for the set of 33
+genes located in the \emph{F\textsubscript{ST}} and \(\pi_{diff}\)
+splined windows.
 
 \hypertarget{genetic-diversity}{%
-\subparagraph{Genetic diversity}\label{genetic-diversity}}
+\subsection{Genetic diversity}\label{genetic-diversity}}
 
 To characterize general patterns of genetic diversity between naive and
 persistent populations, we calculated individual heterozygosity using
-VCFtools \citep{danecek2011}, and compared average heterozygosity using
-a Wilcoxon rank-sum test. Additionally, we used VCFtools to calculate
+VCFtools (85), and compared average heterozygosity using a Wilcoxon
+rank-sum test. Additionally, we used VCFtools to calculate
 per-population \(\pi\) in 100kb sliding windows along the genome, and in
 each of the 10 outlier windows identified in the splined window
 analysis. We compared per-population average \(\pi\) values using
 Wilcoxon rank-sum tests.
-
-\hypertarget{results-1}{%
-\subsection{Results}\label{results-1}}
-
-\hypertarget{go-analysis-1}{%
-\subparagraph{GO analysis}\label{go-analysis-1}}
-
-We found no significantly over-represented GO terms in the liberal set
-of outlier regions, or in the set of 33 genes located in the overlapping
-\emph{F\textsubscript{ST}} and \(\pi_{diff}\) splined windows.
-Therefore\ldots..
-
-\hypertarget{genetic-diversity-1}{%
-\subparagraph{Genetic diversity}\label{genetic-diversity-1}}
 
 Average (i) individual-level heterozygosity and (ii) population-level
 nucleotide diversity (\(\pi\)) were similar between naive and recovering
@@ -497,21 +491,21 @@ above the x-axis.}
 
 }
 
-\caption{\label{fig-survival-postdens}Evidence that Bd load is not an
-important predictor of post-translocation frog survival. Depicted
-distributions are the estimated posterior density curves and shaded 95\%
-uncertainty intervals for the intercept and all predictor variables from
-the best model in the between-site meta-analysis. In the Bayesian
-framework in which the model was developed, variables are considered
-important predictors if the associated uncertainty interval does not
-overlap zero (indicated by the dashed red line). Predictor variables
-shown on the y-axis are defined as follows: length = frog size, snow\_t
-= winter severity in the year of translocation (measured on April 1),
-snow\_t1 = winter severity in the year following translocation (measured
-on April 1), day = day of year on which a translocation was conducted,
-bd\_load = Bd load, elevation = site elevation, order\_first =
-within-site translocation order, sex\_male = frog sex, donor\_70567 and
-donor\_72996 = donor population.}
+\caption{\label{fig-survival-postdens}Results from the among-site
+meta-analysis, showing that Bd load is not an important predictor of
+post-translocation frog survival. Depicted distributions are the
+estimated posterior density curves and shaded 95\% uncertainty intervals
+for the intercept and all predictor variables from the best model. In
+the Bayesian framework in which the model was developed, variables are
+considered important predictors if the associated uncertainty interval
+does not overlap zero (indicated by the dashed red line). Predictor
+variables shown on the y-axis are defined as follows: length = frog
+size, snow\_t = winter severity in the year of translocation (measured
+on April 1), snow\_t1 = winter severity in the year following
+translocation (measured on April 1), day = day of year on which a
+translocation was conducted, bd\_load = Bd load, elevation = site
+elevation, order\_first = within-site translocation order, sex\_male =
+frog sex, donor\_70567 and donor\_72996 = donor population.}
 
 \end{figure}\clearpage
 
@@ -568,19 +562,19 @@ default parameter values for each population and \(\sigma_{J_1}\) =
 
 }
 
-\caption{\label{fig-selectionresults}Evidence for selection on
-individual variants in recovering MYL frog populations. (A) PCA
-calculated from binary SNPs showing the genomic relationship of samples.
-Numeric labels and colors match those in
-Fig. 1A. Populations 1-7 are \emph{R.
-sierrae} and populations 8 and 9 are \emph{R. muscosa}. (B) qqplot
-showing observed and expected p-values for 148,307 SNPs and INDELS.
-Dashed line shows p-value that identifies outliers. (C) Manhattan plot
-showing p-value for each SNP. SNPs are sorted by genomic position and
-contigs are sorted by size. Red line shows p-value that identifies
-outliers. Outlier SNPs above this threshold are highlighted and labeled.
-Bold labels indicate the presence of at least one non-synonymous SNP in
-that gene.}
+\caption{\label{fig-selectionresults}Results from the analysis of
+individual variants, showing putative signatures of selection in
+recovering MYL frog populations. (A) PCA calculated from binary SNPs
+showing the genomic relationship of samples. Numeric labels and colors
+match those in Fig. 1A. Populations 1-7 are
+\emph{R. sierrae} and populations 8 and 9 are \emph{R. muscosa}. (B)
+qqplot showing observed and expected p-values for 148,307 SNPs and
+INDELS. Dashed line shows p-value that identifies outliers. (C)
+Manhattan plot showing p-value for each SNP. SNPs are sorted by genomic
+position and contigs are sorted by size. Red line shows p-value that
+identifies outliers. Outlier SNPs above this threshold are highlighted
+and labeled. Bold labels indicate the presence of at least one
+non-synonymous SNP in that gene.}
 
 \end{figure}\clearpage
 
@@ -595,11 +589,11 @@ that gene.}
 \caption{\label{fig-synteny-plot}Synteny plot showing conserved gene
 order in \emph{Xenopus tropicalis} and \emph{Rana muscosa} for the
 outlier region containing MHC Class I Classical and MHC Class III gene
-regions. The plot was created with SimpleSynteny \citep{veltri2016}
-using \emph{Xenopus tropicalis} Chromosome 8 (NC\_030684.2, genbank
-accession GCA\_000004195.4) and \emph{Rana muscosa} Contig19. Asterices
-indicate the location of SNP outliers in the TCF19 and VARS1 genes. Gap
-sizes for each contig representation are labeled.}
+regions. The plot was created with SimpleSynteny (95) using
+\emph{Xenopus tropicalis} Chromosome 8 (NC\_030684.2, genbank accession
+GCA\_000004195.4) and \emph{Rana muscosa} Contig19. Asterices indicate
+the location of SNP outliers in the TCF19 and VARS1 genes. Gap sizes for
+each contig representation are labeled.}
 
 \end{figure}\clearpage
 
@@ -613,8 +607,8 @@ sizes for each contig representation are labeled.}
 
 \caption{\label{fig-violinplot-heterozy}Violin plots showing individual
 heterozygosity for the Bd-naive and recovering populations included in
-the frog genomics study. Individual data points are shown on the plot
-with their corresponding site number (from
+the frog evolution study. Individual data points are represented by
+their corresponding site number (from
 Fig. 1). A Wilcoxon signed-rank test showed
 no significant difference between the two groups.}
 
@@ -629,7 +623,7 @@ no significant difference between the two groups.}
 }
 
 \caption{\label{fig-boxplot-pi}For each study population in the frog
-evolution study (from Fig. 1A), boxplots
+evolution study (from Fig. 1), boxplots
 showing nucleotide diversity (\(\pi\)) within 100kb sliding windows
 along the genome. The y-axis has been log\textsubscript{10}-transformed
 for display purposes. Sites are color-coded as ``Bd-naive'' or

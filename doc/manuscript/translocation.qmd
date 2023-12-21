@@ -323,7 +323,7 @@ This increased survival has direct implications for population viability (see **
 
 The goal of our meta-analysis was to identify important predictors of 1-year frog survival.
 We were particularly interested in whether Bd load had a negative effect on adult survival, as would be expected if frogs were highly susceptible to Bd infection.
-This analysis was conducted in a Bayesian framework and included a diversity of site, cohort, and individual level characteristics as predictors and 1-year frog survival (@fig-translocation-survival) as the response variable.
+This analysis was conducted in a Bayesian framework and included a diversity of site, cohort, and individual-level characteristics as predictors and 1-year frog survival (@fig-translocation-survival) as the response variable.
 The best model of 1-year frog survival identified several important predictors, but Bd load at the time of translocation was not among them (@fig-survival-postdens SI).
 Instead, important predictors included winter severity in the year following translocation (snow_t1), site elevation, and donor population (@fig-cond-effects, @fig-survival-postdens SI).
 Males had somewhat higher survival than females, but this effect was small (@fig-cond-effects, @fig-survival-postdens SI).
@@ -348,9 +348,9 @@ These six populations all had observed yearly adult survival greater than 0.5.
 As year-1 juvenile survival probability increased above 0.2, the deterministic long-run growth rate of eight of twelve population was greater than 1 (@fig-viability A).
 
 Even when incorporating (i) demographic stochasticity and (ii) environmental stochasticity in year-1 juvenile survival and recruitment (the transition that we expect to be the most subject to environmental variability in the presence of Bd), populations with high adult survival are likely to persist over a 50 year time horizon.
-Our model predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities ($\sigma_{A_R} > 0.5$) had 50-year extinction probabilities of less than 0.5 when the average year 1 juvenile survival was greater than 0.10 <!--# Why not use 0.09 like in A panel? -->(@fig-viability B).
+Our model predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities ($\sigma_{A_R} > 0.5$) had 50-year extinction probabilities of less than 0.5 when the average year-1 juvenile survival was greater than 0.10 (@fig-viability B).
 This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in survival and recruitment.
-In contrast, for the six populations where yearly adult survival probability $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be \> 50% regardless of the value of mean year 1 juvenile survival between 0 and 0.25.
+In contrast, for the six populations where yearly adult survival probability $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be \> 50% regardless of the value of mean year-1 juvenile survival between 0 and 0.25.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history (@fig-viability C; population 70550, surveyed for 16 years).
 
 In summary, our model demonstrates that given observed yearly adult survival probabilities of translocated frogs, 50% of our translocated populations have a high probability of population growth and long-term viability in the presence of Bd.
@@ -362,7 +362,7 @@ Results from the preceding sections indicate the critical role of frog resistanc
 As such, identifying the mechanisms underlying this resistance would fill a key gap in our understanding of the factors that promote population resilience in the presence of disease.
 Although natural selection for more resistant frog genotypes, and evolutionary rescue, may be foundational to the ability of frogs to recover despite ongoing Bd infection, for MYL frogs the role of disease-mediated selection in these processes remains unknown.
 
-To determine whether MYL frog populations show genomic patterns consistent with an evolutionary response to Bd, we compared frog exomes (i.e., coding region of genome) between populations with contrasting histories of Bd exposure.
+To determine whether MYL frog populations show genomic patterns consistent with an evolutionary response to Bd, we compared frog exomes (i.e., coding region of a genome) between populations with contrasting histories of Bd exposure.
 Specifically, we compared frog genomes sampled in 4 populations that have not yet experienced a Bd-caused epizootic ("naive") [@zhou2015] versus in 5 populations that experienced a Bd epizootic during the past several decades and have since recovered to varying degrees ("recovering"; @fig-allelefrequencies) [@knapp2016; @vredenburg2010].
 Bd-exposure histories of the 9 study populations are based on 10-20 years of VES and Bd surveillance using skin swabbing [e.g., @knapp2016; @zhou2015; @wilber2022].
 Naive populations are characterized by large numbers of adults (i.e, typically 1000s), Bd prevalence that is generally 0% except during occasional Bd failed invasions [during which Bd loads remain very low, @wilber2022], and no history of Bd epizootics since we first surveyed these populations in the late 1990s and early 2000s [@zhou2015].
@@ -704,7 +704,7 @@ See combined references at end of document (temporary placeholder).
 
 \newpage
 
-![Results show conditional effects of the important predictors of 1-year frog survival (survival is expressed as a probability), as estimated from the model used in the among-site meta-analysis: (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="550"}
+![Results from the among-site meta-analysis showing conditional effects of the important predictors of 1-year frog survival (expressed as a probability): (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="550"}
 
 \newpage
 
