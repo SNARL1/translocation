@@ -23,32 +23,34 @@ recovery}\label{frog-population-recovery-2}}
 \subsection{Laboratory Methods}\label{laboratory-methods}}
 
 Swab extracts were analyzed using standard Bd DNA extraction and qPCR
-methods (74), and extracts were analyzed singly instead of in triplicate
-(87). For analysis of swabs collected during 2005--2014, we used
-standards developed from known concentrations of zoospores (74), and
-after 2014, we used standards based on single ITS1 PCR amplicons (88).
-Based on paired comparisons between samples analyzed using both types of
-standards, Bd in the study area has an average of 60 ITS1 copies per
-zoospore. To express all qPCR results as the number of ITS1 copies,
-starting quantities obtained using the zoospore standard (measured as
-``zoospore equivalents'') were multiplied by 60. In addition, all qPCR
-quantities (regardless of standard) were multiplied by 80 to account for
-the fact that DNA extracts from swabs were diluted 80-fold during
-extraction and PCR (33).
+methods \citep{boyle2004}, and extracts were analyzed singly instead of
+in triplicate \citep{kriger2006}. For analysis of swabs collected during
+2005--2014, we used standards developed from known concentrations of
+zoospores \citep{boyle2004}, and after 2014, we used standards based on
+single ITS1 PCR amplicons \citep{longo2013}. Based on paired comparisons
+between samples analyzed using both types of standards, Bd in the study
+area has an average of 60 ITS1 copies per zoospore. To express all qPCR
+results as the number of ITS1 copies, starting quantities obtained using
+the zoospore standard (measured as ``zoospore equivalents'') were
+multiplied by 60. In addition, all qPCR quantities (regardless of
+standard) were multiplied by 80 to account for the fact that DNA
+extracts from swabs were diluted 80-fold during extraction and PCR
+\citep{vredenburg2010}.
 
 \hypertarget{cmr-model-structure}{%
 \subsection{CMR model structure}\label{cmr-model-structure}}
 
 We estimated survival and recruitment for each site using open
-population CMR models based on (41). For each individual \(i=1, ..., M\)
-on each survey \(j=1, ..., n_j\): \(o_{i, j} = 1\) if the individual was
-not detected, and \(o_{i, j}=2\) if the individual was detected. Capture
-histories of \(M\) individuals are modeled, although only \(N_s\)
-individuals were captured. This parameter expanded data augmentation
-allows us to capture the possibility that undetected individuals may
-have recruited into the adult population (89). Here, \(M\) was chosen to
-be three times the number of observed individuals (\(3N_s\)) to be
-considerably greater than our prior guess of \(N_s\).
+population CMR models based on \citep{joseph2018}. For each individual
+\(i=1, ..., M\) on each survey \(j=1, ..., n_j\): \(o_{i, j} = 1\) if
+the individual was not detected, and \(o_{i, j}=2\) if the individual
+was detected. Capture histories of \(M\) individuals are modeled,
+although only \(N_s\) individuals were captured. This parameter expanded
+data augmentation allows us to capture the possibility that undetected
+individuals may have recruited into the adult population
+\citep{royle2012}. Here, \(M\) was chosen to be three times the number
+of observed individuals (\(3N_s\)) to be considerably greater than our
+prior guess of \(N_s\).
 
 We denote the true state of individual \(i\) as \(u_{i, t}\) for primary
 period \(t = 1,..., n_t\). The four states that we consider are:
@@ -163,10 +165,10 @@ prior \(\beta^{(p)} \sim N(0, 1)\).
 
 We computed the likelihood of each individual capture history using the
 forward algorithm, and we estimated the latent states using the
-forward-backward algorithm (41, 90).
+forward-backward algorithm \citep{zucchini2009, joseph2018}.
 
 All of the code to specify and fit the model in Stan is available in the
-open source mrmr package (67).
+open source mrmr package \citep{joseph2019}.
 
 The joint distribution of the resulting model can be written as follows:
 
@@ -214,12 +216,13 @@ refers to the group \(g\) containing individual \(i\), and we estimate
 an adjustment for each of the \(G\) groups (\(\nu_1, ..., \nu_G\)).
 
 These models were fit using the \texttt{stan\_glmer()} function in the
-rstanarm package, with default priors described below (71). These priors
-are vague, but include data-dependent scaling as follows to account for
-different input variable scales. However, because we standardized all
-predictor variables similarly to have equal variance (by centering and
-dividing by twice the sample standard deviation), the resulting priors
-are identical. Specifically, we have:
+rstanarm package, with default priors described below
+\citep{rstanarm2022}. These priors are vague, but include data-dependent
+scaling as follows to account for different input variable scales.
+However, because we standardized all predictor variables similarly to
+have equal variance (by centering and dividing by twice the sample
+standard deviation), the resulting priors are identical. Specifically,
+we have:
 
 \[\alpha \sim \text{Normal}(0, 2.5),\] and
 
@@ -231,14 +234,16 @@ The default prior for group level adjustments \(\nu_1, ..., \nu_G\) in
 rstanarm is a zero-mean Gaussian, where the covariance matrix is
 constructed from a correlation matrix with an LKJ prior, and a vector of
 variance parameters -- the decomposition of variance prior with unit
-regularization, concentration, shape, and scale parameters (91).
+regularization, concentration, shape, and scale parameters
+\citep{lewandowski2009}.
 
 We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan,
 with four parallel chains, each run for 10,000 iterations, discarding
-the first half of each chain as warm-up draws (71). We used Rhat
-statistics and trace plots to verify convergence. We considered models
-with different subsets of fixed and random effects, and used approximate
-leave-one-out cross validation to identify the best model (72).
+the first half of each chain as warm-up draws \citep{rstanarm2022}. We
+used Rhat statistics and trace plots to verify convergence. We
+considered models with different subsets of fixed and random effects,
+and used approximate leave-one-out cross validation to identify the best
+model \citep{vehtari2016}.
 
 \hypertarget{population-viability-modeling-1}{%
 \subsection{Population viability
@@ -363,14 +368,14 @@ population establishment and recovery. We simulated our model for 16
 years, repeating the simulation 50,000 times. For each run and each
 year, we drew \(\sigma_{J_1}\) from a uniform distribution between 0 and
 1 (or equivalently a beta distribution with mean 0.5 and \(\phi = 2\)).
-Using Approximate Bayesian Computing and rejection sampling (92), we
-identified the top 2\% of trajectories (i.e., 1000 trajectories) that
-minimized the sum of squared errors between the observed and predicted
-data. The yearly \(\sigma_{J_1}\) values associated with these ``best''
-trajectories represented an approximate posterior distribution (93).
-Using these best fit trajectories, we assessed whether our model could
-qualitatively describe the patterns of recovery in the observed data for
-population 70550.
+Using Approximate Bayesian Computing and rejection sampling
+\citep{kosmala2016}, we identified the top 2\% of trajectories (i.e.,
+1000 trajectories) that minimized the sum of squared errors between the
+observed and predicted data. The yearly \(\sigma_{J_1}\) values
+associated with these ``best'' trajectories represented an approximate
+posterior distribution \citep{beaumont2010}. Using these best fit
+trajectories, we assessed whether our model could qualitatively describe
+the patterns of recovery in the observed data for population 70550.
 
 \hypertarget{frog-evolution-in-response-to-bd-2}{%
 \section{Frog evolution in response to
@@ -398,9 +403,9 @@ very few MYL frog populations remain in the naive state, and those that
 do are scattered across a wide latitudinal range, from Yosemite National
 Park in the north to southern Kings Canyon National Park in south. To
 minimize potential confounding effects caused by known variation in frog
-genotypes across latitude (49), we selected sampling sites such that
-both population types were represented across similar latitudinal ranges
-(Fig. 1).
+genotypes across latitude \citep{byrne2023}, we selected sampling sites
+such that both population types were represented across similar
+latitudinal ranges (Fig. 1).
 
 \hypertarget{go-analysis}{%
 \subsection{GO analysis}\label{go-analysis}}
@@ -415,30 +420,30 @@ biological functions, molecular functions, or cellular processes were
 overrepresented. To do this, we retrieved the BLAST hits and mapped GO
 terms for each gene in our targeted transcriptome. We then conducted a
 statistical overrepresentation test (Fisher's exact test) using Blast2GO
-(94) to compare the 30 unique outlier genes to the complete set of genes
-in our target transcriptome. We repeated this process for the set of 33
-genes located in the \emph{F\textsubscript{ST}} and \(\pi_{diff}\)
-splined windows.
+\citep{conesa2005} to compare the 30 unique outlier genes to the
+complete set of genes in our target transcriptome. We repeated this
+process for the set of 33 genes located in the
+\emph{F\textsubscript{ST}} and \(\pi_{diff}\) splined windows.
 
 \hypertarget{genetic-diversity}{%
 \subsection{Genetic diversity}\label{genetic-diversity}}
 
 To characterize general patterns of genetic diversity between naive and
-persistent populations, we calculated individual heterozygosity using
-VCFtools (85), and compared average heterozygosity using a Wilcoxon
-rank-sum test. Additionally, we used VCFtools to calculate
-per-population \(\pi\) in 100kb sliding windows along the genome, and in
-each of the 10 outlier windows identified in the splined window
-analysis. We compared per-population average \(\pi\) values using
-Wilcoxon rank-sum tests.
+recovering populations, we conducted three analyses. First, we
+calculated heterozygosity for each sampled frog using VCFtools
+\citep{danecek2011}. Second, to characterize genome-wide patterns of
+diversity, we used VCFtools to calculate nucleotide diversity (\(\pi\))
+in 100kb sliding windows along the genome for each population. Third, we
+calculated average \(\pi\) per population within each of the 9 outlier
+windows identified in the splined window analysis.
 
-Average (i) individual-level heterozygosity and (ii) population-level
-nucleotide diversity (\(\pi\)) were similar between naive and recovering
-populations (Figure~\ref{fig-violinplot-heterozy};
-Figure~\ref{fig-boxplot-pi}). The analysis of \(\pi\) across the 10
-outlier windows indicates that within each of the windows there is
-considerable variation in \(\pi\) between populations and between
-population clusters (Figure~\ref{fig-barchart-pi-by-windowsite}).
+Average individual-level heterozygosity and genome-wide population-level
+\(\pi\) were similar between the naive and recovering groups
+(Figure~\ref{fig-violinplot-heterozy};
+Figure~\ref{fig-boxplot-genomewide-pi-by-pop}). Within each of the 9
+outlier windows, average \(\pi\) shows considerable variation between
+populations (Figure~\ref{fig-boxplot-pi-by-windowpop}) and no obvious
+patterns between the naive and recovering groups.
 
 \newpage
 
@@ -589,11 +594,11 @@ non-synonymous SNP in that gene.}
 \caption{\label{fig-synteny-plot}Synteny plot showing conserved gene
 order in \emph{Xenopus tropicalis} and \emph{Rana muscosa} for the
 outlier region containing MHC Class I Classical and MHC Class III gene
-regions. The plot was created with SimpleSynteny (95) using
-\emph{Xenopus tropicalis} Chromosome 8 (NC\_030684.2, genbank accession
-GCA\_000004195.4) and \emph{Rana muscosa} Contig19. Asterices indicate
-the location of SNP outliers in the TCF19 and VARS1 genes. Gap sizes for
-each contig representation are labeled.}
+regions. The plot was created with SimpleSynteny \citep{veltri2016}
+using \emph{Xenopus tropicalis} Chromosome 8 (NC\_030684.2, genbank
+accession GCA\_000004195.4) and \emph{Rana muscosa} Contig19. Asterices
+indicate the location of SNP outliers in the TCF19 and VARS1 genes. Gap
+sizes for each contig representation are labeled.}
 
 \end{figure}\clearpage
 
@@ -601,7 +606,7 @@ each contig representation are labeled.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/het_by_status_violin_plot.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/violin_plot_heterozy_by_group.png}
 
 }
 
@@ -609,8 +614,7 @@ each contig representation are labeled.}
 heterozygosity for the Bd-naive and recovering populations included in
 the frog evolution study. Individual data points are represented by
 their corresponding site number (from
-Fig. 1). A Wilcoxon signed-rank test showed
-no significant difference between the two groups.}
+Fig. 1).}
 
 \end{figure}\clearpage
 
@@ -618,20 +622,20 @@ no significant difference between the two groups.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/boxplot_pi_by_site.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/boxplot_genomewide_pi_by_pop.png}
 
 }
 
-\caption{\label{fig-boxplot-pi}For each study population in the frog
-evolution study (from Fig. 1), boxplots
-showing nucleotide diversity (\(\pi\)) within 100kb sliding windows
-along the genome. The y-axis has been log\textsubscript{10}-transformed
-for display purposes. Sites are color-coded as ``Bd-naive'' or
-``recovering'', and vertical dashed lines show the genetic breaks
-between frog populations as described in
-Figure~\ref{fig-selectionresults} A). Within the genetic clusters,
-mean \(\pi\) is significantly different between sites (p \textless0.001
-Wilcoxon rank-sum test).}
+\caption{\label{fig-boxplot-genomewide-pi-by-pop}For each study
+population in the frog evolution study (from
+Fig. 1), boxplots showing nucleotide
+diversity (\(\pi\)) within 100kb sliding windows along the genome. The
+y-axis has been log\textsubscript{10}-transformed for display purposes.
+Sites are color-coded as ``Bd-naive'' or ``recovering'', and vertical
+dashed lines show the genetic breaks between frog populations as
+described in Figure~\ref{fig-selectionresults} A). Within the genetic
+clusters, mean \(\pi\) is significantly different between sites (p
+\textless0.001 Wilcoxon rank-sum test).}
 
 \end{figure}\clearpage
 
@@ -639,26 +643,19 @@ Wilcoxon rank-sum test).}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/perwindow_persite_pi.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/boxplot_pi_by_windowpop.png}
 
 }
 
-\caption{\label{fig-barchart-pi-by-windowsite}For each study population
-in the frog evolution study, average \(\pi\) values by population
-calculated for each of the 10 outlier windows identified in the splined
-window analysis (A-J). Sites are color-coded as ``Bd-naive'' or
-``recovering'', and vertical dashed lines show the genetic breaks
-between frog populations as described in
-Figure~\ref{fig-selectionresults} A. Gene annotations for the outlier
-regions are as follows: (A) C6, C7, (B) DDX10, ZBTB24, (C) SULTR-like,
-TRAF3IP2, VGLL3, EXOC1, (D) FLOT1, TUBB2B, TUBB, MDC1, CCHCR1,
-TCF19\emph{, TRIM29, HSP70, LSM2, VARS,} (E) GCC2, CFAP251, PEG10, (F)
-ERO1A, GVINP1, (G) ERO1A, GVINP1, (H) PPP1R12A, TSPAN4, PAWR, MFRP, MAX,
-PPP6R3, (I) C6H5ORF22, PKS6, BSPRY, MPV17, and (J) CAD, ATRAID, GPN1.
-Note that windows F and G are in the same gene region. * by gene names
-indicate that an outlier SNP is also present in this gene . (K) Average
-\(\pi\) values of naive and recovering groups for each of the outlier
-windows shown in A-J. }
+\caption{\label{fig-boxplot-pi-by-windowpop}For each of the 9 outlier
+windows identified by the overlapping splined windows for FST and
+\$\textbackslash pi\$, boxplots showing average \$\textbackslash pi\$
+for naive and recovering populations. The corresponding gene annotations
+for each window are as follows: (1) C6, C7, (2) DDX10, ZBTB24, (3)
+SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1,
+TCF19, HSP70, LSM2, VARS1, (5) GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1,
+(7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6,
+BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.}
 
 \end{figure}\clearpage
 
