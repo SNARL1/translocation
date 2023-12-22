@@ -163,8 +163,11 @@ pnas_ms = pnas_ms.replace("The dynamics are given by", "The dynamics are given b
 # Clean up references to SI material
 
 supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S6A",
+			"Figure~\\ref{fig-selectionresults} A SI": "Figure S6A",
+			"Figure~\\ref{fig-selectionresults} A\nSI": "Figure S6A",
 			"Figure~\\ref{fig-selectionresults} A": "Figure S6A",
 			"Figure~\\ref{fig-selectionresults} B, C: SI": "Figure S6B, C",
+			"Figure~\\ref{fig-selectionresults} B, C SI": "Figure S6B, C",
 			"Figure~\\ref{fig-selectionresults} B, C": "Figure S6B, C",
 			"Figure~\\ref{fig-selectionresults} B,\nC": "Figure S6B, C",
 			"Figure~\\ref{fig-selectionresults} B, C;\nSI": "Figure S6B, C",
@@ -186,13 +189,14 @@ supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S6A",
 			"Figure~\\ref{fig-compare_surv_probs} SI": "Figure S4",
 			"Figure~\\ref{fig-compare_surv_probs}": "Figure S4",
 			"Figure~\\ref{fig-viability-supp} SI": "Figure S5",
-			"Table~\\ref{tbl-survival-earlylate} : SI": "Table S1",
-			"Table~\\ref{tbl-survival-earlylate} SI": "Table S1",
-			"Table~\\ref{tbl-survival-earlylate}": "Table S1",
-			"Table~\\ref{tbl-param_values} : SI": "Table S2",
-			"Table~\\ref{tbl-param_values}": "Table S2",
-			"Table~\\ref{tbl-param_values}\n: SI": "Table S2",
-			"Table~\\ref{tbl-param_values} SI": "Table S2"
+			# "Table~\\ref{tbl-survival-earlylate} : SI": "Table S1",
+			# "Table~\\ref{tbl-survival-earlylate} SI": "Table S1",
+			# "Table~\\ref{tbl-survival-earlylate}": "Table S1",
+			"Table~\\ref{tbl-param_values} : SI": "Table S1",
+			"Table~\\ref{tbl-param_values}\n: SI": "Table S1",
+			"Table~\\ref{tbl-param_values}\nSI": "Table S1",
+			"Table~\\ref{tbl-param_values} SI": "Table S1",
+			"Table~\\ref{tbl-param_values}": "Table S1"
 			}
 
 for key, value in supp_map.items():
@@ -272,16 +276,16 @@ pnas_supp = pnas_supp.replace("% Figures", figures_supp)
 # Account for main text reference in SI
 
 main_map = {
-			"Figure~\\ref{fig-spline-manhattan}": "Fig. 2",
-			"Figure~\\ref{fig-allelefrequencies}": "Fig. 1",
-			"Figure~\\ref{fig-cond-effects}": "Fig. 4",
-			"Figure~\\ref{fig-translocation-survival}": "Fig. 3",
+			"Figure~\\ref{fig-spline-manhattan}": "Fig. 6",
+			"Figure~\\ref{fig-allelefrequencies}": "Fig. 5",
+			"Figure~\\ref{fig-cond-effects}": "Fig. 3",
+			"Figure~\\ref{fig-translocation-survival}": "Fig. 2",
 			} 
 
 for key, value in main_map.items():
 	pnas_supp = pnas_supp.replace(key, value)
 
-pnas_supp = re.sub("Fig. 1 A", "Fig. 1A", pnas_supp)
+pnas_supp = re.sub("Fig. 5 A", "Fig. 5A", pnas_supp)
 
 
 # Remove verbatim
@@ -310,7 +314,7 @@ with open("translocation_bioarxiv.tex", "w") as fout:
 	fout.writelines(bioarxiv_ms)
 
 # Remove transcloation.tex
-subprocess.call(['rm', args[1]])
+# subprocess.call(['rm', args[1]])
 subprocess.call(['cp', 'translocation_pnas_SI.tex', 'translocation_bioarxiv_SI.tex'])
 
 

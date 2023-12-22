@@ -1002,7 +1002,7 @@ Within each of the 9 outlier windows, average $\pi$ shows considerable variation
 
 \newpage
 
-![For each of the 9 outlier windows identified by the overlapping splined windows for FST and \$\\pi\$, boxplots showing average \$\\pi\$ for naive and recovering populations. The corresponding gene annotations for each window are as follows: (1) C6, C7, (2) DDX10, ZBTB24, (3) SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1, TCF19, HSP70, LSM2, VARS1, (5) GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1, (7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6, BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.](figures/boxplot_pi_by_windowpop.png){#fig-boxplot-pi-by-windowpop width="500"}
+![For each of the 9 outlier windows identified by the overlapping splined windows for FST and $\pi$, boxplots showing average $\pi$ for naive and recovering populations. The corresponding gene annotations for each window are as follows: (1) C6, C7, (2) DDX10, ZBTB24, (3) SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1, TCF19, HSP70, LSM2, VARS1, (5) GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1, (7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6, BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.](figures/boxplot_pi_by_windowpop.png){#fig-boxplot-pi-by-windowpop width="500"}
 
 \newpage
 
