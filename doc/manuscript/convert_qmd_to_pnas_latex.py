@@ -126,9 +126,10 @@ methods = methods.replace("The\ndynamics are given by", "The\ndynamics are given
 
 methods = methods.replace("\\paragraph{", "\\section*{")
 methods = methods.replace("\\subparagraph{", "\\subsection*{")
-methods = methods.replace("Incorporating yearly variability in vital rates", "\\subsubsection*{Incorporating yearly variability in vital rates}")
-methods = methods.replace("Estimating model parameters", "\\subsubsection*{Estimating model parameters}")
-methods = methods.replace("Model analysis and simulation", "\\subsubsection*{Model analysis and simulation}")
+# methods = methods.replace("Incorporating yearly variability in vital rates", "\\subsubsection*{Incorporating yearly variability in vital rates}")
+# methods = methods.replace("Estimating model parameters", "\\subsubsection*{Estimating model parameters}")
+# methods = methods.replace("Model analysis and simulation", "\\subsubsection*{Model analysis and simulation}")
+methods = methods.replace("Dataset S1, S2", " Dataset S1, S2")
 
 pnas_ms = pnas_ms.replace("\\matmethods{}", "\n\n\\matmethods{\n" + methods + "\n\n}\n")
 
@@ -314,7 +315,7 @@ with open("translocation_bioarxiv.tex", "w") as fout:
 	fout.writelines(bioarxiv_ms)
 
 # Remove transcloation.tex
-subprocess.call(['rm', args[1]])
+# subprocess.call(['rm', args[1]])
 subprocess.call(['cp', 'translocation_pnas_SI.tex', 'translocation_bioarxiv_SI.tex'])
 
 
