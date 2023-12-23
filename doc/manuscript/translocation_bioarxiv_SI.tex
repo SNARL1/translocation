@@ -20,7 +20,7 @@
 recovery}\label{frog-population-recovery-2}}
 
 \hypertarget{laboratory-methods}{%
-\subsection{Laboratory Methods}\label{laboratory-methods}}
+\subsection{Laboratory methods}\label{laboratory-methods}}
 
 Swab extracts were analyzed using standard Bd DNA extraction and qPCR
 methods \citep{boyle2004}, and extracts were analyzed singly instead of
@@ -95,8 +95,8 @@ survey \(j\) into an emission matrix \(\Omega_j\):
 The state transition matrix \(\Psi_{t, i}\) contains the probabilities
 of individual \(i\) transitioning from state \(u_{i, t}\) (rows) to
 \(u_{i, t+1}\) (columns) between primary period \(t\) and \(t+1\). For
-unintroduced individuals which naturally recruit, this matrix is given
-by:
+non-introduced (i.e., naturally recruited) individuals, this matrix is
+given by:
 
 \[
 \Psi_{t, i} =
@@ -144,8 +144,8 @@ where \(X^{(\phi)}_t\) is a row vector of known covariates,
 \(\beta^{(\phi)}\) is a column vector of unknown coefficients, and
 \(\epsilon^{(\phi)}_t\) is an adjustment for time \(t\).
 
-To complete the specification of the Bayesian model, we need to specify
-priors for all unknown parameters. The recruitment parameter priors were
+To complete the specification of the Bayesian model, we specify priors
+for all unknown parameters. The recruitment parameter priors were
 specified as follows:
 
 \[\alpha^{(\lambda)} \sim N(0,1),\]
@@ -246,11 +246,11 @@ and used approximate leave-one-out cross validation to identify the best
 model \citep{vehtari2016}.
 
 \hypertarget{population-viability-modeling-1}{%
-\subsection{Population viability
+\section{Population viability
 modeling}\label{population-viability-modeling-1}}
 
 \hypertarget{incorporating-yearly-variability-in-vital-rates}{%
-\subparagraph{Incorporating yearly variability in vital
+\subsection{Incorporating yearly variability in vital
 rates}\label{incorporating-yearly-variability-in-vital-rates}}
 
 We computed yearly survival probabilities for translocated adults
@@ -259,41 +259,42 @@ the posterior distribution of individual state trajectories derived from
 mrmr CMR models. Although we observed yearly variability in adult
 survival within a population, the magnitude of this variability was
 small compared to among-population variability
-(Fig. 3). Thus, we did not include
+(Fig. 2). Thus, we did not include
 yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in
 the successful recruitment of adults, greater than what we would expect
 from Poisson variability around a mean value. Therefore, we allowed for
-yearly variability in the probability of year 1 juvenile survival and
+yearly variability in the probability of year-1 juvenile survival and
 recruitment (additional details provided in \textbf{Estimating model
 parameters} below). We also could have included environmental
-stochasticity in year 2 juvenile survival and recruitment
+stochasticity in year-2 juvenile survival and recruitment
 \(\sigma_{J_2}\), but our elasticity analysis (\textbf{Supporting
-Information-Population viability modeling-Model analysis and
+Information - Population viability modeling - Model analysis and
 simulation}) showed that this parameter had little effect on host growth
 rate relative to \(\sigma_{J_1}\) (Figure~\ref{fig-viability-supp}).
 
 \hypertarget{estimating-model-parameters}{%
-\subparagraph{Estimating model
+\subsection{Estimating model
 parameters}\label{estimating-model-parameters}}
 
 The baseline parameter values for the model and how they were estimated
 are given in Table~\ref{tbl-param_values}. Parameters \(\sigma_{A_T}\)
 and \(\sigma_{A_R}\) were extracted directly from our CMR models (see
-\textbf{Materials and Methods - Estimation of frog survival and
-abundance} and \textbf{Supporting Information - Frog population recovery
-- Estimation of frog survival and abundance} for details). For
-populations where we had a sufficient number of PIT-tagged,
-naturally-recruited adults, we observed that \(\sigma_{A_T}\) and
-\(\sigma_{A_R}\) could be notably different, with
-\(\sigma_{A_R} > \sigma_{A_T}\) (Figure~\ref{fig-compare_surv_probs}). For populations lacking sufficient numbers of naturally-recruited
-adults, we were unable to directly estimate \(\sigma_{A_R}\), and
-instead set \(\sigma_{A_R} = \sigma_{A_T}\).
+\textbf{Materials and Methods - Frog populaton recovery - Estimation of
+frog survival and abundance} and \textbf{Supporting Information - Frog
+population recovery - CMR model structure} for details). For populations
+where we had a sufficient number of PIT-tagged, naturally-recruited
+adults, we observed that \(\sigma_{A_T}\) and \(\sigma_{A_R}\) could be
+notably different, with \(\sigma_{A_R} > \sigma_{A_T}\)
+(Figure~\ref{fig-compare_surv_probs}). For populations lacking
+sufficient numbers of naturally-recruited adults, we were unable to
+directly estimate \(\sigma_{A_R}\), and instead set
+\(\sigma_{A_R} = \sigma_{A_T}\).
 
 To estimate the \(\sigma_{A_R}\), we used the posterior distribution of
 predicted true states for naturally-recruited individuals (1=not
 recruited, 2=alive, 3=dead, as described in \textbf{Supporting
-Information-Frog population recovery-CMR model structure}), then
+Information - Frog population recovery - CMR model structure}), then
 calculated the posterior probability of individuals surviving between
 consecutive primary periods, conditional on being alive in the first
 primary period (e.g., given a value of 2 (alive) in the first primary
@@ -315,13 +316,13 @@ probability were comparable between \(\sigma_{A_R}\) and
 \(\sigma_{A_T}\).
 
 \hypertarget{model-analysis-and-simulation}{%
-\subparagraph{Model analysis and
+\subsection{Model analysis and
 simulation}\label{model-analysis-and-simulation}}
 
 We performed four analyses on our model. First, we considered a
-deterministic version of our model with no yearly heterogeneity in year
-1 juvenile survival and recruitment probability \(\sigma_{J_1}\), and
-calculated the predicted long-run growth rate \(\lambda\) of a
+deterministic version of our model with no yearly heterogeneity in
+year-1 juvenile survival and recruitment probability \(\sigma_{J_1}\),
+and calculated the predicted long-run growth rate \(\lambda\) of a
 population for different values of \(\sigma_{A_R}\) and
 \(\sigma_{J_1}\). We then fixed \(\sigma_{J_1} = 0.09\) and calculated
 the predicted growth rate of our 12 populations.
@@ -349,7 +350,7 @@ extinction dynamics between populations with \(\sigma_{A_R} < 0.5\) and
 those with \(\sigma_{A_R} > 0.5\). However, increasing yearly
 variability in \(\sigma_{J_1}\) increases extinction risk for all
 populations. For example, if we set \(\phi = 0.001\), such that in a
-given year essentially either all year 1 juveniles survive or all of
+given year essentially either all year-1 juveniles survive or all of
 them die, populations with \(\sigma_{A_R} > 0.5\) need to have
 \(\sigma_{J_1}\) greater than 0.2 to have a 50-year extinction
 probability of less 50\%. Because we do not pit tag juveniles, we do not
@@ -385,14 +386,14 @@ Bd}\label{frog-evolution-in-response-to-bd-2}}
 \subsection{Study design}\label{study-design}}
 
 To gain insights into the role of evolution in the development of
-resistance by MYL frogs, we compared frog genomes sampled in naive
-versus recovering populations. Comparing populations with different
-infection histories allowed larger sample sizes and replication across
-the landscape. The alternative approach of comparing samples from the
-same populations before and after Bd exposure isn't feasible in this
-system because Bd arrived in most MYL frog populations decades ago and
+resistance by MYL frogs, we compared frog exomes sampled in naive versus
+recovering populations. Comparing populations with different infection
+histories allowed larger sample sizes and replication across the
+landscape. The alternative approach of comparing samples from the same
+populations before and after Bd exposure isn't feasible in this system
+because Bd arrived in most MYL frog populations decades ago and
 population persistence/recovery is rare and unpredictable. As a result,
-samples from recovering populations collected from before and after Bd
+samples from recovering populations collected before and after Bd
 exposure are not available and are unlikely to be available in the
 future.
 
@@ -405,7 +406,7 @@ Park in the north to southern Kings Canyon National Park in south. To
 minimize potential confounding effects caused by known variation in frog
 genotypes across latitude \citep{byrne2023}, we selected sampling sites
 such that both population types were represented across similar
-latitudinal ranges (Fig. 1).
+latitudinal ranges (Fig. 5).
 
 \hypertarget{go-analysis}{%
 \subsection{GO analysis}\label{go-analysis}}
@@ -422,7 +423,7 @@ terms for each gene in our targeted transcriptome. We then conducted a
 statistical overrepresentation test (Fisher's exact test) using Blast2GO
 \citep{conesa2005} to compare the 30 unique outlier genes to the
 complete set of genes in our target transcriptome. We repeated this
-process for the set of 33 genes located in the
+process for the set of 35 genes located in the 9 shared regions of the
 \emph{F\textsubscript{ST}} and \(\pi_{diff}\) splined windows.
 
 \hypertarget{genetic-diversity}{%
@@ -526,14 +527,14 @@ frog sex, donor\_70567 and donor\_72996 = donor population.}
 adult survival probabilities for adults translocated to each of 3 sites
 versus adults that were naturally recruited at each site (as a result of
 reproduction by translocated frogs). In contrast to
-Fig. 3, these are not survival
+Fig. 2, these are not survival
 probabilities from the first year following translocation, but instead
 represent averaged survival probabilities across multiple years and
 cohorts. Points are median estimates and error bars give the 95\%
 uncertainty intervals around the estimates, accounting for yearly
 variation in survival probabilities. All estimates were derived using
 the mrmr package, and the methods for calculation are described in
-\textbf{Supporting Information - Population viability modeling --
+\textbf{Supporting Information - Population viability modeling -
 Estimating model parameters}.}
 
 \end{figure}\clearpage
@@ -551,9 +552,9 @@ stage-structured MYL frog model. Elasticity of \(\lambda\) with changes
 in four parameters: \(\sigma_{A_R}\) (yearly survival probability of
 naturally recruited adults), \emph{F (}number of eggs produced by a
 female frog in a year that successfully hatch), \(\sigma_{J_1}\) (yearly
-probability of survival of year 1 juveniles that also affects
+probability of survival of year-1 juveniles that also affects
 recruitment), and \(\sigma_{J_2}\) (yearly probability of survival and
-recruitment of year 2 juveniles). Elasticity is calculated at the
+recruitment of year-2 juveniles). Elasticity is calculated at the
 default parameter values for each population and \(\sigma_{J_1}\) =
 0.09.}
 
@@ -571,7 +572,7 @@ default parameter values for each population and \(\sigma_{J_1}\) =
 individual variants, showing putative signatures of selection in
 recovering MYL frog populations. (A) PCA calculated from binary SNPs
 showing the genomic relationship of samples. Numeric labels and colors
-match those in Fig. 1A. Populations 1-7 are
+match those in Fig. 5. Populations 1-7 are
 \emph{R. sierrae} and populations 8 and 9 are \emph{R. muscosa}. (B)
 qqplot showing observed and expected p-values for 148,307 SNPs and
 INDELS. Dashed line shows p-value that identifies outliers. (C)
@@ -614,7 +615,7 @@ sizes for each contig representation are labeled.}
 heterozygosity for the Bd-naive and recovering populations included in
 the frog evolution study. Individual data points are represented by
 their corresponding site number (from
-Fig. 1).}
+Fig. 5).}
 
 \end{figure}\clearpage
 
@@ -628,14 +629,12 @@ Fig. 1).}
 
 \caption{\label{fig-boxplot-genomewide-pi-by-pop}For each study
 population in the frog evolution study (from
-Fig. 1), boxplots showing nucleotide
+Fig. 5), boxplots showing nucleotide
 diversity (\(\pi\)) within 100kb sliding windows along the genome. The
 y-axis has been log\textsubscript{10}-transformed for display purposes.
 Sites are color-coded as ``Bd-naive'' or ``recovering'', and vertical
 dashed lines show the genetic breaks between frog populations as
-described in Figure~\ref{fig-selectionresults} A). Within the genetic
-clusters, mean \(\pi\) is significantly different between sites (p
-\textless0.001 Wilcoxon rank-sum test).}
+described in Figure~\ref{fig-selectionresults} A).}
 
 \end{figure}\clearpage
 
@@ -649,13 +648,13 @@ clusters, mean \(\pi\) is significantly different between sites (p
 
 \caption{\label{fig-boxplot-pi-by-windowpop}For each of the 9 outlier
 windows identified by the overlapping splined windows for FST and
-\$\textbackslash pi\$, boxplots showing average \$\textbackslash pi\$
-for naive and recovering populations. The corresponding gene annotations
-for each window are as follows: (1) C6, C7, (2) DDX10, ZBTB24, (3)
-SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1,
-TCF19, HSP70, LSM2, VARS1, (5) GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1,
-(7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6,
-BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.}
+\(\pi\), boxplots showing average \(\pi\) for naive and recovering
+populations. The corresponding gene annotations for each window are as
+follows: (1) C6, C7, (2) DDX10, ZBTB24, (3) SULTR-like, TRAF3IP2, VGLL3,
+EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1, TCF19, HSP70, LSM2, VARS1, (5)
+GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1, (7) PPP1R12A, TSPAN4, PAWR,
+MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6, BSPRY, MPV17, and (9) CAD,
+ATRAID, GPN1.}
 
 \end{figure}\clearpage
 
@@ -692,28 +691,28 @@ fungal pathogen Bd.}\tabularnewline
 \end{minipage} \\
 \midrule()
 \endhead
-\(\sigma_{L_1}\), Yearly survival probability of year 1 tadpoles & 0.7 &
+\(\sigma_{L_1}\), Yearly survival probability of year-1 tadpoles & 0.7 &
 Estimated from field data, observations, natural history knowledge \\
-\(\sigma_{L_2}\), Yearly survival probability of year 2 tadpoles & 0.7 &
+\(\sigma_{L_2}\), Yearly survival probability of year-2 tadpoles & 0.7 &
 Estimated from field data, observations, natural history knowledge \\
-\(\sigma_{L_3}\), Yearly survival probability of year 3 tadpoles & 0.7 &
+\(\sigma_{L_3}\), Yearly survival probability of year-3 tadpoles & 0.7 &
 Estimated from field data, observations, natural history knowledge \\
-\(\sigma_{J_1}\), Yearly survival probability of year 1 juveniles &
+\(\sigma_{J_1}\), Yearly survival probability of year-1 juveniles &
 Varies yearly & Varies. Bounds estimated from field data, observations,
 natural history knowledge \\
-\(\sigma_{J_2}\), Yearly survival probability of year 2 juveniles & 0.5
+\(\sigma_{J_2}\), Yearly survival probability of year-2 juveniles & 0.5
 & Estimated from field data, observations, natural history knowledge \\
 \(\sigma_{A_R}\), Yearly survival probability of naturally recruited
 adults & Varies by population & Estimated from CMR studies \\
 \(\sigma_{A_T}\), Yearly survival probability of translocated adults &
 Varies by population & Estimated from CMR studies \\
-\(p_{L_1}\), Probability of a year 1 tadpoles remaining as a tadpoles &
+\(p_{L_1}\), Probability of a year-1 tadpoles remaining as a tadpoles &
 1 & Estimated from field data, observations, natural history
 knowledge \\
-\(p_{L_2}\), Probability of a year 2 tadpoles remaining as a tadpoles &
+\(p_{L_2}\), Probability of a year-2 tadpoles remaining as a tadpoles &
 0.25 & Estimated from field data, observations, natural history
 knowledge \\
-\(p_{J_1}\), Probability of a year 1 juvenile remaining as a juvenile &
+\(p_{J_1}\), Probability of a year-1 juvenile remaining as a juvenile &
 0.25 & Estimated from field data, observations, natural history
 knowledge \\
 \(p_F\), Probability of a adult female reproducing in a year & 0.5 &
