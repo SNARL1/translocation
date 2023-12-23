@@ -52,7 +52,7 @@ Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B
 
 Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in emerging infectious diseases.
 The emergence of the lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd") has devastated global amphibian biodiversity, with hundreds of species experiencing declines or extinctions.
-Given that there are no broadly applicable methods to reverse these impacts in the wild, the future of many amphibians appears grim.
+With no broadly applicable methods available to reverse these impacts in the wild, the future of many amphibians appears grim.
 The once-common mountain yellow-legged (MYL) frog is emblematic of amphibians threatened by Bd.
 Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually recover.
 Frogs in these recovering populations have increased resistance against Bd infection, consistent with evolution of resistant genotypes and/or acquired immunity.
@@ -110,8 +110,7 @@ This intriguing possibility also suggests an opportunity to expand recovery beyo
 In the current study, we had three primary objectives.
 First, to determine whether the reintroduction of resistant MYL frogs obtained from populations recovering from Bd-caused declines allows the successful reestablishment of extirpated populations despite ongoing disease, we conducted a 15-year landscape-scale frog reintroduction effort (@fig-recovery-model).
 Second, to extend our inferences of population recovery well beyond the temporal extent of our reintroduction study, we developed a model to estimate the probability of persistence for the reintroduced populations over a multi-decadal period (@fig-recovery-model).
-Third, given the importance of resistance for frog survival, population establishment, and long-term viability (this study), we also conducted a genomic study to determine whether MYL frogs show an evolutionary response to Bd exposure, and whether these genomic changes are associated with resistance.
-To accomplish this objective, we used exome capture methods to identify genomic regions with consistent differences between frogs from naive versus recovering populations (@fig-recovery-model).
+Third, given the importance of resistance for frog survival, population establishment, and long-term viability (this study), we conducted a genomic study using exome capture methods to determine whether MYL frogs in recovering populations show evidence of selection and whether these genomic changes are associated with resistance (@fig-recovery-model).
 
 ### Results
 
@@ -307,7 +306,7 @@ As with early life stages, recruits were detected in the majority of post-transl
 In summary, survey results indicate that translocations resulted in the establishment of reproducing MYL frog populations at most recipient sites despite the ongoing presence of Bd.
 
 Bd loads were fairly consistent before versus after translocation, and loads were nearly always well below the level indicative of severe chytridiomycosis (i.e., the disease caused by Bd) and associated frog mortality (@fig-bdload-beforeafter SI) [@joseph2018; @vredenburg2010].
-Although it is possible that the observed relatively small changes in load are a consequence of individuals with high Bd loads dying and therefore being unavailable for sampling during the post-translocation period, the fact that there was little difference in pre- versus post-translocation Bd loads even in those populations that had very high frog survival (70556, 74976; @fig-translocation-survival, @fig-bdload-beforeafter SI) suggests a true lack of substantial change in Bd load.
+Although it is possible that the observed relatively small changes in load are a consequence of individuals with high Bd loads dying and therefore being unavailable for sampling during the post-translocation period, the fact that there was little difference in pre- versus post-translocation Bd loads even in those populations that had very high frog survival (70556, 74976 - see below; @fig-bdload-beforeafter SI) suggests a true lack of substantial change in Bd load.
 
 The ultimate measure of reintroduction success is the establishment of a self-sustaining population.
 Given that it can take years or even decades to determine the self-sustainability of a reintroduced population [for an example in MYL frogs, see @joseph2018], the use of proxies is essential for providing shorter-term insights into reintroduction success and the factors driving it.
@@ -994,11 +993,11 @@ Within each of the 9 outlier windows, average $\pi$ shows considerable variation
 
 \newpage
 
-![Violin plots showing individual heterozygosity for the Bd-naive and recovering populations included in the frog evolution study. Individual data points are represented by their corresponding site number (from @fig-allelefrequencies). ](figures/violin_plot_heterozy_by_group.png){#fig-violinplot-heterozy width="500"}
+![Violin plots showing individual heterozygosity for the Bd-naive and recovering populations included in the frog evolution study. Individual data points are represented by their corresponding site number (from @fig-allelefrequencies).](figures/violin_plot_heterozy_by_group.png){#fig-violinplot-heterozy width="500"}
 
 \newpage
 
-![For each study population in the frog evolution study (from @fig-allelefrequencies), boxplots showing nucleotide diversity ($\pi$) within 100kb sliding windows along the genome. The y-axis has been log~10~-transformed for display purposes. Sites are color-coded as "Bd-naive" or "recovering", and vertical dashed lines show the genetic breaks between frog populations as described in @fig-selectionresults A SI). Within the genetic clusters, mean $\pi$ is significantly different between sites (p \<0.001 Wilcoxon rank-sum test).](figures/boxplot_genomewide_pi_by_pop.png){#fig-boxplot-genomewide-pi-by-pop width="550"}
+![For each study population in the frog evolution study (from @fig-allelefrequencies), boxplots showing nucleotide diversity ($\pi$) within 100kb sliding windows along the genome. The y-axis has been log~10~-transformed for display purposes. Sites are color-coded as "Bd-naive" or "recovering", and vertical dashed lines show the genetic breaks between frog populations as described in @fig-selectionresults A SI). ](figures/boxplot_genomewide_pi_by_pop.png){#fig-boxplot-genomewide-pi-by-pop width="550"}
 
 \newpage
 
