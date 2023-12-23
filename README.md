@@ -45,7 +45,7 @@ A notebook describing dataset creation and analysis is available in the [doc/not
 4. To run only the viability analysis, execute `make viability_analysis` in the command line.
 5. To clean your directory of extraneous files create during these runs, execute `make clean` in the command line.
 
-## Creating journal-formatted PDF documents
+## Compiling journal-formatted PDF documents
 
 1. Render `translocation.qmd` to latex format. 
 2. From the doc/manuscript/ subdirectory, run `python convert_qmd_to_pnas_latex.py` in the command line. 
