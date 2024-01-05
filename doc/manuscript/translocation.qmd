@@ -48,6 +48,9 @@ Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B
 
 **Key words:** evolution, resistance, amphibians, population recovery, reintroduction, disease, *Batrachochytrium dendrobatidis*
 
+**Competing interests:** This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.), and National Science Foundation (EF-0723563, to C. Briggs; DEB-1557190, to C. Briggs; DEB-2133401, to M.Q.W; and DBI-2120084, to C. Richards-Zawacki).
+The authors have no competing interests to disclose related to organizational affiliations, stock ownership, patent filings, public statements and positions, and non-financial or additional information.
+
 ### Abstract
 
 Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in emerging infectious diseases.
@@ -450,7 +453,7 @@ Although it could be argued that the relatively invariant Bd loads before versus
 In addition to the maintenance of Bd load and frog survival between natal and translocation sites, the relatively high survival of translocated frogs was maintained in their progeny, as expected if resistance has a genetic basis.
 
 Results from the population viability model were also encouraging.
-In particular, translocated populations with \> 50% survival in the first year post-translocation were predicted to have a low probability of extinction over 50 years (probability of extinction $<$ 0.5 when year-1 juvenile survival probability was greater than 0.10<!--# Why not use 0.09?-->).
+In particular, translocated populations with \> 50% survival in the first year post-translocation were predicted to have a low probability of extinction over 50 years (probability of extinction $<$ 0.5 when year-1 juvenile survival probability was greater than 0.10).
 The viability model highlighted the important role of frog survival in affecting long-term population viability, and allowed us to extend the temporal scale of our study beyond the years covered by our post-translocation surveys.
 These long-term forecasts are important, given that reintroduced MYL frog populations may often take decades to achieve our ultimate goal of self-sustainability [@joseph2018].
 Making well-supported projections about the long-term outcome of reintroduction efforts from shorter-term information is critically important to the process of adaptive management of species reintroduction programs [@seddon2007], including the one we are carrying out for MYL frogs.
@@ -474,7 +477,6 @@ As with MYL frogs, the feasibility and long-term success of such efforts will de
 Despite the hopeful example of successful reestablishment of MYL frogs despite ongoing Bd infection, the challenge of recovering hundreds of Bd-impacted amphibian species globally is a daunting prospect.
 Although we now have a proven strategy to reestablish extirpated MYL frog populations, recovery across their large historical range will require substantial resources over many decades.
 The results of this study provide a hopeful starting point for that endeavor and other future efforts worldwide.
-<!--# It would be great to describe how reintroduction of the product of evolution - individuals with alleles that are adaptive in a novel environment - can allow recovery at a broader scale that natural recovery alone. Not sure we have space for this. -->
 
 In our rapidly changing world, evolution is likely to play in important role in facilitating the resilience of wildlife populations.
 Whether the documented disease resistance in MYL frogs and concurrent recovery of decimated populations provides an airtight example of evolutionary rescue will likely always be uncertain (given that can never have a perfect understanding of the past).
@@ -530,7 +532,6 @@ We also assume that new recruits were the result of within-site reproduction and
 This assumption is justified by the fact that no *R. sierrae* populations were present within several kilometers of the translocation sites.
 For all models, we used mrmr defaults for priors, number of chains (4), and warmup and post-warmup iterations (2000 for each).
 We evaluated convergence of the Markov chain Monte Carlo (MCMC) algorithm using trace plots and Gelman-Rubin statistics (Rhat).
-<!--# I thought Max edited this sentence to get rid of "algorithm" but I must be mis-remembering. I checked his explain-meta-analysis branch and the above sentence is repeated there.  -->
 
 ##### Predictors of post-translocation frog survival
 
@@ -997,7 +998,7 @@ Within each of the 9 outlier windows, average $\pi$ shows considerable variation
 
 \newpage
 
-![For each study population in the frog evolution study (from @fig-allelefrequencies), boxplots showing nucleotide diversity ($\pi$) within 100kb sliding windows along the genome. The y-axis has been log~10~-transformed for display purposes. Sites are color-coded as "Bd-naive" or "recovering", and vertical dashed lines show the genetic breaks between frog populations as described in @fig-selectionresults A SI). ](figures/boxplot_genomewide_pi_by_pop.png){#fig-boxplot-genomewide-pi-by-pop width="550"}
+![For each study population in the frog evolution study (from @fig-allelefrequencies), boxplots showing nucleotide diversity ($\pi$) within 100kb sliding windows along the genome. The y-axis has been log~10~-transformed for display purposes. Sites are color-coded as "Bd-naive" or "recovering", and vertical dashed lines show the genetic breaks between frog populations as described in @fig-selectionresults A SI).](figures/boxplot_genomewide_pi_by_pop.png){#fig-boxplot-genomewide-pi-by-pop width="550"}
 
 \newpage
 
