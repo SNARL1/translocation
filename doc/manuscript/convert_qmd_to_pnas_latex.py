@@ -288,6 +288,8 @@ for key, value in main_map.items():
 
 pnas_supp = re.sub("Fig. 5 A", "Fig. 5A", pnas_supp)
 
+# Drop Table header
+pnas_supp = pnas_supp.replace("\\hypertarget{tables}{%\n\\subsubsection{Tables}\\label{tables}}", "")
 
 # Remove verbatim
 verb_start = latex_manuscript.find("\\begin{verbatim}")
