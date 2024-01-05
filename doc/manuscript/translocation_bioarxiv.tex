@@ -6,6 +6,8 @@
 % {pnasmathematics} %= Template for a one-column mathematics article
 % {pnasinvited} %= Template for a PNAS invited submission
 
+\begin{document}
+
 \title{Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease}
 
 % Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
@@ -53,7 +55,7 @@ biodiversity conservation in our rapidly changing world.}
 \correspondingauthor{\textsuperscript{2}To whom correspondence should be addressed. E-mail: roland.knapp@ucsb.edu}
 
 % At least three keywords are required at submission. Please provide three to five keywords, separated by the pipe symbol.
-\keywords{} 
+\keywords{evolution | resistance | amphibians | population recovery | reintroduction | disease | \emph{Batrachochytrium dendrobatidis}} 
 
 \begin{abstract}
 Vast alteration of the biosphere by humans is causing a sixth mass
@@ -88,11 +90,12 @@ with extinction by novel pathogens.
 \dates{This manuscript was compiled on \today}
 % \doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
 
-\begin{document}
 
 \maketitle
 \thispagestyle{firststyle}
 \ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+% \firstpage{12}
 
 \dropcap{H}uman activities are increasingly impacting global biodiversity
 \citep{ceballos2015}, with important implications for ecosystem

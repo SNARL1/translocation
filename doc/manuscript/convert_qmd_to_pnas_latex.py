@@ -315,7 +315,7 @@ with open("translocation_bioarxiv.tex", "w") as fout:
 	fout.writelines(bioarxiv_ms)
 
 # Remove transcloation.tex
-# subprocess.call(['rm', args[1]])
+subprocess.call(['rm', args[1]])
 subprocess.call(['cp', 'translocation_pnas_SI.tex', 'translocation_bioarxiv_SI.tex'])
 
 

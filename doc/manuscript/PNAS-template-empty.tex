@@ -6,6 +6,8 @@
 % {pnasmathematics} %= Template for a one-column mathematics article
 % {pnasinvited} %= Template for a PNAS invited submission
 
+\begin{document}
+
 \title{}
 
 % Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
@@ -41,7 +43,7 @@
 \correspondingauthor{\textsuperscript{2}To whom correspondence should be addressed. E-mail: roland.knapp@ucsb.edu}
 
 % At least three keywords are required at submission. Please provide three to five keywords, separated by the pipe symbol.
-\keywords{} 
+\keywords{evolution | resistance | amphibians | population recovery | reintroduction | disease | \emph{Batrachochytrium dendrobatidis}} 
 
 \begin{abstract}
 \end{abstract}
@@ -49,11 +51,12 @@
 \dates{This manuscript was compiled on \today}
 % \doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
 
-\begin{document}
 
 \maketitle
 \thispagestyle{firststyle}
 \ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+% \firstpage{12}
 
 % Introduction
 
