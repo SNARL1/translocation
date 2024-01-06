@@ -46,10 +46,12 @@ Roland A. Knapp^a,b,^\*, Mark Q. Wilber^c,1^, Allison Q. Byrne^d,e,1^, Maxwell B
 
 **Classification:** Biological Sciences - Ecology
 
-**Key words:** evolution, resistance, amphibians, population recovery, reintroduction, disease, *Batrachochytrium dendrobatidis*
+**Key words:** amphibians, disease, evolution, reintroduction, population recovery
+
+**Author contributions**: All authors designed research; R.A.K., M.Q.W., A.Q.B., M.B.J., T.C.S., A.P.R., and R.L.G. performed research; M.B.J. contributed new analytic tools; R.A.K., M.Q.W., A.Q.B., A.P.R., and E.B.R. analyzed data; and R.A.K., M.Q.W., A.Q.B., M.B.J., T.C.S., and E.B.R. wrote paper.
 
 **Competing interests:** This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.), and National Science Foundation (EF-0723563, to C. Briggs; DEB-1557190, to C. Briggs; DEB-2133401, to M.Q.W; and DBI-2120084, to C. Richards-Zawacki).
-The authors have no competing interests to disclose related to organizational affiliations, stock ownership, patent filings, public statements and positions, and non-financial or additional information.
+The authors declare no additional competing interests.
 
 ### Abstract
 
@@ -69,10 +71,9 @@ This example has broad implications for the many taxa worldwide that are threate
 ### Significance
 
 Understanding how species persist despite accelerating global change is critical for the conservation of biodiversity.
-Emerging infectious diseases can have particularly devastating impacts, and few options exist to reverse these effects.
-We used large-scale reintroductions of disease-resistant individuals in an effort to recover a once-common frog species driven to near-extinction by a disease that has decimated amphibian biodiversity.
-Introduction of resistant frogs allowed reestablishment of viable populations in the presence of disease.
-In addition, resistance may be at least partially the result of natural selection at specific immune function genes, which show evidence for selection in recovering populations.
+We used reintroductions of disease-resistant individuals in an effort to recover a once-common frog species driven to near-extinction by a novel disease that has decimated amphibians worldwide.
+Reintroductions allowed establishment of viable populations in the presence of disease.
+In addition, resistance may be at least partially the result of natural selection at specific immune function genes.
 The evolution of resistance and reintroduction of resistant individuals could play an important role in biodiversity conservation in our rapidly changing world.
 
 ### Introduction
@@ -331,7 +332,7 @@ Instead, important predictors included winter severity in the year following tra
 Males had somewhat higher survival than females, but this effect was small (@fig-cond-effects, @fig-survival-postdens SI).
 The absence of Bd load as an important predictor of frog survival is consistent with frogs in recovering populations having sufficient resistance to suppress Bd loads below harmful levels.
 
-In summary, results from our frog translocation study indicate that translocations resulted in (i) relatively high 1-year survival of translocated adults, as well as reproduction and recruitment, at the majority of recipient sites, (ii) 1-year survival of adults is influenced by site characteristics, weather conditions, and donor population (but not Bd load), and (iii) based on the relatively small changes in Bd load after translocation, loads appear more strongly influenced by frog characteristics (e.g., resistance) than site characteristics.
+In summary, results from our frog translocation study indicate that (i) translocations produced relatively high 1-year survival of translocated adults, as well as reproduction and recruitment, at the majority of recipient sites, (ii) 1-year survival of adults is influenced by site characteristics, weather conditions, and donor population (but not Bd load), and (iii) based on the relatively small changes in Bd load after translocation, loads appear more strongly influenced by frog characteristics (e.g., resistance) than site characteristics.
 Together, these results indicate that frogs translocated from recovering populations can maintain the benefits of resistance in non-natal habitats.
 In addition, in 3 locations where longer CMR time series allowed us to assess the survival of new adults recruited to the population, naturally-recruited adults had equivalent or higher survival probabilities than the originally translocated adults (@fig-compare_surv_probs SI).
 This suggests that frog resistance is maintained across generations.
@@ -686,7 +687,6 @@ Barbella and K.
 Rose--laboratory work; C.
 Kamoroff and numerous summer technicians--field work; staff at Sequoia-Kings Canyon and Yosemite National Parks, Inyo and Sierra National Forests, California Department of Fish and Wildlife, U.S. Fish and Wildlife Service, University of California-Santa Barbara Institutional Animal Care and Use Committee, and Sierra Nevada Aquatic Research Laboratory--research permits, logistical support, and/or field assistance.
 This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.), and National Science Foundation (EF-0723563, to C. Briggs; DEB-1557190, to C. Briggs; DEB-2133401, to M.Q.W; and DBI-2120084, to C. Richards-Zawacki).
-<!--# Do we need to acknowledge anybody at SD Zoo for providing R. muscosa genome? -->
 
 ### References
 
