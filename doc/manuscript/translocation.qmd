@@ -741,9 +741,9 @@ This parameter expanded data augmentation allows us to capture the possibility t
 Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$.
 
 We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$.
-The four states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults.
+The states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults.
 Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$.
-Each primary period $t$ occurs within one year, but within a year there can be multiple primary periods.
+Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and end as late as September).
 We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$.
 Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
 We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die).
@@ -779,7 +779,7 @@ $$
 \begin{block}{(ccc)c}
   1 - \lambda_t & \lambda_t & 0 & \text{Not recruited} \\
   0 & \phi_t & 1 - \phi_t & \text{Alive} \\
-  0 & 1 & 1 & \text{Dead} \\
+  0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray},
 $$ where $\lambda_t$ is the probability of recruiting in time $t$ and $\phi_t$ is the probability of survival in time $t$.
@@ -793,7 +793,7 @@ $$
 \begin{block}{(ccc)c}
   1 - I_{t, i} & I_{t, i} & 0 & \text{Not recruited} \\
   0 & \phi_t & 1 - \phi_t & \text{Alive} \\
-  0 & 1 & 1 & \text{Dead} \\
+  0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray},
 $$ where $I_{t, i}$ is a known indicator function for whether individual $i$ was introduced in primary period $t$.
