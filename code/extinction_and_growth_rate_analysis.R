@@ -169,7 +169,7 @@ for(l in 1:nrow(all_surv)){
 }
 
 lake_elas_dt = data.table(do.call(rbind, lake_elas))
-colnames(lake_elas_dt) = c("\U03C3_AR", "F", "\U03C3_J1", "\U03C3_J2") #c("sigma_AR", "F", "sigma_J1", "sigma_J2")
+colnames(lake_elas_dt) = c("\U03C3_AR", "F", "\U03C3_J1", "\U03C3_J2", "p_L2", "p_J1") #c("sigma_AR", "F", "sigma_J1", "sigma_J2")
 lake_elas_dt$lake = names(lake_elas)
 
 lake_elas_dt_melt = melt(lake_elas_dt, id.vars="lake")
@@ -473,6 +473,6 @@ ptraj = ggplot() + geom_line(data=pred_traj, aes(x=year, y=abund, group=sim, col
 myplot = (ptile + pext + ptraj) + plot_annotation(tag_levels="A", tag_suffix="")
 ggsave(file.path("..", "out", "pop_viability_figures_for_manuscript.jpg"), width=11, height=5, dpi=300)
 
-myplot = (p2) + plot_annotation(tag_levels="A", tag_suffix="")
+myplot = (p2)# + plot_annotation(tag_levels="A", tag_suffix="")
 ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=5, height=4, dpi=300)
 
