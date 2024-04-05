@@ -299,7 +299,8 @@ frog_captures_gt0_max <- d3 %>%
 
 To determine whether MYL frogs from recovering populations can be used to reestablish extirpated populations, we conducted `r n_distinct(d1$site_id, d1$date)` reintroductions in Yosemite National Park (`r min(d1$year)`--`r max(d1$year)`).
 Each of the reintroductions involved collection of adult frogs from 1 of `r n_distinct(d1$donor)` recovering, Bd-positive "donor" populations and translocating them to 1 of `r n_distinct(d1$site_id)` nearby recipient sites (@fig-yosemap SI).
-The donor populations included 2 of the 5 recovering populations used in the frog evolution study referenced above (@fig-allelefrequencies: population 1 and 4), and these donor populations contributed frogs for 20 of the `r n_distinct(d1$site_id, d1$date)` translocations.
+The 3 donor populations are among the largest MYL frog populations in Yosemite, and included 2 of the 5 recovering populations used in the frog evolution study referenced above (see **Results - Frog evolution in response to Bd:** population 1 and 4).
+In addition, this subset of 2 donor populations provided frogs for 20 of the `r n_distinct(d1$site_id, d1$date)` translocations.
 Following translocation, we estimated adult survival and recruitment of new adults from capture-mark-recapture (CMR) surveys and obtained counts of tadpoles and juveniles from visual encounter surveys (VES).
 Across all translocation sites, the duration of survey time series was `r min(surveyyrs$n)`--`r max(surveyyrs$n)` years (median = `r (median(surveyyrs$n))`).
 
@@ -461,6 +462,13 @@ Making well-supported projections about the long-term outcome of reintroduction 
 Specifically, the combined results from our reintroduction study and viability modeling indicate that survival of frogs in the first year following translocation is an effective proxy of longer-term survival and population viability.
 In addition, given the repeatability of frog survival at a site, 1-year frog survival also serves as an effective proxy of site quality (i.e., the ability of a site to support high frog survival and a viable frog population over the long term).
 This proxy of site quality is important in the MYL frog system because accurately predicting the ability of a site to support a viable frog population *a priori* remains difficult, even after conducting 24 translocations over 16 years.
+
+The results of the meta-analysis indicate the important influence of several variables on adult survival, and by extension on population viability.
+Although we assume that the effects of winter severity and frog sex are direct effects of the variables themselves, the elevation and donor population variables are likely serving as proxies for a range of factors.
+For example, elevation is positively correlated with several attributes that may influence frog survival, including the presence of boulder habitat that is important for frog overwintering, abundance of frog predators including garter snakes, and frog developmental rates.
+The latter can influence the duration of frog life stages that have differential susceptibility to chytridiomycosis (see below).
+The duration of the tadpole and juvenile stages increases with elevation, but the fact that population growth rate is relatively insensitive to tadpole and juvenile vital rates suggests that developmental rates of early frog life stages have little effect on the predicted long-term viability of reintroduced populations.
+Nonetheless, a clearer understanding of the mechanistic components of the elevation and donor population variables will require additional research.
 
 Despite the demonstrated resistance of adult MYL frogs against Bd infection, individual and population-level impacts of Bd are still evident.
 In an earlier study of 2 of our 12 translocated populations [@joseph2018], Bd infection and load had detectable effects on the survival of adults and may have influenced population establishment (sites referred to as "Alpine" and "Subalpine" in @joseph2018 are identified as "70550" and "70505" in the current study).
@@ -970,7 +978,7 @@ Within each of the 9 outlier windows, average $\pi$ shows considerable variation
 
 \newpage
 
-![For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range. Loads indicative of severe disease are \> 5.8 ITS copies (on a log~10~ scale). Samples sizes are provided immediately above the x-axis.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="630"}
+![For frogs translocated to each of the 12 recipient sites, Bd loads for the period immediately prior to translocation versus during the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range. Samples sizes are provided immediately above the x-axis. The red dashed horizontal line indicates the approximate load above which severe disease is typically observed \[@vredenburg2010\]. This threshold is commonly exceeded during epizootics but only rarely in recovering populations \[@briggs2010\]. ](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="630"}
 
 \newpage
 
