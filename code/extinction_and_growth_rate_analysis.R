@@ -488,5 +488,5 @@ myplot = (ptile + pext + ptraj) + plot_annotation(tag_levels="A", tag_suffix="")
 ggsave(file.path("..", "out", "pop_viability_figures_for_manuscript.jpg"), width=11, height=5, dpi=300)
 
 myplot = (p2 + p2b) + plot_annotation(tag_levels="A", tag_suffix="")
-ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=5, height=4, dpi=300)
+ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=9, height=4, dpi=300)
 
