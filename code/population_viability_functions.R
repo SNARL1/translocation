@@ -347,10 +347,13 @@ get_sensitivity = function(params){
 	dAdsj2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	dAdpl2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, params$sigma_L2, -params$sigma_L2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	dAdpj1 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$sigma_J1, -params$sigma_J1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-	dmatA = t(rbind(dAdsar, dAdF, dAdsj1, dAdsj2, dAdpl2, dAdpj1))
+	dAdsl1 = c(0, params$p_L1, 0, 1 - params$p_L1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	dAdsl2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_L2, 1 - params$p_L2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	dAdsl3 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+	dmatA = t(rbind(dAdsar, dAdF, dAdsj1, dAdsj2, dAdpl2, dAdpj1, dAdsl1, dAdsl2, dAdsl3))
 
 	# From Caswell 2019
-	D_sens_params = diag(c(params$sigma_AR, params$F, params$sigma_J1, params$sigma_J2, params$p_L2, params$p_J1))
+	D_sens_params = diag(c(params$sigma_AR, params$F, params$sigma_J1, params$sigma_J2, params$p_L2, params$p_J1, params$sigma_L1, params$sigma_L2, params$sigma_L3))
 	sens = part1 %*% dmatA
 	elas = (sens %*% D_sens_params) / lam
 
