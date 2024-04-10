@@ -483,7 +483,7 @@ The results of the meta-analysis indicate the important influence of several var
 Although we assume that the effects of winter severity and frog sex are direct effects of the variables themselves, the elevation and donor population variables are likely serving as proxies for a range of factors.
 For example, elevation is positively correlated with several attributes that may influence frog survival, including the presence of boulder habitat that is important for frog overwintering, abundance of frog predators including garter snakes, and frog developmental rates.
 The latter can influence the duration of frog life stages that have differential susceptibility to chytridiomycosis (see below).
-The duration of the tadpole and juvenile stages increases with elevation, but the fact that population growth rate is relatively insensitive to tadpole and juvenile vital rates suggests that developmental rates of early frog life stages have little effect on the predicted long-term viability of reintroduced populations.
+The duration of the tadpole and juvenile stages increases with elevation, but the fact that long-run population growth rate is relatively insensitive to variation in these durations suggests that developmental rates of early frog life stages have little effect on the predicted long-term viability of reintroduced populations.
 Nonetheless, a clearer understanding of the mechanistic components of the elevation and donor population variables will require additional research.
 
 Despite the demonstrated resistance of adult MYL frogs against Bd infection, individual and population-level impacts of Bd are still evident.
