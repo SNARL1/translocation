@@ -404,7 +404,7 @@ One of the 7 identified genes (LOC108802036) does not have an associated annotat
 For the outlier SNPs, frequency differences between the naive and recovering populations ranged from 0.41 to 0.86.
 Most of these SNPs showed frequency differences in only a subset of the sampled populations (@fig-allelefrequencies A, B), but the SNP in the RIN3 gene showed consistent differences in frequencies across all populations (@fig-allelefrequencies C).
 This is suggestive of parallel selection at this locus across multiple populations.
-The other 6 outlier variants showed less consistent frequency differences across the study populations, but for these we still found a statistically significant signal of selection in 2 of the 3 genetic clusters (containing populations 5–9; @fig-allelefrequencies, @fig-selectionresults A SI).
+The other 6 outlier variants showed less consistent frequency differences across the study populations, but for these we still found a statistically significant signal of selection in 2 of the 3 genetic clusters (containing populations 5--9; @fig-allelefrequencies, @fig-selectionresults A SI).
 Therefore, although some outlier variant associations have a more limited geographic extent than RIN3, they still describe results that suggest parallel evolutionary changes following Bd exposure.
 
 The splined window analysis identified 33 outlier regions for $\pi_{diff}$ and 58 outlier regions for *F~ST~* (@fig-spline-manhattan A, B).
@@ -634,7 +634,7 @@ Additional details are provided in **Supporting Information - Population viabili
 
 After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates ([@tbl-param_values]), we performed four analyses.
 First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to grow or decline in the long-run.
-Second, we compute the elasticity of $\lambda$ to four key model parameters to quantify how much changes in these parameters affected the long-run growth rate (@fig-viability-supp SI).
+Second, we compute the elasticity and sensitivity of $\lambda$ to nine model parameters to quantify how much changes in these parameters affected the long-run growth rate (@fig-viability-supp SI).
 This also helped us determine where in the model environmental variation in juvenile survival and recruitment would have the largest effects on population dynamics.
 Third, we included demographic stochasticity and environmental stochasticity in $\sigma_{J_1}$ in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of MYL frogs following reintroductions.
@@ -759,15 +759,15 @@ In addition, all qPCR quantities (regardless of standard) were multiplied by 80 
 #### CMR model structure
 
 We estimated survival and recruitment for each site using open population CMR models based on @joseph2018.
-For each individual <!--# in a superpopulation of real and psuedo-individuals, --> $i=1, ..., M$ on each survey $j=1, ..., n_j$: $o_{i, j} = 1$ if the individual was not detected, and $o_{i, j}=2$ if the individual was detected.
+For each individual in a superpopulation of real and psuedo-individuals, $i=1, ..., M$ on each survey $j=1, ..., n_j$: $o_{i, j} = 1$ if the individual was not detected, and $o_{i, j}=2$ if the individual was detected.
 Capture histories of $M$ individuals are modeled, although only $N_s$ individuals were captured.
 This parameter expanded data augmentation allows us to capture the possibility that undetected individuals may have recruited into the adult population [@royle2012].
 Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$.
 
 We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$.
-The four states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults.
+The states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults.
 Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$.
-Each primary period $t$ occurs within one year, but within a year there can be multiple primary periods.
+Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and as late as September).
 We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$.
 Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
 We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die).
@@ -803,7 +803,7 @@ $$
 \begin{block}{(ccc)c}
   1 - \lambda_t & \lambda_t & 0 & \text{Not recruited} \\
   0 & \phi_t & 1 - \phi_t & \text{Alive} \\
-  0 & 1 & 1 & \text{Dead} \\
+  0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray},
 $$ where $\lambda_t$ is the probability of recruiting in time $t$ and $\phi_t$ is the probability of survival in time $t$.
@@ -817,7 +817,7 @@ $$
 \begin{block}{(ccc)c}
   1 - I_{t, i} & I_{t, i} & 0 & \text{Not recruited} \\
   0 & \phi_t & 1 - \phi_t & \text{Alive} \\
-  0 & 1 & 1 & \text{Dead} \\
+  0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray},
 $$ where $I_{t, i}$ is a known indicator function for whether individual $i$ was introduced in primary period $t$.
@@ -930,7 +930,8 @@ We performed four analyses on our model.
 First, we considered a deterministic version of our model with no yearly heterogeneity in year-1 juvenile survival and recruitment probability $\sigma_{J_1}$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\sigma_{J_1}$.
 We then fixed $\sigma_{J_1} = 0.09$ and calculated the predicted growth rate of our 12 populations.
 
-Second, we performed a local elasticity analysis on $\lambda$ with respect to parameters $\sigma_{J_1}$, $\sigma_{J_2}$, $\sigma_{A_R}$, and $F$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp SI).
+Second, we performed a local elasticity and sensitivity analysis on $\lambda$ with respect to parameters $\sigma_{L_1}$, $\sigma_{L_2}$, $\sigma_{L_3}$, $\sigma_{J_1}$, $\sigma_{J_2}$, $\sigma_{A_R}$, $F$, $p_{L_2}$, $p_{J_1}$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp SI).
+Note that $\lambda$ is equally or more sensitive to changes in adult survival ($\sigma_{A_R}$) and survival of year-1 juveniles ($\sigma_{J_1}$) than it is to other model parameters, providing additional justification for focusing on variation in $\sigma_{A_R}$ and $\sigma_{J_1}$ in our viability analyses.
 
 Third, we defined a version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among-year variability in $\sigma_{J_1}$.
 We used this model to simulate a one-time introduction of 40 translocated adult frogs.
@@ -1005,7 +1006,7 @@ Within each of the 9 outlier windows, average $\pi$ shows considerable variation
 
 \newpage
 
-![Sensitivity analysis of the stage-structured MYL frog model. Elasticity of $\lambda$ with changes in four parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), *F (*number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), and $\sigma_{J_2}$ (yearly probability of survival and recruitment of year-2 juveniles). Elasticity is calculated at the default parameter values for each population and $\sigma_{J_1}$ = 0.09.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="550"}
+![Sensitivity analysis of the stage-structured MYL frog model. A. Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival and recruitment of year-2 juveniles), $p_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). B. Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. We did not include $p_{L_1}$ as this parameter is generally 1 across the populations in this study (Table S1) -- tadpoles spend at least a year as tadpoles before metamorphosing. Elasticity and sensitivity is calculated at the default parameter values for each population and $\sigma_{J_1}$ = 0.09.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="550"}
 
 \newpage
 

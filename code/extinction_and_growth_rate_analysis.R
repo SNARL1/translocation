@@ -169,16 +169,30 @@ for(l in 1:nrow(all_surv)){
 }
 
 lake_elas_dt = data.table(do.call(rbind, lake_elas))
-colnames(lake_elas_dt) = c("\U03C3_AR", "F", "\U03C3_J1", "\U03C3_J2") #c("sigma_AR", "F", "sigma_J1", "sigma_J2")
+colnames(lake_elas_dt) = c("\U03C3_AR", "F", "\U03C3_J1", "\U03C3_J2", "p_L2", "p_J1", "\U03C3_L1", "\U03C3_L2", "\U03C3_L3") #c("sigma_AR", "F", "sigma_J1", "sigma_J2")
 lake_elas_dt$lake = names(lake_elas)
 
 lake_elas_dt_melt = melt(lake_elas_dt, id.vars="lake")
 
+lake_sens_dt = data.table(do.call(rbind, lake_sens))
+colnames(lake_sens_dt) = c("\U03C3_AR", "F", "\U03C3_J1", "\U03C3_J2", "p_L2", "p_J1", "\U03C3_L1", "\U03C3_L2", "\U03C3_L3") #c("sigma_AR", "F", "sigma_J1", "sigma_J2")
+lake_sens_dt$lake = names(lake_sens)
+
+lake_sens_dt_melt = melt(lake_sens_dt, id.vars="lake")
+
 p2 = ggplot(lake_elas_dt_melt) + geom_bar(aes(x=variable, y=value, fill=lake), stat="identity", position="dodge") +
 														scale_fill_manual(values=colors) +
 														xlab("Parameter") + ylab("Elasticity of \U03BB") + theme_classic() +
-														guides(fill=guide_legend(title="Site"))
+														guides(fill="none") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 														# theme(legend.position = c(0.7, 0.7))
+
+p2b = ggplot(lake_sens_dt_melt) + geom_bar(aes(x=variable, y=value, fill=lake), stat="identity", position="dodge") +
+														scale_fill_manual(values=colors) +
+														xlab("Parameter") + ylab("Sensitivity of \U03BB") + theme_classic() +
+														guides(fill=guide_legend(title="Site")) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+														# theme(legend.position = c(0.7, 0.7))
+
+sens_plot = (p2 + p2b) + plot_annotation(tag_levels="A", tag_suffix="")
 
 #############################################################
 ###########  Analysis 3: Extinction curves ##################
@@ -473,6 +487,6 @@ ptraj = ggplot() + geom_line(data=pred_traj, aes(x=year, y=abund, group=sim, col
 myplot = (ptile + pext + ptraj) + plot_annotation(tag_levels="A", tag_suffix="")
 ggsave(file.path("..", "out", "pop_viability_figures_for_manuscript.jpg"), width=11, height=5, dpi=300)
 
-myplot = (p2) + plot_annotation(tag_levels="A", tag_suffix="")
-ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=5, height=4, dpi=300)
+myplot = (p2 + p2b) + plot_annotation(tag_levels="A", tag_suffix="")
+ggsave(file.path("..", "out", "pop_viability_figures_for_supp.jpg"), width=9, height=4, dpi=300)
 
