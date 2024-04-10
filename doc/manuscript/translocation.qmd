@@ -55,31 +55,18 @@ The authors declare no additional competing interests.
 
 ### Abstract
 
-Revised version: Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in infectious diseases.
-The emergence of the lethal fungal pathogen (Batrachochytrium dendrobatidis; "Bd") has devastated global amphibian biodiversity, with hundreds of species experiencing declines or extinctions.
-With no broadly applicable methods available to reverse these impacts, the future of many amphibians appears grim.
+Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in infectious diseases.
+The emergence of the lethal fungal pathogen (*Batrachochytrium dendrobatidis*; "Bd") has devastated global amphibian biodiversity, with hundreds of species experiencing declines or extinctions.
+Lacking any broadly applicable methods to reverse these impacts, the future of many amphibians appears grim.
 The once-common mountain yellow-legged (MYL) frog is emblematic of amphibians threatened by Bd.
 Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually recover.
 Frogs in these recovering populations have increased resistance against Bd infection, consistent with evolution of resistant genotypes.
 We conducted a 15-year landscape-scale reintroduction study and show that frogs collected from recovering populations and reintroduced to vacant habitats can reestablish populations despite the presence of Bd.
-The results also indicate that the likelihood of establishment is influenced by site, population, and frog attributes.
-In addition, results from viability modeling suggest that many reintroduced populations have a low probability of extinction over 50 years.
+In addition, the likelihood of establishment is influenced by site, population, and frog attributes.
+Results from viability modeling suggest that many reintroduced populations have a low probability of extinction over 50 years.
 To better understand the role of evolution in frog resistance, we compared the genomes of MYL frogs from Bd-naive and recovering populations.
-We found substantial differences between these categories, including changes in immune function loci that may confer increased resistance.
+We found numerous differences between these categories, including in immune function loci associated with disease resistance, consistent with evolutionary changes in response to Bd exposure.
 These results provide a rare example of how reintroduction of resistant individuals can allow the landscape-scale recovery of disease-impacted species, and have broad implications for the many taxa worldwide that are threatened with extinction by novel pathogens.
-
-Original version: Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in emerging infectious diseases.
-The emergence of the lethal fungal pathogen (Batrachochytrium dendrobatidis; "Bd") has devastated global amphibian biodiversity, with hundreds of species experiencing declines or extinctions.
-With no broadly applicable methods available to reverse these impacts in the wild, the future of many amphibians appears grim.
-The once-common mountain yellow-legged (MYL) frog is emblematic of amphibians threatened by Bd.
-Although most MYL frog populations are extirpated following disease outbreaks, some persist and eventually recover.
-Frogs in these recovering populations have increased resistance against Bd infection, consistent with evolution of resistant genotypes and/or acquired immunity.
-We conducted a 15-year landscape-scale reintroduction study and show that frogs collected from recovering populations and reintroduced to vacant habitats can reestablish populations despite the presence of Bd.
-In addition, results from viability modeling suggest that many reintroduced populations have a low probability of extinction over 50 years.
-To better understand the role of evolution in frog resistance, we compared the genomes of MYL frogs from Bd-naive and recovering populations.
-We found substantial differences between these categories, including changes in immune function loci that may confer increased resistance, consistent with evolutionary changes in response to Bd exposure.
-These results provide a rare example of how reintroduction of resistant individuals can allow the landscape-scale recovery of disease-impacted species.
-This example has broad implications for the many taxa worldwide that are threatened with extinction by novel pathogens.
 
 ### Significance
 
