@@ -269,10 +269,10 @@ yearly variability in the probability of year-1 juvenile survival and
 recruitment (additional details provided in \textbf{Estimating model
 parameters} below). We also could have included environmental
 stochasticity in year-2 juvenile survival and recruitment
-\(\sigma_{J_2}\), but our elasticity analysis (\textbf{Supporting
-Information - Population viability modeling - Model analysis and
-simulation}) showed that this parameter had little effect on host growth
-rate relative to \(\sigma_{J_1}\) (Figure~\ref{fig-viability-supp}).
+\(\sigma_{J_2}\), but our elasticity and sensitivity analysis (see
+below, \textbf{Model analysis and simulation}) showed that this
+parameter had little effect on host growth rate relative to
+\(\sigma_{J_1}\) (Figure~\ref{fig-viability-supp}).
 
 \hypertarget{estimating-model-parameters}{%
 \subsection{Estimating model
@@ -442,15 +442,25 @@ calculated heterozygosity for each sampled frog using VCFtools
 diversity, we used VCFtools to calculate nucleotide diversity (\(\pi\))
 in 100kb sliding windows along the genome for each population. Third, we
 calculated average \(\pi\) per population within each of the 9 outlier
-windows identified in the splined window analysis.
+windows identified in the splined window analysis. We compared average
+\(\pi\) per population between naive and recovering population types,
+and also for each naive and recovering population in Yosemite. The
+latter comparison focused on Yosemite because these populations are the
+most relevant to the translocated populations described in the paper
+(see results below for additional details).
 
 Average individual-level heterozygosity and genome-wide population-level
 \(\pi\) were similar between the naive and recovering groups
 (Figure~\ref{fig-violinplot-heterozy};
 Figure~\ref{fig-boxplot-genomewide-pi-by-pop}). Within each of the 9
 outlier windows, average \(\pi\) shows considerable variation between
-populations (Figure~\ref{fig-boxplot-pi-by-windowpop}) and no obvious
-patterns between the naive and recovering groups.
+populations and no obvious patterns between the naive and recovering
+populations (Figure~\ref{fig-boxplot-pi-by-windowpop}). For the four
+populations in Yosemite, within each of the 9 outlier windows, average
+\(\pi\) per population was generally higher in the 3 recovering
+populations than in the 1 naive population
+(Figure~\ref{fig-ave-pi-per-site-yose}). ADD CONCLUDING SENTENCE OR
+TWO THAT SUMMARIZE THEGNIFICANCE OF THESE RESULTS?
 
 \newpage
 
@@ -685,22 +695,20 @@ BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.}
 
 }
 
-\caption{For each study population located in Yosemite National Park
-(populations 1-4 shown in Site Map), average \(\pi\) for the 9 outlier
-windows (panels A-I) identified in the splined window analysis.
-Populations within Yosemite are the focus because they are the most
-relevant to the translocated populations described in the paper: donor
-populations 1 and 4 were the source of frogs for 20 of the 24
-translocations and the donor population for the remaining four
-translocations is located adjacent to populations 3 and 4. Bars are
-color-coded by population category (naive, recovering), and gene
+\caption{\label{fig-ave-pi-per-site-yose}For each study population
+located in Yosemite National Park (populations 1-4 shown in Site Map),
+average \(\pi\) for the 9 outlier windows (panels A-I) identified in the
+splined window analysis. Populations 1 and 4 were the source of frogs
+for 20 of the 24 translocations and the donor population for the
+remaining four translocations is located adjacent to populations 3 and
+4. Bars are color-coded by population type (naive, recovering), and gene
 annotations within each window are listed above each panel. Gene regions
 described in the paper are in panel A (Complement C6,C7), panel E
 (GVINP1), and panel F (extended MHC region that includes two SNPs
 identified by the GEMMA analysis in genes TCF19 and VARS1, indicated by
-an *). In the Site Map, the four populations included in panels A-I are
-color-coded by population category, and dashed lines delineate the
-genetic clusters as defined in Figure~\ref{fig-selectionresults}.}
+an asterisk). In the Site Map, the four populations included in panels
+A-I are color-coded by population type, and dashed lines delineate the
+genetic clusters as defined in Figure~\ref{fig-selectionresults}. }
 
 \end{figure}\clearpage
 
@@ -710,9 +718,9 @@ genetic clusters as defined in Figure~\ref{fig-selectionresults}.}
 
 \hypertarget{tbl-param_values}{}
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3611}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3750}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4167}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4611}}@{}}
 \caption{\label{tbl-param_values}Description and values of parameters
 used in the model. All survival probabilities are in the presence of the
 fungal pathogen Bd.}\tabularnewline

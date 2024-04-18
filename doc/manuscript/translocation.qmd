@@ -1,8 +1,8 @@
 ---
-# format: pdf
-format:
-   latex: 
-      cite-method: natbib
+format: docx
+#format:
+#   latex: 
+#      cite-method: natbib
 include-in-header:
   text: |
     \usepackage{blkarray}
@@ -1033,7 +1033,7 @@ ADD CONCLUDING SENTENCE OR TWO THAT SUMMARIZE THE SIGNIFICANCE OF THESE RESULTS?
 ### Tables
 
 | **Parameter**                                                             | **Value**            | **Source**                                                                        |
-|:--------------------------------------------------------------------------|:---------------------|:----------------------------------------------------------------------------------|
+|:-------------------------|:------------------|:--------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year-1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_2}$, Yearly survival probability of year-2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_3}$, Yearly survival probability of year-3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
