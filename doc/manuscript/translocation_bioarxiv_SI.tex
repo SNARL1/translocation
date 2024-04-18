@@ -42,33 +42,34 @@ extracts from swabs were diluted 80-fold during extraction and PCR
 
 We estimated survival and recruitment for each site using open
 population CMR models based on \citep{joseph2018}. For each individual
-\(i=1, ..., M\) on each survey \(j=1, ..., n_j\): \(o_{i, j} = 1\) if
-the individual was not detected, and \(o_{i, j}=2\) if the individual
-was detected. Capture histories of \(M\) individuals are modeled,
-although only \(N_s\) individuals were captured. This parameter expanded
-data augmentation allows us to capture the possibility that undetected
-individuals may have recruited into the adult population
-\citep{royle2012}. Here, \(M\) was chosen to be three times the number
-of observed individuals (\(3N_s\)) to be considerably greater than our
-prior guess of \(N_s\).
+in a superpopulation of real and psuedo-individuals, \(i=1, ..., M\) on
+each survey \(j=1, ..., n_j\): \(o_{i, j} = 1\) if the individual was
+not detected, and \(o_{i, j}=2\) if the individual was detected. Capture
+histories of \(M\) individuals are modeled, although only \(N_s\)
+individuals were captured. This parameter expanded data augmentation
+allows us to capture the possibility that undetected individuals may
+have recruited into the adult population \citep{royle2012}. Here, \(M\)
+was chosen to be three times the number of observed individuals
+(\(3N_s\)) to be considerably greater than our prior guess of \(N_s\).
 
 We denote the true state of individual \(i\) as \(u_{i, t}\) for primary
-period \(t = 1,..., n_t\). The four states that we consider are:
+period \(t = 1,..., n_t\). The states that we consider are:
 \(u_{i, t} = 1\) for individuals that have not recruited,
 \(u_{i, t} =2\) for live adults, and \(u_{i, t} = 3\) for dead adults.
 Each survey \(j=1, ..., n_j\) occurs in one of the \(n_t\) primary
 periods, and we denote the primary period in which survey \(j\) takes
-place as \(t_j\). Each primary period \(t\) occurs within one year, but
-within a year there can be multiple primary periods. We set the year
-containing the first primary period to \(y_{t = 1} = 1\), and generally
-\(y_t\) represents the year containing primary period \(t\). Years
-increment by one until the final year of the mark recapture efforts,
-which we denote \(n_y\): \(y \in \{1, 2, ..., n_y\}\). We assume that
-within a primary period, the state of each individual does not change
-(i.e., individuals do not recruit into the adult population, gain or
-lose Bd infection, or die). This assumption is justified by the short
-time intervals between surveys within primary periods, in cases where
-primary periods contain multiple secondary periods.
+place as \(t_j\). Multiple primary periods can occur during a summer
+active season (typically July-August, but in some years as early as May
+and as late as September). We set the year containing the first primary
+period to \(y_{t = 1} = 1\), and generally \(y_t\) represents the year
+containing primary period \(t\). Years increment by one until the final
+year of the mark recapture efforts, which we denote \(n_y\):
+\(y \in \{1, 2, ..., n_y\}\). We assume that within a primary period,
+the state of each individual does not change (i.e., individuals do not
+recruit into the adult population, gain or lose Bd infection, or die).
+This assumption is justified by the short time intervals between surveys
+within primary periods, in cases where primary periods contain multiple
+secondary periods.
 
 Live individuals are detected with probability \(p_j\), which is modeled
 as:
@@ -105,7 +106,7 @@ given by:
 \begin{block}{(ccc)c}
   1 - \lambda_t & \lambda_t & 0 & \text{Not recruited} \\
   0 & \phi_t & 1 - \phi_t & \text{Alive} \\
-  0 & 1 & 1 & \text{Dead} \\
+  0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray},
 \] where \(\lambda_t\) is the probability of recruiting in time \(t\)
@@ -121,7 +122,7 @@ they recruit when introduced), the state transition matrix is given by:
 \begin{block}{(ccc)c}
   1 - I_{t, i} & I_{t, i} & 0 & \text{Not recruited} \\
   0 & \phi_t & 1 - \phi_t & \text{Alive} \\
-  0 & 1 & 1 & \text{Dead} \\
+  0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray},
 \] where \(I_{t, i}\) is a known indicator function for whether
@@ -299,7 +300,7 @@ calculated the posterior probability of individuals surviving between
 consecutive primary periods, conditional on being alive in the first
 primary period (e.g., given a value of 2 (alive) in the first primary
 period, how often was the value still 2 (alive) in the next primary
-period compared to 3 (dead)?) . This yielded posterior distributions for
+period compared to 3 (dead)) . This yielded posterior distributions for
 survival probabilities between primary periods. However, because the
 time interval between primary periods differed, the survival
 probabilities between different consecutive primary periods were not
@@ -327,11 +328,17 @@ population for different values of \(\sigma_{A_R}\) and
 \(\sigma_{J_1}\). We then fixed \(\sigma_{J_1} = 0.09\) and calculated
 the predicted growth rate of our 12 populations.
 
-Second, we performed a local elasticity analysis on \(\lambda\) with
-respect to parameters \(\sigma_{J_1}\), \(\sigma_{J_2}\),
-\(\sigma_{A_R}\), and \(F\) to determine how small changes in these
-parameters could influence the long-run deterministic growth rate of
-populations (Figure~\ref{fig-viability-supp}).
+Second, we performed a local elasticity and sensitivity analysis on
+\(\lambda\) with respect to parameters \(\sigma_{L_1}\),
+\(\sigma_{L_2}\), \(\sigma_{L_3}\), \(\sigma_{J_1}\), \(\sigma_{J_2}\),
+\(\sigma_{A_R}\), \(F\), \(p_{L_2}\), \(p_{J_1}\) to determine how small
+changes in these parameters could influence the long-run deterministic
+growth rate of populations (Figure~\ref{fig-viability-supp}). Note
+that \(\lambda\) is equally or more sensitive to changes in adult
+survival (\(\sigma_{A_R}\)) and survival of year-1 juveniles
+(\(\sigma_{J_1}\)) than it is to other model parameters, providing
+additional justification for focusing on variation in \(\sigma_{A_R}\)
+and \(\sigma_{J_1}\) in our viability analyses.
 
 Third, we defined a version of the model with demographic and
 environmental stochasticity, where environmental stochasticity was
@@ -378,9 +385,8 @@ posterior distribution \citep{beaumont2010}. Using these best fit
 trajectories, we assessed whether our model could qualitatively describe
 the patterns of recovery in the observed data for population 70550.
 
-\hypertarget{frog-evolution-in-response-to-bd-2}{%
-\section{Frog evolution in response to
-Bd}\label{frog-evolution-in-response-to-bd-2}}
+\hypertarget{frog-genome-evolution-2}{%
+\section{Frog genome evolution}\label{frog-genome-evolution-2}}
 
 \hypertarget{study-design}{%
 \subsection{Study design}\label{study-design}}
@@ -483,9 +489,12 @@ loads are expressed as the number of ITS1 copies per skin swab, as
 estimated by qPCR of the Bd ITS1 region. Box plots show medians, first
 and third quartiles, largest and smallest values within 1.5x
 interquartile range, and values outside the 1.5x interquartile range.
-Loads indicative of severe disease are \textgreater{} 5.8 ITS copies (on
-a log\textsubscript{10} scale). Samples sizes are provided immediately
-above the x-axis.}
+Samples sizes are provided immediately above the x-axis. The red dashed
+horizontal line indicates the approximate load above which severe
+disease is typically observed \citep{vredenburg2010}. This threshold
+(5.8 ITS1 copies - on a log\textsubscript{10} scale) is commonly
+exceeded during Bd epizootics, but is exceeded only rarely in recovering
+populations \citep{briggs2010}.}
 
 \end{figure}\clearpage
 
@@ -548,15 +557,25 @@ Estimating model parameters}.}
 }
 
 \caption{\label{fig-viability-supp}Sensitivity analysis of the
-stage-structured MYL frog model. Elasticity of \(\lambda\) with changes
-in four parameters: \(\sigma_{A_R}\) (yearly survival probability of
-naturally recruited adults), \emph{F (}number of eggs produced by a
-female frog in a year that successfully hatch), \(\sigma_{J_1}\) (yearly
-probability of survival of year-1 juveniles that also affects
-recruitment), and \(\sigma_{J_2}\) (yearly probability of survival and
-recruitment of year-2 juveniles). Elasticity is calculated at the
-default parameter values for each population and \(\sigma_{J_1}\) =
-0.09.}
+stage-structured MYL frog model. A. Elasticity of \(\lambda\) with
+changes in nine parameters: \(\sigma_{A_R}\) (yearly survival
+probability of naturally recruited adults), \(F\) (number of eggs
+produced by a female frog in a year that successfully hatch),
+\(\sigma_{J_1}\) (yearly probability of survival of year-1 juveniles
+that also affects recruitment), \(\sigma_{J_2}\) (yearly probability of
+survival and recruitment of year-2 juveniles), \(p_{L_2}\) (probability
+that year-2 tadpoles metamorph into juveniles), \(p_{J_1}\) (probability
+that year-1 juveniles mature to adults), \(\sigma_{L_1}\) (survival
+probability of year-1 tadpoles), \(\sigma_{L_2}\) (survival probability
+of year-2 tadpoles), and \(\sigma_{L_3}\) (survival probability of
+year-3 tadpoles). B. Sensitivity of \(\lambda\) with changes in the same
+nine parameters. Note that \(F\) has different units than the other
+parameters, which is why its sensitivity is low. Sensitivities of all
+other parameters are comparable. We did not include \(p_{L_1}\) as this
+parameter is generally 1 across the populations in this study (Table S1)
+-- tadpoles spend at least a year as tadpoles before metamorphosing.
+Elasticity and sensitivity is calculated at the default parameter values
+for each population and \(\sigma_{J_1}\) = 0.09.}
 
 \end{figure}\clearpage
 
@@ -647,21 +666,47 @@ described in Figure~\ref{fig-selectionresults} A).}
 }
 
 \caption{\label{fig-boxplot-pi-by-windowpop}For each of the 9 outlier
-windows identified by the overlapping splined windows for FST and
-\(\pi\), boxplots showing average \(\pi\) for naive and recovering
-populations. The corresponding gene annotations for each window are as
-follows: (1) C6, C7, (2) DDX10, ZBTB24, (3) SULTR-like, TRAF3IP2, VGLL3,
-EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1, TCF19, HSP70, LSM2, VARS1, (5)
-GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1, (7) PPP1R12A, TSPAN4, PAWR,
-MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6, BSPRY, MPV17, and (9) CAD,
-ATRAID, GPN1.}
+windows identified by the overlapping splined windows for
+\emph{F\textsubscript{ST}} and \(\pi\), boxplots showing average \(\pi\)
+for naive and recovering populations. The corresponding gene annotations
+for each window are as follows: (1) C6, C7, (2) DDX10, ZBTB24, (3)
+SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1,
+TCF19, HSP70, LSM2, VARS1, (5) GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1,
+(7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6,
+BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.}
 
 \end{figure}\clearpage
 
 \newpage
 
-\hypertarget{tables}{%
-\subsubsection{Tables}\label{tables}}
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\textwidth]{figures/ave_pi_per_site_yose.png}
+
+}
+
+\caption{For each study population located in Yosemite National Park
+(populations 1-4 shown in Site Map), average \(\pi\) for the 9 outlier
+windows (panels A-I) identified in the splined window analysis.
+Populations within Yosemite are the focus because they are the most
+relevant to the translocated populations described in the paper: donor
+populations 1 and 4 were the source of frogs for 20 of the 24
+translocations and the donor population for the remaining four
+translocations is located adjacent to populations 3 and 4. Bars are
+color-coded by population category (naive, recovering), and gene
+annotations within each window are listed above each panel. Gene regions
+described in the paper are in panel A (Complement C6,C7), panel E
+(GVINP1), and panel F (extended MHC region that includes two SNPs
+identified by the GEMMA analysis in genes TCF19 and VARS1, indicated by
+an *). In the Site Map, the four populations included in panels A-I are
+color-coded by population category, and dashed lines delineate the
+genetic clusters as defined in Figure~\ref{fig-selectionresults}.}
+
+\end{figure}\clearpage
+
+\newpage
+
+
 
 \hypertarget{tbl-param_values}{}
 \begin{longtable}[]{@{}
