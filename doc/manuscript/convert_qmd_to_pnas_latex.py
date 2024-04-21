@@ -25,8 +25,8 @@ with open(args[1], 'r') as fin:
 latex_manuscript = "".join(latex_manuscript)
 
 # Remove all the references to width and height
-latex_manuscript = re.sub("includegraphics\[.*\]", 
-						  "includegraphics", 
+latex_manuscript = re.sub("includegraphics\[.*\]",
+						  "includegraphics",
 						  latex_manuscript)
 
 # Drop the References place holder
@@ -156,11 +156,26 @@ pnas_ms = pnas_ms.replace("\\includegraphics", "\\includegraphics[width=\\textwi
 
 # Set specific figure sizes 
 
-pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/translocation_survival_bysiteid.png}",
-						  "\\includegraphics[width=0.5\\textwidth]{figures/translocation_survival_bysiteid.png}")
+pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/conceptual_model.png}",
+					  "\\includegraphics[width=0.95\\textwidth]{figures/conceptual_model.png}")
 
+pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/translocation_survival_bysiteid.png}",
+					  "\\includegraphics[width=0.60\\textwidth]{figures/translocation_survival_bysiteid.png}")
+
+pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/cond_effects_plot.png}",
+					  "\\includegraphics[width=0.80\\textwidth]{figures/cond_effects_plot.png}")
+
+pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/pop_viability_figures_for_manuscript.jpg}",
+					  "\\includegraphics[width=0.95\\textwidth]{figures/pop_viability_figures_for_manuscript.jpg}")
+
+pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/allele_maps.png}",
+					  "\\includegraphics[width=0.95\\textwidth]{figures/allele_maps.png}")
+
+pnas_ms = pnas_ms.replace("\\includegraphics[width=\\textwidth]{figures/splinewindow_manhattan.png}",
+					  "\\includegraphics[width=0.95\\textwidth]{figures/splinewindow_manhattan.png}")
 
 pnas_ms = pnas_ms.replace("The dynamics are given by", "The dynamics are given by ")
+
 # Clean up references to SI material
 
 supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S6A",
@@ -175,6 +190,7 @@ supp_map = {"Figure~\\ref{fig-selectionresults} A: SI": "Figure S6A",
 			"Figure~\\ref{fig-selectionresults} A": "Figure S6A",
 			"Figure~\\ref{fig-synteny-plot} SI": "Figure S7",
 			"Figure~\\ref{fig-synteny-plot}": "Figure S7",
+			"Figure~\\ref{fig-ave-pi-per-popn-yose} SI": "Figure S8",
 			"Figure~\\ref{fig-yosemap} SI": "Figure S1",
 			"Figure~\\ref{fig-yosemap}\nSI": "Figure S1",
 			"Figure~\\ref{fig-yosemap}": "Figure S1",
@@ -246,27 +262,42 @@ fig_end = latex_manuscript.find(datakey)
 figures_supp = latex_manuscript[fig_start:fig_end].split(figkey2)[1].strip("\n")
 
 figures_supp = figures_supp.replace("\\end{figure}", "\\end{figure}\\clearpage")
-figures_supp = figures_supp.replace("\\includegraphics", "\\includegraphics[width=0.85\\textwidth]")
+figures_supp = figures_supp.replace("\\includegraphics", "\\includegraphics[width=\\textwidth]")
 
 # Set specific figure sizes in supp
 
-figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/map_translocation_points.png}", 
-							  "\\includegraphics[width=0.60\\textwidth]{figures/map_translocation_points.png}")
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/map_translocation_points.png}",
+  						  "\\includegraphics[width=0.60\\textwidth]{figures/map_translocation_points.png}")
 
-figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/mcmc_areas_m2b.png}", 
-							  "\\includegraphics[width=0.60\\textwidth]{figures/mcmc_areas_m2b.png}")
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/bdload_beforeafter.png}",
+ 							  "\\includegraphics[width=0.80\\textwidth]{figures/bdload_beforeafter.png}")
 
-figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/bdload_beforeafter.png}", 
-							  "\\includegraphics[width=0.7\\textwidth]{figures/bdload_beforeafter.png}")
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/mcmc_areas_m1d.png}",
+ 							  "\\includegraphics[width=0.60\\textwidth]{figures/mcmc_areas_m1d.png}")
 
-figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/mcmc_areas_m1d.png}", 
-							  "\\includegraphics[width=0.60\\textwidth]{figures/mcmc_areas_m1d.png}")
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/compare_surv_probs.jpg}",
+ 							  "\\includegraphics[width=0.60\\textwidth]{figures/compare_surv_probs.jpg}")
 
-figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/compare_surv_probs.jpg}", 
-							  "\\includegraphics[width=0.60\\textwidth]{figures/compare_surv_probs.jpg}")
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/pop_viability_figures_for_supp.jpg}",
+ 							  "\\includegraphics[width=0.95\\textwidth]{figures/pop_viability_figures_for_supp.jpg}")
 
-figures_supp = figures_supp.replace("\\includegraphics[width=0.85\\textwidth]{figures/pop_viability_figures_for_supp.jpg}", 
-							  "\\includegraphics[width=0.60\\textwidth]{figures/pop_viability_figures_for_supp.jpg}")
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/pca_qq_manhattan.png}",
+ 							  "\\includegraphics[width=0.85\\textwidth]{figures/pca_qq_manhattan.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/synteny_figure.png}",
+ 							  "\\includegraphics[width=0.95\\textwidth]{figures/synteny_figure.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/ave_pi_per_popn_yose.png}",
+ 							  "\\includegraphics[width=0.85\\textwidth]{figures/ave_pi_per_popn_yose.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/violin_plot_heterozy_by_group.png}",
+ 							  "\\includegraphics[width=0.60\\textwidth]{figures/violin_plot_heterozy_by_group.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/boxplot_genomewide_pi_by_pop.png}",
+ 							  "\\includegraphics[width=0.70\\textwidth]{figures/boxplot_genomewide_pi_by_pop.png}")
+
+figures_supp = figures_supp.replace("\\includegraphics[width=\\textwidth]{figures/boxplot_pi_by_regionpop.png}",
+ 							  "\\includegraphics[width=0.70\\textwidth]{figures/boxplot_pi_by_regionpop.png}")
 
 figures_supp = figures_supp.replace("\\textgreater=", "$\\geq$")
 
@@ -277,16 +308,16 @@ pnas_supp = pnas_supp.replace("% Figures", figures_supp)
 # Account for main text reference in SI
 
 main_map = {
-			"Figure~\\ref{fig-spline-manhattan}": "Fig. 6",
-			"Figure~\\ref{fig-allelefrequencies}": "Fig. 5",
-			"Figure~\\ref{fig-cond-effects}": "Fig. 3",
-			"Figure~\\ref{fig-translocation-survival}": "Fig. 2",
+			"Figure~\\ref{fig-spline-manhattan}": "Figure 6",
+			"Figure~\\ref{fig-allelefrequencies}": "Figure 5",
+			"Figure~\\ref{fig-cond-effects}": "Figure 3",
+			"Figure~\\ref{fig-translocation-survival}": "Figure 2",
 			} 
 
 for key, value in main_map.items():
 	pnas_supp = pnas_supp.replace(key, value)
 
-pnas_supp = re.sub("Fig. 5 A", "Fig. 5A", pnas_supp)
+pnas_supp = re.sub("Figure 5 A", "Figure 5A", pnas_supp)
 
 # Drop Table header
 pnas_supp = pnas_supp.replace("\\hypertarget{tables}{%\n\\subsubsection{Tables}\\label{tables}}", "")
@@ -316,7 +347,7 @@ bioarxiv_ms = pnas_ms.replace("pnasresearcharticle", "pnasmathematics")
 with open("translocation_bioarxiv.tex", "w") as fout:
 	fout.writelines(bioarxiv_ms)
 
-# Remove transcloation.tex
+# Remove translocation.tex
 subprocess.call(['rm', args[1]])
 subprocess.call(['cp', 'translocation_pnas_SI.tex', 'translocation_bioarxiv_SI.tex'])
 

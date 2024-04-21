@@ -47,7 +47,7 @@ each survey \(j=1, ..., n_j\): \(o_{i, j} = 1\) if the individual was
 not detected, and \(o_{i, j}=2\) if the individual was detected. Capture
 histories of \(M\) individuals are modeled, although only \(N_s\)
 individuals were captured. This parameter expanded data augmentation
-allows us to capture the possibility that undetected individuals may
+allows us to account for the possibility that undetected individuals may
 have recruited into the adult population \citep{royle2012}. Here, \(M\)
 was chosen to be three times the number of observed individuals
 (\(3N_s\)) to be considerably greater than our prior guess of \(N_s\).
@@ -260,7 +260,7 @@ the posterior distribution of individual state trajectories derived from
 mrmr CMR models. Although we observed yearly variability in adult
 survival within a population, the magnitude of this variability was
 small compared to among-population variability
-(Fig. 2). Thus, we did not include
+(Figure 2). Thus, we did not include
 yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in
 the successful recruitment of adults, greater than what we would expect
@@ -300,7 +300,7 @@ calculated the posterior probability of individuals surviving between
 consecutive primary periods, conditional on being alive in the first
 primary period (e.g., given a value of 2 (alive) in the first primary
 period, how often was the value still 2 (alive) in the next primary
-period compared to 3 (dead)) . This yielded posterior distributions for
+period compared to 3 (dead)). This yielded posterior distributions for
 survival probabilities between primary periods. However, because the
 time interval between primary periods differed, the survival
 probabilities between different consecutive primary periods were not
@@ -360,7 +360,7 @@ populations. For example, if we set \(\phi = 0.001\), such that in a
 given year essentially either all year-1 juveniles survive or all of
 them die, populations with \(\sigma_{A_R} > 0.5\) need to have
 \(\sigma_{J_1}\) greater than 0.2 to have a 50-year extinction
-probability of less 50\%. Because we do not pit tag juveniles, we do not
+probability of less 50\%. Because we do not PIT tag juveniles, we do not
 have CMR estimates for \(\sigma_{J_1}\) or \(\phi\). However, based on
 qualitative and semi-quantitative field observations over 25 years, a
 value of \(\sigma_{J_1} = 0.25\) in the presence of Bd is probably a
@@ -412,25 +412,25 @@ Park in the north to southern Kings Canyon National Park in south. To
 minimize potential confounding effects caused by known variation in frog
 genotypes across latitude \citep{byrne2023}, we selected sampling sites
 such that both population types were represented across similar
-latitudinal ranges (Fig. 5).
+latitudinal ranges (Figure 5).
 
 \hypertarget{go-analysis}{%
 \subsection{GO analysis}\label{go-analysis}}
 
-In \textbf{Results-Frog evolution in response to Bd}, we describe the
-stringent set of outlier variants (identified using a
-Bonferroni-corrected p-value of 0.01). A liberal set of outlier
-variants, identified using a Bonferroni-corrected p-value of 0.05,
-included 38 outliers (35 SNPs and 3 INDELS) from 30 distinct genes
-across 16 contigs. We used this liberal set to determine if any GO
-biological functions, molecular functions, or cellular processes were
-overrepresented. To do this, we retrieved the BLAST hits and mapped GO
-terms for each gene in our targeted transcriptome. We then conducted a
-statistical overrepresentation test (Fisher's exact test) using Blast2GO
-\citep{conesa2005} to compare the 30 unique outlier genes to the
-complete set of genes in our target transcriptome. We repeated this
-process for the set of 35 genes located in the 9 shared regions of the
-\emph{F\textsubscript{ST}} and \(\pi_{diff}\) splined windows.
+In \textbf{Results-Frog genome evolution}, we describe the stringent set
+of outlier variants (identified using a Bonferroni-corrected p-value of
+0.01). A liberal set of outlier variants, identified using a
+Bonferroni-corrected p-value of 0.05, included 38 outliers (35 SNPs and
+3 INDELS) from 30 distinct genes across 16 contigs. We used this liberal
+set to determine if any GO biological functions, molecular functions, or
+cellular processes were overrepresented. To do this, we retrieved the
+BLAST hits and mapped GO terms for each gene in our targeted
+transcriptome. We then conducted a statistical overrepresentation test
+(Fisher's exact test) using Blast2GO \citep{conesa2005} to compare the
+30 unique outlier genes to the complete set of genes in our target
+transcriptome. We repeated this process for the set of 35 genes located
+in the 9 shared regions of the \emph{F\textsubscript{ST}} and
+\(\pi_{diff}\) splined windows.
 
 \hypertarget{genetic-diversity}{%
 \subsection{Genetic diversity}\label{genetic-diversity}}
@@ -441,26 +441,21 @@ calculated heterozygosity for each sampled frog using VCFtools
 \citep{danecek2011}. Second, to characterize genome-wide patterns of
 diversity, we used VCFtools to calculate nucleotide diversity (\(\pi\))
 in 100kb sliding windows along the genome for each population. Third, we
-calculated average \(\pi\) per population within each of the 9 outlier
-windows identified in the splined window analysis. We compared average
-\(\pi\) per population between naive and recovering population types,
-and also for each naive and recovering population in Yosemite. The
-latter comparison focused on Yosemite because these populations are the
-most relevant to the translocated populations described in the paper
-(see results below for additional details).
+calculated average \(\pi\) per population within each of the 9 shared
+outlier regions identified in the splined window analysis. We compared
+average \(\pi\) per population between naive and recovering population
+types, and also for each naive and recovering population in Yosemite.
+The latter comparison focused on Yosemite because these populations are
+the most relevant to the translocated populations described in the
+paper.
 
 Average individual-level heterozygosity and genome-wide population-level
 \(\pi\) were similar between the naive and recovering groups
 (Figure~\ref{fig-violinplot-heterozy};
 Figure~\ref{fig-boxplot-genomewide-pi-by-pop}). Within each of the 9
-outlier windows, average \(\pi\) shows considerable variation between
+shared outlier regions, \(\pi\) shows considerable variation between
 populations and no obvious patterns between the naive and recovering
-populations (Figure~\ref{fig-boxplot-pi-by-windowpop}). For the four
-populations in Yosemite, within each of the 9 outlier windows, average
-\(\pi\) per population was generally higher in the 3 recovering
-populations than in the 1 naive population
-(Figure~\ref{fig-ave-pi-per-site-yose}). ADD CONCLUDING SENTENCE OR
-TWO THAT SUMMARIZE THEGNIFICANCE OF THESE RESULTS?
+populations (Figure~\ref{fig-boxplot-pi-by-regionpop}).
 
 \newpage
 
@@ -488,7 +483,7 @@ lowest elevation, white = highest elevation).}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\textwidth]{figures/bdload_beforeafter.png}
+{\centering \includegraphics[width=0.80\textwidth]{figures/bdload_beforeafter.png}
 
 }
 
@@ -546,7 +541,7 @@ frog sex, donor\_70567 and donor\_72996 = donor population.}
 adult survival probabilities for adults translocated to each of 3 sites
 versus adults that were naturally recruited at each site (as a result of
 reproduction by translocated frogs). In contrast to
-Fig. 2, these are not survival
+Figure 2, these are not survival
 probabilities from the first year following translocation, but instead
 represent averaged survival probabilities across multiple years and
 cohorts. Points are median estimates and error bars give the 95\%
@@ -562,7 +557,7 @@ Estimating model parameters}.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.60\textwidth]{figures/pop_viability_figures_for_supp.jpg}
+{\centering \includegraphics[width=0.95\textwidth]{figures/pop_viability_figures_for_supp.jpg}
 
 }
 
@@ -582,8 +577,8 @@ year-3 tadpoles). B. Sensitivity of \(\lambda\) with changes in the same
 nine parameters. Note that \(F\) has different units than the other
 parameters, which is why its sensitivity is low. Sensitivities of all
 other parameters are comparable. We did not include \(p_{L_1}\) as this
-parameter is generally 1 across the populations in this study (Table S1)
--- tadpoles spend at least a year as tadpoles before metamorphosing.
+parameter is 1 across the populations in this study (Table S1) --
+tadpoles spend at least a year as tadpoles before metamorphosing.
 Elasticity and sensitivity is calculated at the default parameter values
 for each population and \(\sigma_{J_1}\) = 0.09.}
 
@@ -598,10 +593,10 @@ for each population and \(\sigma_{J_1}\) = 0.09.}
 }
 
 \caption{\label{fig-selectionresults}Results from the analysis of
-individual variants, showing putative signatures of selection in
+individual variants, showing possible signatures of selection in
 recovering MYL frog populations. (A) PCA calculated from binary SNPs
 showing the genomic relationship of samples. Numeric labels and colors
-match those in Fig. 5. Populations 1-7 are
+match those in Figure 5. Populations 1-7 are
 \emph{R. sierrae} and populations 8 and 9 are \emph{R. muscosa}. (B)
 qqplot showing observed and expected p-values for 148,307 SNPs and
 INDELS. Dashed line shows p-value that identifies outliers. (C)
@@ -617,7 +612,7 @@ non-synonymous SNP in that gene.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/synteny_figure.png}
+{\centering \includegraphics[width=0.95\textwidth]{figures/synteny_figure.png}
 
 }
 
@@ -626,7 +621,7 @@ order in \emph{Xenopus tropicalis} and \emph{Rana muscosa} for the
 outlier region containing MHC Class I Classical and MHC Class III gene
 regions. The plot was created with SimpleSynteny \citep{veltri2016}
 using \emph{Xenopus tropicalis} Chromosome 8 (NC\_030684.2, genbank
-accession GCA\_000004195.4) and \emph{Rana muscosa} Contig19. Asterices
+accession GCA\_000004195.4) and \emph{Rana muscosa} Contig19. Asterisks
 indicate the location of SNP outliers in the TCF19 and VARS1 genes. Gap
 sizes for each contig representation are labeled.}
 
@@ -636,7 +631,37 @@ sizes for each contig representation are labeled.}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/violin_plot_heterozy_by_group.png}
+{\centering \includegraphics[width=0.85\textwidth]{figures/ave_pi_per_popn_yose.png}
+
+}
+
+\caption{\label{fig-ave-pi-per-popn-yose}For each study population
+located in Yosemite National Park (populations 1-4 shown in the map),
+\(\pi\) for the 9 shared outlier regions identified in the splined
+window analysis. Populations 1 and 4 were the source of frogs for 20 of
+the 24 frog translocations, and the donor population for the remaining
+four translocations is located adjacent to populations 3 and 4 (see also
+Figure~\ref{fig-yosemap}). Bars are color-coded by population type
+(naive, recovering). The corresponding gene annotations for each region
+are as follows (gene regions described in the \textbf{Results} and
+\textbf{Discussion} are indicated with an asterisk): (1) C6*, C7*, (2)
+DDX10, ZBTB24, (3) SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB,
+MDC1, CCHCR1, TCF19*, HSP70, LSM2, VARS1*, (5) GCC2, CFAP251, PEG10, (6)
+ERO1A, GVINP1*, (7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8)
+C6H5ORF22, PKS6, BSPRY, MPV17, and (9) CAD, ATRAID, GPN1. Region 4 is
+the extended MHC region that includes two SNPs identified by the GEMMA
+analysis in genes TCF19 and VARS1. In the map, the four populations
+included in panels 1-9 are color-coded by population type, and dashed
+lines delineate the genetic clusters as defined in
+Figure~\ref{fig-selectionresults}A.}
+
+\end{figure}\clearpage
+
+\newpage
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.60\textwidth]{figures/violin_plot_heterozy_by_group.png}
 
 }
 
@@ -644,7 +669,7 @@ sizes for each contig representation are labeled.}
 heterozygosity for the Bd-naive and recovering populations included in
 the frog evolution study. Individual data points are represented by
 their corresponding site number (from
-Fig. 5).}
+Figure 5).}
 
 \end{figure}\clearpage
 
@@ -652,18 +677,18 @@ Fig. 5).}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/boxplot_genomewide_pi_by_pop.png}
+{\centering \includegraphics[width=0.70\textwidth]{figures/boxplot_genomewide_pi_by_pop.png}
 
 }
 
-\caption{\label{fig-boxplot-genomewide-pi-by-pop}For each study
-population in the frog evolution study (from
-Fig. 5), boxplots showing nucleotide
-diversity (\(\pi\)) within 100kb sliding windows along the genome. The
-y-axis has been log\textsubscript{10}-transformed for display purposes.
-Sites are color-coded as ``Bd-naive'' or ``recovering'', and vertical
-dashed lines show the genetic breaks between frog populations as
-described in Figure~\ref{fig-selectionresults} A).}
+\caption{\label{fig-boxplot-genomewide-pi-by-pop}For each population in
+the frog evolution study (Figure 5), boxplots
+showing nucleotide diversity (\(\pi\)) within 100kb sliding windows
+along the genome. The y-axis has been log\textsubscript{10}-transformed
+for display purposes. Sites are color-coded as ``Bd-naive'' or
+``recovering'', and vertical dashed lines show the genetic breaks
+between frog populations as described in
+Figure~\ref{fig-selectionresults}A).}
 
 \end{figure}\clearpage
 
@@ -671,44 +696,20 @@ described in Figure~\ref{fig-selectionresults} A).}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.85\textwidth]{figures/boxplot_pi_by_windowpop.png}
+{\centering \includegraphics[width=0.70\textwidth]{figures/boxplot_pi_by_regionpop.png}
 
 }
 
-\caption{\label{fig-boxplot-pi-by-windowpop}For each of the 9 outlier
-windows identified by the overlapping splined windows for
-\emph{F\textsubscript{ST}} and \(\pi\), boxplots showing average \(\pi\)
-for naive and recovering populations. The corresponding gene annotations
-for each window are as follows: (1) C6, C7, (2) DDX10, ZBTB24, (3)
+\caption{\label{fig-boxplot-pi-by-regionpop}For each of the 9 shared
+outlier regions identified by the splined window analysis, boxplots
+showing \(\pi\) values for naive and recovering populations. The
+corresponding gene annotations for each region are as follows (gene
+regions described in the \textbf{Results} and \textbf{Discussion} are
+indicated with an asterisk): (1) C6*, C7*, (2) DDX10, ZBTB24, (3)
 SULTR-like, TRAF3IP2, VGLL3, EXOC1, (4) FLOT1, TUBB, MDC1, CCHCR1,
-TCF19, HSP70, LSM2, VARS1, (5) GCC2, CFAP251, PEG10, (6) ERO1A, GVINP1,
-(7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22, PKS6,
-BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.}
-
-\end{figure}\clearpage
-
-\newpage
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.85\textwidth]{figures/ave_pi_per_site_yose.png}
-
-}
-
-\caption{\label{fig-ave-pi-per-site-yose}For each study population
-located in Yosemite National Park (populations 1-4 shown in Site Map),
-average \(\pi\) for the 9 outlier windows (panels A-I) identified in the
-splined window analysis. Populations 1 and 4 were the source of frogs
-for 20 of the 24 translocations and the donor population for the
-remaining four translocations is located adjacent to populations 3 and
-4. Bars are color-coded by population type (naive, recovering), and gene
-annotations within each window are listed above each panel. Gene regions
-described in the paper are in panel A (Complement C6,C7), panel E
-(GVINP1), and panel F (extended MHC region that includes two SNPs
-identified by the GEMMA analysis in genes TCF19 and VARS1, indicated by
-an asterisk). In the Site Map, the four populations included in panels
-A-I are color-coded by population type, and dashed lines delineate the
-genetic clusters as defined in Figure~\ref{fig-selectionresults}. }
+TCF19*, HSP70, LSM2, VARS1*, (5) GCC2, CFAP251, PEG10, (6) ERO1A,
+GVINP1*, (7) PPP1R12A, TSPAN4, PAWR, MFRP, MAX, PPP6R3, (8) C6H5ORF22,
+PKS6, BSPRY, MPV17, and (9) CAD, ATRAID, GPN1.}
 
 \end{figure}\clearpage
 
@@ -718,9 +719,9 @@ genetic clusters as defined in Figure~\ref{fig-selectionresults}. }
 
 \hypertarget{tbl-param_values}{}
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4167}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1222}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4611}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3611}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3750}}@{}}
 \caption{\label{tbl-param_values}Description and values of parameters
 used in the model. All survival probabilities are in the presence of the
 fungal pathogen Bd.}\tabularnewline
