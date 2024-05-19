@@ -18,9 +18,9 @@ csl: nature.csl
 link-bibliography: false
 ---
 
-## Reintroduction of resistant frogs facilitates recovery in the presence of a lethal fungal disease
+## Reintroduction of resistant frogs facilitates landscape-scale recovery despite a lethal fungal disease
 
-Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, <!--#Allison Q. Byrned,e,1-->, Maxwell B. Joseph^4,5^, Thomas C. Smith^1,2^ <!--#Andrew P. Rothsteind,e,h--> & Robert L. Grasso^6^, <!--#Erica Bree Rosenblumd,e-->
+Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, <!--#Allison Q. Byrned,e,1--> Maxwell B. Joseph^4,5^, Thomas C. Smith^1,2^ <!--#Andrew P. Rothsteind,e,h--> & Robert L. Grasso^6^ <!--#Erica Bree Rosenblumd,e-->
 
 ^1^Sierra Nevada Aquatic Research Laboratory, University of California, Mammoth Lakes, CA, 93546
 
@@ -48,54 +48,58 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, <!--#Allison Q. Byrned,e,1-->, Maxwe
 
 Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in infectious diseases.
 The emergence of the lethal fungal pathogen *Batrachochytrium dendrobatidis* ("Bd") has devastated global amphibian biodiversity.
-Lacking any broadly applicable methods to reverse these impacts, the future of many amphibians appears grim.
-The Sierra Nevada yellow-legged frog (*Rana sierrae*) is highly susceptible to Bd infection.
-Although most *R. sierrae* populations are extirpated following disease outbreaks, some persist and eventually recover and frogs in these recovering populations have increased resistance against infection.
+Given the lack of any broadly applicable methods to reverse these impacts, the future of many amphibians appears grim.
+The Sierra Nevada yellow-legged frog (*Rana sierrae*) is highly susceptible to Bd infection and most *R. sierrae* populations are extirpated following disease outbreaks.
+However, some populations persist and eventually recover, and frogs in these recovering populations have increased resistance against infection.
 We conducted a 15-year reintroduction study and show that frogs collected from recovering populations and reintroduced to vacant habitats can reestablish populations despite the presence of Bd.
-In addition, the likelihood of establishment is influenced by site, population, and frog attributes.
+In addition, the likelihood of establishment is influenced by site, cohort, and frog attributes.
 Results from viability modeling suggest that many reintroduced populations have a low probability of extinction over 50 years.
 These results provide a rare example of how reintroduction of resistant individuals can allow the landscape-scale recovery of disease-impacted species, and have broad implications for amphibians and many other taxa that are threatened with extinction by novel pathogens.
 
 ### Introduction
 
-Human activities are increasingly impacting global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009].
+Human activities are devastating global biodiversity [@ceballos2015], with important implications for ecosystem resilience and human welfare [@naeem2009].
 One consequence of human alteration of the biosphere is an increase in emerging infectious diseases [@jones2008; @fisher2012].
 Such diseases pose a severe threat to wildlife populations [@daszak2000], and have caused dramatic declines and extinctions in a wide range of taxa, including echinoderms, mammals, birds, and amphibians [@hewson2014; @samuel2015; @scheele2019; @cunningham2021].
 Amphibians are experiencing particularly devastating impacts of disease due to the recent emergence and global spread of the highly virulent amphibian chytrid fungus, *Batrachochytrium dendrobatidis* (Bd) [@luedtke2023; @scheele2019].
 By one estimate, hundreds of species have experienced Bd-caused declines, and numerous susceptible taxa are extinct in the wild [@scheele2019].
-These impacts to global biodiversity may be unprecedented, and highlight the importance of understanding mechanisms of species persistence in the presence of emerging diseases [@russell2020].
+The escalating frequency of disease emergence and the strength of impacts on wild populations increasingly highlight the critical need for successful mitigation of disease in species conservation.
 
-Evidence of natural recovery in the many Bd-impacted amphibian populations is surprisingly rare (for notable exceptions, see [@scheele2017; @voyles2018; @knapp2016]), suggesting that disease-caused declines will be difficult to reverse.
-This apparent low resilience to disease effects may be due to the limited ability of many amphibians to develop Bd resistance and/or tolerance, which in turn, could also lessen the effectiveness of potential Bd mitigation strategies.
-Following pathogen arrival in a host population, resistance (ability to limit pathogen burden) and tolerance (ability to limit the harm caused by a particular burden) are key mechanisms to reduce disease impacts [@raberg2009] and facilitate population persistence and recovery [@brannelly2021].
-Host immunity and evolution both play important roles in the development of resistance and tolerance, and an enhanced understanding of these processes is important for developing effective strategies to mitigate disease impacts in the wild [@garner2016; @woodhams2011].
-However, several aspects of the amphibian-Bd system present difficult obstacles for the development of mitigation efforts, including (i) the general inability of amphibians to mount an effective immune response against Bd infection [@rosenblum2012; @fites2013; @grogan2018a], and (ii) the apparent rarity of evolution of more resistant/tolerant genotypes (but see [@savage2016; @grogan2018b]).
-These factors suggest that reintroduction of amphibians into sites to reestablish populations extirpated by Bd will often result not in population recovery, but instead in the rapid reinfection and mortality of the introduced animals and/or their progeny [@hammond2021; @knapp2022; @stockwell2008; @scheele2021].
+Following pathogen arrival in a host population, resistance (ability to limit pathogen burden) and tolerance (ability to limit the harm caused by a particular burden) are key mechanisms by which hosts reduce disease impacts [@raberg2009].
+The effectiveness of these mechanisms has direct consequences for the persistence and recovery of host populations in the presence of disease [@brannelly2021].
+Host immunity and evolution both play important roles in the development of resistance and tolerance, and are key targets for strategies aimed at mitigating disease impacts in the wild [@garner2016].
+
+Evidence of natural recovery in the many Bd-impacted amphibian populations is surprisingly rare (for notable exceptions, see [@scheele2017; @voyles2018; @knapp2016]).
+This apparent low resilience to disease may be due to the limited ability of many amphibians to develop Bd resistance or tolerance via either immunity [@rosenblum2012; @fites2013; @grogan2018a] or evolution (but see [@savage2016; @grogan2018b]).
+In turn, this would also reduce the effectiveness of potential Bd mitigation strategies.
+For example, a limited ability by amphibians to develop resistance or tolerance suggests that reintroduction of amphibians into sites to reestablish populations extirpated by Bd will often result not in population recovery, but instead in the rapid reinfection and mortality of the introduced animals and/or their progeny [@hammond2021; @knapp2022; @stockwell2008; @scheele2021].
 If true, the future of many amphibian species threatened by Bd appears bleak.
 
-The Sierra Nevada yellow-legged frog (*Rana sierrae*) [@vredenburg2007], is emblematic of the global decline of amphibians caused by Bd [@scheele2019].
-Once the most common amphibian in the high elevation portion of California's Sierra Nevada mountains [USA, @grinnell1924], during the past century this frog has disappeared from more than 90% of its historical range [@vredenburg2007].
-Due to the severity of its decline and the increasing probability of extinction, both species are now listed as "endangered" under the U.S.
+The Sierra Nevada yellow-legged frog (*Rana sierrae*), is emblematic of the global decline of amphibians caused by Bd [@scheele2019].
+Once the most common amphibian in the high elevation portion of California's Sierra Nevada mountains, USA [@grinnell1924], during the past century this frog has disappeared from more than 90% of its historical range [@vredenburg2007].
+Due to the severity of its decline and the increasing probability of extinction, *R. sierrae* is now listed as "endangered" under the U.S.
 Endangered Species Act.
-In the Sierra Nevada, this decline was initiated by the introduction of non-native trout into the extensive historically-fishless region [@bradford1989; @knapp2000] starting in the late 1800s.
+The decline of *R. sierrae* was initiated by the introduction of non-native trout into the extensive fishless region of the Sierra Nevada [@bradford1989; @knapp2000] starting in the late 1800s.
 The arrival of Bd in the mid-1900s and its subsequent spread [@vredenburg2019] caused additional large-scale population extirpations [@vredenburg2010; @rachowicz2006].
 These Bd-caused declines are fundamentally different from the fish-caused declines because fish eradication is feasible [@knapp1998] and results in the rapid recovery of frog populations [@knapp2007; @vredenburg2004].
 In contrast, Bd appears to persist in habitats even in the absence of amphibian hosts [@walker2007], and therefore represents a long-term alteration of invaded ecosystems that amphibians will need to overcome to reestablish populations.
 
-Despite the catastrophic impact of Bd on *R. sierrae*, wherein most Bd-naive populations are extirpated following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [during which Bd infection intensity on frogs is very high, @briggs2010] and are now recovering (@fig-recovery-model) [@knapp2016].
-Frogs in these recovering populations show reduced susceptibility to Bd infection [@knapp2016], with infection intensity ("load") on adults consistently in the low-to-moderate range [@briggs2010; @knapp2011; @joseph2018].
+Despite the catastrophic impact of Bd on *R. sierrae*, wherein most Bd-naive populations are extirpated following Bd arrival [@vredenburg2010], some populations have persisted after epizootics [@briggs2010] and are now recovering [@knapp2016] (@fig-recovery-model).
+During the epizootic phase, *R. sierrae* are highly susceptible to Bd infection as indicated by very high infection intensities ("load").
+In constrast, frogs in recovering populations have reduced susceptibility to Bd infection [@knapp2016], with loads on adults consistently in the low-to-moderate range [@briggs2010; @knapp2011; @joseph2018].
 This reduced susceptibility is evident even under controlled laboratory conditions [@knapp2016], indicative of host resistance against Bd infection and not simply an effect of factors external to individual frogs (e.g., environmental conditions).
 In addition to frogs from recovering populations having higher resistance to Bd infection than those from naive populations, they could also have higher tolerance, but no data are currently available to evaluate this possibility.
 Therefore, we focus on resistance throughout this paper.
+
 The observed resistance of *R. sierrae* could be the result of several mechanisms that are not mutually exclusive, including natural selection for more resistant genotypes [@savage2016; @grogan2018b], acquired immunity [@grogan2018a], and/or inherent between-population differences that pre-date Bd exposure.
 The possible evolution of resistance and subsequent population recovery is consistent with that expected under "evolutionary rescue", whereby rapid evolutionary change increases the frequency of adaptive alleles and restores positive population growth [@carlson2014; @searle2020].
-This intriguing possibility also suggests an opportunity to expand recovery beyond the spatial scale possible under natural recovery by using resistant frogs from recovering populations in reintroductions to vacant habitats (@fig-recovery-model) [@joseph2018; @mendelson2019].
+This intriguing possibility also suggests an opportunity to expand recovery beyond the spatial scale possible under natural recovery by using resistant frogs from recovering populations in reintroductions to vacant habitats [@joseph2018; @mendelson2019] (@fig-recovery-model).
 
 In the current study, we had three primary objectives.
 First, determine whether the reintroduction of resistant *R. sierrae*, obtained from populations recovering from Bd-caused declines, allows the reestablishment of populations despite ongoing disease (@fig-recovery-model).
 We accomplished this using a 15-year large-scale reintroduction study.
-Second, identify important site, population, and individual-level predictors of frog survival using results from the reintroduction study.
-Third, extend our inferences of population recovery beyond the temporal bounds of our reintroduction study to estimate the probability of persistence for the reintroduced populations over a multi-decadal period (@fig-recovery-model).
+Second, identify important site, cohort, and individual-level predictors of frog survival using results from the reintroduction study.
+Third, estimate the probability of persistence for the reintroduced populations over a multi-decadal period, thereby extending our inferences of population recovery beyond the temporal bounds of our reintroduction study (@fig-recovery-model).
 We did this using a stage-structured matrix model.
 
 ### Results
@@ -281,10 +285,9 @@ frog_captures_gt0_max <- d3 %>%
 
 To determine whether *R. sierrae* from recovering populations can be used to reestablish extirpated populations, we conducted `r n_distinct(d1$site_id, d1$date)` reintroductions in Yosemite National Park (`r min(d1$year)`--`r max(d1$year)`).
 Each of the reintroductions involved collection of adult frogs from 1 of `r n_distinct(d1$donor)` recovering, Bd-positive "donor" populations and translocating them to 1 of `r n_distinct(d1$site_id)` nearby recipient sites (@fig-yosemap).
-The 3 donor populations are among the largest *R. sierrae* populations in Yosemite, and included 2 of the 5 recovering populations used in the frog evolution study referenced above (see **Results - Frog genome evolution:** populations 1 and 4).
-These 2 donor populations provided frogs for 20 of the `r n_distinct(d1$site_id, d1$date)` translocations.
+The 3 donor populations are among the largest *R. sierrae* populations in Yosemite.
 Following translocation, we estimated adult survival and recruitment of new adults from capture-mark-recapture (CMR) surveys and obtained counts of tadpoles and juveniles from visual encounter surveys (VES).
-Across all translocation sites, the duration of survey time series was `r min(surveyyrs$n)`--`r max(surveyyrs$n)` years (median = `r (median(surveyyrs$n))`).
+Across all translocation sites, the duration of CMR surveys and VES was `r min(surveyyrs$n)`--`r max(surveyyrs$n)` years (median = `r (median(surveyyrs$n))`).
 
 Of the `r nrow(d2)` reintroduced populations, `r frog_counts_gt0_nrow` (`r frog_counts_gt0_nrow / nrow(d2)`) showed evidence of successful reproduction in subsequent years, as indicated by the presence of tadpoles and/or juveniles.
 For these `r frog_counts_gt0_nrow` populations, one or both life stages were detected in nearly all survey-years following translocation (proportion of survey-years: median = `r frog_counts_gt0_median`, range = `r frog_counts_gt0_min`--`r frog_counts_gt0_max`).
@@ -292,7 +295,7 @@ These same populations were also those in which recruitment of new adults (i.e.,
 As with early life stages, recruits were detected in the majority of post-translocation survey-years (proportion of survey-years: median = `r frog_captures_gt0_median`, range = `r frog_captures_gt0_min`--`r frog_captures_gt0_max`).
 In summary, survey results indicate that translocations resulted in the establishment of reproducing *R. sierrae* populations at most recipient sites despite the ongoing presence of Bd.
 
-Bd loads were fairly consistent before versus after translocation, and loads were nearly always well below the level indicative of severe chytridiomycosis (i.e., the disease caused by Bd) and associated frog mortality (Supplementary Fig. 1) [@joseph2018; @vredenburg2010].
+Bd loads were fairly consistent before versus after translocation, and loads were nearly always well below the level indicative of severe chytridiomycosis (i.e., the disease caused by Bd) and associated frog mortality [@joseph2018; @vredenburg2010] (Supplementary Fig. 1) .
 Although it is possible that the observed relatively small changes in load are a consequence of individuals with high Bd loads dying and therefore being unavailable for sampling during the post-translocation period, the fact that there was little difference in pre- versus post-translocation Bd loads even in those populations that had very high frog survival (70556, 74976 - see below; Supplementary Fig. 1) suggests a true lack of substantial change in Bd load.
 
 The ultimate measure of reintroduction success is the establishment of a self-sustaining population.
@@ -328,6 +331,8 @@ However, a decade or more of surveys may be necessary to confirm that population
 To extend our inferences of population establishment beyond those possible from the site-specific CMR data, we developed a population viability model.
 Specifically, to test whether the observed yearly adult survival probabilities in translocated populations were sufficient for long-term viability, we built a stage-structured matrix model that captured known frog demography and included demographic and environmental stochasticity.
 We parameterized the model using CMR data from translocated populations and known life history values in this system (Supplementary Table 1).
+Results from a sensitivity analysis are provided in Supplementary Fig.
+4)
 
 Given observed yearly adult survival probabilities of translocated frogs (from site-specific mrmr CMR models; provided in legend of [@fig-viability]B) and a yearly survival probability of the year-1 juvenile class ($\sigma_{J_1}$) greater than 0.09, at least six of twelve translocated populations should experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd ([@fig-viability]A; median predicted $\lambda$ ranges from 1.19-1.40 for these six populations).
 These six populations all had observed yearly adult survival greater than 0.5.
@@ -344,21 +349,21 @@ This is likely a conservative estimate because there is evidence that naturally-
 
 ### Discussion
 
-Disease-induced population declines are decimating global biodiversity [@daszak2000], but broadly-applicable strategies to recover affected species are generally lacking [e.g., @garner2016].
+Disease-induced population declines are decimating global biodiversity [@daszak2000], but broadly-applicable strategies to recover affected species are generally lacking (e.g., [@garner2016]).
 Here, we tested the possibility that populations of resistant individuals from naturally recovering populations can be used to reestablish extirpated populations of the endangered *R. sierrae* in the presence of a highly virulent pathogen (Bd).
-Our results indicate (i) the capacity of reintroduced populations to become established and eventually recover despite ongoing disease, (ii) that post-translocation frog survival is influenced by site, population, and individual-level characteristics, and (iii) 50% of the reintroduced populations are likely to persist over a 50-year period Collectively, these results (@fig-recovery-model) provide a rare example of amphibian recovery in the presence of Bd, and have important implications for the conservation and recovery of amphibians and other taxa worldwide that are endangered by escalating impacts from emerging infectious diseases.
-In light of the generally low success rate of amphibian reintroduction efforts [@dodd2005], our success in reestablishing *R. sierrae* populations via reintroduction of resistant individuals is striking, and even more so given that *R. sierrae* were driven to near-extinction by Bd.
+Our results indicate (i) the capacity of reintroduced populations to become established and eventually recover despite ongoing disease, (ii) that post-translocation frog survival is influenced by site, cohort, and individual-level characteristics, and (iii) that 50% of the reintroduced populations are likely to persist over a 50-year period.
+In light of the generally low success rate of amphibian reintroduction efforts [@dodd2005], our success in reestablishing *R. sierrae* populations via reintroduction of resistant individuals is striking, and even more so given that *R. sierrae* was driven to near-extinction by Bd.
+Collectively, these results provide a rare example of amphibian recovery in the presence of Bd, and have important implications for the conservation and recovery of amphibians and other taxa worldwide that are endangered by escalating impacts from emerging infectious diseases.
 
 Previous field studies in *R. sierrae* show that frog-Bd dynamics and frog survival in the presence of Bd are fundamentally different between naive and recovering populations.
 Following the arrival and establishment of Bd in previously-naive populations, adult frogs develop high Bd loads that lead to mass die-offs [@vredenburg2010].
-In contrast, in recovering populations adult frogs typically have low-to-moderate and relatively constant Bd loads and mass die-offs are not observed ([@briggs2010; @knapp2011] see also Supplementary Fig. 2).
+In contrast, in recovering populations adult frogs typically have low-to-moderate and relatively constant Bd loads and mass die-offs are not observed [@briggs2010; @knapp2011] (see also Supplementary Fig. 2).
 The differences in Bd load of frogs from naive and recovering populations are also observed in controlled laboratory studies (see Figure 4 in [@knapp2016]), and clearly indicate that frogs from recovering populations exhibit resistance against Bd infection.
-This resistance could be due at least in part to natural selection for more resistant genotypes, but until now evidence to evaluate the possible role of evolution was lacking.
 
-Reintroduction of resistant *R. sierrae* was remarkably successful in reestablishing viable populations in the presence of Bd.
+Reintroduction of resistant *R. sierrae* was remarkably successful in reestablishing populations in the presence of Bd.
 Of the 12 translocated populations, approximately 80% showed evidence of both successful reproduction and recruitment of new adults.
 Year-1 survival for 12 of the 24 translocated cohorts exceeded 50%, and \> 70% of translocated cohorts had survival above this 50% level when the earliest translocations are excluded (i.e., translocations conducted when methods were still being refined; see **Materials and Methods - Frog population recovery - Field methods** for a brief description of these refinements).
-The fact that the relatively low Bd loads and correspondingly high frog survival was maintained when frogs were moved from donor populations to recipient sites indicates that these characteristics of naturally-recovering populations were not solely an effect of site characteristics, but were also strongly influenced by intrinsic characteristics of frogs, including resistance.
+The fact that the relatively low Bd loads and correspondingly high frog survival were both maintained when frogs were moved from donor populations to recipient sites indicates that these characteristics of naturally-recovering populations were not solely an effect of site characteristics, but were also strongly influenced by intrinsic characteristics of frogs, including resistance.
 Although it could be argued that the relatively invariant Bd loads before versus after translocation are a consequence of similar pathogen pressure in the donor and reintroduced populations, this is at odds with the fact that in the first year after translocation frog densities are typically 1-2 orders of magnitude lower in the reintroduced versus donor populations and pathogen pressure should follow a similar pattern.
 In addition to the maintenance of Bd load and frog survival between natal and recipient sites, the relatively high survival of translocated frogs was maintained in their progeny, as expected if resistance has a genetic basis.
 
@@ -376,7 +381,8 @@ Although we assume that the effects of winter severity and frog sex are direct e
 For example, elevation is correlated with several attributes that may influence frog survival, including the presence of boulder habitat (positive correlation) that is important for frog overwintering, abundance of frog predators including garter snakes (negative correlation), and frog developmental rates (negative correlation).
 The latter can influence the duration of frog life stages that have differential susceptibility to chytridiomycosis (see below).
 The duration of the tadpole and juvenile stages increases with elevation, but the fact that long-run population growth rate from our viability model is relatively insensitive to variation in these durations suggests that developmental rates of early frog life stages have minimal effect on the predicted long-term viability of reintroduced populations.
-Nonetheless, a clearer understanding of the mechanistic components of the elevation and donor population variables will require additional research.
+The mechanisms underlying the effect of donor population on the probability of post-translocation frog survival is intriguing, and could indicate population-specific fitness differences of frogs in the presence of Bd.
+A clearer understanding of the mechanistic components of the elevation and donor population variables will require additional research.
 
 <!--# Include paragraph describing implications for habitat quality on frog survival in the presence of Bd? This would blunt the view of PNAS editor that we put frogs in the "wrong" places. In the presence of Bd-caused mortality, habitats that once would have supported frog populations may no longer do so because the extra mortality changes population growth from positive to negative. As such, choosing the highest quality habitats may be important for maximizing the probability of population reestablishment.  -->
 
@@ -387,13 +393,13 @@ In addition to these important but relatively subtle effects of Bd on adults, th
 *R. sierrae* immediately following metamorphosis ("metamorphs") are highly susceptible to Bd infection [@ellison2019] and as a result experience high mortality [@rachowicz2006].
 This high susceptibility of metamorphs is documented in numerous species of anurans, and may result from the poorly developed immune system characteristic of this life stage [@humphries2022].
 In both naturally recovering and reintroduced *R. sierrae* populations, we suggest that the high mortality of metamorphs is an important limitation on subsequent recruitment of new adults.
-Therefore, although adult *R. sierrae* appear relatively resistant, Bd infection continues to have important limiting effects on recovering populations [see also @hollanders2022].
+Therefore, although adult *R. sierrae* appear relatively resistant, Bd infection continues to have important limiting effects on recovering populations (see also [@hollanders2022]).
 
 The recent emergence of Bd worldwide has contributed to the decline of hundreds of amphibian species, some of which are now extinct in the wild [@scheele2019].
 This extraordinary impact on global amphibian biodiversity is compounded by the lack of any effective and broadly applicable strategies to reverse these impacts [@garner2016; @knapp2022].
 Importantly, in addition to the natural recovery documented for *R. sierrae* [@knapp2016], other amphibian species are also showing evidence of post-epizootic recovery in the presence of Bd [@scheele2017; @voyles2018] and suggest the possibility of also using animals from these recovering populations to reestablish extirpated populations.
-As with *R. sierrae*, the feasibility and long-term success of such efforts will depend on the availability of robust donor populations containing individuals that have the adaptive alleles necessary to allow frog survival and population growth in the presence of Bd.
-Despite the hopeful example of successful reestablishment of *R. sierrae* despite ongoing Bd infection, the challenge of recovering hundreds of Bd-impacted amphibian species globally is a daunting prospect.
+As with *R. sierrae*, the feasibility and long-term success of such efforts will depend on the availability of robust donor populations containing individuals that have sufficiently high resistance to allow frog survival and population growth in the presence of Bd.
+Despite the promising example provided by our study of successful reestablishment of *R. sierrae* despite ongoing Bd infection, the challenge of recovering hundreds of Bd-impacted amphibian species globally is a daunting prospect.
 Although we now have a proven strategy to reestablish extirpated *R. sierrae* populations, recovery across their large historical range will require substantial resources over many decades.
 The results of this study provide a hopeful starting point for that endeavor and other future efforts worldwide.
 
@@ -403,20 +409,21 @@ The results of this study provide a hopeful starting point for that endeavor and
 
 ##### Field methods
 
-For the `r n_distinct(d1$site_id, d1$date)` translocations we conducted, we identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected using several years of VES and skin swab collections [@knapp2016], and results from population genetic analyses [@poorten2017].
+For the `r n_distinct(d1$site_id, d1$date)` translocations we conducted, we identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected based on several years of VES and skin swab collections [@knapp2016], and results from population genetic analyses [@poorten2017].
 The populations that we selected contained hundreds of *R. sierrae* adults and thousands of tadpoles.
 These relatively high abundances were the result of recent increases following previous Bd-caused declines [@knapp2016].
-As is typical for recovering *R. sierrae* populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd load (median log~10~(load) = `r round(bdload_min, 2)`--`r round(bdload_max, 2)` ITS copies) was two or more orders of magnitude below the level at which frog mortality is expected (log~10~(load) $\approx$ 5.78 copies)[@vredenburg2010; @joseph2018].
+As is typical for recovering *R. sierrae* populations, Bd prevalence in the donor populations was high (`r round(bdprev_min, 2)`--`r round(bdprev_max, 2)`) and Bd load (median log~10~(load) = `r round(bdload_min, 2)`--`r round(bdload_max, 2)` ITS copies) was two or more orders of magnitude below the level at which frog mortality is expected [@vredenburg2010; @joseph2018] (log~10~(load) $\approx$ 5.78 copies).
 Recipient sites to which frogs were translocated were chosen based on previous *R. sierrae* presence (determined from VES and/or museum records) or characteristics that suggested high quality habitat for this species [@knapp2005].
 At the beginning of this study, we had a relatively limited understanding of the factors that affect habitat quality.
 In subsequent years, we improved our site selection process by incorporating new information about important habitat features, in particular, overwintering habitats such as submerged boulders and overhanging banks.
 *R. sierrae* were absent from all recipient sites prior to the first translocation.
 
-We conducted `r transno_min`--`r transno_max` translocations per site (@fig-translocation-survival, @fig-yosemap) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
+We conducted `r transno_min`--`r transno_max` translocations per site (@fig-yosemap, @fig-translocation-survival) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
 In preparation for each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
 Frogs were transported to the recipient site either on foot or via helicopter.
 Following release, we visited translocated populations approximately once per month during the summer active season and conducted diurnal CMR surveys and VES (summer active season is generally July-August but can start as early as May and end as late as September; range of survey dates = May-25 to Sep-29, range of translocation dates = Jun-28 to Sep-02; median number of visits per summer = `r round(surveys_yr_median)`, range = `r surveys_yr_min`--`r surveys_yr_max`).
-CMR surveys allowed estimation of adult survival, recruitment of new adults, and adult population size, and VES provided estimates of tadpole and juvenile abundance.
+CMR surveys allowed estimation of adult survival, recruitment of new adults, and adult population size.
+VES provided estimates of tadpole and juvenile abundance.
 During 2006-2012, we conducted CMR surveys on a single day (primary period) per site visit, during which we searched all habitats repeatedly for adult frogs.
 Frogs were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
 During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (median number of secondary periods per primary period = `r round(robust_year_median)`; range = `r robust_year_min`--`r robust_year_max`), and frogs were processed as described above.
@@ -437,8 +444,8 @@ This accounted for the multi-year tadpole and juvenile stages in *R. sierrae* (S
 
 ##### Estimation of frog survival and abundance
 
-For each translocation site, we estimated survival of translocated frogs, recruitment of new frogs into the adult population, and adult population size using a site-specific Bayesian open-population Jolly-Seber CMR model with known additions to the population (i.e., translocated cohorts), as implemented by the mrmr package [@joseph2019] and using R Statistical Software (v4.4.4 [@rsoftware2022]) (see **Supporting Information - Frog population recovery - CMR model structure** for details).
-Briefly, the model tracks the states of *M* individuals that comprise a superpopulation made up of real and pseudo-individuals (see [@joseph2018] for details).
+For each translocation site, we estimated survival of translocated frogs, recruitment of new frogs into the adult population, and adult population size using a site-specific Bayesian open-population Jolly-Seber CMR model with known additions to the population (i.e., translocated cohorts), as implemented by the mrmr package [@joseph2019] and using R Statistical Software [@rsoftware2022] (v4.4.4) (see **Supporting Information - Frog population recovery - CMR model structure** for details).
+Briefly, the model tracks the states of *M* individuals that comprise a superpopulation made up of real and pseudo-individuals [@joseph2018].
 The possible states of individuals include "not recruited", "alive", and "dead".
 The possible observations of individuals include "detected" and "not detected".
 We assume that individuals that are in the "not recruited" or "dead" states are never detected (i.e., there are no mistakes in the individual PIT tag records).
@@ -526,7 +533,6 @@ This also helped us determine where in the model environmental variation in juve
 Third, we included demographic stochasticity and environmental stochasticity in $\sigma_{J_1}$ in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of *R. sierrae* following reintroductions.
 Additional details are provided in **Supporting Information - Population viability modeling - Model analysis and simulation**.
-Code to replicate the analyses can be found at <https://github.com/SNARL1/translocation>.
 
 ### Data availability
 
@@ -535,7 +541,7 @@ The CMR datasets from each reintroduction site are available at <https://github.
 
 ### Code availability
 
-R code used to run our analyses is available at <https://github.com/SNARL1/translocation>.
+R code to replicate our analyses is available at <https://github.com/SNARL1/translocation>.
 R code to analyze the CMR datasets is available at <https://github.com/SNARL1/cmr-analysis>.
 
 ### References
@@ -574,7 +580,7 @@ The authors declare no competing interests.
 
 ### Figures
 
-![**Conceptual model of Bd-caused decline and recoveryin *R. sierrae*.** In addition to the original Bd-caused decline, the model depicts (i) natural recovery and (ii) facilitated recovery via reintroductions, as well as the linkages between these two pathways. Rectangles and hexagons represent outcomes and processes, respectively. Blue text indicates components that are included in the current study. The timeline shows the general sequence of the components, with the dashed portion indicating a projection into the future.](figures/conceptual_model.png){#fig-recovery-model width="95%"}
+![**Conceptual model of Bd-caused decline and recovery in *R. sierrae*.** For the recovery portion, the model depicts both natural recovery and facilitated recovery via reintroductions, as well as the linkages between these two pathways. Rectangles and hexagons represent outcomes and processes, respectively. Blue text indicates components that are included in the current study. The general temporal scale of the depicted scenario is provided by the timeline, with the dashed portion indicating a projection into the future.](figures/conceptual_model.png){#fig-recovery-model width="95%"}
 
 \newpage
 
@@ -586,8 +592,8 @@ The authors declare no competing interests.
 
 \newpage
 
-![**Conditional effects of predictors of 1-year frog survival**. Results are from the among-site meta-analysis and 1-year frog survival (expressed as a probability). (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="80%"}
+![**Conditional effects of predictors of 1-year frog survival**. Results are from the among-site meta-analysis and 1-year frog survival is expressed as a probability. (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="80%"}
 
 \newpage
 
-![**Estimated population growth rates and extinction probabilites of reintroduced populations**. (A) Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and year-1 juvenile survival and recruitment probability $\sigma_{J_1}$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when year-1 juvenile survival probability is $\sigma_{J_1} = 0.09$ (indicated by the dashed line). The red line shows where $\lambda = 1$. Note that the point for 70413 is mostly hidden behind other points. (B) Predicted 50-year extinction probabilities of the 12 translocated populations, given demographic stochasticity, environmental variability in $\sigma_{J_1}$, and different mean values of $\sigma_{J_1}$. There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are hidden beneath the line for 70505 when $\sigma_{J_1} < 0.10$. (C) 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="95%"}
+![**Estimated growth rates and extinction probabilities of reintroduced populations**. (A) Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and year-1 juvenile survival and recruitment probability $\sigma_{J_1}$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when year-1 juvenile survival probability is $\sigma_{J_1} = 0.09$ (indicated by the dashed line). The red line shows where $\lambda = 1$. Note that the point for 70413 is mostly hidden behind other points. (B) Predicted 50-year extinction probabilities of the 12 reintroduced populations, given demographic stochasticity, environmental variability in $\sigma_{J_1}$, and different mean values of $\sigma_{J_1}$. There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are partially or completely hidden beneath the line for 70505. (C) 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="95%"}

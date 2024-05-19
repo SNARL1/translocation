@@ -12,15 +12,18 @@ editor_options:
     wrap: sentence
 crossref: 
   fig-title: "**Supplementary Fig.**"
+  fig-prefix: "Supplementary Fig."
   tbl-title: "**Supplementary Table**"
+  tbl-prefix: "Supplementary Table"
   title-delim: "|"
 bibliography: translocation.bib
 csl: nature.csl
+link-bibliography: false
 ---
 
 ### Supplementary Information for
 
-## Reintroduction of resistant frogs facilitates recovery in the presence of a lethal fungal disease
+## Reintroduction of resistant frogs facilitates recovery despite a lethal fungal disease
 
 Roland A. Knapp\*, Mark Q. Wilber, Maxwell B. Joseph, Thomas C. Smith, Robert L. Grasso
 
@@ -191,11 +194,11 @@ We considered models with different subsets of fixed and random effects, and use
 #### Incorporating yearly variability in vital rates
 
 We computed yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the posterior distribution of individual state trajectories derived from mrmr CMR models.
-Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among-population variability (@fig-translocation-survival).
+Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among-population variability (Fig. 3).
 Thus, we did not include yearly within-population variability in adult survival in this analysis.
 However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
 Therefore, we allowed for yearly variability in the probability of year-1 juvenile survival and recruitment (additional details provided in **Estimating model parameters** below).
-We also could have included environmental stochasticity in year-2 juvenile survival and recruitment $\sigma_{J_2}$, but our elasticity and sensitivity analysis (see below, **Model analysis and simulation**) showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$ (@fig-viability-supp SI).
+We also could have included environmental stochasticity in year-2 juvenile survival and recruitment $\sigma_{J_2}$, but our elasticity and sensitivity analysis (see below, **Model analysis and simulation**) showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$ (@fig-viability-supp).
 
 #### Estimating model parameters
 
@@ -253,15 +256,15 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 \newpage
 
-![**Predictors of post-translocation frog survival in the among-site meta-analysis.** Depicted distributions are the estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables from the best model. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line). Predictor variables shown on the y-axis are defined as follows: length = frog size, snow_t = winter severity in the year of translocation (measured on April 1), snow_t1 = winter severity in the year following translocation (measured on April 1), day = day of year on which a translocation was conducted, bd_load = Bd load, elevation = site elevation, order_first = within-site translocation order, sex_male = frog sex, donor_70567 and donor_72996 = donor population. Bd load is not an important predictor of post-translocation frog survival.](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="60%"}
+![**Predictors of post-translocation frog survival in the among-site meta-analysis.** Depicted distributions for the intercept and all predictor variables are the estimated posterior density curves and shaded 95% uncertainty intervals from the best model. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line). Predictor variables shown on the y-axis are defined as follows: length = frog size, snow_t = winter severity in the year of translocation (measured on April 1), snow_t1 = winter severity in the year following translocation (measured on April 1), day = day of year on which a translocation was conducted, bd_load = Bd load, elevation = site elevation, order_first = within-site translocation order, sex_male = frog sex, donor_70567 and donor_72996 = donor population. Note that Bd load is not an important predictor of post-translocation frog survival.](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="60%"}
 
 \newpage
 
-![**Average yearly survival probabilities of translocated versus naturally recruited adults.** Naturally recruited individualos were the result of reproduction by translocated frogs at each site. In contrast to \@fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package, and the methods for calculation are described in Supporting Information - Population viability modeling - Estimating model parameters.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="60%"}
+![**Average yearly survival probabilities of translocated versus naturally recruited adults.** Naturally recruited individuals were the result of reproduction by translocated frogs at each site. In contrast to Fig. 3, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package, and the methods for calculation are described in Supporting Information - Population viability modeling - Estimating model parameters.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="60%"}
 
 \newpage
 
-![**Sensitivity analysis of the stage-structured *R. sierrae* model.** A. Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival and recruitment of year-2 juveniles), $p\_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). B. Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. We did not include $p_{L_1}$ as this parameter is 1 across the populations in this study (Table S1) -- tadpoles spend at least a year as tadpoles before metamorphosing. Elasticity and sensitivity is calculated at the default parameter values for each population and $\sigma_{J_1}$ = 0.09.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="95%"}
+![**Sensitivity analysis of the stage-structured *R. sierrae* model.** A. Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival and recruitment of year-2 juveniles), $p\_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). B. Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. We did not include $p_{L_1}$ as this parameter is 1 across the populations in this study ([@tbl-param_values]) -- tadpoles spend at least a year as tadpoles before metamorphosing. Elasticity and sensitivity is calculated at the default parameter values for each population and $\sigma_{J_1}$ = 0.09.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="95%"}
 
 ### Tables
 
