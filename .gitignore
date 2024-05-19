@@ -8,7 +8,7 @@ _extensions/
 .RData
 .Ruserdata
 doc/manuscript/translocation.pdf
-doc/manuscript/PNAS-template-main.pdf
+doc/manuscript/supplementary_information.pdf
 out/lambda_estimates.pdf
 *.log
 *.aux
