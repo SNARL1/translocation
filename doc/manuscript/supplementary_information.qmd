@@ -1,0 +1,283 @@
+---
+format: pdf
+#format:
+#   latex: 
+#      cite-method: natbib
+include-in-header:
+  text: |
+    \usepackage{blkarray}
+editor: visual
+editor_options:
+  markdown:
+    wrap: sentence
+crossref: 
+  fig-title: "**Supplementary Fig.**"
+  tbl-title: "**Supplementary Table**"
+  title-delim: "|"
+bibliography: translocation.bib
+csl: nature.csl
+---
+
+### Supplementary Information for
+
+## Reintroduction of resistant frogs facilitates recovery in the presence of a lethal fungal disease
+
+Roland A. Knapp\*, Mark Q. Wilber, Maxwell B. Joseph, Thomas C. Smith, Robert L. Grasso
+
+\* **Author for correspondence:** roland.knapp\@ucsb.edu
+
+\newpage
+
+## Supplementary Methods
+
+\
+
+### Frog population recovery
+
+#### Laboratory methods
+
+Swab extracts were analyzed using standard Bd DNA extraction and qPCR methods [@boyle2004], and extracts were analyzed singly instead of in triplicate [@kriger2006].
+For analysis of swabs collected during 2005--2014, we used standards developed from known concentrations of zoospores [@boyle2004], and after 2014, we used standards based on single ITS1 PCR amplicons [@longo2013].
+Based on paired comparisons between samples analyzed using both types of standards, Bd in the study area has an average of 60 ITS1 copies per zoospore.
+To express all qPCR results as the number of ITS1 copies, starting quantities obtained using the zoospore standard (measured as "zoospore equivalents") were multiplied by 60.
+In addition, all qPCR quantities (regardless of standard) were multiplied by 80 to account for the fact that DNA extracts from swabs were diluted 80-fold during extraction and PCR [@vredenburg2010].
+
+#### CMR model structure
+
+We estimated survival and recruitment for each site using open population CMR models based on @joseph2018.
+For each individual in a superpopulation of real and psuedo-individuals, $i=1, ..., M$ on each survey $j=1, ..., n_j$: $o_{i, j} = 1$ if the individual was not detected, and $o_{i, j}=2$ if the individual was detected.
+Capture histories of $M$ individuals are modeled, although only $N_s$ individuals were captured.
+This parameter expanded data augmentation allows us to account for the possibility that undetected individuals may have recruited into the adult population [@royle2012].
+Here, $M$ was chosen to be three times the number of observed individuals ($3N_s$) to be considerably greater than our prior guess of $N_s$.
+
+We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$.
+The states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults.
+Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$.
+Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and as late as September).
+We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$.
+Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
+We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die).
+This assumption is justified by the short time intervals between surveys within primary periods, in cases where primary periods contain multiple secondary periods.
+
+Live individuals are detected with probability $p_j$, which is modeled as:
+
+$$p_j = \text{logit}^{-1}(X_j^{(p)} \beta^{(p)}),$$
+
+where $X_j^{(p)}$ is a known row vector and $\beta^{(p)}$ an unknown parameter vector.
+Not recruited and dead individuals are never captured.
+We bundle these assumptions about the observation probabilities for survey $j$ into an emission matrix $\Omega_j$:
+
+$$
+\Omega_j =
+\begin{blockarray}{ccc}
+  \text{Not detected} & \text{Detected} \\
+\begin{block}{(cc)c}
+  1 & 0 & \text{Not recruited} \\
+  1 - p_j & p_j & \text{Alive} \\
+  1 & 0 & \text{Dead} \\
+\end{block}
+\end{blockarray}
+$$
+
+The state transition matrix $\Psi_{t, i}$ contains the probabilities of individual $i$ transitioning from state $u_{i, t}$ (rows) to $u_{i, t+1}$ (columns) between primary period $t$ and $t+1$.
+For non-introduced (i.e., naturally recruited) individuals, this matrix is given by:
+
+$$
+\Psi_{t, i} =
+\begin{blockarray}{cccc}
+  \text{Not recruited} & \text{Alive} & \text{Dead} \\
+\begin{block}{(ccc)c}
+  1 - \lambda_t & \lambda_t & 0 & \text{Not recruited} \\
+  0 & \phi_t & 1 - \phi_t & \text{Alive} \\
+  0 & 0 & 1 & \text{Dead} \\
+\end{block}
+\end{blockarray}
+$$ where $\lambda_t$ is the probability of recruiting in time $t$ and $\phi_t$ is the probability of survival in time $t$.
+
+For introduced individuals, which have deterministic recruitment (i.e., they recruit when introduced), the state transition matrix is given by:
+
+$$
+\Psi_{t, i} =
+\begin{blockarray}{cccc}
+  \text{Not recruited} & \text{Alive} & \text{Dead} \\
+\begin{block}{(ccc)c}
+  1 - I_{t, i} & I_{t, i} & 0 & \text{Not recruited} \\
+  0 & \phi_t & 1 - \phi_t & \text{Alive} \\
+  0 & 0 & 1 & \text{Dead} \\
+\end{block}
+\end{blockarray}
+$$
+
+where $I_{t, i}$ is a known indicator function for whether individual $i$ was introduced in primary period $t$.
+
+We allow recruitment probabilities to vary in time via random effects, such that:
+
+$$\lambda_t = \text{logit}^{-1}(\alpha^{(\lambda)} + \epsilon^{(\lambda)}_t),$$
+
+where $\alpha^{(\lambda)}$ is an intercept parameter and $\epsilon^{(\lambda)}_t$ is an adjustment for time $t$.
+
+Survival probabilities also vary in time, and as a function of known covariates:
+
+$$\phi_t = \text{logit}^{-1}(X^{(\phi)}_t \beta^{(\phi)} + \epsilon^{(\phi)}_t),$$
+
+where $X^{(\phi)}_t$ is a row vector of known covariates, $\beta^{(\phi)}$ is a column vector of unknown coefficients, and $\epsilon^{(\phi)}_t$ is an adjustment for time $t$.
+
+To complete the specification of the Bayesian model, we specify priors for all unknown parameters.
+The recruitment parameter priors were specified as follows:
+
+$$\alpha^{(\lambda)} \sim N(0,1),$$ $$\sigma^{(\lambda)} \sim N_+(0,1),$$ $$\epsilon^{(\lambda)}_t \sim N(0, \sigma^{(\lambda)}),$$ for periods $t=1, ..., T$.
+Here $N$ represents the normal distribution and $N_+$ the half normal distribution with positive support.
+
+Survival parameter priors were specified similarly as:
+
+$$\beta^{(\phi)} \sim N(0, 1),$$ $$\sigma^{(\phi)} \sim N_+(0, 1),$$ $$\epsilon^{(\phi)}_t \sim N(0, \sigma^{(\phi)}),$$ for time $t=1, ..., T$.
+
+The detection model coefficient vector also received a standard normal prior $\beta^{(p)} \sim N(0, 1)$.
+
+We computed the likelihood of each individual capture history using the forward algorithm, and we estimated the latent states using the forward-backward algorithm [@zucchini2009; @joseph2018].
+
+All of the code to specify and fit the model in Stan is available in the open source mrmr package [@joseph2019].
+
+The joint distribution of the resulting model can be written as follows:
+
+```{=tex}
+\begin{multline*}
+[\alpha^{(\lambda)}, \sigma^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \sigma^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)} \mid \pmb Y] \propto \prod_{i=1}^M [Y_i \mid \alpha^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)}] \times \\
+\prod_{t=1}^T [\epsilon_t^{(\lambda)} \mid \sigma^{(\lambda)}] [\epsilon_t^{(\phi])} \mid \sigma^{(\phi)}] [\sigma^{(\lambda)}] [\sigma^{(\phi)}] [\alpha^{(\lambda)}] [\beta^{(\phi)}] [\beta^{(p)}],
+\end{multline*}
+```
+where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture history of individual $i$.
+
+#### Among-site survival modeling
+
+The objective of this analysis is to describe the influence of site, cohort, and individual level characteristics on post-translocation frog survival.
+By modeling survival estimates obtained from site-specific mrmr CMR analyses, we are in effect conducting an among-site meta-analysis.
+Although it would theoretically be possible to estimate survival covariate effects in a joint CMR model that integrates capture histories across all sites, this was impractical due to computational requirements of the CMR models (namely, run time and memory).
+
+We used Bayesian generalized linear mixed models to investigate predictors of survival among sites.
+The response $y_i$ is binary, representing a point estimate of whether individual $i$ survived in the year following translocation.
+We generated these point estimates by rounding the posterior median of 1-year post-introduction survival for each individual (from site-specific mrmr CMR models) and modeled the data using a Bernoulli distribution:
+
+$$y_i \sim \text{Bernoulli}(p_i),$$
+
+where $p_i$ is the probability of survival.
+
+We modeled variation in probabilities as follows:
+
+$$\text{logit}(p_i) = \alpha + X_i \pmb \beta + \pmb \nu_{g[1:N]},$$
+
+where $\alpha$ is an intercept, $X_i$ is a length $K$ row vector of predictors, $\pmb \beta$ is a column vector of predictor effects, and $\pmb \nu$ a vector of group level random effects.
+Here $g[i]$ refers to the group $g$ containing individual $i$, and we estimate an adjustment for each of the $G$ groups ($\nu_1, ..., \nu_G$).
+
+These models were fit using the `stan_glmer()` function in the rstanarm package, with default priors described below [@rstanarm2022].
+These priors are vague, but include data-dependent scaling as follows to account for different input variable scales.
+However, because we standardized all predictor variables similarly to have equal variance (by centering and dividing by twice the sample standard deviation), the resulting priors are identical.
+Specifically, we have:
+
+$$\alpha \sim \text{Normal}(0, 2.5),$$ and
+
+$$\beta_k \sim \text{Normal}(0, 5),$$
+
+for $k=1, ..., K$ where $K$ is the number of predictor variables.
+
+The default prior for group level adjustments $\nu_1, ..., \nu_G$ in rstanarm is a zero-mean Gaussian, where the covariance matrix is constructed from a correlation matrix with an LKJ prior, and a vector of variance parameters -- the decomposition of variance prior with unit regularization, concentration, shape, and scale parameters [@lewandowski2009].
+
+We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan, with four parallel chains, each run for 10,000 iterations, discarding the first half of each chain as warm-up draws [@rstanarm2022].
+We used Rhat statistics and trace plots to verify convergence.
+We considered models with different subsets of fixed and random effects, and used approximate leave-one-out cross validation to identify the best model [@vehtari2016].
+
+### Population viability modeling
+
+#### Incorporating yearly variability in vital rates
+
+We computed yearly survival probabilities for translocated adults $\sigma_{A_T}$ and naturally recruited adults $\sigma_{A_R}$ from the posterior distribution of individual state trajectories derived from mrmr CMR models.
+Although we observed yearly variability in adult survival within a population, the magnitude of this variability was small compared to among-population variability (@fig-translocation-survival).
+Thus, we did not include yearly within-population variability in adult survival in this analysis.
+However, within a population there was substantial yearly variability in the successful recruitment of adults, greater than what we would expect from Poisson variability around a mean value.
+Therefore, we allowed for yearly variability in the probability of year-1 juvenile survival and recruitment (additional details provided in **Estimating model parameters** below).
+We also could have included environmental stochasticity in year-2 juvenile survival and recruitment $\sigma_{J_2}$, but our elasticity and sensitivity analysis (see below, **Model analysis and simulation**) showed that this parameter had little effect on host growth rate relative to $\sigma_{J_1}$ (@fig-viability-supp SI).
+
+#### Estimating model parameters
+
+The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
+Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see **Materials and Methods - Frog populaton recovery - Estimation of frog survival and abundance** and **Supporting Information - Frog population recovery - CMR model structure** for details).
+For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ (@fig-compare_surv_probs SI).
+For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
+
+To estimate the $\sigma_{A_R}$, we used the posterior distribution of predicted true states for naturally-recruited individuals (1=not recruited, 2=alive, 3=dead, as described in **Supporting Information - Frog population recovery - CMR model structure**), then calculated the posterior probability of individuals surviving between consecutive primary periods, conditional on being alive in the first primary period (e.g., given a value of 2 (alive) in the first primary period, how often was the value still 2 (alive) in the next primary period compared to 3 (dead)).
+This yielded posterior distributions for survival probabilities between primary periods.
+However, because the time interval between primary periods differed, the survival probabilities between different consecutive primary periods were not directly comparable.
+To address this, we converted the survival probabilities between each consecutive primary period to per day death rates, propagating the uncertainty from the posterior distributions.
+We then took a weighted average of these death rates, weighted by the time interval between primary periods, to get the average per day death rate over the entire CMR survey.
+We converted this per day death rate $d$ back to a yearly survival probability using $\exp(-d \times 365 \text{ days})$.
+We used the same procedure for $\sigma_{A_T}$ such that our estimates of average yearly survival probability were comparable between $\sigma_{A_R}$ and $\sigma_{A_T}$.
+
+#### Model analysis and simulation
+
+We performed four analyses on our model.
+First, we considered a deterministic version of our model with no yearly heterogeneity in year-1 juvenile survival and recruitment probability $\sigma_{J_1}$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\sigma_{J_1}$.
+We then fixed $\sigma_{J_1} = 0.09$ and calculated the predicted growth rate of our 12 populations.
+
+Second, we performed a local elasticity and sensitivity analysis on $\lambda$ with respect to parameters $\sigma_{L_1}$, $\sigma_{L_2}$, $\sigma_{L_3}$, $\sigma_{J_1}$, $\sigma_{J_2}$, $\sigma_{A_R}$, $F$, $p_{L_2}$, $p_{J_1}$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp SI).
+Note that $\lambda$ is equally or more sensitive to changes in adult survival ($\sigma_{A_R}$) and survival of year-1 juveniles ($\sigma_{J_1}$) than it is to other model parameters, providing additional justification for focusing on variation in $\sigma_{A_R}$ and $\sigma_{J_1}$ in our viability analyses.
+
+Third, we defined a version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among-year variability in $\sigma_{J_1}$.
+We used this model to simulate a one-time introduction of 40 translocated adult frogs.
+We ran this simulation 1000 times for each population and computed the probability of a population becoming extinct after 50 years given the observed parameter values and environmental stochasticity in $\sigma_{J_1}$.
+We varied the mean recruitment probability $\sigma_{J_1}$ from 0 and 0.25 and drew values of $\sigma_{J_1}$ each year from a beta distribution with a dispersion parameter of $\phi = 2$ (when $\sigma_{J_1} = 0.5$ and $\phi = 2$ the beta distribution is uniform between 0 and 1).
+Using different values of $\phi$ does not qualitatively change the existence of distinct extinction dynamics between populations with $\sigma_{A_R} < 0.5$ and those with $\sigma_{A_R} > 0.5$.
+However, increasing yearly variability in $\sigma_{J_1}$ increases extinction risk for all populations.
+For example, if we set $\phi = 0.001$, such that in a given year essentially either all year-1 juveniles survive or all of them die, populations with $\sigma_{A_R} > 0.5$ need to have $\sigma_{J_1}$ greater than 0.2 to have a 50-year extinction probability of less 50%.
+Because we do not PIT tag juveniles, we do not have CMR estimates for $\sigma_{J_1}$ or $\phi$.
+However, based on qualitative and semi-quantitative field observations over 25 years, a value of $\sigma_{J_1} = 0.25$ in the presence of Bd is probably a reasonable estimate for many populations.
+Thus, we expect our model predictions to be conservative with regards to population recovery.
+
+Finally, we assessed whether our stochastic model could reproduce observed trajectories of population recovery.
+We focused on population 70550 because this was our longest CMR time series for a translocated population and because this population shows evidence of substantial post-translocation increases in adult abundance associated with population establishment and recovery.
+We simulated our model for 16 years, repeating the simulation 50,000 times.
+For each run and each year, we drew $\sigma_{J_1}$ from a uniform distribution between 0 and 1 (or equivalently a beta distribution with mean 0.5 and $\phi = 2$).
+Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we identified the top 2% of trajectories (i.e., 1000 trajectories) that minimized the sum of squared errors between the observed and predicted data.
+The yearly $\sigma_{J_1}$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
+Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
+
+### References
+
+::: {#refs}
+:::
+
+\newpage
+
+### Figures
+
+![**Bd loads on frogs before and after translocation.** The "before" period is immediately prior to translocation and the "after" period is the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range. Samples sizes are provided immediately above the x-axis. The red dashed horizontal line indicates the approximate load above which severe disease is typically observed @vredenburg2010. This threshold (5.8 ITS1 copies - on a log10 scale) is commonly exceeded during Bd epizootics, but is exceeded only rarely in recovering populations @briggs2010.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="80%"}
+
+\newpage
+
+![**Predictors of post-translocation frog survival in the among-site meta-analysis.** Depicted distributions are the estimated posterior density curves and shaded 95% uncertainty intervals for the intercept and all predictor variables from the best model. In the Bayesian framework in which the model was developed, variables are considered important predictors if the associated uncertainty interval does not overlap zero (indicated by the dashed red line). Predictor variables shown on the y-axis are defined as follows: length = frog size, snow_t = winter severity in the year of translocation (measured on April 1), snow_t1 = winter severity in the year following translocation (measured on April 1), day = day of year on which a translocation was conducted, bd_load = Bd load, elevation = site elevation, order_first = within-site translocation order, sex_male = frog sex, donor_70567 and donor_72996 = donor population. Bd load is not an important predictor of post-translocation frog survival.](figures/mcmc_areas_m1d.png){#fig-survival-postdens width="60%"}
+
+\newpage
+
+![**Average yearly survival probabilities of translocated versus naturally recruited adults.** Naturally recruited individualos were the result of reproduction by translocated frogs at each site. In contrast to \@fig-translocation-survival, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package, and the methods for calculation are described in Supporting Information - Population viability modeling - Estimating model parameters.](figures/compare_surv_probs.jpg){#fig-compare_surv_probs width="60%"}
+
+\newpage
+
+![**Sensitivity analysis of the stage-structured *R. sierrae* model.** A. Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival and recruitment of year-2 juveniles), $p\_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). B. Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. We did not include $p_{L_1}$ as this parameter is 1 across the populations in this study (Table S1) -- tadpoles spend at least a year as tadpoles before metamorphosing. Elasticity and sensitivity is calculated at the default parameter values for each population and $\sigma_{J_1}$ = 0.09.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="95%"}
+
+### Tables
+
+| **Parameter**                                                             | **Value**            | **Source**                                                                        |
+|:-------------------------|:------------------|:--------------------------|
+| $\sigma_{L_1}$, Yearly survival probability of year-1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
+| $\sigma_{L_2}$, Yearly survival probability of year-2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
+| $\sigma_{L_3}$, Yearly survival probability of year-3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
+| $\sigma_{J_1}$, Yearly survival probability of year-1 juveniles           | Varies yearly        | Varies. Bounds estimated from field data, observations, natural history knowledge |
+| $\sigma_{J_2}$, Yearly survival probability of year-2 juveniles           | 0.5                  | Estimated from field data, observations, natural history knowledge                |
+| $\sigma_{A_R}$, Yearly survival probability of naturally recruited adults | Varies by population | Estimated from CMR studies                                                        |
+| $\sigma_{A_T}$, Yearly survival probability of translocated adults        | Varies by population | Estimated from CMR studies                                                        |
+| $p_{L_1}$, Probability of a year-1 tadpoles remaining as a tadpoles       | 1                    | Estimated from field data, observations, natural history knowledge                |
+| $p_{L_2}$, Probability of a year-2 tadpoles remaining as a tadpoles       | 0.25                 | Estimated from field data, observations, natural history knowledge                |
+| $p_{J_1}$, Probability of a year-1 juvenile remaining as a juvenile       | 0.25                 | Estimated from field data, observations, natural history knowledge                |
+| $p_F$, Probability of a adult female reproducing in a year                | 0.5                  | Could be as high at 1, based on field observations                                |
+| $F$, Number of surviving eggs produced by an adult female                 | 100                  | From observations of captive frogs                                                |
+
+: **Description and values of parameters used in the population viability model.** <!--# MOVE NEXT SENTENCE TO FOOTNOTE. --> All survival probabilities are in the presence of the fungal pathogen Bd. {#tbl-param_values}
