@@ -1,0 +1,52 @@
+---
+format: 
+  pdf:
+    fig-pos: "H"
+    include-in-header: 
+      text: '\pagenumbering{gobble}'
+editor: visual
+editor_options:
+  markdown:
+    wrap: sentence
+---
+
+In this cover letter, I attempt to provide some context for our manuscript, "Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease".
+It is my sincere hope that this context will serve as a more compelling argument for why this manuscript is worthy of consideration for publication in *Nature Communications* than the usual (and somewhat pedantic) arguments of how novel this research is or how important it is for a particular branch of science.
+
+Amphibians are the most threatened vertebrate class, with more than 40% of species threatened with extinction.
+Despite their almost 400 million year history on Earth and their record of having survived the last four mass extinction events, amphibians are uniquely vulnerable to many of the human pressures that characterize our current epoch: habitat destruction, introduction of nonnative species, emergence of novel infectious diseases, rapidly warming climate, etc., etc.
+A description of the impacts of any one of these factors is enough to bring a sense of gloom to even the most optimistic among us.
+In less than a generation, the human-driven emergence of the amphibian chytrid fungus (*Batrachochytrium dendrobatidis*; Bd) has devastated global amphibian biodiversity, with thousands of populations in decline or extirpated, and dozens of species now extinct in the wild.
+Even those amphibians in the most protected habitats have fallen victim to this invisible killer.
+
+During my own 30+ year career studying mountain ecosystems and their fauna, I've experienced those disappearances first hand and more times than I care to remember.
+After restoring lakes to their original fishless condition and documenting the subsequent recolonization and skyrocketing abundance of Sierra Nevada yellow-legged frogs, I've watched helplessly as those same amphibians succumbed to Bd and their mountain home went silent.
+Gone was the shower of frogs diving from the shore into water as they fled my approach.
+Gone were the masses of tadpoles in lake shallows, once so dense that the water frothed with their wriggling tails.
+Diminished too were the birds and snakes that fed on those frogs.
+These protected habitats in Yosemite National Park were unraveling like a tapestry come unknotted.
+
+Unwilling to simply walk away from this loss, my colleagues and I put everything we had into understanding this pathogen and its impact on amphibians.
+We gained key insights from our decades of research and from sharing results with others around the world who were witnessing their own amphibian catastrophes.
+The work was slow and arduous, with as many setbacks as successes, and all the while the threat of extinction loomed large.
+A key inflection point for me came twenty years ago with the realization that some frog populations driven to near extinction by Bd were, almost miraculously, beginning to recover on their own.
+The subsequent intensive study of those populations provided the knowledge that we needed to bolster this natural recovery using frog reintroductions.
+
+The science behind that uniquely successful 15 year recovery effort is the focus of our manuscript, a story told through graphs, tables, and methodological minutiae.
+But there is another way to understand the consequences of that work, and that is to sit on the shore of any one our study lakes in which we reintroduced frogs 10 or more years ago.
+The silence that settled over the lake like a morning fog following the frogs' extinction is no more.
+Instead, the lake shore is alive with frogs, one atop every rock and lining the sandy beaches.
+On calm mornings, pairs of eyes bulge above the water's surface like unblinking periscopes.
+The tadpoles too are back, their black thousands filling bays with ripples and splashing.
+The lake is alive again.
+
+Given the paucity of well-documented examples of frog recovery following Bd-caused declines, the scientific story that we describe in our manuscript is worth spreading widely.
+Its implications for the world's declining amphibians are clear, and the example that our study provides is a badly needed roadmap for the recovery of global amphibian biodiversity.
+We believe that *Nature Communications* has the broad audience and global reach that this story deserves.
+
+Thanks for your careful review of our manuscript.
+
+\
+Sincerely,
+
+*Roland A. Knapp*, Ph.D.
