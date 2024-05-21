@@ -6,6 +6,7 @@ format: pdf
 include-in-header:
   text: |
     \usepackage{blkarray}
+    \usepackage{lineno}\linenumbers
 include-before-body: 
   text: |
     \captionsetup{format=plain, labelfont=bf, labelsep=space}
@@ -42,7 +43,7 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, Maxwell B. Joseph^4,5^, Thomas C. Sm
 ### Abstract
 
 Vast alteration of the biosphere by humans is causing a sixth mass extinction, driven in part by an increase in infectious diseases.
-The emergence of the lethal fungal pathogen *Batrachochytrium dendrobatidis* ("Bd") has devastated global amphibian biodiversity.
+The emergence of the lethal fungal pathogen *Batrachochytrium dendrobatidis* (Bd) has devastated global amphibian biodiversity.
 Given the lack of any broadly applicable methods to reverse these impacts, the future of many amphibians appears grim.
 The Sierra Nevada yellow-legged frog (*Rana sierrae*) is highly susceptible to Bd infection and most *R. sierrae* populations are extirpated following disease outbreaks.
 However, some populations persist and eventually recover, and frogs in these recovering populations have increased resistance against infection.
