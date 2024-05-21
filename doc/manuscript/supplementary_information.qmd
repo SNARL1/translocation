@@ -1,11 +1,16 @@
 ---
-format: pdf
+format: 
+  pdf:
+    fig-pos: "H"
 #format:
 #   latex: 
 #      cite-method: natbib
 include-in-header:
   text: |
     \usepackage{blkarray}
+include-before-body: 
+  text: |
+    \captionsetup{format=plain, labelfont=bf, labelsep=period}
 editor: visual
 editor_options:
   markdown:
@@ -15,7 +20,6 @@ crossref:
   fig-prefix: "Supplementary Fig."
   tbl-title: "**Supplementary Table**"
   tbl-prefix: "Supplementary Table"
-  title-delim: "|"
 bibliography: translocation.bib
 csl: nature.csl
 link-bibliography: false
@@ -23,9 +27,9 @@ link-bibliography: false
 
 ### Supplementary Information for
 
-## Reintroduction of resistant frogs facilitates recovery despite a lethal fungal disease
+## Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease
 
-Roland A. Knapp\*, Mark Q. Wilber, Maxwell B. Joseph, Thomas C. Smith, Robert L. Grasso
+Roland A. Knapp\*, Mark Q. Wilber, Maxwell B. Joseph, Thomas C. Smith, & Robert L. Grasso
 
 \* **Author for correspondence:** roland.knapp\@ucsb.edu
 
@@ -264,12 +268,14 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 \newpage
 
-![**Sensitivity analysis of the stage-structured *R. sierrae* model.** A. Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival and recruitment of year-2 juveniles), $p\_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). B. Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. We did not include $p_{L_1}$ as this parameter is 1 across the populations in this study ([@tbl-param_values]) -- tadpoles spend at least a year as tadpoles before metamorphosing. Elasticity and sensitivity is calculated at the default parameter values for each population and $\sigma_{J_1}$ = 0.09.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="95%"}
+![**Sensitivity analysis of the stage-structured *R. sierrae* model.** **A** Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival and recruitment of year-2 juveniles), $p\_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). **B** Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. We did not include $p_{L_1}$ as this parameter is 1 across the populations in this study ([@tbl-param_values]) -- tadpoles spend at least a year as tadpoles before metamorphosing. Elasticity and sensitivity is calculated at the default parameter values for each population and $\sigma_{J_1}$ = 0.09.](figures/pop_viability_figures_for_supp.jpg){#fig-viability-supp width="95%"}
+
+\newpage
 
 ### Tables
 
 | **Parameter**                                                             | **Value**            | **Source**                                                                        |
-|:-------------------------|:------------------|:--------------------------|
+|:--------------------------------------------------------------------------|:---------------------|:----------------------------------------------------------------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year-1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_2}$, Yearly survival probability of year-2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_3}$, Yearly survival probability of year-3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |

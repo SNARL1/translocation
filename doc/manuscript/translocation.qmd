@@ -6,21 +6,24 @@ format: pdf
 include-in-header:
   text: |
     \usepackage{blkarray}
+include-before-body: 
+  text: |
+    \captionsetup{format=plain, labelfont=bf, labelsep=space}
 editor: visual
 editor_options:
   markdown:
     wrap: sentence
 crossref: 
   fig-title: "**Fig.**"
-  title-delim: "|"
+  fig-prefix: "Fig."
 bibliography: translocation.bib
 csl: nature.csl
 link-bibliography: false
 ---
 
-## Reintroduction of resistant frogs facilitates landscape-scale recovery despite a lethal fungal disease
+## Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease
 
-Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, <!--#Allison Q. Byrned,e,1--> Maxwell B. Joseph^4,5^, Thomas C. Smith^1,2^ <!--#Andrew P. Rothsteind,e,h--> & Robert L. Grasso^6^ <!--#Erica Bree Rosenblumd,e-->
+Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, Maxwell B. Joseph^4,5^, Thomas C. Smith^1,2^ & Robert L. Grasso^6^
 
 ^1^Sierra Nevada Aquatic Research Laboratory, University of California, Mammoth Lakes, CA, 93546
 
@@ -28,21 +31,13 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, <!--#Allison Q. Byrned,e,1--> Maxwel
 
 ^3^School of Natural Resources, University of Tennessee Institute of Agriculture, Knoxville, TN, 37996
 
-<!--#dDepartment of Environmental Science, Policy, and Management, University of California - Berkeley, Berkeley, CA, 94720-3114-->
-
-<!--#eMuseum of Vertebrate Zoology, University of California - Berkeley, Berkeley, CA, 94720-3160 -->
-
 ^4^Earth Lab, University of Colorado, Boulder, CO, 80303
 
 ^5^Current affiliation: Planet, San Francisco, CA, 94107
 
-<!--#Current affiliation: Ginkgo Bioworks, Boston, MA, 02210-->
-
 ^6^Resources Management and Science, Yosemite National Park, El Portal, CA, 95318
 
-\*Corresponding author: Sierra Nevada Aquatic Research Laboratory, 1016 Mount Morrison Road, Mammoth Lakes, CA 93546, phone: 760.647.0034, email: roland.knapp\@ucsb.edu
-
-<!--#1These authors contributed equally to this work.-->
+\*Corresponding author: email: roland.knapp\@ucsb.edu
 
 ### Abstract
 
@@ -592,8 +587,8 @@ The authors declare no competing interests.
 
 \newpage
 
-![**Conditional effects of predictors of 1-year frog survival**. Results are from the among-site meta-analysis and 1-year frog survival is expressed as a probability. (A) winter severity in the year following translocation, (B) elevation of recipient site, (C) donor population, and (D) sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="80%"}
+![**Conditional effects of predictors of 1-year frog survival**. Results are from the among-site meta-analysis and 1-year frog survival is expressed as a probability. **A** winter severity in the year following translocation, **B** elevation of recipient site, **C** donor population, and **D** sex. In (A) and (B), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (C) and (D), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="80%"}
 
 \newpage
 
-![**Estimated growth rates and extinction probabilities of reintroduced populations**. (A) Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and year-1 juvenile survival and recruitment probability $\sigma_{J_1}$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when year-1 juvenile survival probability is $\sigma_{J_1} = 0.09$ (indicated by the dashed line). The red line shows where $\lambda = 1$. Note that the point for 70413 is mostly hidden behind other points. (B) Predicted 50-year extinction probabilities of the 12 reintroduced populations, given demographic stochasticity, environmental variability in $\sigma_{J_1}$, and different mean values of $\sigma_{J_1}$. There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are partially or completely hidden beneath the line for 70505. (C) 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="95%"}
+![**Estimated growth rates and extinction probabilities of reintroduced populations**. **A** Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and year-1 juvenile survival and recruitment probability $\sigma_{J_1}$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when year-1 juvenile survival probability is $\sigma_{J_1} = 0.09$ (indicated by the dashed line). The red line shows where $\lambda = 1$. Note that the point for 70413 is mostly hidden behind other points. **B** Predicted 50-year extinction probabilities of the 12 reintroduced populations, given demographic stochasticity, environmental variability in $\sigma_{J_1}$, and different mean values of $\sigma_{J_1}$. There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are partially or completely hidden beneath the line for 70505. **C** 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="95%"}
