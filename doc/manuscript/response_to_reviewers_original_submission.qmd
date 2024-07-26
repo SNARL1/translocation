@@ -79,11 +79,9 @@ The legend also states: “In both maps, elevation is indicated by the colored h
 Maybe I’m seeing the colors incorrectly.
 
 3\.
-Methods and associated supplemental materials a.
-Line 348-354.
-This explanation is confusing because of the location of the '(primary period)' reference.
-As written, it seems like the authors are saying that a single day is the primary period - only after you read the supplemental information do you realize that they are using a site visit as the primary period.
-I think it’s good that the authors used the primary/secondary period terminology that is common for robust design CMR surveys, but I think it would be better and more correct to say:
+Methods and associated supplemental materials
+
+a.  Line 348-354. This explanation is confusing because of the location of the '(primary period)' reference. As written, it seems like the authors are saying that a single day is the primary period - only after you read the supplemental information do you realize that they are using a site visit as the primary period. I think it’s good that the authors used the primary/secondary period terminology that is common for robust design CMR surveys, but I think it would be better and more correct to say:
 
 ‘During 2006-2012, we conducted CMR surveys on a single day per site visit (primary period)....
 During 2013-2022, we generally used a robust design where all habitats were searched during several consecutive days (median number....) during each visit...’
@@ -92,10 +90,22 @@ In addition to the median number of secondary periods per primary period, it wou
 At first, I thought that there was only 1 primary period per year, but the supplementary information clearly states: "Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and as late as September)." This would be a nice place to give the mean (or median) number of visits (primary periods) per summer active season.
 
 b.  Population viability model description.
-c.  The authors have 7 state variables which they define as ‘density’ of individuals in different life history states. Is this really density (individuals per unit area) or just the number of individuals.
 
-ii. Additionally, are the authors modelling both males and females, or just females. Based on the model structure it looks like they are modelling females, as there is no adjustment for the proportion of females in the population. This should be clarified. If I am correct, then shouldn’t fecundity be expressed as the number of female eggs?
-iii. I am also a little confused at what they consider ‘recruitment’ in this model. I understand the survival probability, indicated by sigma notation (σ), but none of the parameters listed in Supplementary Table 1 are termed recruitment. However, in both the text the term is used in multiple places, e.g., lines 106, 102, 458 and figure legends (Fig 5), but I’m sure it means different thing in these places. For this reason, I think the authors should clarify their use of the term, especially in the viability modelling. To me, recruitment is conditional on survival so I would tend to equate it with (1- 𝑝𝐽1) or the probability that given a juvenile survives it ‘recruits’ or transitions into an adult frog. I don’t think that is how the adults are using it in this model. I think they could refrain from using it at all in this section.
+-   The authors have 7 state variables which they define as ‘density’ of individuals in different life history states.
+    Is this really density (individuals per unit area) or just the number of individuals.
+
+-   Additionally, are the authors modelling both males and females, or just females.
+    Based on the model structure it looks like they are modelling females, as there is no adjustment for the proportion of females in the population.
+    This should be clarified.
+    If I am correct, then shouldn’t fecundity be expressed as the number of female eggs?
+
+-   I am also a little confused at what they consider ‘recruitment’ in this model.
+    I understand the survival probability, indicated by sigma notation (σ), but none of the parameters listed in Supplementary Table 1 are termed recruitment.
+    However, in both the text the term is used in multiple places, e.g., lines 106, 102, 458 and figure legends (Fig 5), but I’m sure it means different thing in these places.
+    For this reason, I think the authors should clarify their use of the term, especially in the viability modelling.
+    To me, recruitment is conditional on survival so I would tend to equate it with (1- 𝑝𝐽1) or the probability that given a juvenile survives it ‘recruits’ or transitions into an adult frog.
+    I don’t think that is how the adults are using it in this model.
+    I think they could refrain from using it at all in this section.
 
 4.  Given the page limitations employed by the journal, the authors must make decisions about what information to supply.
     Personally, I would have liked to see a little more information on the variation in recruitment (number of new adults a population) and population growth (change in abundance over time) among recipient sites.
