@@ -19,6 +19,7 @@ out/lambda_estimates.pdf
 *.blg
 *.synctex.gz
 *.fls
+*.xdv
 Rplots.pdf
 code/Rplots.pdf
 .DS_Store
@@ -36,3 +37,4 @@ out/survival_distribution_parameters.rds
 out/yearly_survival_estimates_all_individuals.csv
 out/yearly_survival_estimates_only_recruited_individuals.csv
 data/clean/abundance_and_recruitment/*.csv
+doc/manuscript/PNAS-template-main.pdf

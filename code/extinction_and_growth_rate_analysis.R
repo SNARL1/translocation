@@ -75,7 +75,7 @@ for(l in 1:nrow(all_surv)){
 		if(nm == "med")
 			med_surv_vals[l] = muR
 
-		params = assign_parameters(muR, muT, new_params=list(sigma_J1=0.09))
+		params = assign_parameters(muR, muT, new_params=list(sigma_J1=0.1)) 
 		tlam = get_lambda(params)
 		lambdas_mlu[j] = tlam
 	}
@@ -120,10 +120,10 @@ for(i in 1:length(muR_range)){
 dat = expand.grid(muR=muR_range, juv_surv=juv_surv_range)
 dat$lambda = as.vector(lambdas)
 ptile = ggplot(dat) + geom_tile(aes(x=muR, y=juv_surv, fill=lambda)) + 
-							geom_hline(aes(yintercept=0.09), linetype="dashed") +
+							geom_hline(aes(yintercept=0.1), linetype="dashed") +
 							geom_contour(aes(x=muR, y=juv_surv, z=lambda), breaks=c(1), color="red", linewidth=1) +
 							geom_point(data=lake_growth_rates_dt, aes(x=surv_med, 
-																												y=rep(0.09, length(surv_med)), 
+																												y=rep(0.1, length(surv_med)), 
 																													color=lake_id), size=2) +
 		   				scale_color_manual(values=colors) +
 							# scale_fill_gradient("\u03bb", low = "white", high = "black") +
@@ -161,7 +161,7 @@ for(l in 1:nrow(all_surv)){
 		muR = recruited_surv[lake_id == lake][[paste0('surv_prob_', 'med')]]
 	}
 
-	params = assign_parameters(muR, muT)
+	params = assign_parameters(muR, muT, new_params=list(sigma_J1=0.25))
 	sens_elas = get_sensitivity(params)
 
 	lake_sens[[paste0(lake)]] = sens_elas$sens

@@ -29,7 +29,8 @@ assign_parameters = function(adult_survR, adult_survT, new_params=list()){
 			  sigma_AR=adult_survR,
 			  sigma_AT=adult_survT,
 			  p_L1=1, p_L2=0.25, p_J1=0.25,
-			  p_F=0.5, F=100, 
+			  p_F=0.5, F=100,
+			  rho=0.5,
 			  reproduction="poisson")
 
 	# Set any new parameters
@@ -168,22 +169,21 @@ stochastic_step = function(state_vars, p){
 
 	# Account for overflow
 	if(state_vars[(n - 1)] < 10000){
-		reproducing_adultsR = rbinom(1, state_vars[(n - 1)], p$sigma_AR*p$p_F)
-		reproducing_adultsT = rbinom(1, state_vars[n], p$sigma_AT*p$p_F)
+		reproducing_adultsR = rbinom(1, state_vars[(n - 1)], p$sigma_AR*p$p_F*p$rho)
+		reproducing_adultsT = rbinom(1, state_vars[n], p$sigma_AT*p$p_F*p$rho)
 
-		# Only females reproduce so divide by 2
 		if(p$reproduction == "nbd"){
-			new_larvaeR = rnbinom(1, mu=(reproducing_adultsR / 2)*p$F, size=1)
-			new_larvaeT = rnbinom(1, mu=(reproducing_adultsT / 2)*p$F, size=1)
+			new_larvaeR = rnbinom(1, mu=(reproducing_adultsR) * p$F, size=1)
+			new_larvaeT = rnbinom(1, mu=(reproducing_adultsT) * p$F, size=1)
 		} else{
-			new_larvaeR = rpois(1, (reproducing_adultsR) / 2 * p$F)
-			new_larvaeT = rpois(1, (reproducing_adultsT) / 2 * p$F)
+			new_larvaeR = rpois(1, (reproducing_adultsR) * p$F)
+			new_larvaeT = rpois(1, (reproducing_adultsT) * p$F)
 		}
 	} else{
 
 		# Just calculate deterministically if population is large...
-		new_larvaeR = state_vars[(n - 1)]*p$sigma_AR*p$p_F*(p$F / 2)
-		new_larvaeT = state_vars[n]*p$sigma_AR*p$p_F*(p$F / 2)
+		new_larvaeR = state_vars[(n - 1)] * p$sigma_AR * p$p_F * p$rho * p$F
+		new_larvaeT = state_vars[n] * p$sigma_AR * p$p_F * p$rho * p$F
 	}
 
 
@@ -209,8 +209,8 @@ build_fecundity_matrix = function(p){
 	L3 = rep(0, 7)
 	J1 = rep(0, 7)
 	J2 = rep(0, 7)
-	AR = c(p$sigma_AR*p$p_F*p$F, 0, 0, 0, 0, 0, 0)
-	AT = c(p$sigma_AT*p$p_F*p$F, 0, 0, 0, 0, 0, 0)
+	AR = c(p$sigma_AR*p$p_F*p$rho*p$F, 0, 0, 0, 0, 0, 0)
+	AT = c(p$sigma_AT*p$p_F*p$rho*p$F, 0, 0, 0, 0, 0, 0)
 
 	F = cbind(L1, L2, L3, J1, J2, AR, AT)
 	return(F)
@@ -312,7 +312,7 @@ build_projection_matrix = function(params){
 
 # We also need the derivatives with respect to parameters
 get_sensitivity = function(params){
-	# Calculates sensitivites of lambda to sigma_AR, F, sigma_J1, sigma_J2
+	# Calculates sensitivites of lambda to sigma_AR, F, sigma_J1, sigma_J2, pl2, pj1, sigma_l1, sigma_l2, sigma_l3
 	#
 	# Parameters
 	# ----------
@@ -340,9 +340,9 @@ get_sensitivity = function(params){
 	# Parameters: [sigma_AR, omega, F]. From Caswell 2019, 3.42
 	part1 = kronecker(t(w), t(v)) / (t(v) %*% w)[1]
 	
-	# Derivatives with respect to sigma_AR, omega, F*pF, sigma_J1, sigma_J2
-	dAdsar = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$F*params$p_F, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
-	dAdF = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AR, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AT, 0, 0, 0, 0, 0, 0) 
+	# Derivatives with respect to sigma_AR, omega, F, sigma_J1, sigma_J2
+	dAdsar = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$F*params$p_F*params$rho, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+	dAdF = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AR*params$rho, 0, 0, 0, 0, 0, 0, params$p_F*params$sigma_AT*params$rho, 0, 0, 0, 0, 0, 0) 
 	dAdsj1 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, params$p_J1, (1 - params$p_J1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	dAdsj2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 	dAdpl2 = c(0, 0, 0, 0, 0, 0, 0, 0, 0, params$sigma_L2, -params$sigma_L2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

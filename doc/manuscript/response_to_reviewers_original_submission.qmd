@@ -51,7 +51,7 @@ Extremely well done!
 
 ### Reviewer 2
 
-This is an extremely important paper – the authors have conducted extraordinary conservation work an amphibian species known to be highly susceptible to the lethal fungal pathogen (Batrachochytrium dendrobatidis; “Bd”).
+This is an extremely important paper -- the authors have conducted extraordinary conservation work an amphibian species known to be highly susceptible to the lethal fungal pathogen (Batrachochytrium dendrobatidis; "Bd").
 Their efforts to reintroduce the Sierra Nevada yellow-legged frog (Rana sierrae) to locations where it had formally been extirpated using adults from naturally recovering populations is extremely promising.
 To my knowledge, this paper constitutes the largest reintroduction effort to date for an amphibian challenged by Bd, both in terms of the number of reintroductions and their subsequent success.
 I have few minor comments (below) and highly recommend publishing this paper.
@@ -63,49 +63,59 @@ Minor comments/suggestions: (these are in no order)
 1\.
 Line 90-98.
 It seems like the sentences that discuss the three primary objectives may not be complete sentences?
-It seems like they might need another word: e.g., First, ‘we’ determined whether…Second, ‘we’ identified….
+It seems like they might need another word: e.g., First, 'we' determined whether...Second, 'we' identified....
 Etc.
 Maybe authors mean to provide a list.
-We had three primary objectives (1) determine whether...; (2) identify important site,...
-(3) estimate the probability of persistence...but that is a lot to include in a single sentence, so I understand (and like) breaking it apart, but I am just not sure the sentence structure is correct - note: this is an extremely minor point.
+We had three primary objectives (1) determine whether...; (2) identify important site,... (3) estimate the probability of persistence...but that is a lot to include in a single sentence, so I understand (and like) breaking it apart, but I am just not sure the sentence structure is correct - note: this is an extremely minor point.
 
 [The sentences in question are complete sentences, and the reviewer's suggestion to add "we" to each sentence changes them from objectives to descriptions of the three components of the study. We did not make any changes to these sentences, but are open to any suggestions to improve the structure of these sentences.]{style="color: blue"}
 
 2\.
 The map in Figure 2 is a little hard to understand.
-First, the legend states that: “All populations are in Yosemite National Park (park boundary indicated by gray polygon)” – but I think the polygon is grey in the large map, but black in the inset.
+First, the legend states that: "All populations are in Yosemite National Park (park boundary indicated by gray polygon)" -- but I think the polygon is grey in the large map, but black in the inset.
 I would make the park boundary black in both maps.
-The legend also states: “In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).” This is a little difficult for me to see too – there is dark green in the inset corresponding the Central Valley, but in the larger map it looks like there is green on the top of the ridges, based on the perceived topography.
-Maybe I’m seeing the colors incorrectly.
+The legend also states: "In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation)." This is a little difficult for me to see too -- there is dark green in the inset corresponding the Central Valley, but in the larger map it looks like there is green on the top of the ridges, based on the perceived topography.
+Maybe I'm seeing the colors incorrectly.
 
 3\.
 Methods and associated supplemental materials
 
-a.  Line 348-354. This explanation is confusing because of the location of the '(primary period)' reference. As written, it seems like the authors are saying that a single day is the primary period - only after you read the supplemental information do you realize that they are using a site visit as the primary period. I think it’s good that the authors used the primary/secondary period terminology that is common for robust design CMR surveys, but I think it would be better and more correct to say:
+a.  Line 348-354. This explanation is confusing because of the location of the '(primary period)' reference. As written, it seems like the authors are saying that a single day is the primary period - only after you read the supplemental information do you realize that they are using a site visit as the primary period. I think it's good that the authors used the primary/secondary period terminology that is common for robust design CMR surveys, but I think it would be better and more correct to say:
 
-‘During 2006-2012, we conducted CMR surveys on a single day per site visit (primary period)....
-During 2013-2022, we generally used a robust design where all habitats were searched during several consecutive days (median number....) during each visit...’
+'During 2006-2012, we conducted CMR surveys on a single day per site visit (primary period)....
+During 2013-2022, we generally used a robust design where all habitats were searched during several consecutive days (median number....) during each visit...'
 
 In addition to the median number of secondary periods per primary period, it would also be nice to know the mean (or median) number of visits (primary periods) per summer active season during the study.
 At first, I thought that there was only 1 primary period per year, but the supplementary information clearly states: "Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and as late as September)." This would be a nice place to give the mean (or median) number of visits (primary periods) per summer active season.
 
 b.  Population viability model description.
 
--   The authors have 7 state variables which they define as ‘density’ of individuals in different life history states.
+-   The authors have 7 state variables which they define as 'density' of individuals in different life history states.
     Is this really density (individuals per unit area) or just the number of individuals.
+
+    -   [Good point. We are modeling abundance per population so we have replaced the word density with abundance to avoid confusion over the units of area.]{style="color: blue"}
 
 -   Additionally, are the authors modelling both males and females, or just females.
     Based on the model structure it looks like they are modelling females, as there is no adjustment for the proportion of females in the population.
     This should be clarified.
-    If I am correct, then shouldn’t fecundity be expressed as the number of female eggs?
+    If I am correct, then shouldn't fecundity be expressed as the number of female eggs?
 
--   I am also a little confused at what they consider ‘recruitment’ in this model.
+    -   [Thank you for the careful reading of our model. We are modeling the entire population, not just females, and are assuming a 50:50 sex ratio. This was not explicit in our equations and we have thus updated our viability model equation to explicitly include a parameter for sex ratio ]{style="color: blue"}($\rho$). While addressing this comment we noticed that we were not consistent with modeling females vs. total population between the deterministic and stochastic models. We have adjusted the deterministic model to be exactly analogous to the stochastic model (i.e., both modeling total population). We updated the deterministic model results to reflect this change. While predicted median deterministic growth rates were lower with this change, it did not change any of our conclusions regarding deterministic viability.
+
+-   I am also a little confused at what they consider 'recruitment' in this model.
     I understand the survival probability, indicated by sigma notation (σ), but none of the parameters listed in Supplementary Table 1 are termed recruitment.
-    However, in both the text the term is used in multiple places, e.g., lines 106, 102, 458 and figure legends (Fig 5), but I’m sure it means different thing in these places.
+    However, in both the text the term is used in multiple places, e.g., lines 106, 102, 458 and figure legends (Fig 5), but I'm sure it means different thing in these places.
     For this reason, I think the authors should clarify their use of the term, especially in the viability modelling.
-    To me, recruitment is conditional on survival so I would tend to equate it with (1- 𝑝𝐽1) or the probability that given a juvenile survives it ‘recruits’ or transitions into an adult frog.
-    I don’t think that is how the adults are using it in this model.
+    To me, recruitment is conditional on survival so I would tend to equate it with (1- 𝑝𝐽1) or the probability that given a juvenile survives it 'recruits' or transitions into an adult frog.
+    I don't think that is how the adults are using it in this model.
     I think they could refrain from using it at all in this section.
+
+    -   Good question.
+        This was a point of some discussion within our group.
+        For a juvenile to recruit to an adult, it has to survive, and thus $\sigma_{J_1}$ encompasses survival and recruitment.
+        This is why we used the language of "survival and recruitment" to describe this parameter in the text.
+        However, we see how this could potentially be confusing.
+        As we do not lose much biological interpretation by just referring to $\sigma_{J_1}$ as "survival" we have made this change throughout the text.
 
 4.  Given the page limitations employed by the journal, the authors must make decisions about what information to supply.
     Personally, I would have liked to see a little more information on the variation in recruitment (number of new adults a population) and population growth (change in abundance over time) among recipient sites.
@@ -113,17 +123,27 @@ b.  Population viability model description.
     Instead, the authors chose to use limited demographic estimates from reintroduced populations (adult survival only) in a population viability model to explore variation in population viability over 50 years.
     The only thing that varies across their 12 reintroduced populations in this exercise is adult survival; the other parameters are the same across populations (Supplementary Table 1).
     In essence, this exercise shows how population viability varies with adult survival.
-    It’s really important to choose reintroduction sites where adult annual survival exceeds 0.50, preferably 0.60, and the authors make a case that survival 1-year post-translocation is a good proxy for habitat quality; however, part of that case is assuming that all other demographic parameters are the same among populations, which is probably not true.
+    It's really important to choose reintroduction sites where adult annual survival exceeds 0.50, preferably 0.60, and the authors make a case that survival 1-year post-translocation is a good proxy for habitat quality; however, part of that case is assuming that all other demographic parameters are the same among populations, which is probably not true.
     The elasticity and sensitivity analyses associated with the viability analyses do suggest that adult survival is certainly the most important parameter (almost always true in vertebrate systems).
     Still, the decision of what to present given limited space is up to the authors and just because it does not match what this one reviewer would have preferred does not detract from the quality and quantity of work demonstrated in this paper.
     This is a really good paper and definitely worthy of publication in Nature Communications.
 
+    -   We appreciate the reviewer's thoughtful point.
+        It is worth noting that the viability analysis also explores variation in $\sigma_{J_1}$ which our sensitivity analyses indicate is likely the second most important parameter for viability following adult survival.
+        So we are actually exploring viability across environmental conditions that affect the two most important parameters for population growth.
+        While we certainly agree that other vital rates likely vary to some degree across population, we have good empirical and modeling evidence that the two parameter we explore are likely the most important for long-term viability.
+        As no changes were requested we, we did not make any.
+
 5.  Lines 221-233.
-    This is very true – congratulations!!
+    This is very true -- congratulations!!
+
+    Thanks
 
 6.  Line 252.
     I suggest revising this sentence; frog survival at natal (donor) sites was never reported.
     If you are referring to the difference between translocated and naturally recruited adults at the 3 recipient locations (Supplementary Fig. 3) I would clarify that.
+
+    \[Not sure what lines they are referring to\]
 
 ### Reviewer 3
 
