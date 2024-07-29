@@ -330,13 +330,13 @@ We parameterized the model using CMR data from translocated populations and know
 Results from a sensitivity analysis are provided in Supplementary Fig.
 4)
 
-Given observed yearly adult survival probabilities of translocated frogs (from site-specific mrmr CMR models; provided in legend of [@fig-viability]B) and a yearly survival probability of the year-1 juvenile class ($\sigma_{J_1}$) greater than 0.09, at least six of twelve translocated populations should experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd ([@fig-viability]A; median predicted $\lambda$ ranges from 1.19-1.40 for these six populations).
+Given observed yearly adult survival probabilities of translocated frogs (from site-specific mrmr CMR models; provided in legend of [@fig-viability]B) and a yearly survival probability of the year-1 juvenile class ($\sigma_{J_1}$) greater than 0.10, at least six of twelve translocated populations are likely to experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd ([@fig-viability]A; median predicted $\lambda$ ranges from 1.07-1.28 for these six populations).
 These six populations all had observed yearly adult survival greater than 0.5.
-As year-1 juvenile survival probability increased above 0.2, the deterministic long-run growth rate of eight of twelve population was greater than 1 ([@fig-viability]A).
+As year-1 juvenile survival probability increased above 0.2, the deterministic long-run growth rate of seven of twelve populations was greater than 1 ([@fig-viability]A).
 
-Even when incorporating (i) demographic stochasticity and (ii) environmental stochasticity in year-1 juvenile survival and recruitment (the transition that we expect to be the most subject to environmental variability in the presence of Bd), populations with high adult survival are likely to persist over a 50 year time horizon.
+Even when incorporating (i) demographic stochasticity and (ii) environmental stochasticity in year-1 juvenile survival (the transition that we expect to be the most subject to environmental variability in the presence of Bd), populations with high adult survival are likely to persist over a 50 year time horizon.
 Our model predicted that, following a single introduction of 40 adult individuals into a population, the six populations with the highest adult survival probabilities ($\sigma_{A_R} > 0.5$) had 50-year extinction probabilities of less than 0.5 when the average year-1 juvenile survival was greater than 0.10 ([@fig-viability]B).
-This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in survival and recruitment.
+This indicates strong potential for long-term persistence in the presence of Bd and environmental variability in juvenile survival.
 In contrast, for the six populations where yearly adult survival probability $\sigma_{A_R} < 0.5$, extinction probability over 50 years was always predicted to be \> 50% regardless of the value of mean year-1 juvenile survival between 0 and 0.25.
 To test the validity of our model predictions, we demonstrated that our stochastic model could describe the general recovery trajectory of our translocated population with the longest survey history ([@fig-viability]C; population 70550, surveyed for 16 years).
 
@@ -397,7 +397,8 @@ This extraordinary impact on global amphibian biodiversity is compounded by the 
 Importantly, in addition to the natural recovery documented for *R. sierrae* [@knapp2016], other amphibian species are also showing evidence of post-epizootic recovery in the presence of Bd [@scheele2017; @voyles2018] and suggest the possibility of also using animals from these recovering populations to reestablish extirpated populations.
 As with *R. sierrae*, the feasibility and long-term success of such efforts will depend on the availability of robust donor populations containing individuals that have sufficiently high resistance to allow frog survival and population growth in the presence of Bd.
 Despite the promising example provided by our study of successful reestablishment of *R. sierrae* despite ongoing Bd infection, the challenge of recovering hundreds of Bd-impacted amphibian species globally is a daunting prospect.
-An adaptive management approach such as the one we utilized, in which the outcomes of recovery actions are rigorously assessed and this information is used to reduce uncertainties and inform future actions, will be essential in maximizing the effectiveness of this global recovery effort \[@canessa2019\]. In addition, developing an improved understanding of the factors facilitating or limiting the development of frog resistance against Bd infection and the effectiveness of selective breeding programs and other genetic interventions to enhance frog resistance \[@kosch2022\] may be particularly important.
+An adaptive management approach such as the one we utilized, in which the outcomes of recovery actions are rigorously assessed and this information is used to reduce uncertainties and inform future actions, will be essential in maximizing the effectiveness of this global recovery effort [@canessa2019].
+In addition, developing an improved understanding of the factors facilitating or limiting the development of frog resistance against Bd infection and the effectiveness of selective breeding programs and other genetic interventions to enhance frog resistance [@kosch2022] may be particularly important.
 Although we now have a proven strategy to reestablish extirpated *R. sierrae* populations, recovery across their large historical range will require substantial resources over many decades.
 The results of this study provide a hopeful starting point for that endeavor and other future efforts worldwide.
 
@@ -478,8 +479,9 @@ Individual frogs and their associated Bd loads were included in the dataset only
 
 To determine the implications of observed 1-year adult survival on the long-term viability of populations established via translocation, we developed a population model for *R. sierrae*.
 Our central question was: How does the magnitude and variation in observed adult survival probability across translocated populations affect the long-term persistence probability of populations?
-We developed a model that tracked seven state variables of a frog population: density of translocated adults ($A_T$), density of adults naturally recruited into the population ($A_R$), density of first-year tadpoles ($L_1$), density of second-year tadpoles ($L_2$), density of third-year tadpoles ($L_3$), density of first-year juveniles ($J_1$), and density of second-year juveniles ($J_2$).
+We developed a model that tracked seven state variables of a frog population: abundance of translocated adults ($A_T$), abundance of adults naturally recruited into the population ($A_R$), abundance of first-year tadpoles ($L_1$), abundance of second-year tadpoles ($L_2$), abundance of third-year tadpoles ($L_3$), abundance of first-year juveniles ($J_1$), and abundance of second-year juveniles ($J_2$).
 We divided adults into two classes $A_T$ and $A_R$ because there is evidence that the survival probability of translocated adults and naturally recruited adults differs (Supplementary Fig. 3).
+The modeled population included both male and female frogs.
 
 We modeled the dynamics of these seven state variables using a discrete-time, stage-structured model where a time step is one year.
 The dynamics are given by
@@ -495,7 +497,7 @@ A_R \\
 A_T
 \end{bmatrix}(t + 1) = 
 \begin{bmatrix}
-  0 & 0 & 0 & 0 & 0 & \sigma_{A_R} p_F F & \sigma_{A_T} p_F F \\
+  0 & 0 & 0 & 0 & 0 & \sigma_{A_R} p_F \rho F & \sigma_{A_T} p_F \rho F \\
   \sigma_{L1} p_{L1} & 0 & 0 & 0 & 0 & 0 & 0 \\
   0 & \sigma_{L2} p_{L2} & 0 & 0 & 0 & 0 & 0\\
   \sigma_{L1} (1 - p_{L1}) & \sigma_{L2} (1 - p_{L2}) & \sigma_{L3} & 0 & 0 & 0 & 0 \\
@@ -513,8 +515,8 @@ A_T \\
 \end{bmatrix}(t) 
 $$
 
-The parameters in this model are yearly survival probability $\sigma_{\cdot}$ (the subscript "$\cdot$" indicates a particular state variable), probability that a female frog reproduces in a given year $p_F$, number of eggs produced by a female frog in a year that successfully hatch $F$, probability of a first-year tadpole remaining as a tadpole $p_{L1}$, probability of a second-year tadpole remaining as a tadpole $p_{L2}$, and probability of a first-year juvenile remaining as a juvenile $p_{J1}$.
-First-year juvenile survival and recruitment $\sigma_{J1}$ is the parameter that we think is most influenced by environmental stochasticity.
+The parameters in this model are yearly survival probability $\sigma_{\cdot}$ (the subscript "$\cdot$" indicates a particular state variable), probability that a female frog reproduces in a given year \$p_F\$, the percentage of adults that are female $\rho$, number of eggs produced by a female frog in a year that successfully hatch $F$, probability of a first-year tadpole remaining as a tadpole $p_{L1}$, probability of a second-year tadpole remaining as a tadpole $p_{L2}$, and probability of a first-year juvenile remaining as a juvenile $p_{J1}$.
+First-year juvenile survival $\sigma_{J1}$ is the parameter that we think is most influenced by environmental stochasticity.
 
 In this model we ignore density-dependent recruitment because we were interested in the growth of the population from an initial reintroduction and whether this growth was sufficient to prevent extinction over 50 years following the introduction.
 We also did not directly consider the dynamics of Bd in this model.
@@ -527,7 +529,7 @@ Additional details are provided in **Supporting Information - Population viabili
 After parameterizing our model with CMR-estimated adult frog survival probabilities and other known vital rates (Supplementary Table 1), we performed four analyses.
 First, we compute the long-run growth rate $\lambda$ for each of our 12 translocated populations to determine if the populations were deterministically predicted to grow or decline in the long-run.
 Second, we compute the elasticity and sensitivity of $\lambda$ to nine model parameters to quantify how much changes in these parameters affected the long-run growth rate (Supplemental Fig. 4).
-This also helped us determine where in the model environmental variation in juvenile survival and recruitment would have the largest effects on population dynamics.
+This also helped us determine where in the model environmental variation in juvenile survival would have the largest effects on population dynamics.
 Third, we included demographic stochasticity and environmental stochasticity in $\sigma_{J_1}$ in our model and simulated the 50-year viability (i.e., 1 - extinction probability) of populations given an introduction of 40 adult individuals into an unoccupied habitat.
 Finally, we fit our model to our longest translocation trajectory to confirm that our model could reasonably reproduce the observed recovery trajectories of *R. sierrae* following reintroductions.
 Additional details are provided in **Supporting Information - Population viability modeling - Model analysis and simulation**.
@@ -594,4 +596,4 @@ The authors declare no competing interests.
 
 \newpage
 
-![**Estimated growth rates and extinction probabilities of reintroduced populations**. **A** Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and year-1 juvenile survival and recruitment probability $\sigma_{J_1}$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when year-1 juvenile survival probability is $\sigma_{J_1} = 0.09$ (indicated by the dashed line). The red line shows where $\lambda = 1$. Note that the point for 70413 is mostly hidden behind other points. **B** Predicted 50-year extinction probabilities of the 12 reintroduced populations, given demographic stochasticity, environmental variability in $\sigma_{J_1}$, and different mean values of $\sigma_{J_1}$. There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are partially or completely hidden beneath the line for 70505. **C** 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="95%"}
+![**Estimated growth rates and extinction probabilities of reintroduced populations**. **A** Predicted long-run growth rate $\lambda$ for different values of yearly adult survival probability $\sigma_{A_R}$ and year-1 juvenile survival probability $\sigma_{J_1}$, given the parameterized, deterministic model. Colored points show the predicted $\lambda$ values for the twelve translocated populations when year-1 juvenile survival probability is $\sigma_{J_1} = 0.10$ (indicated by the dashed line). The red line shows where $\lambda = 1$. Note that the point for 70413 is mostly hidden behind other points. **B** Predicted 50-year extinction probabilities of the 12 reintroduced populations, given demographic stochasticity, environmental variability in $\sigma_{J_1}$, and different mean values of $\sigma_{J_1}$. There are 6 lines at extinction probability = 1, 5 of which (70414--70619) are partially or completely hidden beneath the line for 70505. **C** 100 simulated trajectories (black lines) from the population viability model that most closely matched the observed abundance trajectory of adult amphibians at site 70550 (light orange).](figures/pop_viability_figures_for_manuscript.jpg){#fig-viability width="95%"}
