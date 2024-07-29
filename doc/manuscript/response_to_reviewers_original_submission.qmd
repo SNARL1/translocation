@@ -5,25 +5,17 @@ format: html
 editor: visual
 ---
 
-Our point-by-point response to all comments from the three reviewers is provided below.
-Reviewer comments are in black and our responses are in blue.
+Our point-by-point response to all comments from the three reviewers is provided below. Reviewer comments are in black and our responses are in blue.
 
 ### Reviewer 1
 
-This is a brilliant manuscript that advances our understanding and ability to mitigate the impact of the worst disease to impact vertebrates, chytridiomycosis.
-The main findings are that reintroduced frogs sourced from populations of the Sierra Nevada yellow-legged frog (Rana sierrae) that are recovering from initial outbreaks and have increased resistance against chytridiomycosis are able to reestablish populations in the presence of the pathogen, Bd.
-The authors also investigated factors affecting reintroduction success and found that site, cohort, and frog attributes were important.
-They modelled the viability of reintroduced populations suggesting that many have a low probability of extinction over 50 years.
+This is a brilliant manuscript that advances our understanding and ability to mitigate the impact of the worst disease to impact vertebrates, chytridiomycosis. The main findings are that reintroduced frogs sourced from populations of the Sierra Nevada yellow-legged frog (Rana sierrae) that are recovering from initial outbreaks and have increased resistance against chytridiomycosis are able to reestablish populations in the presence of the pathogen, Bd. The authors also investigated factors affecting reintroduction success and found that site, cohort, and frog attributes were important. They modelled the viability of reintroduced populations suggesting that many have a low probability of extinction over 50 years.
 
-The work has major significance to the growing fields of chytrididomycosis, wildlife diseases, mitigation of threatening processes, conservation, reintroduction of species and related fields.
-The work is original and the first to demonstrate reintroduction of resistant frogs as a viable long term solution for recovering amphibian populations from the impacts of chytridiomycosis.
-The evidence presented supports the conclusions of the authors and the methodology is sound.
-The figures are excellent.
+The work has major significance to the growing fields of chytrididomycosis, wildlife diseases, mitigation of threatening processes, conservation, reintroduction of species and related fields. The work is original and the first to demonstrate reintroduction of resistant frogs as a viable long term solution for recovering amphibian populations from the impacts of chytridiomycosis. The evidence presented supports the conclusions of the authors and the methodology is sound. The figures are excellent.
 
 Some suggestions for improvement of the manuscript:
 
-I appreciate the arguments made in favour of frog resistance rather than site characteristics being the reason for translocation success.
-Perhaps the strongest argument is that non resistant frogs were extirpated from these sites previously and would be expected to be extirpated again unless they had evolved resistance and this could be stated in the discussion.
+I appreciate the arguments made in favour of frog resistance rather than site characteristics being the reason for translocation success. Perhaps the strongest argument is that non resistant frogs were extirpated from these sites previously and would be expected to be extirpated again unless they had evolved resistance and this could be stated in the discussion.
 
 [We added a sentence to the Discussion to make the point highlighted by the reviewer more strongly (Discussion - 2nd para, last sentence)]{style="color: blue"}
 
@@ -35,8 +27,7 @@ Similarly, the manuscript could perhaps expand on the barriers to natural recove
 
 [This in-depth topic would require the addition of a substantial amount of new text, and would be better addressed in a separate manuscript. As such, we have chosen not to expand our treatment of this topic in the current manuscript.]{style="color: blue"}
 
-Perhaps the authors could make a point in the discussion regarding the importance of sustained effort and using adaptive management techniques.
-This approach ensured they improved their ability to choose recipient sites with higher habitat quality and ultimately led to improved translocation success.
+Perhaps the authors could make a point in the discussion regarding the importance of sustained effort and using adaptive management techniques. This approach ensured they improved their ability to choose recipient sites with higher habitat quality and ultimately led to improved translocation success.
 
 [We added a sentence to the Discussion to make the point suggested by the reviewer (Discussion, last paragraph)]{style="color: blue"}
 
@@ -44,8 +35,7 @@ Finally, perhaps the conclusions could be a little more hopeful given the study'
 
 [We agree with the reviewer that important progress is being made to mitigate the impacts of chytridiomycosis on the world's amphibians. Nonetheless, many challenges remain and we don't want to oversell the significance of our study and that of other recent studies (as cited by the reviewer). In writing the final paragraph of the Discussion, we sought to provide a balanced view of the importance of our study and the many challenges that remain. We suggest that we have stuck a reasonable balance and did not make any changes in response to this comment.]{style="color: blue"}
 
-Congratulations to the authors on a very impressive body of work and most importantly, wonderful results for amphibian conservation.
-Extremely well done!
+Congratulations to the authors on a very impressive body of work and most importantly, wonderful results for amphibian conservation. Extremely well done!
 
 [We appreciate the reviewer's enthusiastic endorsement of our study.]{style="color: blue"}
 
@@ -77,16 +67,16 @@ I would make the park boundary black in both maps.
 The legend also states: "In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation)." This is a little difficult for me to see too -- there is dark green in the inset corresponding the Central Valley, but in the larger map it looks like there is green on the top of the ridges, based on the perceived topography.
 Maybe I'm seeing the colors incorrectly.
 
-3\.
-Methods and associated supplemental materials
+3\. Methods and associated supplemental materials
 
 a.  Line 348-354. This explanation is confusing because of the location of the '(primary period)' reference. As written, it seems like the authors are saying that a single day is the primary period - only after you read the supplemental information do you realize that they are using a site visit as the primary period. I think it's good that the authors used the primary/secondary period terminology that is common for robust design CMR surveys, but I think it would be better and more correct to say:
+
 
 'During 2006-2012, we conducted CMR surveys on a single day per site visit (primary period)....
 During 2013-2022, we generally used a robust design where all habitats were searched during several consecutive days (median number....) during each visit...'
 
-In addition to the median number of secondary periods per primary period, it would also be nice to know the mean (or median) number of visits (primary periods) per summer active season during the study.
-At first, I thought that there was only 1 primary period per year, but the supplementary information clearly states: "Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and as late as September)." This would be a nice place to give the mean (or median) number of visits (primary periods) per summer active season.
+
+In addition to the median number of secondary periods per primary period, it would also be nice to know the mean (or median) number of visits (primary periods) per summer active season during the study. At first, I thought that there was only 1 primary period per year, but the supplementary information clearly states: "Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and as late as September)." This would be a nice place to give the mean (or median) number of visits (primary periods) per summer active season.
 
 b.  Population viability model description.
 
