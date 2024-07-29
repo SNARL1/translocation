@@ -100,7 +100,7 @@ b.  Population viability model description.
     This should be clarified.
     If I am correct, then shouldn't fecundity be expressed as the number of female eggs?
 
-    -   [Thank you for the careful reading of our model. We are modeling the entire population, not just females, and are assuming a 50:50 sex ratio. This was not explicit in our equations and we have thus updated our viability model equation to explicitly include a parameter for sex ratio ]{style="color: blue"}($\rho$). While addressing this comment we noticed that we were not consistent with modeling females vs. total population between the deterministic and stochastic models. We have adjusted the deterministic model to be exactly analogous to the stochastic model (i.e., both modeling total population). We updated the deterministic model results to reflect this change. While predicted median deterministic growth rates were lower with this change, it did not change any of our conclusions regarding deterministic viability.
+    -   [Thank you for the careful reading of our model. We are modeling the entire population, not just females, and are assuming a 50:50 sex ratio. This was not explicit in our equations and we have thus updated our viability model equation to explicitly include a parameter for sex ratio ($\rho$). We now describe this parameter in the Table in the supplementary material. While addressing this comment, we noticed that we were not consistent with modeling females vs. total population between the deterministic and stochastic models. We have updated the deterministic model to be exactly analogous to the stochastic model (i.e., both are now modeling total population). Our conclusions regarding viability are unchanged.]{style="color: blue"}
 
 -   I am also a little confused at what they consider 'recruitment' in this model.
     I understand the survival probability, indicated by sigma notation (σ), but none of the parameters listed in Supplementary Table 1 are termed recruitment.
@@ -110,12 +110,7 @@ b.  Population viability model description.
     I don't think that is how the adults are using it in this model.
     I think they could refrain from using it at all in this section.
 
-    -   Good question.
-        This was a point of some discussion within our group.
-        For a juvenile to recruit to an adult, it has to survive, and thus $\sigma_{J_1}$ encompasses survival and recruitment.
-        This is why we used the language of "survival and recruitment" to describe this parameter in the text.
-        However, we see how this could potentially be confusing.
-        As we do not lose much biological interpretation by just referring to $\sigma_{J_1}$ as "survival" we have made this change throughout the text.
+    -   [Good question. This was a point of some discussion within our group. For a juvenile to recruit to an adult, it has to survive, and thus $\sigma_{J_1}$ encompasses survival and recruitment. This is why we used the language of "survival and recruitment" to describe this parameter in the text. However, we see how this could be confusing. As we do not lose much biological interpretation by just referring to $\sigma_{J_1}$ as "survival" we have made this change throughout the text as suggested by the reviewer.]{style="color: blue"}
 
 4.  Given the page limitations employed by the journal, the authors must make decisions about what information to supply.
     Personally, I would have liked to see a little more information on the variation in recruitment (number of new adults a population) and population growth (change in abundance over time) among recipient sites.
@@ -128,22 +123,18 @@ b.  Population viability model description.
     Still, the decision of what to present given limited space is up to the authors and just because it does not match what this one reviewer would have preferred does not detract from the quality and quantity of work demonstrated in this paper.
     This is a really good paper and definitely worthy of publication in Nature Communications.
 
-    -   We appreciate the reviewer's thoughtful point.
-        It is worth noting that the viability analysis also explores variation in $\sigma_{J_1}$ which our sensitivity analyses indicate is likely the second most important parameter for viability following adult survival.
-        So we are actually exploring viability across environmental conditions that affect the two most important parameters for population growth.
-        While we certainly agree that other vital rates likely vary to some degree across population, we have good empirical and modeling evidence that the two parameter we explore are likely the most important for long-term viability.
-        As no changes were requested we, we did not make any.
+    -   [We appreciate the reviewer's thoughtful point. It is worth noting that the viability analysis also explores variation in $\sigma_{J_1}$ --- a parameter that our sensitivity analyses indicate is likely the second most important parameter for viability following adult survival. So we are actually exploring viability across environmental conditions that affect the two most important parameters for population growth. While we agree that other vital rates likely vary to some degree across population, we have good empirical and modeling evidence that the two parameters we explore are the most important for long-term viability. As no changes were requested we, we did not make any.]{style="color: blue"}
 
 5.  Lines 221-233.
     This is very true -- congratulations!!
 
-    Thanks
+    [Thanks]{style="color: blue"}
 
 6.  Line 252.
     I suggest revising this sentence; frog survival at natal (donor) sites was never reported.
     If you are referring to the difference between translocated and naturally recruited adults at the 3 recipient locations (Supplementary Fig. 3) I would clarify that.
 
-    \[Not sure what lines they are referring to\]
+    [ROLAND: I am not sure what exactly this is referring to as I don't have the line numbers for the submission.]{style="color: blue"}
 
 ### Reviewer 3
 
@@ -156,10 +147,14 @@ As a general comment, you mention that the three donor populations are large, wi
 There is a reasonable potential for creating a genetic bottleneck as a results of these reintroductions in the absence of some kind of genetic monitoring.
 Also, it would be useful to briefly explain why are reintroductions important (and cost-effective) instead of simply waiting for these recovering populations to naturally expand over time.
 The methods look sound but I have limited experience in this type of multilevel Bayesian modelling.
+
 Detailed comments Title- Just a suggestion but for me the title would benefit from mentioning the species.
 Your work obviously has wider implications but remains currently very species-specific.
 Line 155- for me this aspect of the apparent high variability linked to donor population is important and I suggest should be highlighted both in the results and especially in the discussion as a separate point.
 Would the reintroductions be feasible in terms of achieving long term population viability with the lowest survival based on donor population?
+
+-   [Good question. Our population viability analyses show that long-term viability is significantly more likely when 1-year adult survival probability is \>0.5. We hesitate to try to separate the effect of recipient site and donor population on 1-year adult survival as these factors were not crossed in our study (an inevitable logistical constraint when working on real landscapes and taking into account host landscape genetics \[ROLAND, update as needed\]). That being said, there is strong support from the model that the lowest 1-year survival from donor population 72996 would not be sufficient for long-term viability (\< 0.5) while the lowest 1-year adult survival from 70459 and 70567 would be sufficient for long-term viability (\> 0.5). While it is tempting to conclude that donor populations 70459 and 70567 should be the focus of subsequent translocations, our design cannot disentangle site and donor effects.]{style="color: blue"}
+
 Line 266- I suggest more caution in this statement and perhaps combining with the following sentence, which seems a reasonable explanation but remains based on a relatively small number of sites and reintroduction events.
 I would strongly expect specific weather patterns to also play an important role in any given year, even if these might be rarer events that you have not yet captured.
 Line 288- for me the value in this call for additional research warrants some brief but specific details about what that would entail.
