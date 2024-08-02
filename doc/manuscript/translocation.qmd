@@ -392,13 +392,22 @@ This high susceptibility of metamorphs is documented in numerous species of anur
 In both naturally recovering and reintroduced *R. sierrae* populations, we suggest that the high mortality of metamorphs is an important limitation on subsequent recruitment of new adults.
 Therefore, although adult *R. sierrae* appear relatively resistant, Bd infection continues to have important limiting effects on recovering populations (see also [@hollanders2022]).
 
-The recent emergence of Bd worldwide has contributed to the decline of hundreds of amphibian species, some of which are now extinct in the wild [@scheele2019].
-This extraordinary impact on global amphibian biodiversity is compounded by the lack of any effective and broadly applicable strategies to reverse these impacts [@garner2016; @knapp2022].
+Our successful use of translocations to reestablish *R. sierrae* populations despite ongoing Bd infection is particularly important because natural recovery alone appears insufficient to allow reestablishment of populations at the landscape scale.
+Naturally recovering populations in Yosemite are relatively rare and are often isolated from other such populations and from suitable but vacant habitats.
+This isolation is the consequence of both natural fragmentation due to rugged geography and the ongoing presence of introduced, predatory trout in the majority of lakes and streams [@bradford1993].
+Collectively, these factors often prevent naturally recovering *R. sierrae* populations from expanding via dispersal of frogs to nearby unoccupied habitats.
+Translocations allowed us to overcome these dispersal limitations and reestablish populations in sites that would otherwise remain unoccupied for the foreseeable future.
+Of particular note are the translocations that we conducted as part of the current study into areas from which *R. sierrae* were completely extirpated, but instead of single isolated habitats these areas contained habitats composed of interconnected fishless lakes, ponds, marshes, and/or streams.
+Successful reestablishment of one *R. sierrae* population in such areas has produced a source of frogs from which adults and juveniles are now dispersing into adjacent habitats.
+This process of translocation, establishment, and subsequent dispersal has significant potential to eventually allow the reestablishment of robust metapopulations that may be more resilient to ongoing and future natural and anthropogenic impacts than more fragmented populations (e.g., [@heard2015]).
+
+The promising example provided by our study of successful reestablishment of *R. sierrae* despite ongoing Bd infection may provide an important roadmap for ongoing and future efforts to recover the hundreds of Bd-impacted amphibian species globally.
 Importantly, in addition to the natural recovery documented for *R. sierrae* [@knapp2016], other amphibian species are also showing evidence of post-epizootic recovery in the presence of Bd [@scheele2017; @voyles2018] and suggest the possibility of also using animals from these recovering populations to reestablish extirpated populations.
 As with *R. sierrae*, the feasibility and long-term success of such efforts will depend on the availability of robust donor populations containing individuals that have sufficiently high resistance to allow frog survival and population growth in the presence of Bd.
-Despite the promising example provided by our study of successful reestablishment of *R. sierrae* despite ongoing Bd infection, the challenge of recovering hundreds of Bd-impacted amphibian species globally is a daunting prospect.
-An adaptive management approach such as the one we utilized, in which the outcomes of recovery actions are rigorously assessed and this information is used to reduce uncertainties and inform future actions, will be essential in maximizing the effectiveness of this global recovery effort [@canessa2019].
-In addition, developing an improved understanding of the factors facilitating or limiting the development of frog resistance against Bd infection and the effectiveness of selective breeding programs and other genetic interventions to enhance frog resistance [@kosch2022] may be particularly important.
+We suggest that several components of recovery efforts could play important roles in maximizing their success.
+First, an adaptive management approach such as the one we utilized, in which the outcomes of recovery actions are rigorously assessed and this information is used to reduce uncertainties and inform future actions, will often be essential [@canessa2019].
+Second, given the apparent rarity in amphibians of evolution of resistance against Bd infection, developing an improved understanding of the factors facilitating or limiting the development of frog resistance and the effectiveness of selective breeding programs and other genetic interventions to enhance frog resistance [@kosch2022] may be particularly important.
+Finally, although we did not quantify the genetic structure of the donor and translocated populations of *R. sierrae* as part of the current study, conducting genetic monitoring may be important to identify sub-optimal genetic outcomes during establishment of translocated populations (e.g., genetic bottlenecks) and allow timely implementation of actions to mitigate such effects [@whiteley2015].
 Although we now have a proven strategy to reestablish extirpated *R. sierrae* populations, recovery across their large historical range will require substantial resources over many decades.
 The results of this study provide a hopeful starting point for that endeavor and other future efforts worldwide.
 
@@ -420,10 +429,10 @@ In subsequent years, we improved our site selection process by incorporating new
 We conducted `r transno_min`--`r transno_max` translocations per site (@fig-yosemap, @fig-translocation-survival) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
 In preparation for each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
 Frogs were transported to the recipient site either on foot or via helicopter.
-Following release, we visited translocated populations approximately once per month during the summer active season and conducted diurnal CMR surveys and VES (summer active season is generally July-August but can start as early as May and end as late as September; range of survey dates = May-25 to Sep-29, range of translocation dates = Jun-28 to Sep-02; median number of visits per summer = `r round(surveys_yr_median)`, range = `r surveys_yr_min`--`r surveys_yr_max`).
+Following release, we visited translocated populations approximately once per month during the summer active season to conduct diurnal CMR surveys and VES (summer active season is generally July-August but can start as early as May and end as late as September; range of survey dates = May-25 to Sep-29, range of translocation dates = Jun-28 to Sep-02; median number of visits/primary periods per summer = `r round(surveys_yr_median)`, range = `r surveys_yr_min`--`r surveys_yr_max`).
 CMR surveys allowed estimation of adult survival, recruitment of new adults, and adult population size.
 VES provided estimates of tadpole and juvenile abundance.
-During 2006-2012, we conducted CMR surveys on a single day per site visit (primary period) , during which we searched all habitats repeatedly for adult frogs.
+During 2006-2012, we conducted CMR surveys on a single day per site visit (primary period), during which we searched all habitats repeatedly for adult frogs.
 Frogs were captured using handheld nets, identified via their PIT tag (or tagged if they were untagged), measured, weighed, swabbed, and released at the capture location.
 During 2013-2022, we generally used a robust design in which all habitats were searched during several consecutive days (median number of secondary periods per primary period = `r round(robust_year_median)`; range = `r robust_year_min`--`r robust_year_max`), and frogs were processed as described above.
 However, when the number of frogs detected on the first survey day was zero or near zero, we typically conducted only a single-day CMR survey.
@@ -584,7 +593,7 @@ The authors declare no competing interests.
 
 \newpage
 
-![**Locations of translocated and donor *R. sierrae* populations.** All populations are in Yosemite National Park (park boundary indicated by gray polygon). Symbol shapes indicate the donor population used for each translocation site, and 5-digit numbers identify each donor and translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, elevation is indicated by the colored hillshade layer (dark green = lowest elevation, white = highest elevation).](figures/map_translocation_points.png){#fig-yosemap width="60%"}
+![**Locations of translocated and donor *R. sierrae* populations.** All populations are in Yosemite National Park (park boundary indicated by black polygon). Symbol shapes indicate the donor population used for each translocation site, and 5-digit numbers identify each donor and translocation site. To obscure the exact locations of populations, random noise was added to all point coordinates. Inset map shows the location of Yosemite within California. In both maps, topography is shown with a grayscale hillshade layer, and elevation is indicated by colors layered over the hillshade. In the absence of hillshading, dark green colors indicate the lowest elevations and white indicates the highest elevation.](figures/map_translocation_points.png){#fig-yosemap width="60%"}
 
 \newpage
 

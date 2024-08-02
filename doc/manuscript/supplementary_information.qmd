@@ -61,7 +61,7 @@ Here, $M$ was chosen to be three times the number of observed individuals ($3N_s
 We denote the true state of individual $i$ as $u_{i, t}$ for primary period $t = 1,..., n_t$.
 The states that we consider are: $u_{i, t} = 1$ for individuals that have not recruited, $u_{i, t} =2$ for live adults, and $u_{i, t} = 3$ for dead adults.
 Each survey $j=1, ..., n_j$ occurs in one of the $n_t$ primary periods, and we denote the primary period in which survey $j$ takes place as $t_j$.
-Multiple primary periods can occur during a summer active season (typically July-August, but in some years as early as May and as late as September).
+Multiple primary periods can occur during a summer active season (see Methods).
 We set the year containing the first primary period to $y_{t = 1} = 1$, and generally $y_t$ represents the year containing primary period $t$.
 Years increment by one until the final year of the mark recapture efforts, which we denote $n_y$: $y \in \{1, 2, ..., n_y\}$.
 We assume that within a primary period, the state of each individual does not change (i.e., individuals do not recruit into the adult population, gain or lose Bd infection, or die).
@@ -276,7 +276,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 ### Tables
 
 | **Parameter**                                                             | **Value**            | **Source**                                                                        |
-|:-------------------------|:------------------|:---------------------------|
+|:--------------------------------------------------------------------------|:---------------------|:----------------------------------------------------------------------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year-1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_2}$, Yearly survival probability of year-2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
 | $\sigma_{L_3}$, Yearly survival probability of year-3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
