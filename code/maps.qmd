@@ -170,7 +170,7 @@ hillshade_yose_crop <- st_transform(hillshade_yose_crop, 26911)
 translocation_points_map <- tm_shape(hillshade_yose_crop) + 
   tm_rgb(r = 1, g = 2, b = 3) +
   tm_shape(yose_boundary) + 
-  tm_borders(col = "#737373", lwd = 2) +
+  tm_borders(col = "black", lwd = 2) +
   tm_shape(translocation_points) + 
   tm_symbols(size = 4, 
              shape = "donor_id",
