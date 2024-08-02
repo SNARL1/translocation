@@ -9,6 +9,7 @@ _extensions/
 .Ruserdata
 doc/manuscript/translocation.pdf
 doc/manuscript/supplementary_information.pdf
+doc/manuscript/cover_letter_nature_comm.pdf
 out/lambda_estimates.pdf
 *.log
 *.aux
