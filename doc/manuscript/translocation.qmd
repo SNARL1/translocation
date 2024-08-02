@@ -369,7 +369,7 @@ In particular, translocated populations with \> 50% survival in the first year p
 The viability model highlighted the important role of frog survival in affecting long-term population viability, and allowed us to extend the temporal scale of our study beyond the years covered by our post-translocation surveys.
 These long-term forecasts are important, given that reintroduced *R. sierrae* populations may often take decades to achieve our ultimate goal of self-sustainability [@joseph2018].
 Making well-supported projections about the long-term outcome of reintroduction efforts from shorter-term information is crucial for adaptive management of species reintroduction programs [@seddon2007], including the one we are carrying out for *R. sierrae*.
-Specifically, the combined results from our reintroduction study and viability modeling indicate that survival of frogs in the first year following translocation is an effective proxy of longer-term survival and population viability.
+Specifically, the combined results from our reintroduction study and viability modeling suggest that survival of frogs in the first year following translocation is an effective proxy of longer-term survival and population viability.
 In addition, given the repeatability of frog survival at a site, 1-year frog survival also serves as an effective proxy of site quality (i.e., the ability of a site to support high frog survival and a viable frog population over the long term).
 This proxy of site quality is important in the *R. sierrae* system because accurately predicting the ability of a site to support a viable frog population *a priori* remains difficult, even after conducting 24 translocations over 16 years.
 
@@ -379,7 +379,9 @@ For example, elevation is correlated with several attributes that may influence 
 The latter can influence the duration of frog life stages that have differential susceptibility to chytridiomycosis (see below).
 The duration of the tadpole and juvenile stages increases with elevation, but the fact that long-run population growth rate from our viability model is relatively insensitive to variation in these durations suggests that developmental rates of early frog life stages have minimal effect on the predicted long-term viability of reintroduced populations.
 The mechanisms underlying the effect of donor population on the probability of post-translocation frog survival is intriguing, and could indicate population-specific fitness differences of frogs in the presence of Bd.
-A clearer understanding of the mechanistic components of the elevation and donor population variables will require additional research.
+Although our study design did not allow us to completely separate the effects of donor population and recipient site on 1-year adult survival, we are currently doing so using a modified study design.
+Specifically, we are conducting translocations in which frogs from several donor populations are added concurrently to a single site.
+Survival of frogs from each donor population is estimated using CMR and the contribution of each donor population to subsequent generations is quantified using genetic methods.
 
 <!--# Include paragraph describing implications for habitat quality on frog survival in the presence of Bd? This would blunt the view of PNAS editor that we put frogs in the "wrong" places. In the presence of Bd-caused mortality, habitats that once would have supported frog populations may no longer do so because the extra mortality changes population growth from positive to negative. As such, choosing the highest quality habitats may be important for maximizing the probability of population reestablishment.  -->
 
@@ -391,6 +393,7 @@ In addition to these important but relatively subtle effects of Bd on adults, th
 This high susceptibility of metamorphs is documented in numerous species of anurans, and may result from the poorly developed immune system characteristic of this life stage [@humphries2022].
 In both naturally recovering and reintroduced *R. sierrae* populations, we suggest that the high mortality of metamorphs is an important limitation on subsequent recruitment of new adults.
 Therefore, although adult *R. sierrae* appear relatively resistant, Bd infection continues to have important limiting effects on recovering populations (see also [@hollanders2022]).
+The ongoing high susceptibility of metamorphs to chytridiomycosis also highlights the critical need to develop better methods of monitoring this vulnerable life stage, the results of which could significantly advance the conservation and recovery of Bd-impacted amphibians.
 
 Our successful use of translocations to reestablish *R. sierrae* populations despite ongoing Bd infection is particularly important because natural recovery alone appears insufficient to allow reestablishment of populations at the landscape scale.
 Naturally recovering populations in Yosemite are relatively rare and are often isolated from other such populations and from suitable but vacant habitats.
@@ -408,7 +411,9 @@ We suggest that several components of recovery efforts could play important role
 First, an adaptive management approach such as the one we utilized, in which the outcomes of recovery actions are rigorously assessed and this information is used to reduce uncertainties and inform future actions, will often be essential [@canessa2019].
 Second, given the apparent rarity in amphibians of evolution of resistance against Bd infection, developing an improved understanding of the factors facilitating or limiting the development of frog resistance and the effectiveness of selective breeding programs and other genetic interventions to enhance frog resistance [@kosch2022] may be particularly important.
 Finally, although we did not quantify the genetic structure of the donor and translocated populations of *R. sierrae* as part of the current study, conducting genetic monitoring may be important to identify sub-optimal genetic outcomes during establishment of translocated populations (e.g., genetic bottlenecks) and allow timely implementation of actions to mitigate such effects [@whiteley2015].
-Although we now have a proven strategy to reestablish extirpated *R. sierrae* populations, recovery across their large historical range will require substantial resources over many decades.
+
+In conclusion, we now have a proven strategy to reestablish extirpated *R. sierrae* populations,.
+However, recovery across their large historical range will require substantial resources over many decades.
 The results of this study provide a hopeful starting point for that endeavor and other future efforts worldwide.
 
 ### Methods
@@ -425,6 +430,7 @@ Recipient sites to which frogs were translocated were chosen based on previous *
 At the beginning of this study, we had a relatively limited understanding of the factors that affect habitat quality.
 In subsequent years, we improved our site selection process by incorporating new information about important habitat features, in particular, overwintering habitats such as submerged boulders and overhanging banks.
 *R. sierrae* were absent from all recipient sites prior to the first translocation.
+This determination was based on VES conducted at recipient sites over several years (see additional details below regarding frog detectability during VES).
 
 We conducted `r transno_min`--`r transno_max` translocations per site (@fig-yosemap, @fig-translocation-survival) and each translocated cohort included `r transfrogs_min` to `r transfrogs_max` frogs (median = `r transfrogs_median`).
 In preparation for each translocation, adult frogs were collected from the donor population and measured, weighed, swabbed, and PIT tagged.
