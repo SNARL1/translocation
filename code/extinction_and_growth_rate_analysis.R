@@ -488,6 +488,7 @@ myplot = ((ptile + pext + ptraj) + plot_annotation(tag_levels="a", tag_suffix=""
 					theme(plot.tag = element_text(face = 'bold'), plot.tag.position  = c(0.17, 1)))
 ggsave(file.path("..", "out", "pop_viability_figures_for_manuscript.png"), width=11, height=5, dpi=300)
 
-myplot = (p2 + p2b) + plot_annotation(tag_levels="a", tag_suffix="")
+myplot = ((p2 + p2b) + plot_annotation(tag_levels="a", tag_suffix="") & 
+					theme(plot.tag = element_text(face = 'bold'), plot.tag.position  = c(0.14, 1)))
 ggsave(file.path("..", "out", "pop_viability_figures_for_supp.png"), width=9, height=4, dpi=300)
 
