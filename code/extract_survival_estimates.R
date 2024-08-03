@@ -167,7 +167,7 @@ ggplot(all_dt) +
 				ylab("Yearly survival probability") + xlab("Lake ID") + 
 				theme_classic() + theme(legend.title=element_blank()) + ylim(c(0, 1))
 
-ggsave(file.path("..", "out", "compare_surv_probs.jpg"), width=6, height=4)
+ggsave(file.path("..", "out", "compare_surv_probs.png"), width=6, height=4)
 
 
 

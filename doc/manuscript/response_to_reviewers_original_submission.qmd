@@ -28,7 +28,7 @@ Some suggestions for improvement of the manuscript:
 
 2.  The manuscript could possibly be improved by recognising that although many species have failed to evolve resistance, this may occur over a longer time frame or alternatively, species could be assisted to evolve resistance through selective breeding programs etc (Kosch et al 2022).
 
-[We added addition text to the Discussion to make the point suggested by the reviewer (lnes 346-350)]{style="color: blue"}
+[We added additional text to the Discussion to make the point suggested by the reviewer (lines 346-350)]{style="color: blue"}
 
 3.  Similarly, the manuscript could perhaps expand on the barriers to natural recovery and spread of resistant populations and the importance of considering elevational disease gradients and connectivity when choosing reintroduction sites (Bell et al 2020).
 
@@ -64,8 +64,7 @@ It seems like the sentences that discuss the three primary objectives may not be
 It seems like they might need another word: e.g., First, 'we' determined whether...Second, 'we' identified....
 Etc.
 Maybe authors mean to provide a list.
-We had three primary objectives (1) determine whether...; (2) identify important site,...
-(3) estimate the probability of persistence...but that is a lot to include in a single sentence, so I understand (and like) breaking it apart, but I am just not sure the sentence structure is correct - note: this is an extremely minor point.
+We had three primary objectives (1) determine whether...; (2) identify important site,... (3) estimate the probability of persistence...but that is a lot to include in a single sentence, so I understand (and like) breaking it apart, but I am just not sure the sentence structure is correct - note: this is an extremely minor point.
 
 [The sentences in question (lines 90-98) are complete sentences, and the reviewer's suggestion to add "we" to each sentence changes them from objectives to descriptions of the three components of the study. We did not make any changes in response to this comment, but we are open to any suggestions to improve the structure of these sentences.]{style="color: blue"}
 
@@ -105,7 +104,7 @@ b.  Population viability model description.
 
 -   I am also a little confused at what they consider 'recruitment' in this model. I understand the survival probability, indicated by sigma notation (σ), but none of the parameters listed in Supplementary Table 1 are termed recruitment. However, in both the text the term is used in multiple places, e.g., lines 106, 102, 458 and figure legends (Fig 5), but I'm sure it means different thing in these places. For this reason, I think the authors should clarify their use of the term, especially in the viability modelling. To me, recruitment is conditional on survival so I would tend to equate it with (1- 𝑝𝐽1) or the probability that given a juvenile survives it 'recruits' or transitions into an adult frog. I don't think that is how the adults are using it in this model. I think they could refrain from using it at all in this section.
 
-[Good question. This was a point of some discussion within our group. For a juvenile to recruit to an adult, it has to survive, and thus $\sigma_{J_1}$ encompasses survival and recruitment. This is why we used the language of "survival and recruitment" to describe this parameter in the text. However, we see how this could be confusing. Becuase we do not lose much biological interpretation by just referring to $\sigma_{J_1}$ as "survival" we have made this change throughout the text as suggested by the reviewer.]{style="color: blue"}
+[Good question. This was a point of some discussion within our group. For a juvenile to recruit to an adult, it has to survive, and thus $\sigma_{J_1}$ encompasses survival and recruitment. This is why we used the language of "survival and recruitment" to describe this parameter in the text. However, we see how this could be confusing. Because we do not lose much biological interpretation by just referring to $\sigma_{J_1}$ as "survival" we have made this change throughout the text as suggested by the reviewer.]{style="color: blue"}
 
 -   Given the page limitations employed by the journal, the authors must make decisions about what information to supply. Personally, I would have liked to see a little more information on the variation in recruitment (number of new adults a population) and population growth (change in abundance over time) among recipient sites. These are estimated (line 106; Supplementary Material) but not reported from their Bayesian Jolly-Seber CMR model. Instead, the authors chose to use limited demographic estimates from reintroduced populations (adult survival only) in a population viability model to explore variation in population viability over 50 years. The only thing that varies across their 12 reintroduced populations in this exercise is adult survival; the other parameters are the same across populations (Supplementary Table 1). In essence, this exercise shows how population viability varies with adult survival. It's really important to choose reintroduction sites where adult annual survival exceeds 0.50, preferably 0.60, and the authors make a case that survival 1-year post-translocation is a good proxy for habitat quality; however, part of that case is assuming that all other demographic parameters are the same among populations, which is probably not true. The elasticity and sensitivity analyses associated with the viability analyses do suggest that adult survival is certainly the most important parameter (almost always true in vertebrate systems). Still, the decision of what to present given limited space is up to the authors and just because it does not match what this one reviewer would have preferred does not detract from the quality and quantity of work demonstrated in this paper. This is a really good paper and definitely worthy of publication in Nature Communications.
 
@@ -169,7 +168,7 @@ I would strongly expect specific weather patterns to also play an important role
 Line 288- for me the value in this call for additional research warrants some brief but specific details about what that would entail.
 Otherwise, researchers naturally always call for additional research.
 
-[We replaced the text in question with a specific description of the study we are currently conducting to quantify the effects of donor population (lines ]{style="color: blue"}[ 291-297]{style="color: blue"}[; see also our response to a comment by Reviewer 3 above).]{style="color: blue"}
+[We replaced the text in question with a specific description of the study we are currently conducting to quantify the effects of donor population (lines 291-297; see also our response to a comment by Reviewer 3 above).]{style="color: blue"}
 
 Lines 298-301- I think this is important and relevant in the wider amphibian conservation context, where juveniles at this crucial life stage are often the specifically missing dataset because they are harder to monitor.
 This is in many ways a failure of the sector and the opposite compared to say birds or mammals, yet has become inbuilt in much amphibian research and is worth highlighting as it has important consequences for progressing practical conservation.
