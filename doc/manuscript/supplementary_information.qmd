@@ -23,24 +23,22 @@ crossref:
   tbl-prefix: "Supplementary Table"
 bibliography: translocation.bib
 csl: nature.csl
-link-bibliography: false
+link-bibliography: true
 ---
 
-### Supplementary Information for
+## Supplementary Information for:
 
-## Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease
+# Reintroduction of resistant frogs facilitates landscape-scale recovery in the presence of a lethal fungal disease
 
 Roland A. Knapp\*, Mark Q. Wilber, Maxwell B. Joseph, Thomas C. Smith, & Robert L. Grasso
 
 \* **Author for correspondence:** roland.knapp\@ucsb.edu
 
-\newpage
-
-## Supplementary Methods
-
 \
 
-### Frog population recovery
+# Supplementary Methods
+
+## Frog population recovery
 
 #### Laboratory methods
 
@@ -160,7 +158,7 @@ where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture histor
 
 The objective of this analysis is to describe the influence of site, cohort, and individual level characteristics on post-translocation frog survival.
 By modeling survival estimates obtained from site-specific mrmr CMR analyses, we are in effect conducting an among-site meta-analysis.
-Although it would theoretically be possible to estimate survival covariate effects in a joint CMR model that integrates capture histories across all sites, this was impractical due to computational requirements of the CMR models (namely, run time and memory).
+Although it would theoretically be possible to estimate survival covariate effects in a joint CMR model that integrates capture histories across all sites, this was impractical due to computational requirements of the CMR models (i.e., run time and memory).
 
 We used Bayesian generalized linear mixed models to investigate predictors of survival among sites.
 The response $y_i$ is binary, representing a point estimate of whether individual $i$ survived in the year following translocation.
@@ -194,7 +192,7 @@ We drew posterior samples using Dynamic Hamiltonian Monte Carlo in Stan, with fo
 We used Rhat statistics and trace plots to verify convergence.
 We considered models with different subsets of fixed and random effects, and used approximate leave-one-out cross validation to identify the best model [@vehtari2016].
 
-### Population viability modeling
+## Population viability modeling
 
 #### Incorporating yearly variability in vital rates
 
@@ -208,11 +206,11 @@ We also could have included environmental stochasticity in year-2 juvenile survi
 #### Estimating model parameters
 
 The baseline parameter values for the model and how they were estimated are given in @tbl-param_values.
-Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see **Materials and Methods - Frog populaton recovery - Estimation of frog survival and abundance** and **Supporting Information - Frog population recovery - CMR model structure** for details).
-For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ (@fig-compare_surv_probs SI).
+Parameters $\sigma_{A_T}$ and $\sigma_{A_R}$ were extracted directly from our CMR models (see **Supplementary Methods - Frog population recovery - Estimation of frog survival and abundance** and **CMR model structure** for details).
+For populations where we had a sufficient number of PIT-tagged, naturally-recruited adults, we observed that $\sigma_{A_T}$ and $\sigma_{A_R}$ could be notably different, with $\sigma_{A_R} > \sigma_{A_T}$ (@fig-compare_surv_probs).
 For populations lacking sufficient numbers of naturally-recruited adults, we were unable to directly estimate $\sigma_{A_R}$, and instead set $\sigma_{A_R} = \sigma_{A_T}$.
 
-To estimate the $\sigma_{A_R}$, we used the posterior distribution of predicted true states for naturally-recruited individuals (1=not recruited, 2=alive, 3=dead, as described in **Supporting Information - Frog population recovery - CMR model structure**), then calculated the posterior probability of individuals surviving between consecutive primary periods, conditional on being alive in the first primary period (e.g., given a value of 2 (alive) in the first primary period, how often was the value still 2 (alive) in the next primary period compared to 3 (dead)).
+To estimate the $\sigma_{A_R}$, we used the posterior distribution of predicted true states for naturally-recruited individuals (1=not recruited, 2=alive, 3=dead, as described in **Supplementary Methods - Frog population recovery - CMR model structure**), then calculated the posterior probability of individuals surviving between consecutive primary periods, conditional on being alive in the first primary period (e.g., given a value of 2 (alive) in the first primary period, how often was the value still 2 (alive) in the next primary period compared to 3 (dead)).
 This yielded posterior distributions for survival probabilities between primary periods.
 However, because the time interval between primary periods differed, the survival probabilities between different consecutive primary periods were not directly comparable.
 To address this, we converted the survival probabilities between each consecutive primary period to per day death rates, propagating the uncertainty from the posterior distributions.
@@ -224,9 +222,9 @@ We used the same procedure for $\sigma_{A_T}$ such that our estimates of average
 
 We performed four analyses on our model.
 First, we considered a deterministic version of our model with no yearly heterogeneity in year-1 juvenile survival probability $\sigma_{J_1}$, and calculated the predicted long-run growth rate $\lambda$ of a population for different values of $\sigma_{A_R}$ and $\sigma_{J_1}$.
-We then fixed $\sigma_{J_1} = 0.1-$ and calculated the predicted growth rate of our 12 populations.
+We then fixed $\sigma_{J_1}$ = 0.1 and calculated the predicted growth rate of our 12 populations.
 
-Second, we performed a local elasticity and sensitivity analysis on $\lambda$ with respect to parameters $\sigma_{L_1}$, $\sigma_{L_2}$, $\sigma_{L_3}$, $\sigma_{J_1}$, $\sigma_{J_2}$, $\sigma_{A_R}$, $F$, $p_{L_2}$, $p_{J_1}$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp SI).
+Second, we performed a local elasticity and sensitivity analysis on $\lambda$ with respect to parameters $\sigma_{L_1}$, $\sigma_{L_2}$, $\sigma_{L_3}$, $\sigma_{J_1}$, $\sigma_{J_2}$, $\sigma_{A_R}$, $F$, $p_{L_2}$, $p_{J_1}$ to determine how small changes in these parameters could influence the long-run deterministic growth rate of populations (@fig-viability-supp).
 Note that $\lambda$ is equally or more sensitive to changes in adult survival ($\sigma_{A_R}$) and survival of year-1 juveniles ($\sigma_{J_1}$) than it is to other model parameters, providing additional justification for focusing on variation in $\sigma_{A_R}$ and $\sigma_{J_1}$ in our viability analyses.
 
 Third, we defined a version of the model with demographic and environmental stochasticity, where environmental stochasticity was represented by among-year variability in $\sigma_{J_1}$.
@@ -248,14 +246,14 @@ Using Approximate Bayesian Computing and rejection sampling [@kosmala2016], we i
 The yearly $\sigma_{J_1}$ values associated with these "best" trajectories represented an approximate posterior distribution [@beaumont2010].
 Using these best fit trajectories, we assessed whether our model could qualitatively describe the patterns of recovery in the observed data for population 70550.
 
-### References
+## Supplementary References
 
 ::: {#refs}
 :::
 
 \newpage
 
-### Figures
+## Supplementary Figures
 
 ![**Bd loads on frogs before and after translocation.** The "before" period is immediately prior to translocation and the "after" period is the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range. Samples sizes are provided immediately above the x-axis. The red dashed horizontal line indicates the approximate load above which severe disease is typically observed @vredenburg2010. This threshold (5.8 ITS1 copies - on a log10 scale) is commonly exceeded during Bd epizootics, but is exceeded only rarely in recovering populations @briggs2010.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="80%"}
 
@@ -265,30 +263,32 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 \newpage
 
-![**Average yearly survival probabilities of translocated versus naturally recruited adults.** Naturally recruited individuals were the result of reproduction by translocated frogs at each site. In contrast to Fig. 3, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package, and the methods for calculation are described in Supporting Information - Population viability modeling - Estimating model parameters.](figures/compare_surv_probs.png){#fig-compare_surv_probs width="60%"}
+![**Average yearly survival probabilities of translocated versus naturally recruited adults.** Naturally recruited individuals were the result of reproduction by translocated frogs at each site. In contrast to Fig. 3, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package, and the methods for calculation are described in Supplemenary Information - Population viability modeling - Estimating model parameters.](figures/compare_surv_probs.png){#fig-compare_surv_probs width="60%"}
 
 \newpage
 
-![**Sensitivity analysis of the stage-structured *R. sierrae* model.** **a** Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival of year-2 juveniles), $p\_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). **b** Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. We did not include $p_{L_1}$ as this parameter is 1 across the populations in this study ([@tbl-param_values]) -- tadpoles spend at least a year as tadpoles before metamorphosing. Elasticity and sensitivity are calculated at the default parameter values for each population given in Table [@tbl-param_values].](figures/pop_viability_figures_for_supp.png){#fig-viability-supp width="95%"}
+![**Sensitivity analysis of the stage-structured *R. sierrae* model.** **a** Elasticity of $\lambda$ with changes in nine parameters: $\sigma_{A_R}$ (yearly survival probability of naturally recruited adults), $F$ (number of eggs produced by a female frog in a year that successfully hatch), $\sigma_{J_1}$ (yearly probability of survival of year-1 juveniles that also affects recruitment), $\sigma_{J_2}$ (yearly probability of survival of year-2 juveniles), $p\_{L_2}$ (probability that year-2 tadpoles metamorph into juveniles), $p_{J_1}$ (probability that year-1 juveniles mature to adults), $\sigma_{L_1}$ (survival probability of year-1 tadpoles), $\sigma_{L_2}$ (survival probability of year-2 tadpoles), and $\sigma_{L_3}$ (survival probability of year-3 tadpoles). **b** Sensitivity of $\lambda$ with changes in the same nine parameters. Note that $F$ has different units than the other parameters, which is why its sensitivity is low. Sensitivities of all other parameters are comparable. Elasticity and sensitivity are calculated at the default parameter values for each population ([@tbl-param_values]). We did not include $p_{L_1}$ in this analysis because $p_{L_1}$ = 1 for all populations in this study -- tadpoles spend at least a year as tadpoles before metamorphosing ([@tbl-param_values]).](figures/pop_viability_figures_for_supp.png){#fig-viability-supp width="95%"}
 
 \newpage
 
-### Tables
+## Supplementary Tables
 
-| **Parameter**                                                             | **Value**            | **Source**                                                                        |
-|:-------------------------|:-----------------|:---------------------------|
-| $\sigma_{L_1}$, Yearly survival probability of year-1 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
-| $\sigma_{L_2}$, Yearly survival probability of year-2 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
-| $\sigma_{L_3}$, Yearly survival probability of year-3 tadpoles            | 0.7                  | Estimated from field data, observations, natural history knowledge                |
-| $\sigma_{J_1}$, Yearly survival probability of year-1 juveniles.          | Varies yearly        | Varies. Bounds estimated from field data, observations, natural history knowledge |
-| $\sigma_{J_2}$, Yearly survival probability of year-2 juveniles           | 0.5                  | Estimated from field data, observations, natural history knowledge                |
-| $\sigma_{A_R}$, Yearly survival probability of naturally recruited adults | Varies by population | Estimated from CMR studies                                                        |
-| $\sigma_{A_T}$, Yearly survival probability of translocated adults        | Varies by population | Estimated from CMR studies                                                        |
-| $p_{L_1}$, Probability of a year-1 tadpoles remaining as a tadpoles       | 1                    | Estimated from field data, observations, natural history knowledge                |
-| $p_{L_2}$, Probability of a year-2 tadpoles remaining as a tadpoles       | 0.25                 | Estimated from field data, observations, natural history knowledge                |
-| $p_{J_1}$, Probability of a year-1 juvenile remaining as a juvenile       | 0.25                 | Estimated from field data, observations, natural history knowledge                |
-| $p_F$, Probability of an adult female reproducing in a year               | 0.5                  | Could be as high at 1, based on field observations                                |
-| $\rho$, Proportion of adults that are female                              | 0.5                  | Estimated from field data, observations, natural history knowledge                |
-| $F$, Number of surviving eggs produced by an adult female                 | 100                  | From observations of captive frogs                                                |
+| **Parameter^a^**                                                          | **Value**            | **Source**                                             |
+|:-------------------------|:------------------|:--------------------------|
+| $\sigma_{L_1}$, Yearly survival probability of year-1 tadpoles            | 0.7                  | Estimated from field data, observations                |
+| $\sigma_{L_2}$, Yearly survival probability of year-2 tadpoles            | 0.7                  | Estimated from field data, observations                |
+| $\sigma_{L_3}$, Yearly survival probability of year-3 tadpoles            | 0.7                  | Estimated from field data, observations                |
+| $\sigma_{J_1}$, Yearly survival probability of year-1 juveniles.          | Varies yearly        | Varies. Bounds estimated from field data, observations |
+| $\sigma_{J_2}$, Yearly survival probability of year-2 juveniles           | 0.5                  | Estimated from field data, observations                |
+| $\sigma_{A_R}$, Yearly survival probability of naturally recruited adults | Varies by population | Estimated from CMR studies                             |
+| $\sigma_{A_T}$, Yearly survival probability of translocated adults        | Varies by population | Estimated from CMR studies                             |
+| $p_{L_1}$, Probability of a year-1 tadpoles remaining as a tadpoles       | 1                    | Estimated from field data, observations                |
+| $p_{L_2}$, Probability of a year-2 tadpoles remaining as a tadpoles       | 0.25                 | Estimated from field data, observations                |
+| $p_{J_1}$, Probability of a year-1 juvenile remaining as a juvenile       | 0.25                 | Estimated from field data, observations                |
+| $p_F$, Probability of an adult female reproducing in a year               | 0.5                  | Could be as high at 1, based on field observations     |
+| $\rho$, Proportion of adults that are female                              | 0.5                  | Estimated from field data                              |
+| $F$, Number of surviving eggs produced by an adult female                 | 100                  | From observations of captive frogs                     |
 
-: **Description and values of parameters used in the population viability model.** <!--# MOVE NEXT SENTENCE TO FOOTNOTE. --> All survival probabilities are in the presence of the fungal pathogen Bd. {#tbl-param_values}
+: **Description and values of parameters used in the population viability model.** {#tbl-param_values}
+
+^a^All survival probabilities are in the presence of the fungal pathogen Bd.
