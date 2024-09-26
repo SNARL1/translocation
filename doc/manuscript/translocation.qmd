@@ -47,10 +47,10 @@ The emergence of the lethal fungal pathogen *Batrachochytrium dendrobatidis* (Bd
 Given the lack of any broadly applicable methods to reverse these impacts, the future of many amphibians appears grim.
 The Sierra Nevada yellow-legged frog (*Rana sierrae*) is highly susceptible to Bd infection and most *R. sierrae* populations are extirpated following disease outbreaks.
 However, some populations persist and eventually recover, and frogs in these recovering populations have increased resistance against infection.
-We conducted a 15-year reintroduction study and show that frogs collected from recovering populations and reintroduced to vacant habitats can reestablish populations despite the presence of Bd.
+Here, we conduct a 15-year reintroduction study and show that frogs collected from recovering populations and reintroduced to vacant habitats can reestablish populations despite the presence of Bd.
 In addition, the likelihood of establishment is influenced by site, cohort, and frog attributes.
 Results from viability modeling suggest that many reintroduced populations have a low probability of extinction over 50 years.
-These results provide a rare example of how reintroduction of resistant individuals can allow the landscape-scale recovery of disease-impacted species, and have broad implications for amphibians and many other taxa that are threatened with extinction by novel pathogens.
+These results provide a rare example of how reintroduction of resistant individuals can allow the landscape-scale recovery of disease-impacted species, and have broad implications for amphibians and other taxa that are threatened with extinction by novel pathogens.
 
 ### Introduction
 
@@ -96,7 +96,12 @@ First, determine whether the reintroduction of resistant *R. sierrae*, obtained 
 We accomplished this using a 15-year large-scale reintroduction study.
 Second, identify important site, cohort, and individual-level predictors of frog survival using results from the reintroduction study.
 Third, estimate the probability of persistence for the reintroduced populations over a multi-decadal period, thereby extending our inferences of population recovery beyond the temporal bounds of our reintroduction study (@fig-recovery-model).
-We did this using a stage-structured matrix model.
+We did this using a stage-structured matrix model ("population viability model").
+
+Here, we show that the majority of reintroduced populations showed evidence of successful reproduction and recruitment despite the presence of Bd.
+In addition, the likelihood of establishment is influenced by site, cohort, and frog attributes, but not by Bd load.
+Finally, results from the population viability model suggest that many reintroduced populations have a low probability of extinction over 50 years.
+These results indicate that reintroduction of resistant individuals can allow the recovery of species driven to near-extinction by novel infectious diseases.
 
 ### Results
 
@@ -565,7 +570,7 @@ R code to analyze the CMR datasets is available at <https://github.com/SNARL1/cm
 
 \newpage
 
-### Acknowledgments
+### Acknowledgements
 
 We thank the following for important contributions to this study: E.
 Hegeman and A.
