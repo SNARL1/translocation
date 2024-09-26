@@ -67,7 +67,7 @@ This assumption is justified by the short time intervals between surveys within 
 
 Live individuals are detected with probability $p_j$, which is modeled as:
 
-$$p_j = \text{logit}^{-1}(X_j^{(p)} \beta^{(p)}),$${#eq-logitpj}
+$$p_j = \text{logit}^{-1}(X_j^{(p)} \beta^{(p)}),$$ {#eq-logitpj}
 
 where $X_j^{(p)}$ is a known row vector and $\beta^{(p)}$ an unknown parameter vector.
 Not recruited and dead individuals are never captured.
@@ -83,7 +83,7 @@ $$
   1 & 0 & \text{Dead} \\
 \end{block}
 \end{blockarray}
-$${#eq-transmat}
+$$ {#eq-transmat}
 
 The state transition matrix $\Psi_{t, i}$ contains the probabilities of individual $i$ transitioning from state $u_{i, t}$ (rows) to $u_{i, t+1}$ (columns) between primary period $t$ and $t+1$.
 For non-introduced (i.e., naturally recruited) individuals, this matrix is given by:
@@ -98,7 +98,7 @@ $$
   0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray}
-$${#eq-transmat2} where $\lambda_t$ is the probability of recruiting in time $t$ and $\phi_t$ is the probability of survival in time $t$.
+$$ {#eq-transmat2} where $\lambda_t$ is the probability of recruiting in time $t$ and $\phi_t$ is the probability of survival in time $t$.
 
 For introduced individuals, which have deterministic recruitment (i.e., they recruit when introduced), the state transition matrix is given by:
 
@@ -112,19 +112,19 @@ $$
   0 & 0 & 1 & \text{Dead} \\
 \end{block}
 \end{blockarray}
-$${#eq-transmat3}
+$$ {#eq-transmat3}
 
 where $I_{t, i}$ is a known indicator function for whether individual $i$ was introduced in primary period $t$.
 
 We allow recruitment probabilities to vary in time via random effects, such that:
 
-$$\lambda_t = \text{logit}^{-1}(\alpha^{(\lambda)} + \epsilon^{(\lambda)}_t),$${#eq-logitlambda}
+$$\lambda_t = \text{logit}^{-1}(\alpha^{(\lambda)} + \epsilon^{(\lambda)}_t),$$ {#eq-logitlambda}
 
 where $\alpha^{(\lambda)}$ is an intercept parameter and $\epsilon^{(\lambda)}_t$ is an adjustment for time $t$.
 
 Survival probabilities also vary in time, and as a function of known covariates:
 
-$$\phi_t = \text{logit}^{-1}(X^{(\phi)}_t \beta^{(\phi)} + \epsilon^{(\phi)}_t),$${#eq-logitphi}
+$$\phi_t = \text{logit}^{-1}(X^{(\phi)}_t \beta^{(\phi)} + \epsilon^{(\phi)}_t),$$ {#eq-logitphi}
 
 where $X^{(\phi)}_t$ is a row vector of known covariates, $\beta^{(\phi)}$ is a column vector of unknown coefficients, and $\epsilon^{(\phi)}_t$ is an adjustment for time $t$.
 
@@ -137,8 +137,7 @@ $$
 \sigma^{(\lambda)} &\sim N_+(0,1) \\
 \epsilon^{(\lambda)}_t &\sim N(0, \sigma^{(\lambda)}),
 \end{aligned}
-$${#eq-priors1}
-for periods $t=1, ..., T$.
+$$ {#eq-priors1} for periods $t=1, ..., T$.
 Here $N$ represents the normal distribution and $N_+$ the half normal distribution with positive support.
 
 Survival parameter priors were specified similarly as:
@@ -149,8 +148,7 @@ $$
 \sigma^{(\phi)} &\sim N_+(0, 1) \\
 \epsilon^{(\phi)}_t &\sim N(0, \sigma^{(\phi)})
 \end{aligned}
-$${#eq-priors2}
-for time $t=1, ..., T$.
+$$ {#eq-priors2} for time $t=1, ..., T$.
 
 The detection model coefficient vector also received a standard normal prior $\beta^{(p)} \sim N(0, 1)$.
 
@@ -165,7 +163,7 @@ $$
 \hspace{0.001cm} [\alpha^{(\lambda)}, \sigma^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \sigma^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)} \mid \mathbf{Y}] \propto &\prod_{i=1}^M [Y_i \mid \alpha^{(\lambda)}, \epsilon^{(\lambda)}_{1:T}, \beta^{(\phi)}, \epsilon^{(\phi)}_{1:T}, \beta^{(p)}] \times \\
 &\prod_{t=1}^T [\epsilon_t^{(\lambda)} \mid \sigma^{(\lambda)}] [\epsilon_t^{(\phi])} | \sigma^{(\phi)}] [\sigma^{(\lambda)}] [\sigma^{(\phi)}] [\alpha^{(\lambda)}] [\beta^{(\phi)}] [\beta^{(p)}],
 \end{aligned}
-$${#eq-likelihood}
+$$ {#eq-likelihood}
 
 where $\pmb Y$ is an $M \times T$ detection matrix, and $Y_i$ the capture history of individual $i$.
 
@@ -179,13 +177,13 @@ We used Bayesian generalized linear mixed models to investigate predictors of su
 The response $y_i$ is binary, representing a point estimate of whether individual $i$ survived in the year following translocation.
 We generated these point estimates by rounding the posterior median of 1-year post-introduction survival for each individual (from site-specific mrmr CMR models) and modeled the data using a Bernoulli distribution:
 
-$$y_i \sim \text{Bernoulli}(p_i),$${#eq-bernoulli}
+$$y_i \sim \text{Bernoulli}(p_i),$$ {#eq-bernoulli}
 
 where $p_i$ is the probability of survival.
 
 We modeled variation in probabilities as follows:
 
-$$\text{logit}(p_i) = \alpha + X_i \pmb \beta + \pmb \nu_{g[1:N]},$${#eq-logitmodel}
+$$\text{logit}(p_i) = \alpha + X_i \pmb \beta + \pmb \nu_{g[1:N]},$$ {#eq-logitmodel}
 
 where $\alpha$ is an intercept, $X_i$ is a length $K$ row vector of predictors, $\pmb \beta$ is a column vector of predictor effects, and $\pmb \nu$ a vector of group level random effects.
 Here $g[i]$ refers to the group $g$ containing individual $i$, and we estimate an adjustment for each of the $G$ groups ($\nu_1, ..., \nu_G$).
@@ -200,8 +198,7 @@ $$
 \alpha &\sim \text{Normal}(0, 2.5) \\
 \beta_k &\sim \text{Normal}(0, 5),
 \end{aligned}
-$${#eq-priors3}
-for $k=1, ..., K$ where $K$ is the number of predictor variables.
+$$ {#eq-priors3} for $k=1, ..., K$ where $K$ is the number of predictor variables.
 
 The default prior for group level adjustments $\nu_1, ..., \nu_G$ in rstanarm is a zero-mean Gaussian, where the covariance matrix is constructed from a correlation matrix with an LKJ prior, and a vector of variance parameters -- the decomposition of variance prior with unit regularization, concentration, shape, and scale parameters [@lewandowski2009].
 
