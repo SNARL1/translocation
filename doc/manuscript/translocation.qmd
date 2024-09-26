@@ -531,8 +531,8 @@ J_1 \\
 J_2 \\
 A_R \\
 A_T \\
-\end{bmatrix}(t) 
-$$
+\end{bmatrix}(t)
+$$ {#eq-matrix}
 
 The parameters in this model are yearly survival probability $\sigma_{\cdot}$ (the subscript "$\cdot$" indicates a particular state variable), probability that a female frog reproduces in a given year $p_F$, the percentage of adults that are female $\rho$, number of eggs produced by a female frog in a year that successfully hatch $F$, probability of a first-year tadpole remaining as a tadpole $p_{L1}$, probability of a second-year tadpole remaining as a tadpole $p_{L2}$, and probability of a first-year juvenile remaining as a juvenile $p_{J1}$.
 First-year juvenile survival $\sigma_{J1}$ is the parameter that we think is most influenced by environmental stochasticity.
