@@ -602,7 +602,7 @@ The authors declare no competing interests.
 
 \newpage
 
-### Figures
+### Figures and Legends
 
 ![**Conceptual model of Bd-caused decline and recovery in *R. sierrae*.** For the recovery portion, the model depicts both natural recovery and facilitated recovery via reintroductions, as well as the linkages between these two pathways. Rectangles and hexagons represent outcomes and processes, respectively. Blue text indicates components that are included in the current study. The general temporal scale of the depicted scenario is provided by the timeline, with the dashed portion indicating a projection into the future.](figures/conceptual_model.png){#fig-recovery-model width="95%"}
 
