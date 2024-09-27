@@ -99,7 +99,7 @@ Third, estimate the probability of persistence for the reintroduced populations 
 We did this using a stage-structured matrix model ("population viability model").
 
 Here, we show that the majority of reintroduced populations showed evidence of successful reproduction and recruitment despite the presence of Bd.
-In addition, the likelihood of establishment is influenced by site, cohort, and frog attributes, but not by Bd load.
+In addition, post-translocation frog survival is influenced by site, cohort, and frog attributes, but not by Bd load.
 Finally, results from the population viability model suggest that many reintroduced populations have a low probability of extinction over 50 years.
 These results indicate that reintroduction of resistant individuals can allow the recovery of species driven to near-extinction by novel infectious diseases.
 
@@ -558,15 +558,15 @@ Additional details are provided in **Supplementary Methods - Population viabilit
 
 ### Data availability
 
-The data used in this study are available at <https://github.com/SNARL1/translocation> [@knapp2024a].
+The data used in this study are available at <https://doi.org/10.5281/zenodo.13851590> [@knapp2024a].
 This includes the estimated survival of each reintroduced frog cohort, data used to identify predictors of 1-year frog survival, data used to estimate growth rates and extinction probabilities of reintroduced populations, Bd loads on frogs before and after translocation, and survival probabilities of translocated versus naturally recruited adults.
 For the relevant figures, source data are provided in a Source Data file.
-The CMR datasets from each reintroduction site that we used to calculate post-translocation frog survival are available at <https://github.com/SNARL1/cmr-analysis> [@knapp2024b].
+The CMR datasets from each reintroduction site that we used to calculate post-translocation frog survival are available at <https://doi.org/10.5281/zenodo.13851652> [@knapp2024b].
 
 ### Code availability
 
-R code to replicate our analyses is available at <https://github.com/SNARL1/translocation> [@knapp2024a].
-R code to analyze the CMR datasets is available at <https://github.com/SNARL1/cmr-analysis> [@knapp2024b].
+R code to replicate our analyses is available at <https://doi.org/10.5281/zenodo.13851590> [@knapp2024a].
+R code to analyze the CMR datasets is available at <https://doi.org/10.5281/zenodo.13851652> [@knapp2024b].
 
 ### References
 
