@@ -1,8 +1,8 @@
 ---
 #format: pdf
 format:
-   latex: 
-      cite-method: natbib
+   latex 
+#      cite-method: natbib
 include-in-header:
   text: |
     \usepackage{blkarray}
