@@ -36,7 +36,7 @@ Roland A. Knapp^1,2,^\*, Mark Q. Wilber^3^, Maxwell B. Joseph^4,5^, Thomas C. Sm
 
 ^5^Current affiliation: Planet, San Francisco, CA, 94107
 
-^6^Resources Management and Science, Yosemite National Park, El Portal, CA, 95318
+^6^Resources Management and Science Division, Yosemite National Park, El Portal, CA, 95318
 
 \*Corresponding author: email: roland.knapp\@ucsb.edu
 
@@ -425,6 +425,7 @@ The results of this study provide a hopeful starting point for that endeavor and
 
 ##### Field methods
 
+The collection of data from live *R. sierrae* described here complies with all ethical regulations and was approved under the University of California-Santa Barbara Institutional Animal Care and Use Committe (IACUC) protocol number 478.
 For the `r n_distinct(d1$site_id, d1$date)` translocations we conducted, we identified donor populations from which adult frogs ($\geq$ 40 mm snout-vent length) could be collected based on several years of VES and skin swab collections [@knapp2016], and results from population genetic analyses [@poorten2017].
 The populations that we selected contained hundreds of *R. sierrae* adults and thousands of tadpoles.
 These relatively high abundances were the result of recent increases following previous Bd-caused declines [@knapp2016].
@@ -450,7 +451,6 @@ When using a robust design, within a primary period, frogs that were captured du
 During each site visit, we conducted VES either immediately before CMR surveys or during the first day of CMR surveys.
 VES was conducted by walking the entire water body perimeter, first 100 m of each inlet and outlet stream, and any fringing ponds and wetlands, and counting all *R. sierrae* tadpoles and juveniles.
 These *R. sierrae* life stages have high detectability, and counts are highly repeatable and provide estimates of relative abundance [@knapp2000].
-The above-described collection of data from live *R. sierrae* was approved under the University of California-Santa Barbara IACUC protocol #478.
 
 ##### Frog counts and reproductive success
 
@@ -555,13 +555,15 @@ Additional details are provided in **Supplementary Methods - Population viabilit
 
 ### Data availability
 
-The data used in this study are available at <https://github.com/SNARL1/translocation>.
-The CMR datasets from each reintroduction site are available at <https://github.com/SNARL1/cmr-analysis>.
+The data used in this study are available at <https://github.com/SNARL1/translocation> [@knapp2024a].
+This includes the estimated survival of each reintroduced frog cohort, data used to identify predictors of 1-year frog survival, data used to estimate growth rates and extinction probabilities of reintroduced populations, Bd loads on frogs before and after translocation, and survival probabilities of translocated versus naturally recruited adults.
+For the relevant figures, source data are provided in a Source Data file.
+The CMR datasets from each reintroduction site that we used to calculate post-translocation frog survival are available at <https://github.com/SNARL1/cmr-analysis> [@knapp2024b].
 
 ### Code availability
 
-R code to replicate our analyses is available at <https://github.com/SNARL1/translocation>.
-R code to analyze the CMR datasets is available at <https://github.com/SNARL1/cmr-analysis>.
+R code to replicate our analyses is available at <https://github.com/SNARL1/translocation> [@knapp2024a].
+R code to analyze the CMR datasets is available at <https://github.com/SNARL1/cmr-analysis> [@knapp2024b].
 
 ### References
 
@@ -576,7 +578,7 @@ We thank the following for important contributions to this study: E.
 Hegeman and A.
 Lindauer (project and data management, field and laboratory work); A.
 Barbella and K.
-Rose (laboratory work); numerous summer technicians (field work); staff at Sequoia-Kings Canyon and Yosemite National Parks, Inyo and Sierra National Forests, California Department of Fish and Wildlife, U.S. Fish and Wildlife Service, University of California-Santa Barbara Institutional Animal Care and Use Committee, and Sierra Nevada Aquatic Research Laboratory (research permits, logistical support, and/or field assistance).
+Rose (laboratory work); numerous summer technicians (field work); staff at Sequoia-Kings Canyon and Yosemite National Parks, Inyo and Sierra National Forests, California Department of Fish and Wildlife, U.S. Fish and Wildlife Service, Sierra Nevada Aquatic Research Laboratory (DOI: 10.21973/N3966F), and University of California-Santa Barbara Institutional Animal Care and Use Committee (research permits, logistical support, and/or field assistance).
 This project was supported by grants from the National Park Service (to R.A.K.), Yosemite Conservancy (to R.A.K.), and National Science Foundation (EF-0723563, to C. Briggs; DEB-1557190, to C. Briggs; DEB-2133401, to M.Q.W; and DBI-2120084, to C. Richards-Zawacki).
 
 ### Author contributions
@@ -611,7 +613,7 @@ The authors declare no competing interests.
 
 \newpage
 
-![**Conditional effects of predictors of 1-year frog survival**. Results are from the among-site meta-analysis and 1-year frog survival is expressed as a probability. **a** winter severity in the year following translocation, **b** elevation of recipient site, **c** donor population, and **d** sex. In (a) and (b), blue lines are medians and gray ribbons are 95% uncertainty intervals. In (c) and (d), box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range.](figures/cond_effects_plot.png){#fig-cond-effects width="80%"}
+![**Conditional effects of predictors of 1-year frog survival**. Results are from the among-site meta-analysis and 1-year frog survival is expressed as a probability. **a** winter severity in the year following translocation, **b** elevation of recipient site, **c** donor population, and **d** sex. In (a) and (b), blue lines are medians and gray ribbons are 95% uncertainty intervals for the posterior distributions of the predicted effects. In (c) and (d), box plots show medians (horizontal line), first and third quartiles (hinges), largest and smallest values within 1.5x interquartile range (whiskers), and values outside the 1.5x interquartile range (dots) for the posterior distributions of the predicted effects.](figures/cond_effects_plot.png){#fig-cond-effects width="80%"}
 
 \newpage
 

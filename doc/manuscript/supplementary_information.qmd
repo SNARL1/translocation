@@ -269,7 +269,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 ## Supplementary Figures
 
-![**Bd loads on frogs before and after translocation.** The "before" period is immediately prior to translocation and the "after" period is the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians, first and third quartiles, largest and smallest values within 1.5x interquartile range, and values outside the 1.5x interquartile range. Samples sizes are provided immediately above the x-axis. The red dashed horizontal line indicates the approximate load above which severe disease is typically observed @vredenburg2010. This threshold (5.8 ITS1 copies - on a log10 scale) is commonly exceeded during Bd epizootics, but is exceeded only rarely in recovering populations @briggs2010.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="80%"}
+![**Bd loads on frogs before and after translocation.** The "before" period is immediately prior to translocation and the "after" period is the 1-year period after translocation. Bd loads are expressed as the number of ITS1 copies per skin swab, as estimated by qPCR of the Bd ITS1 region. Box plots show medians (horizontal line), first and third quartiles (hinges), largest and smallest values within 1.5x interquartile range (whiskers), and values outside the 1.5x interquartile range (dots). Sample sizes are provided immediately above the x-axis. The red dashed horizontal line indicates the approximate load above which severe disease is typically observed @vredenburg2010. This threshold (5.8 ITS1 copies - on a log10 scale) is commonly exceeded during Bd epizootics, but is exceeded only rarely in recovering populations @briggs2010. Source data are provided as a Source Data file.](figures/bdload_beforeafter.png){#fig-bdload-beforeafter width="80%"}
 
 \newpage
 
@@ -277,7 +277,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 
 \newpage
 
-![**Average yearly survival probabilities of translocated versus naturally recruited adults.** Naturally recruited individuals were the result of reproduction by translocated frogs at each site. In contrast to Fig. 3, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package, and the methods for calculation are described in Supplemenary Information - Population viability modeling - Estimating model parameters.](figures/compare_surv_probs.png){#fig-compare_surv_probs width="60%"}
+![**Average yearly survival probabilities of translocated versus naturally recruited adults.** Naturally recruited individuals were the result of reproduction by translocated frogs at each site. In contrast to Fig. 3, these are not survival probabilities from the first year following translocation, but instead represent averaged survival probabilities across multiple years and cohorts. Points are median estimates and error bars give the 95% uncertainty intervals around the estimates, accounting for yearly variation in survival probabilities. All estimates were derived using the mrmr package, and the methods for calculation are described in Supplemenary Information - Population viability modeling - Estimating model parameters. Source data are provided as a Source Data file. ](figures/compare_surv_probs.png){#fig-compare_surv_probs width="60%"}
 
 \newpage
 
@@ -288,7 +288,7 @@ Using these best fit trajectories, we assessed whether our model could qualitati
 ## Supplementary Tables
 
 | **Parameter^a^** | **Value** | **Source** |
-|:---|:---|:---|
+|:-----------------------|:-----------------------|:-----------------------|
 | $\sigma_{L_1}$, Yearly survival probability of year-1 tadpoles | 0.7 | Estimated from field data, observations |
 | $\sigma_{L_2}$, Yearly survival probability of year-2 tadpoles | 0.7 | Estimated from field data, observations |
 | $\sigma_{L_3}$, Yearly survival probability of year-3 tadpoles | 0.7 | Estimated from field data, observations |
