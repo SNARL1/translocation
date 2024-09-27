@@ -128,11 +128,11 @@ ptile = ggplot(dat) + geom_tile(aes(x=muR, y=juv_surv, fill=lambda)) +
 		   				scale_color_manual(values=colors) +
 							# scale_fill_gradient("\u03bb", low = "white", high = "black") +
 							scale_fill_gradient2(midpoint=1) + #guide=guide_legend(title.position="bottom")) +
-							theme_classic() + xlab(bquote("Adult survival probability (\u03c3"~.[AR]~")")) +
-							ylab(bquote("Juvenile (Y1) survival probability (\u03c3"~.[J1]~")")) + 
+							theme_classic() + xlab(expression(paste("Adult survival probability,", italic(sigma[A[R]])))) +
+							ylab(expression(paste("Juvenile (Y1) survival probability, ", italic(sigma[J[1]])))) +
 							annotate("text", x=0.25, y=0.05, label="Population declines", size=3) +
 							annotate("text", x=0.7, y=0.2, label="Population grows", size=3) +
-							guides(color="none", fill=guide_colorbar(title="\u03bb")) + theme(legend.position="bottom", 
+							guides(color="none", fill=guide_colorbar(title=expression(italic(lambda)))) + theme(legend.position="bottom", 
 																					 legend.text=element_text(size=10), 
 																					 legend.title=element_text(size=10))
 
@@ -180,16 +180,21 @@ lake_sens_dt$lake = names(lake_sens)
 
 lake_sens_dt_melt = melt(lake_sens_dt, id.vars="lake")
 
+
+xtick_labels = expression(italic(sigma[A[R]]), italic(F), italic(sigma[J[1]]), italic(sigma[J[2]]), 
+											    italic(p[L[2]]), italic(p[J[1]]), italic(sigma[L[1]]), italic(sigma[L[2]]), italic(sigma[L[3]]))
 p2 = ggplot(lake_elas_dt_melt) + geom_bar(aes(x=variable, y=value, fill=lake), stat="identity", position="dodge") +
 														scale_fill_manual(values=colors) +
-														xlab("Parameter") + ylab("Elasticity of \U03BB") + theme_classic() +
-														guides(fill="none") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+														xlab("Parameter") + ylab(expression(paste("Elasticity of ", italic(lambda)))) + theme_classic() +
+														guides(fill="none") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+														scale_x_discrete(labels=xtick_labels)
 														# theme(legend.position = c(0.7, 0.7))
 
 p2b = ggplot(lake_sens_dt_melt) + geom_bar(aes(x=variable, y=value, fill=lake), stat="identity", position="dodge") +
 														scale_fill_manual(values=colors) +
-														xlab("Parameter") + ylab("Sensitivity of \U03BB") + theme_classic() +
-														guides(fill=guide_legend(title="Site")) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+														xlab("Parameter") + ylab(expression(paste("Sensitivity of ", italic(lambda)))) + theme_classic() +
+														guides(fill=guide_legend(title="Site")) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+														scale_x_discrete(labels=xtick_labels)
 														# theme(legend.position = c(0.7, 0.7))
 
 sens_plot = (p2 + p2b) + plot_annotation(tag_levels="A", tag_suffix="")
@@ -352,10 +357,9 @@ pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=sigma_J1, 
 							geom_line(aes(color=lake_id_surv)) + 
 							geom_point(aes(color=lake_id_surv)) + 
 							scale_color_manual(values=cdat$col) +
-							theme_classic() + xlab(bquote("Mean year 1 juvenile survival, \u03c3"~.[J1])) + ylab("Extinction prob. in 50 years") +
-							guides(color=guide_legend(title=bquote("Site, \u03c3"~.[AR]), title.position="top", ncol=3)) + 
-							theme(legend.position="bottom", legend.text=element_text(size=9.5), legend.title=element_text(size=10))
-
+							theme_classic() + xlab(expression(paste("Mean juvenile (Y1) survival probability, ", italic(sigma[J[1]])))) + ylab("Extinction prob. in 50 years") +
+							guides(color=guide_legend(title=expression(paste("Site, ", italic(sigma[A[R]]))), title.position="top", ncol=3)) + 
+							theme(legend.position="bottom", legend.text=element_text(size=9.2), legend.title=element_text(size=10))
 
 
 # Save comparison between translocated and survival probabilities from all individuals
