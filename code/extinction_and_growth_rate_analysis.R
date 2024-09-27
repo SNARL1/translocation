@@ -357,7 +357,7 @@ pext = ggplot(extinction_at_fifty_dt[order(surv_med, lake_id)], aes(x=sigma_J1, 
 							geom_line(aes(color=lake_id_surv)) + 
 							geom_point(aes(color=lake_id_surv)) + 
 							scale_color_manual(values=cdat$col) +
-							theme_classic() + xlab(expression(paste("Mean year 1 juvenile survival, ", italic(sigma[J[1]])))) + ylab("Extinction prob. in 50 years") +
+							theme_classic() + xlab(expression(paste("Mean juvenile (Y1) survival probability, ", italic(sigma[J[1]])))) + ylab("Extinction prob. in 50 years") +
 							guides(color=guide_legend(title=expression(paste("Site, ", italic(sigma[A[R]]))), title.position="top", ncol=3)) + 
 							theme(legend.position="bottom", legend.text=element_text(size=9.2), legend.title=element_text(size=10))
 
