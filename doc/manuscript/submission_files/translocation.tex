@@ -77,8 +77,6 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-% journal abbreviations
-\usepackage{jabbrv}
 % definitions for citeproc citations
 \NewDocumentCommand\citeproctext{}{}
 \NewDocumentCommand\citeproc{mm}{%
@@ -644,7 +642,7 @@ population-specific fitness differences of frogs in the presence of Bd.
 Although our study design did not allow us to completely separate the
 effects of donor population and recipient site on 1-year adult survival,
 we are currently doing so using a modified study design. Specifically,
-we are conducting translocations in which frogs from several donor
+we are conducting reintroductions in which frogs from several donor
 populations are added concurrently to a single site. Survival of frogs
 from each donor population is estimated using CMR methods and the
 contribution of each donor population to subsequent generations is
@@ -855,7 +853,7 @@ the result of within-site reproduction and not immigration from adjacent
 populations. This assumption is justified by the fact that no \emph{R.
 sierrae} populations were present within several kilometers of the
 translocation sites. For all models, we used mrmr defaults for priors,
-number of chains (4), and warmup and post-warmup iterations (2000 for
+\_number of chains (4), and warmup and post-warmup iterations (2000 for
 each). We evaluated convergence of the Markov chain Monte Carlo (MCMC)
 algorithm using trace plots and Gelman-Rubin statistics (Rhat).
 
@@ -981,7 +979,7 @@ high prevalence\textsuperscript{39}, and (ii) host density does not seem
 to play a significant role in multi-year Bd infection dynamics in this
 system\textsuperscript{63}. Thus, ignoring Bd infection dynamics and
 instead assuming all host vital rates are in the presence of high Bd
-prevalence significantly simplifies the model without much loss of
+prevalence significantly simplifies the model without\_ much loss of
 realism. Additional details are provided in \textbf{Supplementary
 Methods - Population viability modeling - Incorporating yearly
 variability in survival rates} and \textbf{Estimating model parameters}.
@@ -1496,13 +1494,14 @@ to R.A.K.
 
 \newpage
 
-\subsubsection{Figures and Legends}\label{figures-and-legends}
+\subsubsection{Figures and Figure
+Legends}\label{figures-and-figure-legends}
 
 \begin{figure}
 
 \centering{
 
-\includegraphics[width=0.95\textwidth,height=\textheight]{figures/conceptual_model.png}
+\includegraphics{conceptual_model_180mm.pdf}
 
 }
 
@@ -1524,7 +1523,7 @@ future.}
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{figures/map_translocation_points.png}
+\includegraphics{map_translocation_points_88mm.pdf}
 
 }
 
@@ -1548,7 +1547,7 @@ and white indicates the highest elevation.}
 
 \centering{
 
-\includegraphics[width=0.6\textwidth,height=\textheight]{figures/translocation_survival_bysiteid.png}
+\includegraphics{translocation_survival_bysiteid_88mm.pdf}
 
 }
 
@@ -1570,7 +1569,7 @@ are slightly offset to avoid overlap.}
 
 \centering{
 
-\includegraphics[width=0.8\textwidth,height=\textheight]{figures/cond_effects_plot.png}
+\includegraphics{conditional_effects_plot_88mm.pdf}
 
 }
 
@@ -1595,7 +1594,7 @@ predicted effects.}
 
 \centering{
 
-\includegraphics[width=0.95\textwidth,height=\textheight]{figures/pop_viability_figures_for_manuscript.png}
+\includegraphics{pop_viability_figures_for_manuscript_180mm.pdf}
 
 }
 
