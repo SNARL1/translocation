@@ -335,7 +335,7 @@ We parameterized the model using CMR data from translocated populations and know
 Results from a sensitivity analysis are provided in Supplementary Fig.
 4.
 
-Given observed yearly adult survival probabilities of translocated frogs (from site-specific mrmr CMR models; provided in legend of [@fig-viability]a) and a yearly survival probability of the year-1 juvenile class ($\sigma_{J_1}$) greater than 0.10, at least six of twelve translocated populations are likely to experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd ([@fig-viability]a; median predicted $\lambda$ ranges from 1.07-1.28 for these six populations).
+Given observed yearly adult survival probabilities of translocated frogs (from site-specific mrmr CMR models; provided in legend of [@fig-viability]b) and a yearly survival probability of the year-1 juvenile class ($\sigma_{J_1}$) greater than 0.10, at least six of twelve translocated populations are likely to experience a long-run growth rate $\lambda$ greater than 1 in the presence of Bd ([@fig-viability]a; median predicted $\lambda$ ranges from 1.07-1.28 for these six populations).
 These six populations all had observed yearly adult survival greater than 0.5.
 As year-1 juvenile survival probability increased above 0.2, the deterministic long-run growth rate of seven of twelve populations was greater than 1 ([@fig-viability]a).
 
